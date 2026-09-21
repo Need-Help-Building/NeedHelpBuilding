@@ -1,112 +1,321 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function AgencyPosterPage() {
-  const [activeService, setActiveService] = useState<number | null>(0);
-  const [isBooked, setIsBooked] = useState(false);
   const [activeFilter, setActiveFilter] = useState("ALL");
+  const [isBooked, setIsBooked] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [activeCaseStudy, setActiveCaseStudy] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [transitionPhase, setTransitionPhase] = useState<"in" | "out" | null>(null);
+  const [wipeTitle, setWipeTitle] = useState("");
+  const [scrollY, setScrollY] = useState(0);
 
-  const services = [
-    {
-      id: "01",
-      title: "AI AUTOMATIONS & AGENTS",
-      desc: "Autonomous customer care agents, lead qualification pipelines, email triage, and multi-agent workflows that run 24/7 without manual touchpoints.",
-      stats: "92% less manual hours",
-    },
-    {
-      id: "02",
-      title: "FULLSTACK WEB & PLATFORMS",
-      desc: "Pixel-perfect, hyper-fast applications engineered with Next.js, Turbo, and custom high-converting brutalist or modern design systems.",
-      stats: "0.2s Avg Page Speed",
-    },
-    {
-      id: "03",
-      title: "BUSINESS WORKFLOW ENGINE",
-      desc: "Direct integration between CRMs (HubSpot, Salesforce), databases (PostgreSQL, Supabase), Slack/Discord alerts, and payment gateways.",
-      stats: "100+ Custom Webhooks",
-    },
-    {
-      id: "04",
-      title: "GROWTH & CONVERSION OPT",
-      desc: "Data-driven analytics, interactive user acquisition tools (ROI calculators, instant generators), and high-velocity conversion testing.",
-      stats: "3.4x Conversion Lift",
-    },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const projects = [
+  const handleCopyEmail = () => {
+    navigator.clipboard?.writeText("hello@needhelpbuilding.com");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const navigateToSection = (targetId: string, label: string) => {
+    if (isTransitioning) return;
+    setWipeTitle(label);
+    setIsTransitioning(true);
+    setTransitionPhase("in");
+
+    // Phase 1: Wipe down covers screen
+    setTimeout(() => {
+      const element = document.querySelector(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "instant" });
+      }
+      // Phase 2: Wipe out reveals target section
+      setTransitionPhase("out");
+
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setTransitionPhase(null);
+      }, 420);
+    }, 380);
+  };
+
+  const caseStudies = [
     {
-      tag: "AGENTIC WORKFLOW",
-      name: "AUTOLEAD AI",
-      client: "Fintech Venture",
-      impact: "Autonomous inbound customer qualification with voice & WhatsApp bots, saving 34 hrs/week.",
+      id: "sous-chef",
+      tag: "CULINARY AI & COMPUTER VISION",
+      name: "SOUS CHEF",
+      badge: "IN PROGRESS",
       color: "#fbda03",
-      textColor: "text-black",
-      badge: "LIVE IN PROD",
-      metric: "34 HRS/WK SAVED",
-      linkText: "EXPLORE AGENT",
+      accent: "#0c0c0d",
+      headline: "Autonomous Kitchen Copilot & Real-Time Ingredient Recognition",
+      link: null,
+      statusNote: "IN PROGRESS • LIVE FIELD TESTING • PROPRIETARY SYSTEM",
+      image: "/hero.png",
+      problem:
+        "Commercial and ghost kitchens lose 18-24% margin on food waste, recipe inconsistencies, and frantic prep line management during dinner rushes.",
+      solution:
+        "We are engineering Sous Chef: an intelligent camera-assisted kitchen terminal with real-time computer vision that detects prep ingredients on countertops, automatically calculates portion weights, tracks shelf lives, and provides hands-free recipe guidance via low-latency audio.",
+      deliverables: [
+        "Real-time object detection model for 140+ fresh ingredients",
+        "Ruggedized kitchen display terminal interface with voice controls",
+        "Automated POS & inventory deduction sync via webhooks",
+        "Daily food waste analytics dashboard for head chefs",
+      ],
+      impactStats: [
+        { label: "WASTE REDUCTION", value: "-22.4%" },
+        { label: "AVG PREP SPEED", value: "1.8X FASTER" },
+        { label: "LINE ERROR RATE", value: "< 0.3%" },
+      ],
     },
     {
-      tag: "ECOMMERCE SYSTEM",
-      name: "NEO-CATALOG",
-      client: "D2C Brand",
-      impact: "Instant storefront generator that dynamically launches product landing pages based on user intent.",
+      id: "youre-store-here",
+      tag: "AUTONOMOUS COMMERCE INFRASTRUCTURE",
+      name: "YOURESTOREHERE",
+      badge: "LIVE DEPLOYMENT",
       color: "#b3cde3",
-      textColor: "text-black",
-      badge: "SCALE PHASE",
-      metric: "4.8X SALES VELOCITY",
-      linkText: "VIEW DEPLOYMENT",
+      accent: "#0c0c0d",
+      headline: "Zero-Click Instant Storefront & Merchant Onboarding Engine",
+      link: "https://yourstorehere.vercel.app",
+      linkDisplay: "YOURSTOREHERE.VERCEL.APP",
+      statusNote: "LIVE DEPLOYMENT • PROD CLUSTER ACTIVE",
+      image: "/yourstorehere.png",
+      problem:
+        "Traditional ecommerce onboarding takes weeks of catalog syncing, manual design adjustments, payment configuration, and high abandonment before the first sale.",
+      solution:
+        "Architected youreStorehere from the ground up: an instant merchant provisioning engine. Merchants input a social link, product sheet, or brand guidelines, and within 60 seconds, an automated multi-tenant Next.js storefront is generated, deployed to the edge, wired with Stripe Connect, and populated with high-converting brutalist typography and photography.",
+      deliverables: [
+        "Headless multi-tenant engine supporting 1,000+ isolated subdomains",
+        "Automated product catalog ingestion from CSV, Instagram & Shopify",
+        "Edge-cached Next.js pages loading under 180ms worldwide",
+        "Self-service merchant analytics with integrated payout ledger",
+      ],
+      impactStats: [
+        { label: "ONBOARDING TIME", value: "60 SECONDS" },
+        { label: "STORE CONVERSION", value: "+38% LIFT" },
+        { label: "EDGE LATENCY", value: "120 MS" },
+      ],
     },
     {
-      tag: "OPS AUTOMATION",
-      name: "SYNC-MATRIX",
-      client: "Logistics SaaS",
-      impact: "Unified inventory synchronization engine connecting SAP, Shopify, and warehouse barcode systems.",
+      id: "caller-work",
+      tag: "VOICE AGENT & CALL PIPELINE",
+      name: "CALLER.WORK",
+      badge: "PRODUCTION SCALE",
       color: "#c59eb9",
-      textColor: "text-black",
-      badge: "ENTERPRISE",
-      metric: "0% INVENTORY DESYNC",
-      linkText: "READ METRICS",
-    },
-    {
-      tag: "INTELLIGENT BOT",
-      name: "PULSE DISPATCH",
-      client: "Service Network",
-      impact: "Automated invoice dispatching and payment reconciliation bot powered by computer vision OCR.",
-      color: "#ffffff",
-      textColor: "text-black",
-      badge: "AI-OCR",
-      metric: "$2.1M PROCESSED",
-      linkText: "INSPECT SYSTEM",
+      accent: "#0c0c0d",
+      headline: "Ultra-Low Latency Conversational Voice Agents for Inbound & Outbound Ops",
+      link: "https://caller.work",
+      linkDisplay: "CALLER.WORK",
+      statusNote: "SCALE PRODUCTION • SUB-400MS LATENCY",
+      image: "/caller_work.png",
+      problem:
+        "Inbound sales and dispatch support lines suffer from long hold times, missed high-ticket leads during off-hours, and high payroll costs for manual call center operations.",
+      solution:
+        "Built caller.work: a resilient, bidirectional voice streaming infrastructure running custom telephony pipelines (SIP/WebRTC). The agents sound indistinguishable from humans, understand accents and interruptions naturally, query live CRM inventory mid-call, and automatically book appointments or process payments directly over the phone.",
+      deliverables: [
+        "Sub-400ms end-to-end voice latency pipeline with interruption handling",
+        "Direct bidirectional synchronization with Salesforce, HubSpot & Cal.com",
+        "Automatic call transcript sentiment analysis & CRM deal tagging",
+        "Smart human handover escalation protocol when edge cases occur",
+      ],
+      impactStats: [
+        { label: "CALL ANSWER TIME", value: "0.2 SECONDS" },
+        { label: "OFF-HOUR LEADS CAPTURED", value: "100%" },
+        { label: "VOICE PIPELINE LATENCY", value: "380 MS" },
+      ],
     },
   ];
-
-  const filteredProjects =
-    activeFilter === "ALL"
-      ? projects
-      : projects.filter((p) => p.tag.includes(activeFilter));
 
   return (
     <main className="min-h-screen bg-[#0c0c0d] text-white flex flex-col items-center justify-start selection:bg-[#fbda03] selection:text-black">
-      
+
       {/* ============================================================ */}
-      {/* FULLSCREEN SECTION 1: HERO (POSTER AESTHETIC EXPANDED)       */}
+      {/* INDUSTRY-GRADE FULLSCREEN SECTION WIPE CURTAIN TRANSITION   */}
       {/* ============================================================ */}
-      <section className="relative w-full min-h-screen flex flex-col justify-between border-b-[8px] border-[#fbda03] overflow-hidden p-4 sm:p-8 lg:p-12">
-        
-        {/* Subtle halftone/grain background overlay */}
+      {isTransitioning && (
+        <div
+          className={`fixed inset-0 z-[100] bg-[#fbda03] flex flex-col items-center justify-center p-8 border-y-[12px] border-black pointer-events-none select-none ${
+            transitionPhase === "in"
+              ? "animate-curtain-wipe-in"
+              : "animate-curtain-wipe-out"
+          }`}
+        >
+          <div className="flex flex-col items-center text-center gap-4">
+            <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-widest bg-black text-[#fbda03] px-4 py-1 border-[2.5px] border-black">
+              NEED HELP BUILDING?
+            </span>
+            <h2 className="font-anton text-5xl sm:text-7xl md:text-8xl text-black uppercase tracking-tight leading-none">
+              {wipeTitle || "INITIALIZING..."}
+            </h2>
+            <div className="w-24 h-1.5 bg-black mt-2" />
+          </div>
+        </div>
+      )}
+
+      {/* ============================================================ */}
+      {/* RESTYLED STICKY NAVIGATION BAR WITH ILLUMINATING EYE         */}
+      {/* ============================================================ */}
+      <header className="sticky top-0 z-50 w-full bg-[#0c0c0d]/90 backdrop-blur-md border-b-[3px] border-[#fbda03] px-4 sm:px-8 py-2.5 flex items-center justify-between">
+        {/* Brand Identity with Graffiti Scribble */}
+        <div className="flex items-center gap-3">
+          <a
+            href="#"
+            className="flex items-center gap-2.5 group cursor-pointer select-none"
+            aria-label="Need Help Building Home"
+          >
+            <div className="relative w-8 h-8 bg-[#fbda03] border-[2px] border-black flex items-center justify-center shadow-[2px_2px_0px_0px_#ffffff] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
+              <span className="font-anton text-black text-sm tracking-tight">
+                NHB
+              </span>
+              {/* Graffiti tag highlight dot */}
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#ff0055] rounded-full border border-black" />
+            </div>
+
+            <div className="flex flex-col">
+              <span className="font-anton text-white text-base sm:text-lg tracking-wider leading-none group-hover:text-[#fbda03] transition-colors">
+                NEED HELP BUILDING<span className="text-[#fbda03]">?</span>
+              </span>
+              <span className="font-mono text-[9px] text-[#fbda03] font-black tracking-widest uppercase flex items-center gap-1">
+                <span>EST. 2024</span>
+                <span className="text-white">•</span>
+                <span>PRODUCTION LAB</span>
+              </span>
+            </div>
+          </a>
+        </div>
+
+        {/* Minimal Nav Links */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          {[
+            { label: "SERVICES", href: "#capabilities" },
+            { label: "CASE STUDIES", href: "#case-studies" },
+            { label: "STARTUPS & CTO", href: "#startups-cto" },
+            { label: "TESTIMONIALS", href: "#testimonials" },
+            { label: "REFERRAL [10%]", href: "#referral" },
+          ].map((item) => (
+            <button
+              key={item.label}
+              onClick={() => navigateToSection(item.href, item.label)}
+              className="font-anton text-sm tracking-wider uppercase text-gray-200 transition-colors duration-200 hover:text-[#fbda03] cursor-pointer"
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
+        {/* Right Action & The Iconic Eye Asset */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          <button
+            onClick={() => navigateToSection("#contact", "WORK WITH US")}
+            className="hidden sm:flex items-center gap-1.5 bg-[#fbda03] text-black border-[2px] border-black px-3.5 py-1.5 font-anton text-xs uppercase tracking-wider shadow-[3px_3px_0px_0px_#ffffff] hover:bg-white transition-colors cursor-pointer"
+          >
+            <span>BOOK NOW</span>
+            <span>⚡</span>
+          </button>
+
+          {/* THE RETURNED ILLUMINATING EYE ASSET IN NAVBAR */}
+          <div className="relative w-16 sm:w-20 h-8 sm:h-9 flex items-center justify-center select-none pointer-events-none">
+            <div className="relative w-16 sm:w-20 h-8 sm:h-9 bg-white rounded-[50%] border-[2px] border-black flex items-center justify-center overflow-hidden shadow-[2px_2px_0px_0px_#fbda03]">
+              <div className="relative w-6 sm:w-7 h-6 sm:h-7 bg-[#c59eb9] rounded-full border-[1.5px] border-black flex items-center justify-center animate-eye-pupil">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-black animate-star-spin"
+                >
+                  <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-black font-anton text-xs uppercase bg-[#fbda03] border-[2px] border-black px-2.5 py-1 cursor-pointer"
+            aria-label="Toggle navigation"
+          >
+            {mobileMenuOpen ? "CLOSE" : "MENU"}
+          </button>
+        </div>
+      </header>
+
+      {/* FULLSCREEN BRUTALIST MOBILE MENU */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 z-50 bg-[#0c0c0d] flex flex-col justify-between p-6 border-[8px] border-[#fbda03]">
+          <div className="flex items-center justify-between border-b-[3px] border-white/20 pb-4">
+            <div className="flex items-center gap-2">
+              <span className="font-anton text-xl tracking-wider text-[#fbda03]">
+                NEED HELP BUILDING?
+              </span>
+            </div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="bg-white text-black font-anton text-sm px-4 py-1.5 border-[2px] border-black shadow-[3px_3px_0px_0px_#fbda03] cursor-pointer"
+            >
+              CLOSE [X]
+            </button>
+          </div>
+
+          <div className="flex flex-col gap-3 my-auto">
+            {[
+              { label: "01. WHAT WE BUILD", href: "#capabilities", title: "WHAT WE BUILD" },
+              { label: "02. CASE STUDIES", href: "#case-studies", title: "CASE STUDIES" },
+              { label: "03. STARTUPS & CTO", href: "#startups-cto", title: "STARTUPS & CTO" },
+              { label: "04. TESTIMONIALS", href: "#testimonials", title: "TESTIMONIALS" },
+              { label: "05. REFERRAL SCHEME", href: "#referral", title: "REFERRAL SCHEME" },
+              { label: "06. WORK WITH US", href: "#contact", title: "WORK WITH US" },
+            ].map((item) => (
+              <button
+                key={item.label}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigateToSection(item.href, item.title);
+                }}
+                className="font-anton text-3xl sm:text-4xl text-left py-3 px-4 border-[3px] border-black bg-[#18181b] text-white hover:bg-white hover:text-black transition-colors cursor-pointer"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="border-t-[3px] border-white/20 pt-4 flex flex-col gap-3">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigateToSection("#contact", "WORK WITH US");
+              }}
+              className="w-full bg-[#fbda03] text-black font-anton text-center py-3 text-base border-[2px] border-black uppercase cursor-pointer"
+            >
+              BOOK A DISCOVERY CALL
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ============================================================ */}
+      {/* FULLSCREEN SECTION 1: HERO (WITH PARALLAX SCROLLING)         */}
+      {/* ============================================================ */}
+      <section className="relative w-full min-h-[calc(100vh-68px)] flex flex-col justify-between border-b-[8px] border-[#fbda03] overflow-hidden p-4 sm:p-8 lg:p-12">
+
+        {/* Halftone/grain background overlay */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.035] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px]" />
 
-        {/* ============================================================ */}
-        {/* BACKGROUND ABSTRACT CURVED RIBBONS (FULLSCREEN ADAPTIVE)      */}
-        {/* ============================================================ */}
+        {/* Parallax Layer 1: Background Ribbons */}
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none z-0"
+          className="absolute inset-0 w-full h-full pointer-events-none z-0 transition-transform duration-75 ease-out"
+          style={{ transform: `translate3d(0, ${scrollY * 0.22}px, 0)` }}
           viewBox="0 0 1440 900"
           fill="none"
           preserveAspectRatio="none"
         >
-          {/* Giant Bold Yellow Ribbon looping across top right */}
           <path
             className="animate-ribbon-yellow"
             d="M 600 280 C 850 70 1200 40 1320 220 C 1440 380 1200 520 1500 680"
@@ -115,8 +324,6 @@ export default function AgencyPosterPage() {
             strokeLinecap="round"
             fill="none"
           />
-
-          {/* Curved Sky-Blue Ribbon swooping across bottom left */}
           <path
             className="animate-ribbon-blue"
             d="M -60 520 C 350 400 150 820 480 800 C 600 790 580 680 440 660"
@@ -127,62 +334,114 @@ export default function AgencyPosterPage() {
           />
         </svg>
 
-        {/* TOP BAR / NAVIGATION */}
-        <header className="relative z-10 w-full flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            {/* "YOUR PRESENTS" Pill Button */}
-            <div className="border-[2px] border-white/80 rounded-full px-5 py-2 backdrop-blur-md hover:bg-white hover:text-black transition-all duration-300 cursor-pointer shadow-md">
-              <span className="text-[12px] font-bold tracking-widest text-white uppercase group-hover:text-black">
-                YOUR PRESENTS
-              </span>
-            </div>
-
-            <a
-              href="#about"
-              className="hidden sm:inline-block border-[1.5px] border-white/40 hover:border-white rounded-full px-4 py-1.5 text-[11px] font-bold tracking-wider text-gray-300 hover:text-white uppercase transition-all"
-            >
-              HOW WE BUILD
-            </a>
-            <a
-              href="#projects"
-              className="hidden sm:inline-block border-[1.5px] border-white/40 hover:border-white rounded-full px-4 py-1.5 text-[11px] font-bold tracking-wider text-gray-300 hover:text-white uppercase transition-all"
-            >
-              PROJECTS
-            </a>
+        {/* Graffiti Layer 1: Street Art Scribbles & Crowns (Parallax floating) */}
+        <div
+          className="absolute inset-0 pointer-events-none z-1 overflow-hidden"
+          style={{ transform: `translate3d(0, ${scrollY * -0.15}px, 0)` }}
+        >
+          {/* Graffiti 3-Point Crown over top-left */}
+          <div className="absolute top-12 left-8 sm:left-16 rotate-[-18deg] opacity-80 select-none">
+            <svg width="64" height="42" viewBox="0 0 64 42" fill="none">
+              <path
+                d="M 4 36 L 4 14 L 20 26 L 32 4 L 44 26 L 60 14 L 60 36 Z"
+                fill="#fbda03"
+                stroke="#000"
+                strokeWidth="3.5"
+                strokeLinejoin="round"
+              />
+              <circle cx="8" cy="8" r="3" fill="#ff0055" stroke="#000" strokeWidth="1.5" />
+              <circle cx="32" cy="2" r="3.5" fill="#ff0055" stroke="#000" strokeWidth="1.5" />
+              <circle cx="56" cy="8" r="3" fill="#ff0055" stroke="#000" strokeWidth="1.5" />
+            </svg>
           </div>
 
-          {/* ILLUMINATING EYE / PSYCHEDELIC VISION SYMBOL */}
-          <div className="relative w-28 sm:w-36 h-14 sm:h-16 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
-            {/* Outer Eye Sclera Shape */}
-            <div className="relative w-28 sm:w-36 h-14 sm:h-16 bg-white rounded-[50%] border-[3px] border-black flex items-center justify-center overflow-hidden shadow-lg">
-              {/* Purple Circular Iris with Black Stroke */}
-              <div className="relative w-11 sm:w-13 h-11 sm:h-13 bg-[#c59eb9] rounded-full border-[2.5px] border-black flex items-center justify-center animate-eye-pupil">
-                {/* 4-Pointed Star Pupil */}
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-6 sm:w-7 h-6 sm:h-7 fill-black animate-star-spin"
-                >
-                  <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
-                </svg>
-              </div>
-            </div>
+          {/* Graffiti Spray Drip Tag over right */}
+          <div className="absolute top-20 right-6 sm:right-24 rotate-[12deg] opacity-75 select-none hidden sm:block">
+            <span className="font-pixel text-[#ff0055] text-xl tracking-widest bg-black px-2 py-0.5 border-2 border-black rotate-[4deg] inline-block shadow-[3px_3px_0px_0px_#fbda03]">
+              ★ RAW BUILT ★
+            </span>
           </div>
-        </header>
 
-        {/* HERO TITLE SECTION: "NEED HELP BUILDING?" */}
-        <div className="relative z-10 my-auto py-8 flex flex-col items-center justify-center max-w-6xl mx-auto w-full">
-          {/* Top Banner Box: "NEED HELP" */}
-          <div className="relative w-full bg-white text-black border-[4px] border-black px-4 sm:px-8 py-2 sm:py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+          {/* Graffiti Arrow pointing to the boards */}
+          <div className="absolute bottom-32 left-4 sm:left-12 rotate-[35deg] opacity-60 hidden md:block">
+            <svg width="50" height="70" viewBox="0 0 50 70" fill="none">
+              <path d="M 25 5 Q 10 35 25 65" stroke="#fbda03" strokeWidth="6" strokeLinecap="round" />
+              <path d="M 12 52 L 25 65 L 38 52" stroke="#fbda03" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+        </div>
+
+        {/* HERO TITLE SECTION - SIGN BOARD WITH READABLE RODS & CORNER BOLTS */}
+        <div
+          className="relative z-10 my-auto py-8 flex flex-col items-center justify-center max-w-6xl mx-auto w-full transition-transform duration-75 ease-out"
+          style={{ transform: `translate3d(0, ${scrollY * 0.08}px, 0)` }}
+        >
+
+          {/* TWO VERTICAL READABLE YELLOW STEEL MOUNTING RODS EXTENDING TO MARQUEE */}
+          {/* Left Vertical Rod (Vibrant readable yellow with industrial border) */}
+          <div
+            className="absolute left-[12%] sm:left-[16%] md:left-[20%] top-0 bottom-[-9999px] w-3.5 sm:w-4.5 bg-[#fbda03] border-x-[3px] border-black z-0 pointer-events-none shadow-[2px_0_0_0_#000000]"
+            aria-hidden="true"
+          >
+            <div className="w-full h-full opacity-35 bg-[repeating-linear-gradient(0deg,#000,#000_4px,transparent_4px,transparent_16px)]" />
+          </div>
+
+          {/* Right Vertical Rod (Vibrant readable yellow with industrial border) */}
+          <div
+            className="absolute right-[12%] sm:right-[16%] md:right-[20%] top-0 bottom-[-9999px] w-3.5 sm:w-4.5 bg-[#fbda03] border-x-[3px] border-black z-0 pointer-events-none shadow-[2px_0_0_0_#000000]"
+            aria-hidden="true"
+          >
+            <div className="w-full h-full opacity-35 bg-[repeating-linear-gradient(0deg,#000,#000_4px,transparent_4px,transparent_16px)]" />
+          </div>
+
+          {/* Signboard Top Panel: NEED HELP */}
+          <div className="relative w-full bg-white text-black border-[4px] border-black px-4 sm:px-8 py-2 sm:py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-10">
+            {/* Flat Brutalist Screws (Top corners) */}
+            <div className="absolute top-2.5 left-3 sm:left-4 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-2 h-[1.5px] bg-black rotate-45" />
+            </div>
+            <div className="absolute top-2.5 right-3 sm:right-4 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+            </div>
+
+            {/* Screws at mounting rod intersections */}
+            <div className="hidden sm:flex absolute top-2.5 left-[16%] md:left-[20%] -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#fbda03] border-[2px] border-black items-center justify-center">
+              <div className="w-1.5 h-[1.5px] bg-black rotate-90" />
+            </div>
+            <div className="hidden sm:flex absolute top-2.5 right-[16%] md:right-[20%] translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#fbda03] border-[2px] border-black items-center justify-center">
+              <div className="w-1.5 h-[1.5px] bg-black" />
+            </div>
+
+            {/* Graffiti Street Tag on Title Board */}
+            <div className="absolute -top-3.5 right-12 sm:right-28 z-20 rotate-[-4deg] bg-[#ff0055] text-white font-pixel text-[10px] sm:text-xs px-2 py-0.5 border-[2px] border-black shadow-[2px_2px_0px_0px_#000]">
+              BUILD FAST &bull; BREAK NOTHING
+            </div>
+
             <h1 className="font-anton text-[55px] sm:text-[105px] lg:text-[140px] leading-[0.88] tracking-[-0.02em] uppercase text-center select-none">
               NEED HELP
             </h1>
           </div>
 
-          {/* Bottom Banner Box: "BUILDING?" */}
-          <div className="relative w-full bg-white text-black border-x-[4px] border-b-[4px] border-black px-4 sm:px-8 py-2 sm:py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+          {/* Signboard Bottom Panel: BUILDING? */}
+          <div className="relative w-full bg-white text-black border-x-[4px] border-b-[4px] border-black px-4 sm:px-8 py-2 sm:py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-10">
+            {/* Flat Brutalist Screws (Bottom corners) */}
+            <div className="absolute bottom-2.5 left-3 sm:left-4 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+            </div>
+            <div className="absolute bottom-2.5 right-3 sm:right-4 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-2 h-[1.5px] bg-black rotate-45" />
+            </div>
+
+            {/* Screws at mounting rod intersections */}
+            <div className="hidden sm:flex absolute bottom-2.5 left-[16%] md:left-[20%] -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#fbda03] border-[2px] border-black items-center justify-center">
+              <div className="w-1.5 h-[1.5px] bg-black rotate-90" />
+            </div>
+            <div className="hidden sm:flex absolute bottom-2.5 right-[16%] md:right-[20%] translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#fbda03] border-[2px] border-black items-center justify-center">
+              <div className="w-1.5 h-[1.5px] bg-black" />
+            </div>
+
             <h2 className="font-anton text-[52px] sm:text-[98px] lg:text-[132px] leading-[0.85] tracking-[-0.01em] uppercase text-center flex items-center justify-center select-none">
               BUILDIN
-              {/* Pixelated/Dithered 'G?' detail */}
               <span className="inline-block relative">
                 G
                 <span className="absolute -inset-1 text-black opacity-30 select-none pointer-events-none scale-105 font-pixel">
@@ -193,29 +452,33 @@ export default function AgencyPosterPage() {
             </h2>
           </div>
 
-          {/* "AGENCY & AUTOMATIONS" Light-Blue Elliptical Pill Sticker */}
-          <div className="relative -mt-5 sm:-mt-8 z-20">
-            <div className="bg-[#b3cde3] border-[3.5px] border-black rounded-full px-8 sm:px-14 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rotate-[-1.5deg] hover:rotate-1 hover:scale-105 transition-all duration-300 cursor-pointer">
-              <span className="font-archivo text-[20px] sm:text-[34px] tracking-wider uppercase text-black font-extrabold">
-                AUTOMATIONS & WEB
+          {/* Blue Signboard Pill (Attached to vertical rods with mounting screws) */}
+          <div className="relative mt-5 sm:mt-8 z-20 select-none pointer-events-none">
+            <div className="relative bg-[#b3cde3] border-[3.5px] border-black rounded-full px-8 sm:px-14 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rotate-[-1.5deg]">
+              {/* Screws on blue signboard pill */}
+              <div className="absolute top-1/2 -translate-y-1/2 left-3 sm:left-5 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
+              </div>
+              <div className="absolute top-1/2 -translate-y-1/2 right-3 sm:right-5 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
+              </div>
+
+              <span className="font-archivo text-[18px] sm:text-[30px] tracking-wider uppercase text-black font-extrabold">
+                WEBSITES • WEB DESIGN • AUTOMATIONS • SYSTEMS
               </span>
             </div>
           </div>
 
-          {/* Hero Subtitle Tagline */}
-          <p className="mt-8 text-center text-gray-300 text-sm sm:text-lg max-w-2xl font-medium tracking-wide">
-            We architect and deploy autonomous AI agents, business workflow automations,
-            and high-performance web systems that eliminate manual work.
+          <p className="mt-8 text-center text-gray-300 text-sm sm:text-lg max-w-3xl font-medium tracking-wide z-10">
+            We build websites, custom web designs, business automations, and intelligent digital systems. From high-converting storefronts and custom web applications to automated operations that run your business on autopilot.
           </p>
         </div>
 
-        {/* HERO LOWER BAR: SERVICES SNIPPET + STARBURST + CTA + ADDRESS */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-6">
-          {/* Post-It Our Services Note */}
-          <div className="lg:col-span-4 relative flex items-center gap-4">
+        {/* HERO LOWER BAR */}
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 pt-6">
+          <div className="relative flex items-center gap-4 select-none w-full md:w-auto">
             <div className="relative">
-              {/* Pushpin */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-30 animate-pin-wiggle origin-bottom cursor-pointer">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-30 animate-pin-wiggle origin-bottom">
                 <svg width="28" height="34" viewBox="0 0 28 34" fill="none">
                   <path
                     d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z"
@@ -227,101 +490,41 @@ export default function AgencyPosterPage() {
                 </svg>
               </div>
 
-              {/* Yellow Note */}
-              <div className="bg-[#fbda03] border-[3px] border-black p-4 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] rotate-[-2deg] hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-pointer">
+              <div className="bg-[#fbda03] border-[3px] border-black p-4 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] rotate-[-2deg]">
                 <div className="font-anton text-black text-[28px] sm:text-[34px] leading-[0.92] uppercase tracking-tight">
                   OUR
                   <br />
                   SERVICES
                 </div>
-                <div className="mt-2 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-black">
-                  END-TO-END AUTOMATIONS
-                </div>
               </div>
             </div>
 
-            {/* Quick Service Links */}
             <div className="flex flex-col gap-1.5 flex-1">
-              {["01 AI AGENTS & BOTS", "02 ENTERPRISE AUTOMATION", "03 CUSTOM WEB APPS"].map(
-                (s) => (
-                  <div key={s} className="border-b border-white/30 pb-1 flex items-center gap-2">
-                    <span className="text-[11px] font-bold tracking-wider text-gray-200 hover:text-[#fbda03] cursor-pointer transition-colors">
-                      {s}
-                    </span>
-                  </div>
-                )
-              )}
+              {[
+                "01 WEBSITES & WEB APPLICATIONS",
+                "02 BESPOKE WEB DESIGN & UI/UX",
+                "03 END-TO-END AUTOMATIONS",
+                "04 FRACTIONAL CTO FOR STARTUPS",
+              ].map((s) => (
+                <div key={s} className="border-b border-white/30 pb-1 flex items-center gap-2">
+                  <span className="text-[11px] font-bold tracking-wider text-gray-200">
+                    {s}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Middle Spark & CTA */}
-          <div className="lg:col-span-5 flex items-center justify-center gap-4">
-            {/* Twinkling 8-Point Asterisk */}
-            <div className="animate-spark cursor-pointer">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <line x1="12" y1="0" x2="12" y2="24" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                <line x1="0" y1="12" x2="24" y2="12" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                <line x1="3.5" y1="3.5" x2="20.5" y2="20.5" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
-                <line x1="20.5" y1="3.5" x2="3.5" y2="20.5" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
-              </svg>
-            </div>
-
-            {/* Yellow Zigzag Squiggle */}
-            <div className="animate-squiggle cursor-pointer">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M 2 18 L 6 12 L 10 18 L 14 12 L 18 18 L 22 12"
-                  stroke="#fbda03"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            {/* Giant Action Button: BOOK NOW */}
+          {/* Right Slot: BOOK NOW button (No yellow bottom shadow, no website name below) */}
+          <div className="flex flex-col items-center md:items-end gap-2 w-full md:w-auto">
             <button
-              onClick={() => setIsBooked(!isBooked)}
-              className="flex-1 bg-white text-black border-[3.5px] border-black py-2.5 px-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none hover:bg-[#fbda03] transition-all cursor-pointer"
+              onClick={() => navigateToSection("#contact", "WORK WITH US")}
+              className="w-full md:w-auto min-w-[240px] sm:min-w-[280px] bg-white text-black border-[3.5px] border-black py-3 px-8 active:translate-x-1 active:translate-y-1 hover:bg-[#fbda03] transition-colors cursor-pointer text-center"
             >
-              <span className="font-anton text-[34px] sm:text-[44px] leading-none tracking-normal uppercase block text-center">
+              <span className="font-anton text-[32px] sm:text-[38px] leading-none tracking-normal uppercase block">
                 {isBooked ? "WE GOT YOUR SPOT!" : "BOOK NOW"}
               </span>
             </button>
-          </div>
-
-          {/* Right Address & URL details */}
-          <div className="lg:col-span-3 flex flex-col items-end gap-2">
-            <div className="w-full bg-[#c59eb9] border-[3px] border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-[1.5deg] hover:rotate-0 transition-transform cursor-pointer">
-              <div className="text-[10px] font-bold text-black uppercase leading-[1.25] tracking-tight">
-                GLOBAL REMOTE HEADQUARTERS
-                <br />
-                SAN FRANCISCO & WORLDWIDE
-                <br />
-                ACTIVE DEPLOYMENTS 24/7
-              </div>
-              <div className="flex justify-between items-center mt-2 pt-1 border-t border-black/20">
-                <span className="text-[9px] font-black text-black uppercase">NEEDHELPBUILDING</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M 6 6 L 18 18 M 18 18 L 8 18 M 18 18 L 18 8"
-                    stroke="#000"
-                    strokeWidth="3.5"
-                    strokeLinecap="square"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            {/* Domain */}
-            <a
-              href="https://needhelpbuilding.com"
-              target="_blank"
-              rel="noreferrer"
-              className="text-[13px] font-bold tracking-widest text-white uppercase hover:text-[#fbda03] transition-colors mt-1"
-            >
-              WWW.NEEDHELPBUILDING.COM
-            </a>
           </div>
         </div>
       </section>
@@ -332,32 +535,40 @@ export default function AgencyPosterPage() {
       <div className="w-full bg-[#fbda03] text-black border-b-[5px] border-black py-3 overflow-hidden whitespace-nowrap select-none font-anton text-2xl tracking-wider flex items-center shadow-lg">
         <div className="animate-marquee flex items-center gap-8">
           {[
-            "AI AUTOMATIONS",
+            "CUSTOM WEBSITES & WEB APPS",
             "•",
-            "CUSTOM LLM AGENTS",
+            "BESPOKE WEB DESIGN & UI/UX",
             "•",
-            "NEXT.JS APPS",
+            "END-TO-END BUSINESS AUTOMATIONS",
             "•",
-            "ZERO MANUAL WORK",
+            "HIGH-SPEED EDGE DEPLOYMENTS",
             "•",
-            "NEEDHELPBUILDING.COM",
+            "ZERO-LATENCY API INTEGRATIONS",
             "•",
-            "WORKFLOW INTEGRATIONS",
+            "FRACTIONAL CTO FOR STARTUPS",
             "•",
-            "AI AUTOMATIONS",
+            "HIGH-CONVERTING DIGITAL SYSTEMS",
             "•",
-            "CUSTOM LLM AGENTS",
+            "RAPID PROTOTYPING & EXECUTION",
             "•",
-            "NEXT.JS APPS",
+            "CUSTOM WEBSITES & WEB APPS",
             "•",
-            "ZERO MANUAL WORK",
+            "BESPOKE WEB DESIGN & UI/UX",
             "•",
-            "NEEDHELPBUILDING.COM",
+            "END-TO-END BUSINESS AUTOMATIONS",
             "•",
-            "WORKFLOW INTEGRATIONS",
+            "HIGH-SPEED EDGE DEPLOYMENTS",
+            "•",
+            "ZERO-LATENCY API INTEGRATIONS",
+            "•",
+            "FRACTIONAL CTO FOR STARTUPS",
+            "•",
+            "HIGH-CONVERTING DIGITAL SYSTEMS",
+            "•",
+            "RAPID PROTOTYPING & EXECUTION",
             "•",
           ].map((text, i) => (
-            <span key={i} className="hover:scale-110 transition-transform cursor-default">
+            <span key={i} className="cursor-default">
               {text}
             </span>
           ))}
@@ -365,186 +576,312 @@ export default function AgencyPosterPage() {
       </div>
 
       {/* ============================================================ */}
-      {/* SECTION 2: HOW WE BUILD / ABOUT THE AGENCY                   */}
+      {/* SECTION 2: WHAT WE BUILD (CLEAN BRUTALIST PINBOARD)          */}
       {/* ============================================================ */}
-      <section id="about" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 flex flex-col gap-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Header Badge & Title */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
-            <div className="inline-flex items-center gap-2 bg-white text-black px-3 py-1 border-[2.5px] border-black font-anton text-lg tracking-wide w-fit rotate-[-1deg]">
-              ABOUT THE AGENCY
-            </div>
-            <h2 className="font-anton text-5xl sm:text-7xl leading-[0.9] uppercase tracking-tight">
-              STOP WASTING HOURS ON WORK ROBOTS CAN DO.
-            </h2>
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed mt-2 font-normal">
-              At <strong className="text-[#fbda03]">needhelpbuilding.com</strong>, we don't just talk about AI—we build customized, battle-tested automations that plug directly into your current CRM, spreadsheets, databases, and customer channels.
-            </p>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              From lead capture and qualification to automated document processing and self-healing backend scripts, we turn chaotic business processes into seamless 24/7 revenue machines.
-            </p>
+      <section id="capabilities" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 flex flex-col gap-12">
+        <div className="flex flex-col gap-3">
+          <div className="inline-flex items-center gap-2 bg-white text-black px-3 py-1 border-[2.5px] border-black font-anton text-lg tracking-wide w-fit rotate-[-1deg]">
+            OUR CORE CAPABILITIES
           </div>
-
-          {/* Interactive Services Breakdown */}
-          <div className="lg:col-span-7 flex flex-col gap-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {services.map((srv, idx) => {
-                const isActive = activeService === idx;
-                return (
-                  <div
-                    key={srv.id}
-                    onClick={() => setActiveService(idx)}
-                    className={`p-6 border-[3px] border-black transition-all cursor-pointer flex flex-col justify-between ${
-                      isActive
-                        ? "bg-white text-black shadow-[6px_6px_0px_0px_#fbda03] translate-x-1 translate-y-1"
-                        : "bg-[#141416] text-white hover:border-[#fbda03] shadow-[6px_6px_0px_0px_rgba(255,255,255,0.15)]"
-                    }`}
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="font-anton text-3xl">{srv.id}</span>
-                        <span
-                          className={`text-[10px] font-extrabold px-2 py-0.5 border border-black uppercase ${
-                            isActive ? "bg-[#fbda03] text-black" : "bg-white/10 text-white"
-                          }`}
-                        >
-                          {srv.stats}
-                        </span>
-                      </div>
-                      <h3 className="font-anton text-2xl uppercase tracking-tight mb-2">
-                        {srv.title}
-                      </h3>
-                      <p className={`text-xs leading-relaxed ${isActive ? "text-gray-800" : "text-gray-400"}`}>
-                        {srv.desc}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-black/20 flex items-center justify-between text-xs font-bold uppercase tracking-wider">
-                      <span>{isActive ? "ACTIVE MODULE" : "CLICK TO VIEW"}</span>
-                      <span>→</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
+          <h2 className="font-anton text-5xl sm:text-7xl leading-[0.9] uppercase tracking-tight">
+            WEBSITES. BESPOKE DESIGNS. AUTOMATIONS.
+          </h2>
+          <p className="text-gray-300 text-base sm:text-lg max-w-3xl font-medium">
+            From award-winning web design and lightning-fast web applications to bespoke automations that run your entire back-office on autopilot. We turn complex ideas into live, revenue-generating digital realities.
+          </p>
         </div>
 
-        {/* 3 Step Workflow Process */}
-        <div className="mt-8 border-[4px] border-black bg-[#111113] p-8 lg:p-12 shadow-[8px_8px_0px_0px_#fbda03]">
-          <h3 className="font-anton text-3xl sm:text-4xl text-center uppercase tracking-wide mb-8">
-            HOW WE SHIP IN 3 SIMPLE PHASES
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="border-[2.5px] border-white/20 p-5 bg-[#17171a] flex flex-col gap-3">
-              <span className="font-anton text-4xl text-[#fbda03]">PHASE 01</span>
-              <h4 className="font-anton text-2xl uppercase">SYSTEM AUDIT & BLUEPRINT</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                We deep dive into your current tools, identifying repetitive bottlenecks and mapping out high-leverage automations.
-              </p>
+        {/* BRUTALIST PINBOARD CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+
+          <div className="relative bg-[#fbda03] text-black border-[3.5px] border-black p-6 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.9)] rotate-[-1deg]">
+            <div className="absolute -top-5 left-6">
+              <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
+                <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#c59eb9" stroke="#000" strokeWidth="2.5" />
+                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+              </svg>
             </div>
-            <div className="border-[2.5px] border-[#fbda03] p-5 bg-[#17171a] flex flex-col gap-3 shadow-[4px_4px_0px_0px_#fbda03]">
-              <span className="font-anton text-4xl text-[#fbda03]">PHASE 02</span>
-              <h4 className="font-anton text-2xl uppercase">RAPID BUILD & INTEGRATION</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                We write custom logic, deploy LLM agents, and wire API connectors into your stack with real-time test runs.
-              </p>
-            </div>
-            <div className="border-[2.5px] border-white/20 p-5 bg-[#17171a] flex flex-col gap-3">
-              <span className="font-anton text-4xl text-[#b3cde3]">PHASE 03</span>
-              <h4 className="font-anton text-2xl uppercase">DEPLOY & AUTONOMOUS SCALE</h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Full handover with telemetry dashboards, automated monitoring, fail-safes, and continuous optimization.
-              </p>
+            <span className="font-anton text-3xl">01</span>
+            <h3 className="font-anton text-2xl uppercase mt-2 mb-2 leading-none">
+              WEBSITES & WEB APPS
+            </h3>
+            <p className="text-xs font-semibold leading-relaxed text-black/85">
+              Full-stack Next.js and React web applications built for speed, SEO domination, and effortless conversion. From interactive landing pages to high-scale SaaS products.
+            </p>
+            <div className="mt-4 pt-2 border-t border-black/30 font-anton text-xs tracking-wider">
+              FLAGSHIP: YOURESTOREHERE
             </div>
           </div>
+
+          <div className="relative bg-[#c59eb9] text-black border-[3.5px] border-black p-6 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.9)] rotate-[1.5deg]">
+            <div className="absolute -top-5 right-6">
+              <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
+                <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#ffffff" stroke="#000" strokeWidth="2.5" />
+                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </div>
+            <span className="font-anton text-3xl">02</span>
+            <h3 className="font-anton text-2xl uppercase mt-2 mb-2 leading-none">
+              BESPOKE WEB DESIGN & UI/UX
+            </h3>
+            <p className="text-xs font-semibold leading-relaxed text-black/85">
+              Bold, unforgettable aesthetics that refuse to blend into corporate mediocrity. Custom typography, micro-interactions, responsive design systems, and brutalist finesse.
+            </p>
+            <div className="mt-4 pt-2 border-t border-black/30 font-anton text-xs tracking-wider">
+              STUDIO: CRAFT & BRANDING
+            </div>
+          </div>
+
+          <div className="relative bg-[#b3cde3] text-black border-[3.5px] border-black p-6 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.9)] rotate-[-1.5deg]">
+            <div className="absolute -top-5 left-8">
+              <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
+                <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#fbda03" stroke="#000" strokeWidth="2.5" />
+                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </div>
+            <span className="font-anton text-3xl">03</span>
+            <h3 className="font-anton text-2xl uppercase mt-2 mb-2 leading-none">
+              BUSINESS AUTOMATIONS
+            </h3>
+            <p className="text-xs font-semibold leading-relaxed text-black/85">
+              Eliminate repetitive human work. Automated lead capture, CRM syncing, AI telephone triage, invoicing pipelines, and instant customer notifications that never sleep.
+            </p>
+            <div className="mt-4 pt-2 border-t border-black/30 font-anton text-xs tracking-wider">
+              FLAGSHIP: CALLER.WORK
+            </div>
+          </div>
+
+          <div className="relative bg-white text-black border-[3.5px] border-black p-6 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.9)] rotate-[1deg]">
+            <div className="absolute -top-5 right-8">
+              <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
+                <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#c59eb9" stroke="#000" strokeWidth="2.5" />
+                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </div>
+            <span className="font-anton text-3xl">04</span>
+            <h3 className="font-anton text-2xl uppercase mt-2 mb-2 leading-none">
+              CUSTOM DIGITAL SYSTEMS
+            </h3>
+            <p className="text-xs font-semibold leading-relaxed text-black/85">
+              Custom integrations, AI copilots, payment setups, database syncing, and specialized tooling tailored to your business needs without vendor lock-in.
+            </p>
+            <div className="mt-4 pt-2 border-t border-black/30 font-anton text-xs tracking-wider">
+              FLAGSHIP: SOUS CHEF
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 3: PROJECTS (FULLSCREEN ADAPTIVE PORTFOLIO)          */}
+      {/* SECTION 3: IN-DEPTH CASE STUDIES (CLEAN & POWERFUL)          */}
       {/* ============================================================ */}
-      <section id="projects" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 border-t-[5px] border-white/20 flex flex-col gap-10">
-        
-        {/* Section Header */}
+      <section id="case-studies" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 border-t-[4px] border-white/20 flex flex-col gap-10">
+
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
           <div>
             <div className="inline-flex items-center gap-2 bg-[#fbda03] text-black px-3 py-1 border-[2.5px] border-black font-anton text-lg tracking-wide w-fit mb-3">
-              PROVEN DEPLOYMENTS
+              FLAGSHIP CASE STUDIES
             </div>
             <h2 className="font-anton text-5xl sm:text-7xl uppercase tracking-tight">
-              RECENT PROJECTS
+              PROVEN SYSTEMS IN THE WILD
             </h2>
           </div>
 
-          {/* Filter Pills */}
           <div className="flex flex-wrap gap-2">
-            {["ALL", "AGENTIC", "ECOMMERCE", "OPS"].map((filter) => (
+            {caseStudies.map((cs, idx) => (
               <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider border-[2px] border-black transition-all cursor-pointer ${
-                  activeFilter === filter
-                    ? "bg-white text-black shadow-[3px_3px_0px_0px_#fbda03]"
-                    : "bg-[#18181b] text-gray-300 hover:text-white"
-                }`}
+                key={cs.id}
+                onClick={() => setActiveCaseStudy(idx)}
+                className={`px-4 py-2 font-anton text-sm uppercase tracking-wider border-[2.5px] border-black transition-colors cursor-pointer ${activeCaseStudy === idx
+                  ? "bg-[#fbda03] text-black shadow-[4px_4px_0px_0px_#ffffff]"
+                  : "bg-[#18181b] text-gray-300 hover:text-white hover:border-[#fbda03]"
+                  }`}
               >
-                {filter}
+                {cs.name}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Projects Grid: Designed to fit screen with high-impact brutalist cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((proj, idx) => (
+        {/* ACTIVE CASE STUDY CARD WITH SMOOTH MORPH TRANSITION */}
+        {(() => {
+          const cs = caseStudies[activeCaseStudy];
+          return (
             <div
-              key={proj.name}
-              style={{ backgroundColor: proj.color }}
-              className="border-[4px] border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.9)] hover:translate-x-1.5 hover:translate-y-1.5 hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.9)] transition-all duration-300 flex flex-col justify-between group cursor-pointer text-black"
+              key={cs.id}
+              style={{ backgroundColor: cs.color }}
+              className="w-full border-[5px] border-black p-6 sm:p-10 lg:p-12 shadow-[10px_10px_0px_0px_rgba(255,255,255,0.9)] text-black flex flex-col justify-between gap-8 animate-morph-section"
             >
-              <div>
-                {/* Header info */}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="bg-black text-white text-[11px] font-black uppercase px-2.5 py-1 tracking-wider">
-                    {proj.tag}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b-[3px] border-black">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="bg-black text-white text-xs font-black uppercase px-3 py-1 tracking-wider">
+                    {cs.tag}
                   </span>
-                  <span className="border-[2px] border-black text-[11px] font-black uppercase px-2.5 py-0.5 tracking-wider bg-white">
-                    {proj.badge}
+                  <span className="border-[2px] border-black text-xs font-black uppercase px-3 py-0.5 tracking-wider bg-white">
+                    {cs.badge}
+                  </span>
+                  <span className="text-[11px] font-black tracking-wider uppercase text-black/75">
+                    {cs.statusNote}
                   </span>
                 </div>
 
-                {/* Project Title */}
-                <h3 className="font-anton text-4xl sm:text-5xl uppercase tracking-tight text-black mb-1 group-hover:scale-[1.02] transition-transform origin-left">
-                  {proj.name}
-                </h3>
-                <p className="text-xs font-bold uppercase tracking-widest text-black/70 mb-4">
-                  CLIENT: {proj.client}
-                </p>
+                <div>
+                  {cs.link ? (
+                    <a
+                      href={cs.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 bg-black text-white hover:bg-white hover:text-black border-[2.5px] border-black px-4 py-1.5 font-anton text-sm uppercase tracking-wider transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+                    >
+                      <span>VISIT LIVE: {cs.linkDisplay}</span>
+                      <span>↗</span>
+                    </a>
+                  ) : (
+                    <div className="inline-flex items-center gap-2 bg-[#111] text-[#fbda03] border-[2.5px] border-black px-4 py-1.5 font-anton text-sm uppercase tracking-wider">
+                      <span className="w-2 h-2 rounded-full bg-[#fbda03]" />
+                      <span>IN PROGRESS • DEMO AVAILABLE ON REQUEST</span>
+                    </div>
+                  )}
+                </div>
+              </div>
 
-                {/* Project Impact Description */}
-                <p className="text-sm font-medium leading-relaxed text-black/90 mb-6">
-                  {proj.impact}
+              <div>
+                <h3 className="font-anton text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.88] mb-3">
+                  {cs.name}
+                </h3>
+                <p className="font-archivo text-xl sm:text-2xl uppercase tracking-tight text-black/90 max-w-4xl">
+                  {cs.headline}
                 </p>
               </div>
 
-              {/* Metric Card & Action link */}
-              <div className="pt-4 border-t-[2.5px] border-black flex items-center justify-between">
-                <div>
-                  <span className="block text-[9px] font-black uppercase tracking-wider text-black/60">
-                    KEY RESULT
-                  </span>
-                  <span className="font-anton text-xl sm:text-2xl uppercase tracking-wide text-black">
-                    {proj.metric}
-                  </span>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                {/* Screenshot Container */}
+                <div className="lg:col-span-6 flex flex-col gap-3">
+                  <div className="border-[3.5px] border-black bg-black p-2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="bg-[#1a1a1c] text-white px-3 py-1.5 flex items-center justify-between border-b border-white/20 mb-2 font-mono text-[11px]">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
+                        <span className="ml-2 text-gray-400 font-bold uppercase tracking-wider">
+                          {cs.name}.SYSTEM
+                        </span>
+                      </div>
+                      <span className="text-gray-400">
+                        {cs.link ? cs.linkDisplay : "SOUS-CHEF-LABS.INTERNAL"}
+                      </span>
+                    </div>
+
+                    <div className="relative w-full aspect-video sm:aspect-[16/10] bg-[#111] overflow-hidden border border-black">
+                      <Image
+                        src={cs.image}
+                        alt={`${cs.name} Screenshot Preview`}
+                        fill
+                        className="object-cover object-top"
+                      />
+                      <div className="absolute bottom-2 left-2 bg-black/80 text-white px-2 py-1 text-[10px] font-bold uppercase tracking-wider border border-white/40">
+                        {cs.link ? "VERIFIED PRODUCTION PREVIEW" : "LAB WORKBENCH RUNNING"}
+                      </div>
+                    </div>
+                  </div>
+
+                  {cs.link && (
+                    <a
+                      href={cs.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs font-black uppercase text-black hover:underline tracking-wider flex items-center gap-1"
+                    >
+                      OPEN {cs.linkDisplay} IN NEW TAB ↗
+                    </a>
+                  )}
                 </div>
 
-                <div className="flex items-center gap-1.5 bg-black text-white px-4 py-2 font-anton text-sm uppercase tracking-wider group-hover:bg-white group-hover:text-black group-hover:border-[2px] group-hover:border-black transition-all">
-                  <span>{proj.linkText}</span>
-                  <span className="text-base">↗</span>
+                {/* Problem vs Solution */}
+                <div className="lg:col-span-6 flex flex-col gap-4">
+                  <div className="bg-white border-[3px] border-black p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <span className="block font-anton text-base tracking-wider uppercase text-black mb-1 pb-1 border-b border-black">
+                      THE BOTTLENECK / CHALLENGE
+                    </span>
+                    <p className="text-xs sm:text-sm font-medium leading-relaxed text-black/85">
+                      {cs.problem}
+                    </p>
+                  </div>
+
+                  <div className="bg-[#0c0c0d] text-white border-[3px] border-black p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <span className="block font-anton text-base tracking-wider uppercase text-[#fbda03] mb-1 pb-1 border-b border-white/20">
+                      WHAT WE ENGINEERED & DEPLOYED
+                    </span>
+                    <p className="text-xs sm:text-sm font-normal leading-relaxed text-gray-200">
+                      {cs.solution}
+                    </p>
+                  </div>
                 </div>
+
+              </div>
+
+              {/* Deliverables & Impact */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-2 items-center">
+                <div className="lg:col-span-7 flex flex-col gap-2">
+                  <span className="font-anton text-base uppercase tracking-wider text-black">
+                    SYSTEM DELIVERABLES INCLUDED:
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {cs.deliverables.map((del, i) => (
+                      <div key={i} className="flex items-start gap-2 bg-black/5 p-2 border border-black/20">
+                        <span className="font-anton text-sm">→</span>
+                        <span className="text-xs font-bold uppercase leading-tight">{del}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 grid grid-cols-3 gap-3 bg-black text-white p-4 border-[3px] border-black">
+                  {cs.impactStats.map((stat, i) => (
+                    <div key={i} className="flex flex-col text-center">
+                      <span className="font-anton text-2xl sm:text-3xl text-[#fbda03]">
+                        {stat.value}
+                      </span>
+                      <span className="text-[9px] font-black uppercase text-gray-300 tracking-wider">
+                        {stat.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* Switcher Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+          {caseStudies.map((item, idx) => (
+            <div
+              key={item.id}
+              onClick={() => setActiveCaseStudy(idx)}
+              style={{ backgroundColor: item.color }}
+              className={`p-6 border-[3.5px] border-black text-black cursor-pointer transition-colors ${activeCaseStudy === idx
+                ? "shadow-[6px_6px_0px_0px_#ffffff]"
+                : "opacity-90 hover:opacity-100"
+                }`}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[10px] font-black uppercase bg-black text-white px-2 py-0.5">
+                  {item.badge}
+                </span>
+                <span className="font-anton text-lg">0{idx + 1}</span>
+              </div>
+              <h4 className="font-anton text-3xl uppercase tracking-tight mb-1">
+                {item.name}
+              </h4>
+              <p className="text-xs font-semibold line-clamp-2 text-black/80 mb-3">
+                {item.headline}
+              </p>
+              <div className="pt-2 border-t border-black/30 flex items-center justify-between font-anton text-xs">
+                <span>{item.link ? item.linkDisplay : "IN PROGRESS"}</span>
+                <span>↗</span>
               </div>
             </div>
           ))}
@@ -552,43 +889,629 @@ export default function AgencyPosterPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 4: BIG INTERACTIVE BOOKING & CONTACT FOOTER          */}
+      {/* SECTION 4: STARTUPS & AGENCY CTO (EQUITY PARTNERSHIP)        */}
       {/* ============================================================ */}
-      <footer className="w-full bg-[#fbda03] text-black border-t-[8px] border-black p-8 sm:p-14 lg:p-20 flex flex-col items-center">
-        <div className="max-w-5xl w-full flex flex-col items-center text-center gap-8">
-          
-          <div className="border-[3px] border-black bg-white px-4 py-1 font-anton text-xl tracking-wider uppercase rotate-[-1deg]">
-            READY TO SCALE AUTOMATICALLY?
+      <section id="startups-cto" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 border-t-[6px] border-[#fbda03] flex flex-col gap-12 overflow-hidden">
+
+        {/* Abstract Background Graphic Ribbon (Echoing Hero Design) */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-25 z-0"
+          viewBox="0 0 1200 800"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M -100 150 C 300 50 650 350 1300 200"
+            stroke="#fbda03"
+            strokeWidth="70"
+            strokeLinecap="round"
+          />
+          <path
+            d="M 200 850 C 500 500 850 750 1350 450"
+            stroke="#9bb8d3"
+            strokeWidth="60"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        {/* Graffiti Street Tag Overlay in CTO section */}
+        <div className="absolute top-12 left-6 pointer-events-none opacity-75 rotate-[-14deg] hidden sm:block select-none">
+          <span className="font-pixel text-[#fbda03] text-sm tracking-widest bg-black px-2.5 py-1 border-2 border-black shadow-[3px_3px_0px_0px_#ff0055]">
+            EQUITY // CTO CO-PILOT
+          </span>
+        </div>
+
+        {/* Signboard Header Assembly */}
+        <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto w-full">
+          {/* Signboard Top Badge with Eye Asset */}
+          <div className="flex items-center gap-3 mb-4">
+            <div className="relative bg-[#fbda03] text-black border-[3px] border-black px-6 py-2 shadow-[5px_5px_0px_0px_#ffffff] rotate-[-1deg]">
+              <span className="font-anton text-base sm:text-lg uppercase tracking-wider flex items-center gap-2">
+                <span className="w-2.5 h-2.5 bg-black rounded-full animate-pulse" />
+                AGENCY CTO &bull; EQUITY PARTNERSHIP PROGRAM
+              </span>
+            </div>
+
+            {/* ILLUMINATING EYE ASSET IN STARTUP CTO */}
+            <div className="relative w-14 sm:w-16 h-7 sm:h-8 hidden sm:flex items-center justify-center select-none pointer-events-none rotate-[-6deg]">
+              <div className="relative w-14 sm:w-16 h-7 sm:h-8 bg-white rounded-[50%] border-[2px] border-black flex items-center justify-center overflow-hidden shadow-[2px_2px_0px_0px_#fbda03]">
+                <div className="relative w-5 h-5 bg-[#c59eb9] rounded-full border-[1.5px] border-black flex items-center justify-center animate-eye-pupil">
+                  <svg viewBox="0 0 24 24" className="w-3 h-3 fill-black animate-star-spin">
+                    <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <h2 className="font-anton text-5xl sm:text-7xl lg:text-9xl leading-[0.88] uppercase tracking-tight">
-            LET'S BUILD YOUR SYSTEMS.
+          {/* Abstract Signboard Plaque with Flat Screws */}
+          <div className="relative w-full bg-white text-black border-[4px] border-black px-6 sm:px-12 py-6 sm:py-8 shadow-[10px_10px_0px_0px_#fbda03]">
+            {/* 4 Flat Corner Screws */}
+            <div className="absolute top-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-2 h-[1.5px] bg-black rotate-45" />
+            </div>
+            <div className="absolute top-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+            </div>
+            <div className="absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+            </div>
+            <div className="absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-2 h-[1.5px] bg-black rotate-45" />
+            </div>
+
+            {/* Graffiti Crown on Plaque */}
+            <div className="absolute -top-5 left-8 sm:left-14 rotate-[-12deg] select-none pointer-events-none">
+              <svg width="48" height="32" viewBox="0 0 64 42" fill="none">
+                <path
+                  d="M 4 36 L 4 14 L 20 26 L 32 4 L 44 26 L 60 14 L 60 36 Z"
+                  fill="#ff0055"
+                  stroke="#000"
+                  strokeWidth="3"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            <h3 className="font-anton text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.88] select-none">
+              WE BECOME YOUR <span className="bg-[#fbda03] px-2 py-0.5 border-[3px] border-black inline-block mt-1 sm:mt-0">TECHNICAL CO-FOUNDER</span> &amp; CTO.
+            </h3>
+          </div>
+
+          {/* Under-signboard Abstract Pill */}
+          <div className="relative -mt-4 z-20">
+            <div className="bg-[#b3cde3] border-[3px] border-black rounded-full px-6 sm:px-10 py-1.5 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-[1.5deg]">
+              <span className="font-archivo text-xs sm:text-base tracking-widest uppercase text-black font-extrabold">
+                ZERO UPFRONT TECH RISK &bull; SPLIT RUNWAY &bull; SHARED EQUITY
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Abstract Main Layout: Interactive Split Screen */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4">
+
+          {/* Left Column (7 cols): The Architecture Pillars */}
+          <div className="lg:col-span-7 flex flex-col justify-between gap-6">
+            <div className="bg-[#18181b] border-[4px] border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_#fbda03] flex flex-col gap-5">
+              <div className="flex items-center justify-between border-b border-white/20 pb-3">
+                <span className="font-mono text-xs uppercase tracking-widest text-[#fbda03] font-bold">
+                  CO-FOUNDER OPERATING MODEL
+                </span>
+                <span className="font-anton text-xs uppercase px-2 py-0.5 bg-white text-black border border-black">
+                  ACTIVE
+                </span>
+              </div>
+
+              <p className="font-archivo text-xl sm:text-2xl uppercase tracking-tight text-white leading-tight font-extrabold">
+                You bring the market vision and customer distribution. We engineer the entire tech apparatus, from high-converting frontends to autonomous backend infrastructure.
+              </p>
+
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-medium">
+                Instead of bleeding seed money on unreliable freelance contractors or taking 8 months to hire a CTO, our elite agency team steps in as your dedicated in-house technical co-founder. We split development costs and align long-term incentives via an agreed equity percentage.
+              </p>
+            </div>
+
+            {/* 3 Abstract Ticket Badges */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                {
+                  num: "01",
+                  title: "EQUITY SHARE",
+                  desc: "We invest our engineering capabilities directly for skin in the game. True alignment.",
+                  bg: "bg-white text-black",
+                  tag: "#fbda03",
+                },
+                {
+                  num: "02",
+                  title: "COST SPLIT",
+                  desc: "Shared operational expenditure ensures you extend runway without compromising code quality.",
+                  bg: "bg-[#fbda03] text-black",
+                  tag: "#000000",
+                },
+                {
+                  num: "03",
+                  title: "FULL STACK",
+                  desc: "Web apps, internal tooling, edge databases, UI/UX, and AI automations fully managed.",
+                  bg: "bg-[#b3cde3] text-black",
+                  tag: "#ffffff",
+                },
+              ].map((p) => (
+                <div
+                  key={p.num}
+                  className={`${p.bg} border-[3.5px] border-black p-4 flex flex-col justify-between shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] relative`}
+                >
+                  {/* Top pin icon */}
+                  <div className="flex items-center justify-between border-b border-black/20 pb-2 mb-3">
+                    <span className="font-mono font-black text-xs">{p.num}. PILLAR</span>
+                    <div className="w-2.5 h-2.5 rounded-full border border-black" style={{ backgroundColor: p.tag }} />
+                  </div>
+                  <div>
+                    <h4 className="font-anton text-xl tracking-wide uppercase block mb-1">
+                      {p.title}
+                    </h4>
+                    <p className="text-xs font-semibold leading-snug opacity-90">
+                      {p.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column (5 cols): Sunday Pitch Session Ticket */}
+          <div className="lg:col-span-5 relative flex flex-col">
+            {/* Decorative Pin on Pitch Card */}
+            <div className="absolute -top-6 right-8 z-30 animate-pin-wiggle origin-bottom">
+              <svg width="28" height="34" viewBox="0 0 28 34" fill="none">
+                <path
+                  d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z"
+                  fill="#fbda03"
+                  stroke="#000"
+                  strokeWidth="2.5"
+                />
+                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </div>
+
+            <div className="bg-[#fbda03] text-black border-[4.5px] border-black p-6 sm:p-8 flex flex-col justify-between gap-6 shadow-[10px_10px_0px_0px_rgba(255,255,255,0.9)] h-full">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between border-b-[2.5px] border-black pb-3">
+                  <span className="font-mono text-xs font-black uppercase tracking-wider bg-black text-[#fbda03] px-2.5 py-1 border border-black">
+                    SUNDAY PITCH SLOT
+                  </span>
+                  <span className="font-anton text-sm uppercase bg-white px-2 py-0.5 border border-black">
+                    4 SLOTS LEFT
+                  </span>
+                </div>
+
+                <h4 className="font-anton text-4xl sm:text-5xl uppercase tracking-tight leading-[0.92]">
+                  PITCHING HAPPENS EVERY SUNDAY.
+                </h4>
+
+                <p className="text-black/85 text-xs sm:text-sm font-semibold leading-relaxed">
+                  Every Sunday, our founding engineering team reviews pitches from early-stage founders. If selected, we enter a 14-day sprint to scope, design, and deploy your product into market as your technical partner.
+                </p>
+
+                {/* Pitch Checklist */}
+                <div className="bg-white border-[2.5px] border-black p-3 flex flex-col gap-1.5 font-mono text-[11px] font-bold">
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-700">✓</span> <span>PITCH DECK OR PRODUCT SCOPE</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-700">✓</span> <span>CO-FOUNDER DETAILS &amp; RUNWAY</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-700">✓</span> <span>PROPOSED EQUITY SPLIT RANGE</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3 pt-2">
+                <a
+                  href="mailto:hello@needhelpbuilding.com?subject=Startup%20CTO%20Equity%20Pitch&body=Hi%20NeedHelpBuilding%20Team%2C%0A%0AWe%20would%20love%20to%20pitch%20our%20startup%20for%20the%20Sunday%20session.%0A%0AStartup%20Name%3A%20%0AFounder(s)%3A%20%0AWebsite%2FDeck%20Link%3A%20%0AWhat%20we're%20building%3A%20"
+                  className="w-full bg-black text-white hover:bg-white hover:text-black border-[3.5px] border-black py-4 px-4 text-center font-anton text-2xl uppercase tracking-wider transition-colors shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 cursor-pointer block"
+                >
+                  PITCH YOUR STARTUP VIA EMAIL ↗
+                </a>
+
+                <div className="flex items-center justify-between text-[11px] font-mono font-black text-black">
+                  <span>INSTANT REVIEW:</span>
+                  <span className="underline">HELLO@NEEDHELPBUILDING.COM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* SECTION 5: CLIENT TESTIMONIALS (INNOVATIVE SIGNBOARD STYLE)   */}
+      {/* ============================================================ */}
+      <section id="testimonials" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 border-t-[6px] border-[#fbda03] flex flex-col gap-12 overflow-hidden">
+
+        {/* Abstract Ribbon Wave */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-20 z-0"
+          viewBox="0 0 1200 800"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M 1300 200 C 900 600 500 100 -100 450"
+            stroke="#fbda03"
+            strokeWidth="80"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        {/* Graffiti Scribbles & Street Art Decals in Testimonials */}
+        <div className="absolute top-10 right-10 pointer-events-none opacity-60 rotate-12 hidden lg:block select-none">
+          <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+            <path d="M 5 45 Q 25 5 40 40 T 75 10" stroke="#ff0055" strokeWidth="4" strokeLinecap="round" />
+            <circle cx="75" cy="10" r="3" fill="#ff0055" />
+          </svg>
+        </div>
+
+        {/* Header Title Board with Screws & Ribbon Aesthetics */}
+        <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto w-full">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="bg-[#b3cde3] text-black border-[3px] border-black px-6 py-1.5 shadow-[4px_4px_0px_0px_#ffffff] rotate-[-1deg]">
+              <span className="font-anton text-sm sm:text-base uppercase tracking-wider">
+                CLIENT TESTIMONIALS &bull; FOUNDER ENDORSEMENTS
+              </span>
+            </div>
+
+            {/* ILLUMINATING EYE ASSET IN TESTIMONIALS HEADER */}
+            <div className="relative w-14 sm:w-16 h-7 sm:h-8 hidden sm:flex items-center justify-center select-none pointer-events-none rotate-[6deg]">
+              <div className="relative w-14 sm:w-16 h-7 sm:h-8 bg-white rounded-[50%] border-[2px] border-black flex items-center justify-center overflow-hidden shadow-[2px_2px_0px_0px_#fbda03]">
+                <div className="relative w-5 h-5 bg-[#fbda03] rounded-full border-[1.5px] border-black flex items-center justify-center animate-eye-pupil">
+                  <svg viewBox="0 0 24 24" className="w-3 h-3 fill-black animate-star-spin">
+                    <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative">
+            <h2 className="font-anton text-5xl sm:text-7xl md:text-8xl leading-[0.88] uppercase tracking-tight select-none">
+              PROOF IN PRODUCTION.
+            </h2>
+            {/* Graffiti Crown on Title */}
+            <div className="absolute -top-7 right-4 sm:-right-8 rotate-[15deg] select-none pointer-events-none">
+              <svg width="44" height="28" viewBox="0 0 64 42" fill="none">
+                <path
+                  d="M 4 36 L 4 14 L 20 26 L 32 4 L 44 26 L 60 14 L 60 36 Z"
+                  fill="#fbda03"
+                  stroke="#000"
+                  strokeWidth="3.5"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <p className="mt-4 text-gray-300 text-sm sm:text-lg max-w-2xl font-medium tracking-wide">
+            Real feedback from startup founders and operators who trusted us to build and engineer their core digital systems.
+          </p>
+        </div>
+
+        {/* Dual Co-founder Testimonial Billboards with Abstract Signboard Elements */}
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pt-4 max-w-5xl mx-auto w-full">
+
+          {/* Testimonial 1: Jay Agrawal @ Ganges */}
+          <div className="relative group">
+            {/* Abstract mounting vertical beam behind billboard (Bright readable yellow) */}
+            <div className="absolute left-1/2 -translate-x-1/2 -top-6 bottom-[-20px] w-4 bg-[#fbda03] border-x-[2.5px] border-black shadow-[2px_0_0_0_#000] -z-10" />
+
+            {/* Graffiti Street Stamp on Corner */}
+            <div className="absolute -top-3 -right-3 z-30 bg-[#ff0055] text-white font-pixel text-[10px] px-2 py-0.5 border-[2px] border-black rotate-[8deg] shadow-[2px_2px_0px_0px_#000]">
+              VERIFIED BUILD
+            </div>
+
+            <div className="relative bg-white text-black border-[4px] border-black p-6 sm:p-10 shadow-[10px_10px_0px_0px_#fbda03] rotate-[-1deg] flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
+              {/* 4 Corner Screws */}
+              <div className="absolute top-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-2 h-[1.5px] bg-black rotate-45" />
+              </div>
+              <div className="absolute top-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+              </div>
+              <div className="absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+              </div>
+              <div className="absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-2 h-[1.5px] bg-black rotate-45" />
+              </div>
+
+              {/* Pin Badge on top edge */}
+              <div className="absolute -top-5 left-10">
+                <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
+                  <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#fbda03" stroke="#000" strokeWidth="2.5" />
+                  <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between border-b-[2px] border-black/15 pb-3">
+                  <div className="flex items-center gap-1 text-[#fbda03] select-none text-2xl font-black">
+                    {"★★★★★"}
+                  </div>
+                  <span className="bg-[#fbda03] text-black font-anton text-xs px-2 py-0.5 border border-black uppercase tracking-wider">
+                    VERIFIED FOUNDER
+                  </span>
+                </div>
+
+                <p className="text-lg sm:text-xl font-bold text-black leading-snug font-archivo tracking-tight">
+                  &ldquo;NeedHelpBuilding turned our concept into a high-performance web platform in record time. Their architectural clarity, speed of execution, and attention to user flow made a massive impact on our early traction.&rdquo;
+                </p>
+              </div>
+
+              {/* Signboard Signature Footer */}
+              <div className="pt-4 border-t-[3px] border-black flex items-center justify-between bg-black/5 -mx-6 -mb-6 sm:-mx-10 sm:-mb-10 p-4 sm:p-6">
+                <div>
+                  <span className="font-anton text-2xl tracking-wide uppercase block text-black">
+                    JAY AGRAWAL
+                  </span>
+                  <span className="text-xs font-mono font-black text-black/70 uppercase tracking-wider">
+                    CO-FOUNDER @ GANGES
+                  </span>
+                </div>
+                <div className="w-10 h-10 bg-black text-[#fbda03] border-[2px] border-black flex items-center justify-center font-anton text-lg">
+                  G
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial 2: Arinjay Saxena @ Earnbuddy */}
+          <div className="relative group">
+            {/* Abstract mounting vertical beam behind billboard (Bright readable yellow) */}
+            <div className="absolute left-1/2 -translate-x-1/2 -top-6 bottom-[-20px] w-4 bg-[#fbda03] border-x-[2.5px] border-black shadow-[2px_0_0_0_#000] -z-10" />
+
+            {/* Graffiti Street Stamp on Corner */}
+            <div className="absolute -top-3 -left-3 z-30 bg-black text-[#fbda03] font-pixel text-[10px] px-2 py-0.5 border-[2px] border-black rotate-[-6deg] shadow-[2px_2px_0px_0px_#fff]">
+              CTO PARTNER
+            </div>
+
+            <div className="relative bg-[#fbda03] text-black border-[4px] border-black p-6 sm:p-10 shadow-[10px_10px_0px_0px_#ffffff] rotate-[1.5deg] flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
+              {/* 4 Corner Screws */}
+              <div className="absolute top-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-2 h-[1.5px] bg-black rotate-45" />
+              </div>
+              <div className="absolute top-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+              </div>
+              <div className="absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+              </div>
+              <div className="absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-2 h-[1.5px] bg-black rotate-45" />
+              </div>
+
+              {/* Pin Badge on top edge */}
+              <div className="absolute -top-5 right-10">
+                <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
+                  <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#ffffff" stroke="#000" strokeWidth="2.5" />
+                  <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between border-b-[2.5px] border-black pb-3">
+                  <div className="flex items-center gap-1 text-black select-none text-2xl font-black">
+                    {"★★★★★"}
+                  </div>
+                  <span className="bg-white text-black font-anton text-xs px-2 py-0.5 border border-black uppercase tracking-wider">
+                    CO-FOUNDER PARTNER
+                  </span>
+                </div>
+
+                <p className="text-lg sm:text-xl font-bold text-black leading-snug font-archivo tracking-tight">
+                  &ldquo;Partnering with them gave us the technical muscle of an elite engineering team without the startup friction. From intuitive UI/UX design to rock-solid automations, they delivered exactly what Earnbuddy needed to scale.&rdquo;
+                </p>
+              </div>
+
+              {/* Signboard Signature Footer */}
+              <div className="pt-4 border-t-[3px] border-black flex items-center justify-between bg-black/10 -mx-6 -mb-6 sm:-mx-10 sm:-mb-10 p-4 sm:p-6">
+                <div>
+                  <span className="font-anton text-2xl tracking-wide uppercase block text-black">
+                    ARINJAY SAXENA
+                  </span>
+                  <span className="text-xs font-mono font-black text-black/80 uppercase tracking-wider">
+                    CO-FOUNDER @ EARNBUDDY
+                  </span>
+                </div>
+                <div className="w-10 h-10 bg-white text-black border-[2px] border-black flex items-center justify-center font-anton text-lg">
+                  EB
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* SECTION 5.5: OLD CUSTOMER REFERRAL SCHEME                    */}
+      {/* ============================================================ */}
+      <section id="referral" className="relative w-full max-w-7xl px-4 sm:px-8 py-16 lg:py-24 border-t-[6px] border-[#fbda03] flex flex-col items-center">
+
+        {/* Abstract Referral Card Box */}
+        <div className="relative w-full bg-[#18181b] border-[4px] border-black p-6 sm:p-10 lg:p-12 shadow-[10px_10px_0px_0px_#fbda03] flex flex-col lg:flex-row items-center justify-between gap-8">
+
+          {/* Left Column: Heading & Explanation */}
+          <div className="flex flex-col gap-3 max-w-2xl text-left">
+            <div className="inline-flex items-center gap-2 bg-[#fbda03] text-black px-3 py-1 font-anton text-xs sm:text-sm uppercase tracking-wider w-fit rotate-[-1deg]">
+              EXCLUSIVE TO PREVIOUS &amp; EXISTING CLIENTS
+            </div>
+
+            <h3 className="font-anton text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-none">
+              CLIENT REFERRAL SCHEME: <span className="text-[#fbda03]">10% FOR BOTH SIDES.</span>
+            </h3>
+
+            <p className="text-gray-300 text-sm sm:text-base font-medium leading-relaxed">
+              If you’ve built with us before, introduce another founder or business to NeedHelpBuilding. When they initiate a project, <strong className="text-white">they get 10% off</strong> their total scope, and <strong className="text-[#fbda03]">you receive 10% direct cash commission</strong> or credit towards your next build.
+            </p>
+          </div>
+
+          {/* Right Column: Interactive Referral Action Voucher */}
+          <div className="bg-white text-black border-[3.5px] border-black p-6 sm:p-7 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.8)] flex flex-col justify-between gap-5 w-full lg:w-[380px] shrink-0 rotate-[1deg]">
+            <div className="flex items-center justify-between border-b-[2px] border-black/20 pb-3">
+              <span className="font-mono text-xs font-black uppercase tracking-wider text-black/70">
+                REFERRAL PERK TICKET
+              </span>
+              <span className="bg-[#fbda03] text-black font-anton text-xs px-2 py-0.5 border border-black uppercase">
+                10% + 10%
+              </span>
+            </div>
+
+            <div className="flex items-center justify-around text-center py-2 bg-gray-50 border-[2px] border-black">
+              <div>
+                <span className="font-anton text-3xl text-black block leading-none">10% OFF</span>
+                <span className="text-[10px] font-mono font-bold text-gray-600 uppercase">THEIR PROJECT</span>
+              </div>
+              <div className="h-8 w-[2px] bg-black/20" />
+              <div>
+                <span className="font-anton text-3xl text-[#0c0c0d] block leading-none">10% CASH</span>
+                <span className="text-[10px] font-mono font-bold text-gray-600 uppercase">OR CREDIT TO YOU</span>
+              </div>
+            </div>
+
+            <a
+              href="mailto:hello@needhelpbuilding.com?subject=Client%20Referral%20Introduction&body=Hi%20NeedHelpBuilding%20Team%2C%0A%0AI%20am%20an%20existing%2Fpast%20client%20and%20would%20like%20to%20refer%20a%20friend%2Fbusiness%3A%0A%0AMy%20Name%20%2F%20Company%3A%20%0AReferred%20Founder's%20Name%3A%20%0AReferred%20Founder's%20Email%20or%20WhatsApp%3A%20%0AProject%20they%20need%20built%3A%20"
+              className="w-full bg-[#fbda03] hover:bg-black hover:text-[#fbda03] text-black border-[2.5px] border-black py-3 px-4 text-center font-anton text-lg uppercase tracking-wider transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] block cursor-pointer"
+            >
+              INTRODUCE A CLIENT VIA EMAIL ↗
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* SECTION 6: EXACT SCREENSHOT FOOTER SECTION                   */}
+      {/* ============================================================ */}
+      <footer id="contact" className="w-full bg-[#fbda03] text-black border-t-[8px] border-black pt-20 sm:pt-28 pb-12 px-4 sm:px-8 flex flex-col items-center justify-between min-h-[85vh]">
+        <div className="max-w-5xl w-full flex flex-col items-center text-center my-auto">
+
+          {/* Top Pill Badge: "READY TO SCALE AUTOMATICALLY?" */}
+          <div className="bg-white border-[3px] border-black px-6 py-1.5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-[-0.5deg]">
+            <span className="font-anton text-lg sm:text-xl tracking-wider uppercase text-black">
+              READY TO SCALE AUTOMATICALLY?
+            </span>
+          </div>
+
+          {/* Main Giant Headline: "LET'S BUILD YOUR SYSTEMS." */}
+          <h2 className="mt-8 font-anton text-[68px] sm:text-[110px] lg:text-[145px] leading-[0.88] uppercase tracking-tight text-black select-none">
+            LET'S BUILD YOUR
+            <br />
+            SYSTEMS.
           </h2>
 
-          <p className="text-black font-medium text-base sm:text-xl max-w-2xl">
-            Drop us your current challenge or workflow bottleneck. We will review your architecture and send you a custom automation blueprint within 24 hours.
+          {/* Description Paragraph */}
+          <p className="mt-8 font-sans font-bold text-black text-base sm:text-lg max-w-2xl leading-relaxed tracking-tight">
+            Drop us your current challenge or workflow bottleneck. We will review
+            your architecture and send you a custom automation blueprint within
+            24 hours.
           </p>
 
-          {/* Large CTA button */}
+          {/* Large Brutalist Button: "CLAIM YOUR AUTOMATION BLUEPRINT" */}
           <button
-            onClick={() => setIsBooked(true)}
-            className="w-full sm:w-auto bg-black text-white hover:bg-white hover:text-black border-[4px] border-black py-4 px-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer"
+            onClick={() => setIsBooked(!isBooked)}
+            className="mt-10 bg-black text-white hover:bg-white hover:text-black border-[4px] border-black py-4 sm:py-5 px-8 sm:px-14 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer font-anton text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider block"
           >
-            <span className="font-anton text-3xl sm:text-5xl uppercase tracking-wider block">
-              {isBooked ? "REQUEST RECEIVED — TALK SOON!" : "CLAIM YOUR AUTOMATION BLUEPRINT"}
-            </span>
+            {isBooked ? "BLUEPRINT DISPATCHED — TALK SOON!" : "CLAIM YOUR AUTOMATION BLUEPRINT"}
           </button>
 
-          {/* Links and Copyright */}
-          <div className="mt-8 pt-8 border-t-[3px] border-black w-full flex flex-col sm:flex-row items-center justify-between gap-4 font-bold text-xs sm:text-sm uppercase tracking-wider">
-            <span>© 2026 NEED HELP BUILDING? ALL RIGHTS RESERVED.</span>
-            <div className="flex items-center gap-6">
-              <a href="#about" className="hover:underline">ABOUT</a>
-              <a href="#projects" className="hover:underline">PROJECTS</a>
-              <a href="https://needhelpbuilding.com" target="_blank" rel="noreferrer" className="hover:underline">
-                NEEDHELPBUILDING.COM
-              </a>
-            </div>
+        </div>
+
+        {/* Footer Bottom Bar: Direct Typography (No Boxes) & Real Social Icons */}
+        <div className="w-full max-w-7xl mt-16 sm:mt-24 pt-6 border-t-[3.5px] border-black flex flex-col md:flex-row items-center justify-between gap-6 font-anton tracking-wider uppercase">
+
+          {/* Email and WhatsApp / Phone directly written as raw text (No Boxes) */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 text-black">
+            <a
+              href="mailto:hello@needhelpbuilding.com"
+              className="text-base sm:text-lg font-mono font-bold tracking-tight lowercase text-black hover:underline cursor-pointer flex items-center gap-2"
+            >
+              <span className="font-anton uppercase tracking-wider text-sm">MAIL:</span>
+              <span>hello@needhelpbuilding.com</span>
+            </a>
+
+            <span className="text-black/40 font-bold select-none">•</span>
+
+            <a
+              href="https://wa.me/919219061093"
+              target="_blank"
+              rel="noreferrer"
+              className="text-base sm:text-lg font-mono font-bold tracking-tight text-black hover:underline cursor-pointer flex items-center gap-2"
+            >
+              <span className="font-anton uppercase tracking-wider text-sm">TEL / WA:</span>
+              <span>+91 9219061093</span>
+            </a>
+          </div>
+
+          {/* Social Icons: Instagram, LinkedIn, WhatsApp, X (Twitter) */}
+          <div className="flex items-center justify-center gap-5 sm:gap-7 text-black">
+            {/* Instagram */}
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              title="Instagram"
+              className="text-black hover:opacity-75 transition-opacity flex items-center gap-1.5 cursor-pointer group"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+              <span className="text-xs sm:text-sm font-anton group-hover:underline">INSTAGRAM</span>
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+              title="LinkedIn"
+              className="text-black hover:opacity-75 transition-opacity flex items-center gap-1.5 cursor-pointer group"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z" />
+              </svg>
+              <span className="text-xs sm:text-sm font-anton group-hover:underline">LINKEDIN</span>
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/919219061093"
+              target="_blank"
+              rel="noreferrer"
+              title="WhatsApp"
+              className="text-black hover:opacity-75 transition-opacity flex items-center gap-1.5 cursor-pointer group"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.77 14.07c-.24.67-1.39 1.28-1.92 1.36-.5.08-1.14.12-3.66-.92-3.22-1.33-5.3-4.57-5.46-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.35 1.11-2.67.29-.32.63-.4.84-.4.21 0 .42 0 .61.01.2.01.47-.08.73.55.27.67.92 2.25 1 2.41.08.16.13.35.03.56-.1.21-.15.34-.3.51-.15.17-.32.38-.46.51-.15.15-.31.31-.13.62.18.31.8 1.32 1.72 2.14 1.18 1.05 2.17 1.38 2.48 1.53.31.15.49.13.67-.08.18-.21.79-.92 1-1.24.21-.32.42-.26.71-.16.29.1 1.84.87 2.16 1.03.32.16.53.24.61.37.08.13.08.77-.16 1.44z" />
+              </svg>
+              <span className="text-xs sm:text-sm font-anton group-hover:underline">WHATSAPP</span>
+            </a>
+
+            {/* X (Twitter) */}
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noreferrer"
+              title="X (Twitter)"
+              className="text-black hover:opacity-75 transition-opacity flex items-center gap-1.5 cursor-pointer group"
+            >
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
           </div>
         </div>
       </footer>
