@@ -636,127 +636,127 @@ export default function AgencyPosterPage() {
         {(() => {
           const cs = caseStudies[activeCaseStudy];
           return (
-            <div
-              key={cs.id}
-              style={{ backgroundColor: cs.color }}
-              className="w-full border-[5px] border-black p-6 sm:p-10 lg:p-12 shadow-[10px_10px_0px_0px_rgba(255,255,255,0.9)] text-black flex flex-col justify-between gap-8 animate-morph-section"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b-[3px] border-black">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="bg-black text-white text-xs font-black uppercase px-3 py-1 tracking-wider">
-                    {cs.tag}
-                  </span>
-                  <span className="border-[2px] border-black text-xs font-black uppercase px-3 py-0.5 tracking-wider bg-white">
-                    {cs.badge}
-                  </span>
-                  <span className="text-[11px] font-black tracking-wider uppercase text-black/75">
-                    {cs.statusNote}
-                  </span>
-                </div>
+            <div className="relative w-full">
+              {/* Left Navigation Arrow Icon on the Side of the Large Preview Card */}
+              <button
+                onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
+                aria-label="Previous project"
+                className="absolute -left-4 sm:-left-7 top-1/2 -translate-y-1/2 z-40 w-12 sm:w-14 h-12 sm:h-14 bg-[#fbda03] hover:bg-white text-black border-[3.5px] border-black flex items-center justify-center shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
 
-                <div className="flex items-center gap-3">
-                  {/* Clean Project Navigation Controls in Header */}
-                  <div className="flex items-center border-[2.5px] border-black bg-white shadow-[3px_3px_0px_0px_#000]">
-                    <button
-                      onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
-                      aria-label="Previous project"
-                      className="px-3 py-1 bg-white hover:bg-[#fbda03] text-black font-anton text-sm border-r-[2px] border-black transition-colors cursor-pointer flex items-center gap-1"
-                    >
-                      <span>←</span>
-                      <span className="hidden sm:inline text-xs">PREV</span>
-                    </button>
-                    <span className="px-2.5 py-1 font-mono text-xs font-black text-black select-none">
-                      {activeCaseStudy + 1} / {caseStudies.length}
+              {/* Right Navigation Arrow Icon on the Side of the Large Preview Card */}
+              <button
+                onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
+                aria-label="Next project"
+                className="absolute -right-4 sm:-right-7 top-1/2 -translate-y-1/2 z-40 w-12 sm:w-14 h-12 sm:h-14 bg-[#fbda03] hover:bg-white text-black border-[3.5px] border-black flex items-center justify-center shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+
+              <div
+                key={cs.id}
+                style={{ backgroundColor: cs.color }}
+                className="w-full border-[5px] border-black p-6 sm:p-10 lg:p-12 shadow-[10px_10px_0px_0px_rgba(255,255,255,0.9)] text-black flex flex-col justify-between gap-8 animate-morph-section"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b-[3px] border-black">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="bg-black text-white text-xs font-black uppercase px-3 py-1 tracking-wider">
+                      {cs.tag}
                     </span>
-                    <button
-                      onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
-                      aria-label="Next project"
-                      className="px-3 py-1 bg-white hover:bg-[#fbda03] text-black font-anton text-sm border-l-[2px] border-black transition-colors cursor-pointer flex items-center gap-1"
-                    >
-                      <span className="hidden sm:inline text-xs">NEXT</span>
-                      <span>→</span>
-                    </button>
+                    <span className="border-[2px] border-black text-xs font-black uppercase px-3 py-0.5 tracking-wider bg-white">
+                      {cs.badge}
+                    </span>
+                    <span className="text-[11px] font-black tracking-wider uppercase text-black/75">
+                      {cs.statusNote}
+                    </span>
                   </div>
 
-                  {cs.link ? (
-                    <a
-                      href={cs.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 bg-black text-white hover:bg-white hover:text-black border-[2.5px] border-black px-4 py-1.5 font-anton text-sm uppercase tracking-wider transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
-                    >
-                      <span>VISIT LIVE: {cs.linkDisplay}</span>
-                      <span>↗</span>
-                    </a>
-                  ) : (
-                    <div className="inline-flex items-center gap-2 bg-[#111] text-[#fbda03] border-[2.5px] border-black px-4 py-1.5 font-anton text-sm uppercase tracking-wider">
-                      <span className="w-2 h-2 rounded-full bg-[#fbda03]" />
-                      <span>IN PROGRESS • DEMO AVAILABLE ON REQUEST</span>
-                    </div>
-                  )}
+                  <div>
+                    {cs.link ? (
+                      <a
+                        href={cs.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 bg-black text-white hover:bg-white hover:text-black border-[2.5px] border-black px-4 py-1.5 font-anton text-sm uppercase tracking-wider transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+                      >
+                        <span>VISIT LIVE: {cs.linkDisplay}</span>
+                        <span>↗</span>
+                      </a>
+                    ) : (
+                      <div className="inline-flex items-center gap-2 bg-[#111] text-[#fbda03] border-[2.5px] border-black px-4 py-1.5 font-anton text-sm uppercase tracking-wider">
+                        <span className="w-2 h-2 rounded-full bg-[#fbda03]" />
+                        <span>WORK IN PROGRESS</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <h3 className="font-anton text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.88] mb-3">
-                  {cs.name}
-                </h3>
-                <p className="font-archivo text-xl sm:text-2xl uppercase tracking-tight text-black/90 max-w-4xl">
-                  {cs.headline}
-                </p>
-              </div>
+                <div>
+                  <h3 className="font-anton text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.88] mb-3">
+                    {cs.name}
+                  </h3>
+                  <p className="font-archivo text-xl sm:text-2xl uppercase tracking-tight text-black/90 max-w-4xl">
+                    {cs.headline}
+                  </p>
+                </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-                {/* Screenshot Container */}
-                <div className="lg:col-span-6 flex flex-col gap-3">
-                  <div className="border-[3.5px] border-black bg-black p-2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                    <div className="bg-[#1a1a1c] text-white px-3 py-1.5 flex items-center justify-between border-b border-white/20 mb-2 font-mono text-[11px]">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
-                        <span className="ml-2 text-gray-400 font-bold uppercase tracking-wider">
-                          {cs.name}.SYSTEM
+                  {/* Screenshot Container */}
+                  <div className="lg:col-span-6 flex flex-col gap-3">
+                    <div className="border-[3.5px] border-black bg-black p-2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                      <div className="bg-[#1a1a1c] text-white px-3 py-1.5 flex items-center justify-between border-b border-white/20 mb-2 font-mono text-[11px]">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
+                          <span className="ml-2 text-gray-400 font-bold uppercase tracking-wider">
+                            {cs.name}.SYSTEM
+                          </span>
+                        </div>
+                        <span className="text-gray-400">
+                          {cs.link ? cs.linkDisplay : "SOUS-CHEF.LABS"}
                         </span>
                       </div>
-                      <span className="text-gray-400">
-                        {cs.link ? cs.linkDisplay : "SOUS-CHEF-LABS.INTERNAL"}
-                      </span>
-                    </div>
 
-                    <div className="relative w-full aspect-video sm:aspect-[16/10] bg-[#111] overflow-hidden border border-black flex items-center justify-center">
-                      <Image
-                        src={cs.image}
-                        alt={`${cs.name} Screenshot Preview`}
-                        fill
-                        className="object-cover object-top"
-                      />
+                      <div className="relative w-full aspect-video sm:aspect-[16/10] bg-[#111] overflow-hidden border border-black flex items-center justify-center">
+                        <Image
+                          src={cs.image}
+                          alt={`${cs.name} Screenshot Preview`}
+                          fill
+                          className="object-cover object-top"
+                        />
 
-                      {/* EYE ASSET INSIDE THE DEMO SCREEN FOR SOUS CHEF */}
-                      {cs.id === "sous-chef" && (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] z-20 select-none">
-                          <div className="relative w-28 sm:w-36 h-14 sm:h-18 bg-white rounded-[50%] border-[3.5px] border-black flex items-center justify-center overflow-hidden shadow-[5px_5px_0px_0px_#fbda03]">
-                            <div className="relative w-12 sm:w-16 h-12 sm:h-16 bg-[#fbda03] rounded-full border-[2.5px] border-black flex items-center justify-center animate-eye-pupil">
-                              <svg
-                                viewBox="0 0 24 24"
-                                className="w-6 sm:w-8 h-6 sm:h-8 fill-black animate-star-spin"
-                              >
-                                <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
-                              </svg>
+                        {/* Clean Eye Inside Demo Screen For Sous Chef */}
+                        {cs.id === "sous-chef" && (
+                          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] z-20 select-none">
+                            <div className="relative w-28 sm:w-36 h-14 sm:h-18 bg-white rounded-[50%] border-[3.5px] border-black flex items-center justify-center overflow-hidden shadow-[5px_5px_0px_0px_#fbda03]">
+                              <div className="relative w-12 sm:w-16 h-12 sm:h-16 bg-[#fbda03] rounded-full border-[2.5px] border-black flex items-center justify-center animate-eye-pupil">
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  className="w-6 sm:w-8 h-6 sm:h-8 fill-black animate-star-spin"
+                                >
+                                  <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
+                                </svg>
+                              </div>
+                            </div>
+                            <div className="mt-3 bg-black text-[#fbda03] border-[2px] border-black px-3 py-1 font-anton text-xs sm:text-sm tracking-wider uppercase">
+                              WORK IN PROGRESS
                             </div>
                           </div>
-                          <div className="mt-3 bg-black text-[#fbda03] border-[2px] border-[#fbda03] px-3 py-1 font-anton text-xs sm:text-sm tracking-wider uppercase shadow-[3px_3px_0px_0px_#000]">
-                            AI COMPUTER VISION TERMINAL ACTIVE
-                          </div>
-                        </div>
-                      )}
+                        )}
 
-                      <div className="absolute bottom-2 left-2 bg-black/80 text-white px-2 py-1 text-[10px] font-bold uppercase tracking-wider border border-white/40 z-20">
-                        {cs.link ? "VERIFIED PRODUCTION PREVIEW" : "LAB WORKBENCH RUNNING"}
+                        <div className="absolute bottom-2 left-2 bg-black/85 text-white px-2 py-1 text-[10px] font-bold uppercase tracking-wider border border-white/30 z-20">
+                          {cs.link ? "PRODUCTION PREVIEW" : "WORK IN PROGRESS"}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
                   {cs.link && (
                     <a
