@@ -194,7 +194,7 @@ export default function AgencyPosterPage() {
             onClick={() => navigateToSection("#contact", "WORK WITH US")}
             className="hidden sm:inline-block bg-[#fbda03] text-black border-[3px] border-black px-6 py-2.5 font-anton text-base sm:text-lg uppercase tracking-wider hover:bg-white transition-colors cursor-pointer"
           >
-            LET'S TALK ↗
+            LET'S TALK
           </button>
 
           {/* LARGE PROMINENT ILLUMINATING EYE ASSET */}
@@ -686,7 +686,6 @@ export default function AgencyPosterPage() {
                         className="inline-flex items-center gap-2 bg-black text-white hover:bg-white hover:text-black border-[2.5px] border-black px-4 py-1.5 font-anton text-sm uppercase tracking-wider transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
                       >
                         <span>VISIT LIVE: {cs.linkDisplay}</span>
-                        <span>↗</span>
                       </a>
                     ) : (
                       <div className="inline-flex items-center gap-2 bg-[#111] text-[#fbda03] border-[2.5px] border-black px-4 py-1.5 font-anton text-sm uppercase tracking-wider">
@@ -765,7 +764,7 @@ export default function AgencyPosterPage() {
                       rel="noreferrer"
                       className="text-xs font-black uppercase text-black hover:underline tracking-wider flex items-center gap-1"
                     >
-                      OPEN {cs.linkDisplay} IN NEW TAB ↗
+                      OPEN {cs.linkDisplay} IN NEW TAB
                     </a>
                   )}
                 </div>
@@ -853,7 +852,6 @@ export default function AgencyPosterPage() {
               </p>
               <div className="pt-2 border-t border-black/30 flex items-center justify-between font-anton text-xs">
                 <span>{item.link ? item.linkDisplay : "IN PROGRESS"}</span>
-                <span>↗</span>
               </div>
             </div>
           ))}
@@ -1084,7 +1082,7 @@ export default function AgencyPosterPage() {
                   href="mailto:hello@needhelpbuilding.com?subject=Startup%20CTO%20Equity%20Pitch&body=Hi%20NeedHelpBuilding%20Team%2C%0A%0AWe%20would%20love%20to%20pitch%20our%20startup%20for%20the%20Sunday%20session.%0A%0AStartup%20Name%3A%20%0AFounder(s)%3A%20%0AWebsite%2FDeck%20Link%3A%20%0AWhat%20we're%20building%3A%20"
                   className="w-full bg-black text-white hover:bg-white hover:text-black border-[3.5px] border-black py-4 px-4 text-center font-anton text-2xl uppercase tracking-wider transition-colors shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 cursor-pointer block"
                 >
-                  PITCH YOUR STARTUP VIA EMAIL ↗
+                  PITCH YOUR STARTUP VIA EMAIL
                 </a>
 
                 <div className="flex items-center justify-between text-[11px] font-mono font-black text-black">
@@ -1353,7 +1351,7 @@ export default function AgencyPosterPage() {
               href="mailto:hello@needhelpbuilding.com?subject=Client%20Referral%20Introduction&body=Hi%20NeedHelpBuilding%20Team%2C%0A%0AI%20am%20an%20existing%2Fpast%20client%20and%20would%20like%20to%20refer%20a%20friend%2Fbusiness%3A%0A%0AMy%20Name%20%2F%20Company%3A%20%0AReferred%20Founder's%20Name%3A%20%0AReferred%20Founder's%20Email%20or%20WhatsApp%3A%20%0AProject%20they%20need%20built%3A%20"
               className="w-full bg-[#fbda03] hover:bg-black hover:text-[#fbda03] text-black border-[3px] border-black py-3.5 px-4 text-center font-anton text-lg sm:text-xl uppercase tracking-wider transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] block cursor-pointer"
             >
-              INTRODUCE A CLIENT VIA EMAIL ↗
+              INTRODUCE A CLIENT VIA EMAIL
             </a>
           </div>
 
@@ -1390,7 +1388,7 @@ export default function AgencyPosterPage() {
             onClick={() => setIsBooked(!isBooked)}
             className="mt-10 bg-black text-white hover:bg-white hover:text-black border-[4px] border-black py-4 sm:py-5 px-8 sm:px-14 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer font-anton text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider block"
           >
-            {isBooked ? "PROJECT REQUEST SENT — TALK SOON!" : "START YOUR PROJECT NOW ↗"}
+            {isBooked ? "PROJECT REQUEST SENT — TALK SOON!" : "START YOUR PROJECT NOW"}
           </button>
 
         </div>
