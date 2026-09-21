@@ -128,7 +128,7 @@ export default function AgencyPosterPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#0c0c0d] text-white flex flex-col items-center justify-start selection:bg-[#fbda03] selection:text-black">
+    <main className="min-h-screen w-full bg-[#0c0c0d] text-white flex flex-col items-center justify-start selection:bg-[#fbda03] selection:text-black overflow-x-hidden">
 
       {/* ============================================================ */}
       {/* INDUSTRY-GRADE FULLSCREEN SECTION WIPE CURTAIN TRANSITION   */}
@@ -163,7 +163,7 @@ export default function AgencyPosterPage() {
             className="flex items-center group cursor-pointer select-none"
             aria-label="Need Help Building Home"
           >
-            <span className="font-anton text-white text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none uppercase group-hover:text-[#fbda03] transition-colors">
+            <span className="font-anton text-white text-2xl xs:text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none uppercase group-hover:text-[#fbda03] transition-colors">
               NEED HELP BUILDING<span className="text-[#fbda03]">?</span>
             </span>
           </a>
@@ -345,7 +345,7 @@ export default function AgencyPosterPage() {
               <div className="w-1.5 h-[1.5px] bg-black" />
             </div>
 
-            <h1 className="font-anton text-[55px] sm:text-[105px] lg:text-[140px] leading-[0.88] tracking-[-0.02em] uppercase text-center select-none">
+            <h1 className="font-anton text-[44px] xs:text-[52px] sm:text-[105px] lg:text-[140px] leading-[0.88] tracking-[-0.02em] uppercase text-center select-none">
               NEED HELP
             </h1>
           </div>
@@ -368,7 +368,7 @@ export default function AgencyPosterPage() {
               <div className="w-1.5 h-[1.5px] bg-black" />
             </div>
 
-            <h2 className="font-anton text-[52px] sm:text-[98px] lg:text-[132px] leading-[0.85] tracking-[-0.01em] uppercase text-center flex items-center justify-center select-none">
+            <h2 className="font-anton text-[42px] xs:text-[50px] sm:text-[98px] lg:text-[132px] leading-[0.85] tracking-[-0.01em] uppercase text-center flex items-center justify-center select-none">
               BUILDIN
               <span className="inline-block relative">
                 G
@@ -381,17 +381,17 @@ export default function AgencyPosterPage() {
           </div>
 
           {/* Blue Signboard Pill (Attached to vertical rods with mounting screws) */}
-          <div className="relative mt-5 sm:mt-8 z-20 select-none pointer-events-none">
-            <div className="relative bg-[#b3cde3] border-[3.5px] border-black rounded-full px-8 sm:px-14 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rotate-[-1.5deg]">
+          <div className="relative mt-5 sm:mt-8 z-20 select-none pointer-events-none max-w-full">
+            <div className="relative bg-[#b3cde3] border-[3.5px] border-black rounded-full px-5 sm:px-14 py-2 sm:py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rotate-[-1.5deg]">
               {/* Screws on blue signboard pill */}
-              <div className="absolute top-1/2 -translate-y-1/2 left-3 sm:left-5 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-5 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
                 <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
               </div>
-              <div className="absolute top-1/2 -translate-y-1/2 right-3 sm:right-5 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-5 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
                 <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
               </div>
 
-              <span className="font-archivo text-[18px] sm:text-[30px] tracking-wider uppercase text-black font-extrabold">
+              <span className="font-archivo text-[13px] xs:text-[15px] sm:text-[30px] tracking-wider uppercase text-black font-extrabold text-center block">
                 WEBSITES • WEB DESIGN • AUTOMATIONS • SYSTEMS
               </span>
             </div>
@@ -641,9 +641,9 @@ export default function AgencyPosterPage() {
               <button
                 onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
                 aria-label="Previous project"
-                className="absolute -left-4 sm:-left-7 top-1/2 -translate-y-1/2 z-40 w-12 sm:w-14 h-12 sm:h-14 bg-[#fbda03] hover:bg-white text-black border-[3.5px] border-black flex items-center justify-center shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="absolute -left-2 sm:-left-7 top-1/2 -translate-y-1/2 z-40 w-10 sm:w-14 h-10 sm:h-14 bg-[#fbda03] hover:bg-white text-black border-[3px] sm:border-[3.5px] border-black flex items-center justify-center shadow-[3px_3px_0px_0px_#000] sm:shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M15 18l-6-6 6-6" />
                 </svg>
               </button>
@@ -652,9 +652,9 @@ export default function AgencyPosterPage() {
               <button
                 onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
                 aria-label="Next project"
-                className="absolute -right-4 sm:-right-7 top-1/2 -translate-y-1/2 z-40 w-12 sm:w-14 h-12 sm:h-14 bg-[#fbda03] hover:bg-white text-black border-[3.5px] border-black flex items-center justify-center shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="absolute -right-2 sm:-right-7 top-1/2 -translate-y-1/2 z-40 w-10 sm:w-14 h-10 sm:h-14 bg-[#fbda03] hover:bg-white text-black border-[3px] sm:border-[3.5px] border-black flex items-center justify-center shadow-[3px_3px_0px_0px_#000] sm:shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 18l6-6-6-6" />
                 </svg>
               </button>
@@ -1372,7 +1372,7 @@ export default function AgencyPosterPage() {
           </div>
 
           {/* Main Giant Headline: "LET'S BUILD YOUR SYSTEMS." */}
-          <h2 className="mt-8 font-anton text-[68px] sm:text-[110px] lg:text-[145px] leading-[0.88] uppercase tracking-tight text-black select-none">
+          <h2 className="mt-8 font-anton text-[46px] xs:text-[58px] sm:text-[100px] lg:text-[145px] leading-[0.88] uppercase tracking-tight text-black select-none">
             LET'S BUILD YOUR
             <br />
             SYSTEMS.
@@ -1383,13 +1383,15 @@ export default function AgencyPosterPage() {
             Tell us what you want to build or automate. We will review your requirements, design the architecture, and get your project into development immediately.
           </p>
 
-          {/* Large Brutalist Button: "START YOUR PROJECT NOW" */}
-          <button
-            onClick={() => setIsBooked(!isBooked)}
-            className="mt-10 bg-black text-white hover:bg-white hover:text-black border-[4px] border-black py-4 sm:py-5 px-8 sm:px-14 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer font-anton text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider block"
+          {/* Large Brutalist Button: "START YOUR PROJECT NOW" -> Direct to WhatsApp */}
+          <a
+            href="https://wa.me/919219061093?text=Hi%20NeedHelpBuilding%20team%2C%20I%20want%20to%20start%20a%20project%20with%20you."
+            target="_blank"
+            rel="noreferrer"
+            className="mt-10 bg-black text-white hover:bg-white hover:text-black border-[4px] border-black py-4 sm:py-5 px-6 sm:px-14 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer font-anton text-xl sm:text-4xl lg:text-5xl uppercase tracking-wider inline-block text-center"
           >
-            {isBooked ? "PROJECT REQUEST SENT — TALK SOON!" : "START YOUR PROJECT NOW"}
-          </button>
+            START YOUR PROJECT NOW
+          </a>
 
         </div>
 
