@@ -192,7 +192,7 @@ export default function AgencyPosterPage() {
         <div className="flex items-center gap-4 sm:gap-6">
           <button
             onClick={() => navigateToSection("#contact", "WORK WITH US")}
-            className="hidden sm:inline-block bg-[#fbda03] text-black border-[3px] border-black px-6 py-2.5 font-anton text-base sm:text-lg uppercase tracking-wider shadow-[4px_4px_0px_0px_#ffffff] hover:bg-white transition-colors cursor-pointer"
+            className="hidden sm:inline-block bg-[#fbda03] text-black border-[3px] border-black px-6 py-2.5 font-anton text-base sm:text-lg uppercase tracking-wider hover:bg-white transition-colors cursor-pointer"
           >
             LET'S TALK ↗
           </button>
@@ -654,7 +654,30 @@ export default function AgencyPosterPage() {
                   </span>
                 </div>
 
-                <div>
+                <div className="flex items-center gap-3">
+                  {/* Clean Project Navigation Controls in Header */}
+                  <div className="flex items-center border-[2.5px] border-black bg-white shadow-[3px_3px_0px_0px_#000]">
+                    <button
+                      onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
+                      aria-label="Previous project"
+                      className="px-3 py-1 bg-white hover:bg-[#fbda03] text-black font-anton text-sm border-r-[2px] border-black transition-colors cursor-pointer flex items-center gap-1"
+                    >
+                      <span>←</span>
+                      <span className="hidden sm:inline text-xs">PREV</span>
+                    </button>
+                    <span className="px-2.5 py-1 font-mono text-xs font-black text-black select-none">
+                      {activeCaseStudy + 1} / {caseStudies.length}
+                    </span>
+                    <button
+                      onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
+                      aria-label="Next project"
+                      className="px-3 py-1 bg-white hover:bg-[#fbda03] text-black font-anton text-sm border-l-[2px] border-black transition-colors cursor-pointer flex items-center gap-1"
+                    >
+                      <span className="hidden sm:inline text-xs">NEXT</span>
+                      <span>→</span>
+                    </button>
+                  </div>
+
                   {cs.link ? (
                     <a
                       href={cs.link}
@@ -685,28 +708,9 @@ export default function AgencyPosterPage() {
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-                {/* Screenshot Container with Side Navigation Arrows */}
+                {/* Screenshot Container */}
                 <div className="lg:col-span-6 flex flex-col gap-3">
-                  <div className="relative border-[3.5px] border-black bg-black p-2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                    
-                    {/* Left Navigation Arrow */}
-                    <button
-                      onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
-                      aria-label="Previous project"
-                      className="absolute -left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-[#fbda03] hover:bg-white text-black border-[2.5px] border-black flex items-center justify-center font-anton text-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
-                    >
-                      ←
-                    </button>
-
-                    {/* Right Navigation Arrow */}
-                    <button
-                      onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
-                      aria-label="Next project"
-                      className="absolute -right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-[#fbda03] hover:bg-white text-black border-[2.5px] border-black flex items-center justify-center font-anton text-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
-                    >
-                      →
-                    </button>
-
+                  <div className="border-[3.5px] border-black bg-black p-2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                     <div className="bg-[#1a1a1c] text-white px-3 py-1.5 flex items-center justify-between border-b border-white/20 mb-2 font-mono text-[11px]">
                       <div className="flex items-center gap-1.5">
                         <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />
@@ -1377,17 +1381,15 @@ export default function AgencyPosterPage() {
 
           {/* Description Paragraph */}
           <p className="mt-8 font-sans font-bold text-black text-base sm:text-lg max-w-2xl leading-relaxed tracking-tight">
-            Drop us your current challenge or workflow bottleneck. We will review
-            your architecture and send you a custom automation blueprint within
-            24 hours.
+            Tell us what you want to build or automate. We will review your requirements, design the architecture, and get your project into development immediately.
           </p>
 
-          {/* Large Brutalist Button: "CLAIM YOUR AUTOMATION BLUEPRINT" */}
+          {/* Large Brutalist Button: "START YOUR PROJECT NOW" */}
           <button
             onClick={() => setIsBooked(!isBooked)}
             className="mt-10 bg-black text-white hover:bg-white hover:text-black border-[4px] border-black py-4 sm:py-5 px-8 sm:px-14 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer font-anton text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider block"
           >
-            {isBooked ? "BLUEPRINT DISPATCHED — TALK SOON!" : "CLAIM YOUR AUTOMATION BLUEPRINT"}
+            {isBooked ? "PROJECT REQUEST SENT — TALK SOON!" : "START YOUR PROJECT NOW ↗"}
           </button>
 
         </div>
@@ -1395,14 +1397,13 @@ export default function AgencyPosterPage() {
         {/* Footer Bottom Bar: Direct Typography (No Boxes) & Real Social Icons */}
         <div className="w-full max-w-7xl mt-16 sm:mt-24 pt-6 border-t-[3.5px] border-black flex flex-col md:flex-row items-center justify-between gap-6 font-anton tracking-wider uppercase">
 
-          {/* Email and WhatsApp / Phone directly written as raw text (No Boxes) */}
+          {/* Email and Phone directly as is */}
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 text-black">
             <a
               href="mailto:hello@needhelpbuilding.com"
-              className="text-base sm:text-lg font-mono font-bold tracking-tight lowercase text-black hover:underline cursor-pointer flex items-center gap-2"
+              className="text-base sm:text-xl font-mono font-bold tracking-tight lowercase text-black hover:underline cursor-pointer"
             >
-              <span className="font-anton uppercase tracking-wider text-sm">MAIL:</span>
-              <span>hello@needhelpbuilding.com</span>
+              hello@needhelpbuilding.com
             </a>
 
             <span className="text-black/40 font-bold select-none">•</span>
@@ -1411,24 +1412,23 @@ export default function AgencyPosterPage() {
               href="https://wa.me/919219061093"
               target="_blank"
               rel="noreferrer"
-              className="text-base sm:text-lg font-mono font-bold tracking-tight text-black hover:underline cursor-pointer flex items-center gap-2"
+              className="text-base sm:text-xl font-mono font-bold tracking-tight text-black hover:underline cursor-pointer"
             >
-              <span className="font-anton uppercase tracking-wider text-sm">TEL / WA:</span>
-              <span>+91 9219061093</span>
+              +91 9219061093
             </a>
           </div>
 
-          {/* Social Icons: Instagram, LinkedIn, WhatsApp, X (Twitter) */}
-          <div className="flex items-center justify-center gap-5 sm:gap-7 text-black">
+          {/* Pure Social Icons: Instagram, LinkedIn, WhatsApp, X (Twitter) - No Text */}
+          <div className="flex items-center justify-center gap-6 sm:gap-8 text-black">
             {/* Instagram */}
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
               title="Instagram"
-              className="text-black hover:opacity-75 transition-opacity flex items-center gap-1.5 cursor-pointer group"
+              className="text-black hover:opacity-75 transition-opacity cursor-pointer"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
@@ -1441,9 +1441,9 @@ export default function AgencyPosterPage() {
               target="_blank"
               rel="noreferrer"
               title="LinkedIn"
-              className="text-black hover:opacity-75 transition-opacity flex items-center gap-1.5 cursor-pointer group"
+              className="text-black hover:opacity-75 transition-opacity cursor-pointer"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z" />
               </svg>
             </a>
@@ -1454,9 +1454,9 @@ export default function AgencyPosterPage() {
               target="_blank"
               rel="noreferrer"
               title="WhatsApp"
-              className="text-black hover:opacity-75 transition-opacity flex items-center gap-1.5 cursor-pointer group"
+              className="text-black hover:opacity-75 transition-opacity cursor-pointer"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.77 14.07c-.24.67-1.39 1.28-1.92 1.36-.5.08-1.14.12-3.66-.92-3.22-1.33-5.3-4.57-5.46-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.35 1.11-2.67.29-.32.63-.4.84-.4.21 0 .42 0 .61.01.2.01.47-.08.73.55.27.67.92 2.25 1 2.41.08.16.13.35.03.56-.1.21-.15.34-.3.51-.15.17-.32.38-.46.51-.15.15-.31.31-.13.62.18.31.8 1.32 1.72 2.14 1.18 1.05 2.17 1.38 2.48 1.53.31.15.49.13.67-.08.18-.21.79-.92 1-1.24.21-.32.42-.26.71-.16.29.1 1.84.87 2.16 1.03.32.16.53.24.61.37.08.13.08.77-.16 1.44z" />
               </svg>
             </a>
@@ -1467,9 +1467,9 @@ export default function AgencyPosterPage() {
               target="_blank"
               rel="noreferrer"
               title="X (Twitter)"
-              className="text-black hover:opacity-75 transition-opacity flex items-center gap-1.5 cursor-pointer group"
+              className="text-black hover:opacity-75 transition-opacity cursor-pointer"
             >
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
