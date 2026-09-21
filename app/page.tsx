@@ -128,7 +128,7 @@ export default function AgencyPosterPage() {
   ];
 
   return (
-    <main className="min-h-screen w-full bg-[#0c0c0d] text-white flex flex-col items-center justify-start selection:bg-[#fbda03] selection:text-black overflow-x-hidden">
+    <main className="min-h-screen w-full bg-[#0c0c0d] text-white flex flex-col items-center justify-start selection:bg-[#fbda03] selection:text-black">
 
       {/* ============================================================ */}
       {/* INDUSTRY-GRADE FULLSCREEN SECTION WIPE CURTAIN TRANSITION   */}
@@ -155,15 +155,15 @@ export default function AgencyPosterPage() {
       {/* ============================================================ */}
       {/* FAT BOLD STICKY NAVIGATION BAR (NO BOTTOM BORDER)            */}
       {/* ============================================================ */}
-      <header className="sticky top-0 z-50 w-full bg-[#0c0c0d] px-6 sm:px-12 py-5 sm:py-6 flex items-center justify-between">
+      <header className="sticky top-0 z-50 w-full bg-[#0c0c0d] px-4 sm:px-12 py-4 sm:py-6 flex items-center justify-between">
         {/* Large Bold Brand Wordmark (Clean Text Only) */}
-        <div className="flex items-center">
+        <div className="flex items-center min-w-0">
           <a
             href="#"
             className="flex items-center group cursor-pointer select-none"
             aria-label="Need Help Building Home"
           >
-            <span className="font-anton text-white text-2xl xs:text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none uppercase group-hover:text-[#fbda03] transition-colors">
+            <span className="font-anton text-white text-xl xs:text-2xl sm:text-4xl lg:text-5xl tracking-tight leading-none uppercase group-hover:text-[#fbda03] transition-colors whitespace-nowrap">
               NEED HELP BUILDING<span className="text-[#fbda03]">?</span>
             </span>
           </a>
@@ -189,7 +189,7 @@ export default function AgencyPosterPage() {
         </nav>
 
         {/* Big Bold Eye Asset & Action */}
-        <div className="flex items-center gap-4 sm:gap-6">
+        <div className="flex items-center gap-2.5 sm:gap-6 shrink-0">
           <button
             onClick={() => navigateToSection("#contact", "WORK WITH US")}
             className="hidden sm:inline-block bg-[#fbda03] text-black border-[3px] border-black px-6 py-2.5 font-anton text-base sm:text-lg uppercase tracking-wider hover:bg-white transition-colors cursor-pointer"
@@ -198,12 +198,12 @@ export default function AgencyPosterPage() {
           </button>
 
           {/* LARGE PROMINENT ILLUMINATING EYE ASSET */}
-          <div className="relative w-24 sm:w-28 h-12 sm:h-14 flex items-center justify-center select-none pointer-events-none">
-            <div className="relative w-24 sm:w-28 h-12 sm:h-14 bg-white rounded-[50%] border-[3px] border-black flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_0px_#fbda03]">
-              <div className="relative w-10 sm:w-12 h-10 sm:h-12 bg-[#c59eb9] rounded-full border-[2.5px] border-black flex items-center justify-center animate-eye-pupil">
+          <div className="relative w-16 xs:w-20 sm:w-28 h-8 xs:h-10 sm:h-14 flex items-center justify-center select-none pointer-events-none">
+            <div className="relative w-16 xs:w-20 sm:w-28 h-8 xs:h-10 sm:h-14 bg-white rounded-[50%] border-[2px] sm:border-[3px] border-black flex items-center justify-center overflow-hidden shadow-[2px_2px_0px_0px_#fbda03] sm:shadow-[4px_4px_0px_0px_#fbda03]">
+              <div className="relative w-7 xs:w-8 sm:w-12 h-7 xs:h-8 sm:h-12 bg-[#c59eb9] rounded-full border-[1.5px] sm:border-[2.5px] border-black flex items-center justify-center animate-eye-pupil">
                 <svg
                   viewBox="0 0 24 24"
-                  className="w-5 sm:w-6 h-5 sm:h-6 fill-black animate-star-spin"
+                  className="w-3.5 xs:w-4 sm:w-6 h-3.5 xs:h-4 sm:h-6 fill-black animate-star-spin"
                 >
                   <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
                 </svg>
@@ -213,7 +213,7 @@ export default function AgencyPosterPage() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-black font-anton text-sm uppercase bg-[#fbda03] border-[2.5px] border-black px-3.5 py-1.5 cursor-pointer shadow-[3px_3px_0px_0px_#fff]"
+            className="lg:hidden text-black font-anton text-xs xs:text-sm uppercase bg-[#fbda03] border-[2px] sm:border-[2.5px] border-black px-3 py-1.5 cursor-pointer shadow-[2px_2px_0px_0px_#fff]"
             aria-label="Toggle navigation"
           >
             {mobileMenuOpen ? "CLOSE" : "MENU"}
@@ -404,9 +404,9 @@ export default function AgencyPosterPage() {
 
         {/* HERO LOWER BAR */}
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 pt-6">
-          <div className="relative flex items-center gap-4 select-none w-full md:w-auto">
-            <div className="relative">
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-30 animate-pin-wiggle origin-bottom">
+          <div className="relative flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 select-none w-full md:w-auto">
+            <div className="relative w-fit">
+              <div className="absolute -top-6 left-6 z-30 animate-pin-wiggle origin-bottom">
                 <svg width="28" height="34" viewBox="0 0 28 34" fill="none">
                   <path
                     d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z"
@@ -418,16 +418,14 @@ export default function AgencyPosterPage() {
                 </svg>
               </div>
 
-              <div className="bg-[#fbda03] border-[3px] border-black p-4 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] rotate-[-2deg]">
-                <div className="font-anton text-black text-[28px] sm:text-[34px] leading-[0.92] uppercase tracking-tight">
-                  OUR
-                  <br />
-                  SERVICES
+              <div className="bg-[#fbda03] border-[3px] border-black py-2.5 px-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-[-2deg]">
+                <div className="font-anton text-black text-[22px] sm:text-[34px] leading-[0.92] uppercase tracking-tight">
+                  OUR SERVICES
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col gap-1.5 flex-1">
+            <div className="flex flex-col gap-1.5 flex-1 w-full">
               {[
                 "01 WEBSITES & WEB APPLICATIONS",
                 "02 BESPOKE WEB DESIGN & UI/UX",
@@ -435,7 +433,7 @@ export default function AgencyPosterPage() {
                 "04 FRACTIONAL CTO FOR STARTUPS",
               ].map((s) => (
                 <div key={s} className="border-b border-white/30 pb-1 flex items-center gap-2">
-                  <span className="text-[11px] font-bold tracking-wider text-gray-200">
+                  <span className="text-[10px] xs:text-[11px] font-bold tracking-wider text-gray-200">
                     {s}
                   </span>
                 </div>
@@ -616,12 +614,29 @@ export default function AgencyPosterPage() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+            <div className="flex sm:hidden items-center gap-1.5 mr-1">
+              <button
+                onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
+                aria-label="Previous project"
+                className="w-9 h-9 bg-[#fbda03] text-black border-[2px] border-black flex items-center justify-center font-bold cursor-pointer"
+              >
+                ◀
+              </button>
+              <button
+                onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
+                aria-label="Next project"
+                className="w-9 h-9 bg-[#fbda03] text-black border-[2px] border-black flex items-center justify-center font-bold cursor-pointer"
+              >
+                ▶
+              </button>
+            </div>
+
             {caseStudies.map((cs, idx) => (
               <button
                 key={cs.id}
                 onClick={() => setActiveCaseStudy(idx)}
-                className={`px-4 py-2 font-anton text-sm uppercase tracking-wider border-[2.5px] border-black transition-colors cursor-pointer ${activeCaseStudy === idx
+                className={`px-3 sm:px-4 py-2 font-anton text-xs sm:text-sm uppercase tracking-wider border-[2.5px] border-black transition-colors cursor-pointer ${activeCaseStudy === idx
                   ? "bg-[#fbda03] text-black shadow-[4px_4px_0px_0px_#ffffff]"
                   : "bg-[#18181b] text-gray-300 hover:text-white hover:border-[#fbda03]"
                   }`}
@@ -637,24 +652,24 @@ export default function AgencyPosterPage() {
           const cs = caseStudies[activeCaseStudy];
           return (
             <div className="relative w-full">
-              {/* Left Navigation Arrow Icon on the Side of the Large Preview Card */}
+              {/* Left Navigation Arrow Icon */}
               <button
                 onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
                 aria-label="Previous project"
-                className="absolute -left-2 sm:-left-7 top-1/2 -translate-y-1/2 z-40 w-10 sm:w-14 h-10 sm:h-14 bg-[#fbda03] hover:bg-white text-black border-[3px] sm:border-[3.5px] border-black flex items-center justify-center shadow-[3px_3px_0px_0px_#000] sm:shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="hidden sm:flex absolute -left-7 top-1/2 -translate-y-1/2 z-40 w-14 h-14 bg-[#fbda03] hover:bg-white text-black border-[3.5px] border-black items-center justify-center shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
-                <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M15 18l-6-6 6-6" />
                 </svg>
               </button>
 
-              {/* Right Navigation Arrow Icon on the Side of the Large Preview Card */}
+              {/* Right Navigation Arrow Icon */}
               <button
                 onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
                 aria-label="Next project"
-                className="absolute -right-2 sm:-right-7 top-1/2 -translate-y-1/2 z-40 w-10 sm:w-14 h-10 sm:h-14 bg-[#fbda03] hover:bg-white text-black border-[3px] sm:border-[3.5px] border-black flex items-center justify-center shadow-[3px_3px_0px_0px_#000] sm:shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="hidden sm:flex absolute -right-7 top-1/2 -translate-y-1/2 z-40 w-14 h-14 bg-[#fbda03] hover:bg-white text-black border-[3.5px] border-black items-center justify-center shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
-                <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 18l6-6-6-6" />
                 </svg>
               </button>
@@ -662,7 +677,7 @@ export default function AgencyPosterPage() {
               <div
                 key={cs.id}
                 style={{ backgroundColor: cs.color }}
-                className="w-full border-[5px] border-black p-6 sm:p-10 lg:p-12 shadow-[10px_10px_0px_0px_rgba(255,255,255,0.9)] text-black flex flex-col justify-between gap-8 animate-morph-section"
+                className="w-full border-[4px] sm:border-[5px] border-black p-5 sm:p-10 lg:p-12 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.9)] sm:shadow-[10px_10px_0px_0px_rgba(255,255,255,0.9)] text-black flex flex-col justify-between gap-6 sm:gap-8 animate-morph-section"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b-[3px] border-black">
                   <div className="flex flex-wrap items-center gap-3">
@@ -751,9 +766,11 @@ export default function AgencyPosterPage() {
                           </div>
                         )}
 
-                        <div className="absolute bottom-2 left-2 bg-black/85 text-white px-2 py-1 text-[10px] font-bold uppercase tracking-wider border border-white/30 z-20">
-                          {cs.link ? "PRODUCTION PREVIEW" : "WORK IN PROGRESS"}
-                        </div>
+                        {cs.link && (
+                          <div className="absolute bottom-2 left-2 bg-black/85 text-white px-2 py-1 text-[10px] font-bold uppercase tracking-wider border border-white/30 z-20">
+                            PRODUCTION PREVIEW
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -808,13 +825,13 @@ export default function AgencyPosterPage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 grid grid-cols-3 gap-3 bg-black text-white p-4 border-[3px] border-black">
+                <div className="lg:col-span-5 grid grid-cols-3 gap-2 sm:gap-3 bg-black text-white p-3 sm:p-4 border-[3px] border-black">
                   {cs.impactStats.map((stat, i) => (
                     <div key={i} className="flex flex-col text-center">
-                      <span className="font-anton text-2xl sm:text-3xl text-[#fbda03]">
+                      <span className="font-anton text-xl xs:text-2xl sm:text-3xl text-[#fbda03] leading-none mb-1">
                         {stat.value}
                       </span>
-                      <span className="text-[9px] font-black uppercase text-gray-300 tracking-wider">
+                      <span className="text-[8px] xs:text-[9px] font-black uppercase text-gray-300 tracking-tight leading-tight">
                         {stat.label}
                       </span>
                     </div>
@@ -915,19 +932,19 @@ export default function AgencyPosterPage() {
           </div>
 
           {/* Abstract Signboard Plaque with Flat Screws */}
-          <div className="relative w-full bg-white text-black border-[4px] border-black px-6 sm:px-12 py-6 sm:py-8 shadow-[10px_10px_0px_0px_#fbda03]">
+          <div className="relative w-full bg-white text-black border-[4px] border-black px-4 sm:px-12 py-5 sm:py-8 shadow-[6px_6px_0px_0px_#fbda03] sm:shadow-[10px_10px_0px_0px_#fbda03]">
             {/* 4 Flat Corner Screws */}
-            <div className="absolute top-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
-              <div className="w-2 h-[1.5px] bg-black rotate-45" />
+            <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
             </div>
-            <div className="absolute top-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
-              <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+            <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
             </div>
-            <div className="absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
-              <div className="w-2 h-[1.5px] bg-black -rotate-45" />
+            <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
             </div>
-            <div className="absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
-              <div className="w-2 h-[1.5px] bg-black rotate-45" />
+            <div className="absolute bottom-2.5 sm:bottom-3 right-2.5 sm:right-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
             </div>
 
             {/* Graffiti Crown on Plaque */}
@@ -943,15 +960,15 @@ export default function AgencyPosterPage() {
               </svg>
             </div>
 
-            <h3 className="font-anton text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.88] select-none">
-              WE BECOME YOUR <span className="bg-[#fbda03] px-2 py-0.5 border-[3px] border-black inline-block mt-1 sm:mt-0">TECHNICAL CO-FOUNDER</span> &amp; CTO.
+            <h3 className="font-anton text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.92] select-none">
+              WE BECOME YOUR <span className="bg-[#fbda03] px-2 py-0.5 border-[2.5px] sm:border-[3px] border-black inline-block mt-1 sm:mt-0">TECHNICAL CO-FOUNDER</span> &amp; CTO.
             </h3>
           </div>
 
           {/* Under-signboard Abstract Pill */}
-          <div className="relative -mt-4 z-20">
-            <div className="bg-[#b3cde3] border-[3px] border-black rounded-full px-6 sm:px-10 py-1.5 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-[1.5deg]">
-              <span className="font-archivo text-xs sm:text-base tracking-widest uppercase text-black font-extrabold">
+          <div className="relative -mt-3 sm:-mt-4 z-20 max-w-full">
+            <div className="bg-[#b3cde3] border-[3px] border-black rounded-full px-4 sm:px-10 py-1.5 sm:py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-[1.5deg]">
+              <span className="font-archivo text-[10px] xs:text-xs sm:text-base tracking-wider uppercase text-black font-extrabold text-center block">
                 ZERO UPFRONT TECH RISK &bull; SPLIT RUNWAY &bull; SHARED EQUITY
               </span>
             </div>
@@ -1044,7 +1061,7 @@ export default function AgencyPosterPage() {
               </svg>
             </div>
 
-            <div className="bg-[#fbda03] text-black border-[4.5px] border-black p-6 sm:p-8 flex flex-col justify-between gap-6 shadow-[10px_10px_0px_0px_rgba(255,255,255,0.9)] h-full">
+            <div className="bg-[#fbda03] text-black border-[4px] sm:border-[4.5px] border-black p-5 sm:p-8 flex flex-col justify-between gap-6 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.9)] sm:shadow-[10px_10px_0px_0px_rgba(255,255,255,0.9)] h-full">
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between border-b-[2.5px] border-black pb-3">
                   <span className="font-mono text-xs font-black uppercase tracking-wider bg-black text-[#fbda03] px-2.5 py-1 border border-black">
@@ -1162,18 +1179,18 @@ export default function AgencyPosterPage() {
             {/* Abstract mounting vertical beam behind billboard (Bright readable yellow) */}
             <div className="absolute left-1/2 -translate-x-1/2 -top-6 bottom-[-20px] w-4 bg-[#fbda03] border-x-[2.5px] border-black shadow-[2px_0_0_0_#000] -z-10" />
 
-            <div className="relative bg-white text-black border-[4px] border-black p-6 sm:p-10 shadow-[10px_10px_0px_0px_#fbda03] rotate-[-1deg] flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
+            <div className="relative bg-white text-black border-[4px] border-black p-5 sm:p-10 shadow-[6px_6px_0px_0px_#fbda03] sm:shadow-[10px_10px_0px_0px_#fbda03] rotate-[-1deg] flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
               {/* 4 Corner Screws */}
-              <div className="absolute top-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
-                <div className="w-2 h-[1.5px] bg-black rotate-45" />
+              <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
               </div>
-              <div className="absolute top-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
+              </div>
+              <div className="hidden sm:flex absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black items-center justify-center">
                 <div className="w-2 h-[1.5px] bg-black -rotate-45" />
               </div>
-              <div className="absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
-                <div className="w-2 h-[1.5px] bg-black -rotate-45" />
-              </div>
-              <div className="absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="hidden sm:flex absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black items-center justify-center">
                 <div className="w-2 h-[1.5px] bg-black rotate-45" />
               </div>
 
@@ -1222,18 +1239,18 @@ export default function AgencyPosterPage() {
             {/* Abstract mounting vertical beam behind billboard (Bright readable yellow) */}
             <div className="absolute left-1/2 -translate-x-1/2 -top-6 bottom-[-20px] w-4 bg-[#fbda03] border-x-[2.5px] border-black shadow-[2px_0_0_0_#000] -z-10" />
 
-            <div className="relative bg-[#fbda03] text-black border-[4px] border-black p-6 sm:p-10 shadow-[10px_10px_0px_0px_#ffffff] rotate-[1.5deg] flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
+            <div className="relative bg-[#fbda03] text-black border-[4px] border-black p-5 sm:p-10 shadow-[6px_6px_0px_0px_#ffffff] sm:shadow-[10px_10px_0px_0px_#ffffff] rotate-[1.5deg] flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
               {/* 4 Corner Screws */}
-              <div className="absolute top-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
-                <div className="w-2 h-[1.5px] bg-black rotate-45" />
+              <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
               </div>
-              <div className="absolute top-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
+              </div>
+              <div className="hidden sm:flex absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black items-center justify-center">
                 <div className="w-2 h-[1.5px] bg-black -rotate-45" />
               </div>
-              <div className="absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
-                <div className="w-2 h-[1.5px] bg-black -rotate-45" />
-              </div>
-              <div className="absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
+              <div className="hidden sm:flex absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black items-center justify-center">
                 <div className="w-2 h-[1.5px] bg-black rotate-45" />
               </div>
 
@@ -1307,7 +1324,7 @@ export default function AgencyPosterPage() {
         </svg>
 
         {/* Abstract Referral Card Box */}
-        <div className="relative z-10 w-full max-w-6xl bg-[#18181b] border-[4px] border-black p-8 sm:p-12 lg:p-16 shadow-[14px_14px_0px_0px_#fbda03] flex flex-col lg:flex-row items-center justify-between gap-10">
+        <div className="relative z-10 w-full max-w-6xl bg-[#18181b] border-[4px] border-black p-5 sm:p-12 lg:p-16 shadow-[6px_6px_0px_0px_#fbda03] sm:shadow-[14px_14px_0px_0px_#fbda03] flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10">
 
           {/* Left Column: Heading & Explanation */}
           <div className="flex flex-col gap-4 max-w-2xl text-left">
