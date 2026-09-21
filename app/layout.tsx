@@ -1,22 +1,45 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Space_Grotesk, Inter } from "next/font/google";
+import { Anton, Archivo_Black, Space_Grotesk, Inter, Silkscreen } from "next/font/google";
 import "./globals.css";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-anton",
+  display: "swap",
+});
+
+const archivoBlack = Archivo_Black({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const silkscreen = Silkscreen({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-pixel",
+  display: "swap",
+});
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-heading",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
+  display: "swap",
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "future automations | AI-powered systems for real businesses",
-  description: "From custom automations to AI agents, we help teams save time, cut manual work and ship what matters.",
+  title: "NEED HELP BUILDING? | needhelpbuilding.com",
+  description: "We build custom automations, AI agents, high-converting web apps, and enterprise systems for growing businesses.",
 };
 
 export default function RootLayout({
@@ -25,8 +48,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}>
-      <body className="antialiased font-sans bg-[#F4F4F6] text-[#0A0A0C] selection:bg-black selection:text-white">
+    <html
+      lang="en"
+      className={`${anton.variable} ${archivoBlack.variable} ${silkscreen.variable} ${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}
+    >
+      <body className="antialiased bg-[#0c0c0d] text-white overflow-x-hidden selection:bg-[#fbda03] selection:text-black">
         {children}
       </body>
     </html>
