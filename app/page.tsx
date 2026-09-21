@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default function AgencyPosterPage() {
@@ -12,15 +12,6 @@ export default function AgencyPosterPage() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionPhase, setTransitionPhase] = useState<"in" | "out" | null>(null);
   const [wipeTitle, setWipeTitle] = useState("");
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleCopyEmail = () => {
     navigator.clipboard?.writeText("hello@needhelpbuilding.com");
@@ -144,11 +135,10 @@ export default function AgencyPosterPage() {
       {/* ============================================================ */}
       {isTransitioning && (
         <div
-          className={`fixed inset-0 z-[100] bg-[#fbda03] flex flex-col items-center justify-center p-8 border-y-[12px] border-black pointer-events-none select-none ${
-            transitionPhase === "in"
+          className={`fixed inset-0 z-[100] bg-[#fbda03] flex flex-col items-center justify-center p-8 border-y-[12px] border-black pointer-events-none select-none ${transitionPhase === "in"
               ? "animate-curtain-wipe-in"
               : "animate-curtain-wipe-out"
-          }`}
+            }`}
         >
           <div className="flex flex-col items-center text-center gap-4">
             <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-widest bg-black text-[#fbda03] px-4 py-1 border-[2.5px] border-black">
@@ -163,42 +153,27 @@ export default function AgencyPosterPage() {
       )}
 
       {/* ============================================================ */}
-      {/* RESTYLED STICKY NAVIGATION BAR WITH ILLUMINATING EYE         */}
+      {/* FAT BOLD STICKY NAVIGATION BAR (NO BOTTOM BORDER)            */}
       {/* ============================================================ */}
-      <header className="sticky top-0 z-50 w-full bg-[#0c0c0d]/90 backdrop-blur-md border-b-[3px] border-[#fbda03] px-4 sm:px-8 py-2.5 flex items-center justify-between">
-        {/* Brand Identity with Graffiti Scribble */}
-        <div className="flex items-center gap-3">
+      <header className="sticky top-0 z-50 w-full bg-[#0c0c0d] px-6 sm:px-12 py-5 sm:py-6 flex items-center justify-between">
+        {/* Large Bold Brand Wordmark (Clean Text Only) */}
+        <div className="flex items-center">
           <a
             href="#"
-            className="flex items-center gap-2.5 group cursor-pointer select-none"
+            className="flex items-center group cursor-pointer select-none"
             aria-label="Need Help Building Home"
           >
-            <div className="relative w-8 h-8 bg-[#fbda03] border-[2px] border-black flex items-center justify-center shadow-[2px_2px_0px_0px_#ffffff] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
-              <span className="font-anton text-black text-sm tracking-tight">
-                NHB
-              </span>
-              {/* Graffiti tag highlight dot */}
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#ff0055] rounded-full border border-black" />
-            </div>
-
-            <div className="flex flex-col">
-              <span className="font-anton text-white text-base sm:text-lg tracking-wider leading-none group-hover:text-[#fbda03] transition-colors">
-                NEED HELP BUILDING<span className="text-[#fbda03]">?</span>
-              </span>
-              <span className="font-mono text-[9px] text-[#fbda03] font-black tracking-widest uppercase flex items-center gap-1">
-                <span>EST. 2024</span>
-                <span className="text-white">•</span>
-                <span>PRODUCTION LAB</span>
-              </span>
-            </div>
+            <span className="font-anton text-white text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-none uppercase group-hover:text-[#fbda03] transition-colors">
+              NEED HELP BUILDING<span className="text-[#fbda03]">?</span>
+            </span>
           </a>
         </div>
 
-        {/* Minimal Nav Links */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+        {/* Fatter Bold Nav Links */}
+        <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
           {[
             { label: "SERVICES", href: "#capabilities" },
-            { label: "CASE STUDIES", href: "#case-studies" },
+            { label: "WORK", href: "#case-studies" },
             { label: "STARTUPS & CTO", href: "#startups-cto" },
             { label: "TESTIMONIALS", href: "#testimonials" },
             { label: "REFERRAL [10%]", href: "#referral" },
@@ -206,30 +181,29 @@ export default function AgencyPosterPage() {
             <button
               key={item.label}
               onClick={() => navigateToSection(item.href, item.label)}
-              className="font-anton text-sm tracking-wider uppercase text-gray-200 transition-colors duration-200 hover:text-[#fbda03] cursor-pointer"
+              className="font-anton text-lg xl:text-xl tracking-wider uppercase text-white hover:text-[#fbda03] transition-colors cursor-pointer"
             >
               {item.label}
             </button>
           ))}
         </nav>
 
-        {/* Right Action & The Iconic Eye Asset */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        {/* Big Bold Eye Asset & Action */}
+        <div className="flex items-center gap-4 sm:gap-6">
           <button
             onClick={() => navigateToSection("#contact", "WORK WITH US")}
-            className="hidden sm:flex items-center gap-1.5 bg-[#fbda03] text-black border-[2px] border-black px-3.5 py-1.5 font-anton text-xs uppercase tracking-wider shadow-[3px_3px_0px_0px_#ffffff] hover:bg-white transition-colors cursor-pointer"
+            className="hidden sm:inline-block bg-[#fbda03] text-black border-[3px] border-black px-6 py-2.5 font-anton text-base sm:text-lg uppercase tracking-wider shadow-[4px_4px_0px_0px_#ffffff] hover:bg-white transition-colors cursor-pointer"
           >
-            <span>BOOK NOW</span>
-            <span>⚡</span>
+            LET'S TALK ↗
           </button>
 
-          {/* THE RETURNED ILLUMINATING EYE ASSET IN NAVBAR */}
-          <div className="relative w-16 sm:w-20 h-8 sm:h-9 flex items-center justify-center select-none pointer-events-none">
-            <div className="relative w-16 sm:w-20 h-8 sm:h-9 bg-white rounded-[50%] border-[2px] border-black flex items-center justify-center overflow-hidden shadow-[2px_2px_0px_0px_#fbda03]">
-              <div className="relative w-6 sm:w-7 h-6 sm:h-7 bg-[#c59eb9] rounded-full border-[1.5px] border-black flex items-center justify-center animate-eye-pupil">
+          {/* LARGE PROMINENT ILLUMINATING EYE ASSET */}
+          <div className="relative w-24 sm:w-28 h-12 sm:h-14 flex items-center justify-center select-none pointer-events-none">
+            <div className="relative w-24 sm:w-28 h-12 sm:h-14 bg-white rounded-[50%] border-[3px] border-black flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_0px_#fbda03]">
+              <div className="relative w-10 sm:w-12 h-10 sm:h-12 bg-[#c59eb9] rounded-full border-[2.5px] border-black flex items-center justify-center animate-eye-pupil">
                 <svg
                   viewBox="0 0 24 24"
-                  className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-black animate-star-spin"
+                  className="w-5 sm:w-6 h-5 sm:h-6 fill-black animate-star-spin"
                 >
                   <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
                 </svg>
@@ -239,7 +213,7 @@ export default function AgencyPosterPage() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-black font-anton text-xs uppercase bg-[#fbda03] border-[2px] border-black px-2.5 py-1 cursor-pointer"
+            className="lg:hidden text-black font-anton text-sm uppercase bg-[#fbda03] border-[2.5px] border-black px-3.5 py-1.5 cursor-pointer shadow-[3px_3px_0px_0px_#fff]"
             aria-label="Toggle navigation"
           >
             {mobileMenuOpen ? "CLOSE" : "MENU"}
@@ -249,10 +223,10 @@ export default function AgencyPosterPage() {
 
       {/* FULLSCREEN BRUTALIST MOBILE MENU */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-[#0c0c0d] flex flex-col justify-between p-6 border-[8px] border-[#fbda03]">
+        <div className="lg:hidden fixed inset-0 z-50 bg-[#0c0c0d] flex flex-col justify-between p-6 border-[8px] border-[#fbda03]">
           <div className="flex items-center justify-between border-b-[3px] border-white/20 pb-4">
             <div className="flex items-center gap-2">
-              <span className="font-anton text-xl tracking-wider text-[#fbda03]">
+              <span className="font-anton text-2xl tracking-wider text-[#fbda03]">
                 NEED HELP BUILDING?
               </span>
             </div>
@@ -301,17 +275,16 @@ export default function AgencyPosterPage() {
       )}
 
       {/* ============================================================ */}
-      {/* FULLSCREEN SECTION 1: HERO (WITH PARALLAX SCROLLING)         */}
+      {/* FULLSCREEN SECTION 1: HERO                                   */}
       {/* ============================================================ */}
-      <section className="relative w-full min-h-[calc(100vh-68px)] flex flex-col justify-between border-b-[8px] border-[#fbda03] overflow-hidden p-4 sm:p-8 lg:p-12">
+      <section className="relative w-full min-h-[calc(100vh-90px)] flex flex-col justify-between border-b-[8px] border-[#fbda03] overflow-hidden p-4 sm:p-8 lg:p-12">
 
         {/* Halftone/grain background overlay */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.035] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px]" />
 
-        {/* Parallax Layer 1: Background Ribbons */}
+        {/* Background Ribbons from Original Design */}
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none z-0 transition-transform duration-75 ease-out"
-          style={{ transform: `translate3d(0, ${scrollY * 0.22}px, 0)` }}
+          className="absolute inset-0 w-full h-full pointer-events-none z-0"
           viewBox="0 0 1440 900"
           fill="none"
           preserveAspectRatio="none"
@@ -334,51 +307,11 @@ export default function AgencyPosterPage() {
           />
         </svg>
 
-        {/* Graffiti Layer 1: Street Art Scribbles & Crowns (Parallax floating) */}
-        <div
-          className="absolute inset-0 pointer-events-none z-1 overflow-hidden"
-          style={{ transform: `translate3d(0, ${scrollY * -0.15}px, 0)` }}
-        >
-          {/* Graffiti 3-Point Crown over top-left */}
-          <div className="absolute top-12 left-8 sm:left-16 rotate-[-18deg] opacity-80 select-none">
-            <svg width="64" height="42" viewBox="0 0 64 42" fill="none">
-              <path
-                d="M 4 36 L 4 14 L 20 26 L 32 4 L 44 26 L 60 14 L 60 36 Z"
-                fill="#fbda03"
-                stroke="#000"
-                strokeWidth="3.5"
-                strokeLinejoin="round"
-              />
-              <circle cx="8" cy="8" r="3" fill="#ff0055" stroke="#000" strokeWidth="1.5" />
-              <circle cx="32" cy="2" r="3.5" fill="#ff0055" stroke="#000" strokeWidth="1.5" />
-              <circle cx="56" cy="8" r="3" fill="#ff0055" stroke="#000" strokeWidth="1.5" />
-            </svg>
-          </div>
-
-          {/* Graffiti Spray Drip Tag over right */}
-          <div className="absolute top-20 right-6 sm:right-24 rotate-[12deg] opacity-75 select-none hidden sm:block">
-            <span className="font-pixel text-[#ff0055] text-xl tracking-widest bg-black px-2 py-0.5 border-2 border-black rotate-[4deg] inline-block shadow-[3px_3px_0px_0px_#fbda03]">
-              ★ RAW BUILT ★
-            </span>
-          </div>
-
-          {/* Graffiti Arrow pointing to the boards */}
-          <div className="absolute bottom-32 left-4 sm:left-12 rotate-[35deg] opacity-60 hidden md:block">
-            <svg width="50" height="70" viewBox="0 0 50 70" fill="none">
-              <path d="M 25 5 Q 10 35 25 65" stroke="#fbda03" strokeWidth="6" strokeLinecap="round" />
-              <path d="M 12 52 L 25 65 L 38 52" stroke="#fbda03" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-        </div>
-
         {/* HERO TITLE SECTION - SIGN BOARD WITH READABLE RODS & CORNER BOLTS */}
-        <div
-          className="relative z-10 my-auto py-8 flex flex-col items-center justify-center max-w-6xl mx-auto w-full transition-transform duration-75 ease-out"
-          style={{ transform: `translate3d(0, ${scrollY * 0.08}px, 0)` }}
-        >
+        <div className="relative z-10 my-auto py-8 flex flex-col items-center justify-center max-w-6xl mx-auto w-full">
 
           {/* TWO VERTICAL READABLE YELLOW STEEL MOUNTING RODS EXTENDING TO MARQUEE */}
-          {/* Left Vertical Rod (Vibrant readable yellow with industrial border) */}
+          {/* Left Vertical Rod */}
           <div
             className="absolute left-[12%] sm:left-[16%] md:left-[20%] top-0 bottom-[-9999px] w-3.5 sm:w-4.5 bg-[#fbda03] border-x-[3px] border-black z-0 pointer-events-none shadow-[2px_0_0_0_#000000]"
             aria-hidden="true"
@@ -386,7 +319,7 @@ export default function AgencyPosterPage() {
             <div className="w-full h-full opacity-35 bg-[repeating-linear-gradient(0deg,#000,#000_4px,transparent_4px,transparent_16px)]" />
           </div>
 
-          {/* Right Vertical Rod (Vibrant readable yellow with industrial border) */}
+          {/* Right Vertical Rod */}
           <div
             className="absolute right-[12%] sm:right-[16%] md:right-[20%] top-0 bottom-[-9999px] w-3.5 sm:w-4.5 bg-[#fbda03] border-x-[3px] border-black z-0 pointer-events-none shadow-[2px_0_0_0_#000000]"
             aria-hidden="true"
@@ -410,11 +343,6 @@ export default function AgencyPosterPage() {
             </div>
             <div className="hidden sm:flex absolute top-2.5 right-[16%] md:right-[20%] translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#fbda03] border-[2px] border-black items-center justify-center">
               <div className="w-1.5 h-[1.5px] bg-black" />
-            </div>
-
-            {/* Graffiti Street Tag on Title Board */}
-            <div className="absolute -top-3.5 right-12 sm:right-28 z-20 rotate-[-4deg] bg-[#ff0055] text-white font-pixel text-[10px] sm:text-xs px-2 py-0.5 border-[2px] border-black shadow-[2px_2px_0px_0px_#000]">
-              BUILD FAST &bull; BREAK NOTHING
             </div>
 
             <h1 className="font-anton text-[55px] sm:text-[105px] lg:text-[140px] leading-[0.88] tracking-[-0.02em] uppercase text-center select-none">
@@ -757,9 +685,28 @@ export default function AgencyPosterPage() {
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-                {/* Screenshot Container */}
+                {/* Screenshot Container with Side Navigation Arrows */}
                 <div className="lg:col-span-6 flex flex-col gap-3">
-                  <div className="border-[3.5px] border-black bg-black p-2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="relative border-[3.5px] border-black bg-black p-2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    
+                    {/* Left Navigation Arrow */}
+                    <button
+                      onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
+                      aria-label="Previous project"
+                      className="absolute -left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-[#fbda03] hover:bg-white text-black border-[2.5px] border-black flex items-center justify-center font-anton text-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+                    >
+                      ←
+                    </button>
+
+                    {/* Right Navigation Arrow */}
+                    <button
+                      onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
+                      aria-label="Next project"
+                      className="absolute -right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-[#fbda03] hover:bg-white text-black border-[2.5px] border-black flex items-center justify-center font-anton text-xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+                    >
+                      →
+                    </button>
+
                     <div className="bg-[#1a1a1c] text-white px-3 py-1.5 flex items-center justify-between border-b border-white/20 mb-2 font-mono text-[11px]">
                       <div className="flex items-center gap-1.5">
                         <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />
@@ -774,14 +721,34 @@ export default function AgencyPosterPage() {
                       </span>
                     </div>
 
-                    <div className="relative w-full aspect-video sm:aspect-[16/10] bg-[#111] overflow-hidden border border-black">
+                    <div className="relative w-full aspect-video sm:aspect-[16/10] bg-[#111] overflow-hidden border border-black flex items-center justify-center">
                       <Image
                         src={cs.image}
                         alt={`${cs.name} Screenshot Preview`}
                         fill
                         className="object-cover object-top"
                       />
-                      <div className="absolute bottom-2 left-2 bg-black/80 text-white px-2 py-1 text-[10px] font-bold uppercase tracking-wider border border-white/40">
+
+                      {/* EYE ASSET INSIDE THE DEMO SCREEN FOR SOUS CHEF */}
+                      {cs.id === "sous-chef" && (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] z-20 select-none">
+                          <div className="relative w-28 sm:w-36 h-14 sm:h-18 bg-white rounded-[50%] border-[3.5px] border-black flex items-center justify-center overflow-hidden shadow-[5px_5px_0px_0px_#fbda03]">
+                            <div className="relative w-12 sm:w-16 h-12 sm:h-16 bg-[#fbda03] rounded-full border-[2.5px] border-black flex items-center justify-center animate-eye-pupil">
+                              <svg
+                                viewBox="0 0 24 24"
+                                className="w-6 sm:w-8 h-6 sm:h-8 fill-black animate-star-spin"
+                              >
+                                <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="mt-3 bg-black text-[#fbda03] border-[2px] border-[#fbda03] px-3 py-1 font-anton text-xs sm:text-sm tracking-wider uppercase shadow-[3px_3px_0px_0px_#000]">
+                            AI COMPUTER VISION TERMINAL ACTIVE
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="absolute bottom-2 left-2 bg-black/80 text-white px-2 py-1 text-[10px] font-bold uppercase tracking-wider border border-white/40 z-20">
                         {cs.link ? "VERIFIED PRODUCTION PREVIEW" : "LAB WORKBENCH RUNNING"}
                       </div>
                     </div>
@@ -1127,32 +1094,30 @@ export default function AgencyPosterPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 5: CLIENT TESTIMONIALS (INNOVATIVE SIGNBOARD STYLE)   */}
+      {/* SECTION 5: CLIENT TESTIMONIALS (FULL PAGED WITH 100% OPACITY CURVES) */}
       {/* ============================================================ */}
-      <section id="testimonials" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 border-t-[6px] border-[#fbda03] flex flex-col gap-12 overflow-hidden">
+      <section id="testimonials" className="relative w-full min-h-screen px-4 sm:px-8 py-20 lg:py-24 border-t-[6px] border-[#fbda03] flex flex-col justify-center items-center gap-12 overflow-hidden bg-[#0c0c0d]">
 
-        {/* Abstract Ribbon Wave */}
+        {/* Abstract Vibrant Ribbon Waves with 100% Opacity */}
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none opacity-20 z-0"
-          viewBox="0 0 1200 800"
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-100 z-0"
+          viewBox="0 0 1440 900"
           fill="none"
           preserveAspectRatio="none"
         >
           <path
-            d="M 1300 200 C 900 600 500 100 -100 450"
+            d="M -100 250 C 350 650 850 150 1550 500"
             stroke="#fbda03"
-            strokeWidth="80"
+            strokeWidth="70"
+            strokeLinecap="round"
+          />
+          <path
+            d="M -100 680 C 450 300 950 850 1550 320"
+            stroke="#9bb8d3"
+            strokeWidth="36"
             strokeLinecap="round"
           />
         </svg>
-
-        {/* Graffiti Scribbles & Street Art Decals in Testimonials */}
-        <div className="absolute top-10 right-10 pointer-events-none opacity-60 rotate-12 hidden lg:block select-none">
-          <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
-            <path d="M 5 45 Q 25 5 40 40 T 75 10" stroke="#ff0055" strokeWidth="4" strokeLinecap="round" />
-            <circle cx="75" cy="10" r="3" fill="#ff0055" />
-          </svg>
-        </div>
 
         {/* Header Title Board with Screws & Ribbon Aesthetics */}
         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto w-full">
@@ -1179,18 +1144,6 @@ export default function AgencyPosterPage() {
             <h2 className="font-anton text-5xl sm:text-7xl md:text-8xl leading-[0.88] uppercase tracking-tight select-none">
               PROOF IN PRODUCTION.
             </h2>
-            {/* Graffiti Crown on Title */}
-            <div className="absolute -top-7 right-4 sm:-right-8 rotate-[15deg] select-none pointer-events-none">
-              <svg width="44" height="28" viewBox="0 0 64 42" fill="none">
-                <path
-                  d="M 4 36 L 4 14 L 20 26 L 32 4 L 44 26 L 60 14 L 60 36 Z"
-                  fill="#fbda03"
-                  stroke="#000"
-                  strokeWidth="3.5"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
           </div>
 
           <p className="mt-4 text-gray-300 text-sm sm:text-lg max-w-2xl font-medium tracking-wide">
@@ -1205,11 +1158,6 @@ export default function AgencyPosterPage() {
           <div className="relative group">
             {/* Abstract mounting vertical beam behind billboard (Bright readable yellow) */}
             <div className="absolute left-1/2 -translate-x-1/2 -top-6 bottom-[-20px] w-4 bg-[#fbda03] border-x-[2.5px] border-black shadow-[2px_0_0_0_#000] -z-10" />
-
-            {/* Graffiti Street Stamp on Corner */}
-            <div className="absolute -top-3 -right-3 z-30 bg-[#ff0055] text-white font-pixel text-[10px] px-2 py-0.5 border-[2px] border-black rotate-[8deg] shadow-[2px_2px_0px_0px_#000]">
-              VERIFIED BUILD
-            </div>
 
             <div className="relative bg-white text-black border-[4px] border-black p-6 sm:p-10 shadow-[10px_10px_0px_0px_#fbda03] rotate-[-1deg] flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
               {/* 4 Corner Screws */}
@@ -1271,11 +1219,6 @@ export default function AgencyPosterPage() {
             {/* Abstract mounting vertical beam behind billboard (Bright readable yellow) */}
             <div className="absolute left-1/2 -translate-x-1/2 -top-6 bottom-[-20px] w-4 bg-[#fbda03] border-x-[2.5px] border-black shadow-[2px_0_0_0_#000] -z-10" />
 
-            {/* Graffiti Street Stamp on Corner */}
-            <div className="absolute -top-3 -left-3 z-30 bg-black text-[#fbda03] font-pixel text-[10px] px-2 py-0.5 border-[2px] border-black rotate-[-6deg] shadow-[2px_2px_0px_0px_#fff]">
-              CTO PARTNER
-            </div>
-
             <div className="relative bg-[#fbda03] text-black border-[4px] border-black p-6 sm:p-10 shadow-[10px_10px_0px_0px_#ffffff] rotate-[1.5deg] flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
               {/* 4 Corner Screws */}
               <div className="absolute top-3 left-3 w-3.5 h-3.5 rounded-full bg-white border-[2px] border-black flex items-center justify-center">
@@ -1335,54 +1278,75 @@ export default function AgencyPosterPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 5.5: OLD CUSTOMER REFERRAL SCHEME                    */}
+      {/* SECTION 5.5: OLD CUSTOMER REFERRAL SCHEME (FULL PAGED)       */}
       {/* ============================================================ */}
-      <section id="referral" className="relative w-full max-w-7xl px-4 sm:px-8 py-16 lg:py-24 border-t-[6px] border-[#fbda03] flex flex-col items-center">
+      <section id="referral" className="relative w-full min-h-screen px-4 sm:px-8 py-20 lg:py-24 border-t-[6px] border-[#fbda03] flex flex-col justify-center items-center overflow-hidden bg-[#0c0c0d]">
+
+        {/* Abstract Wavy Ribbon Curves with 100% Opacity */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-100 z-0"
+          viewBox="0 0 1440 900"
+          fill="none"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M -100 450 C 400 100 800 850 1550 400"
+            stroke="#fbda03"
+            strokeWidth="70"
+            strokeLinecap="round"
+          />
+          <path
+            d="M -100 200 C 500 700 900 200 1550 750"
+            stroke="#b3cde3"
+            strokeWidth="35"
+            strokeLinecap="round"
+          />
+        </svg>
 
         {/* Abstract Referral Card Box */}
-        <div className="relative w-full bg-[#18181b] border-[4px] border-black p-6 sm:p-10 lg:p-12 shadow-[10px_10px_0px_0px_#fbda03] flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="relative z-10 w-full max-w-6xl bg-[#18181b] border-[4px] border-black p-8 sm:p-12 lg:p-16 shadow-[14px_14px_0px_0px_#fbda03] flex flex-col lg:flex-row items-center justify-between gap-10">
 
           {/* Left Column: Heading & Explanation */}
-          <div className="flex flex-col gap-3 max-w-2xl text-left">
-            <div className="inline-flex items-center gap-2 bg-[#fbda03] text-black px-3 py-1 font-anton text-xs sm:text-sm uppercase tracking-wider w-fit rotate-[-1deg]">
+          <div className="flex flex-col gap-4 max-w-2xl text-left">
+            <div className="inline-flex items-center gap-2 bg-[#fbda03] text-black px-4 py-1.5 font-anton text-sm sm:text-base uppercase tracking-wider w-fit rotate-[-1deg] border-[2px] border-black shadow-[3px_3px_0px_0px_#fff]">
               EXCLUSIVE TO PREVIOUS &amp; EXISTING CLIENTS
             </div>
 
-            <h3 className="font-anton text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-none">
+            <h3 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-white uppercase tracking-tight leading-[0.92]">
               CLIENT REFERRAL SCHEME: <span className="text-[#fbda03]">10% FOR BOTH SIDES.</span>
             </h3>
 
-            <p className="text-gray-300 text-sm sm:text-base font-medium leading-relaxed">
-              If you’ve built with us before, introduce another founder or business to NeedHelpBuilding. When they initiate a project, <strong className="text-white">they get 10% off</strong> their total scope, and <strong className="text-[#fbda03]">you receive 10% direct cash commission</strong> or credit towards your next build.
+            <p className="text-gray-200 text-base sm:text-lg font-medium leading-relaxed">
+              If you’ve built with us before, introduce another founder or business to NeedHelpBuilding. When they initiate a project, <strong className="text-white underline">they get 10% off</strong> their total scope, and <strong className="text-[#fbda03] underline">you receive 10% direct cash commission</strong> or credit towards your next build.
             </p>
           </div>
 
           {/* Right Column: Interactive Referral Action Voucher */}
-          <div className="bg-white text-black border-[3.5px] border-black p-6 sm:p-7 shadow-[6px_6px_0px_0px_rgba(255,255,255,0.8)] flex flex-col justify-between gap-5 w-full lg:w-[380px] shrink-0 rotate-[1deg]">
-            <div className="flex items-center justify-between border-b-[2px] border-black/20 pb-3">
+          <div className="bg-white text-black border-[4px] border-black p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.9)] flex flex-col justify-between gap-6 w-full lg:w-[420px] shrink-0 rotate-[1deg]">
+            <div className="flex items-center justify-between border-b-[2.5px] border-black/20 pb-3">
               <span className="font-mono text-xs font-black uppercase tracking-wider text-black/70">
                 REFERRAL PERK TICKET
               </span>
-              <span className="bg-[#fbda03] text-black font-anton text-xs px-2 py-0.5 border border-black uppercase">
+              <span className="bg-[#fbda03] text-black font-anton text-xs px-2.5 py-1 border border-black uppercase">
                 10% + 10%
               </span>
             </div>
 
-            <div className="flex items-center justify-around text-center py-2 bg-gray-50 border-[2px] border-black">
+            <div className="flex items-center justify-around text-center py-3 bg-gray-50 border-[2.5px] border-black">
               <div>
-                <span className="font-anton text-3xl text-black block leading-none">10% OFF</span>
-                <span className="text-[10px] font-mono font-bold text-gray-600 uppercase">THEIR PROJECT</span>
+                <span className="font-anton text-3xl sm:text-4xl text-black block leading-none">10% OFF</span>
+                <span className="text-[11px] font-mono font-bold text-gray-600 uppercase">THEIR PROJECT</span>
               </div>
-              <div className="h-8 w-[2px] bg-black/20" />
+              <div className="h-10 w-[2px] bg-black/20" />
               <div>
-                <span className="font-anton text-3xl text-[#0c0c0d] block leading-none">10% CASH</span>
-                <span className="text-[10px] font-mono font-bold text-gray-600 uppercase">OR CREDIT TO YOU</span>
+                <span className="font-anton text-3xl sm:text-4xl text-[#0c0c0d] block leading-none">10% CASH</span>
+                <span className="text-[11px] font-mono font-bold text-gray-600 uppercase">OR CREDIT TO YOU</span>
               </div>
             </div>
 
             <a
               href="mailto:hello@needhelpbuilding.com?subject=Client%20Referral%20Introduction&body=Hi%20NeedHelpBuilding%20Team%2C%0A%0AI%20am%20an%20existing%2Fpast%20client%20and%20would%20like%20to%20refer%20a%20friend%2Fbusiness%3A%0A%0AMy%20Name%20%2F%20Company%3A%20%0AReferred%20Founder's%20Name%3A%20%0AReferred%20Founder's%20Email%20or%20WhatsApp%3A%20%0AProject%20they%20need%20built%3A%20"
-              className="w-full bg-[#fbda03] hover:bg-black hover:text-[#fbda03] text-black border-[2.5px] border-black py-3 px-4 text-center font-anton text-lg uppercase tracking-wider transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] block cursor-pointer"
+              className="w-full bg-[#fbda03] hover:bg-black hover:text-[#fbda03] text-black border-[3px] border-black py-3.5 px-4 text-center font-anton text-lg sm:text-xl uppercase tracking-wider transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] block cursor-pointer"
             >
               INTRODUCE A CLIENT VIA EMAIL ↗
             </a>
@@ -1469,7 +1433,6 @@ export default function AgencyPosterPage() {
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
               </svg>
-              <span className="text-xs sm:text-sm font-anton group-hover:underline">INSTAGRAM</span>
             </a>
 
             {/* LinkedIn */}
@@ -1483,7 +1446,6 @@ export default function AgencyPosterPage() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z" />
               </svg>
-              <span className="text-xs sm:text-sm font-anton group-hover:underline">LINKEDIN</span>
             </a>
 
             {/* WhatsApp */}
@@ -1497,7 +1459,6 @@ export default function AgencyPosterPage() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.77 14.07c-.24.67-1.39 1.28-1.92 1.36-.5.08-1.14.12-3.66-.92-3.22-1.33-5.3-4.57-5.46-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.35 1.11-2.67.29-.32.63-.4.84-.4.21 0 .42 0 .61.01.2.01.47-.08.73.55.27.67.92 2.25 1 2.41.08.16.13.35.03.56-.1.21-.15.34-.3.51-.15.17-.32.38-.46.51-.15.15-.31.31-.13.62.18.31.8 1.32 1.72 2.14 1.18 1.05 2.17 1.38 2.48 1.53.31.15.49.13.67-.08.18-.21.79-.92 1-1.24.21-.32.42-.26.71-.16.29.1 1.84.87 2.16 1.03.32.16.53.24.61.37.08.13.08.77-.16 1.44z" />
               </svg>
-              <span className="text-xs sm:text-sm font-anton group-hover:underline">WHATSAPP</span>
             </a>
 
             {/* X (Twitter) */}
