@@ -2,8 +2,6 @@
 
 # dependencies
 node_modules/
-/node_modules
-agency-app/
 /.pnp
 .pnp.*
 .yarn/*
@@ -16,9 +14,8 @@ agency-app/
 /coverage
 
 # next.js
-/.next/
 .next/
-/out/
+out/
 
 # production
 /build

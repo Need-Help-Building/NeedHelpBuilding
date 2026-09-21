@@ -1,25 +1,22 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Express Daily Mart - Fresh Groceries & Daily Essentials | Gomti Nagar, Lucknow",
-  description:
-    "Express Daily Mart at Kathauta Chauraha, Vijayant Khand, Gomti Nagar, Lucknow. Fresh groceries, packaged foods, daily essentials & fast WhatsApp ordering. Call +91 88535 67103.",
-  keywords: [
-    "Express Daily Mart",
-    "Grocery store Gomti Nagar",
-    "Supermarket Lucknow",
-    "Kathauta Chauraha grocery",
-    "Vijayant Khand supermarket",
-    "Daily essentials Lucknow",
-    "Online grocery order Gomti Nagar",
-  ],
-  openGraph: {
-    title: "Express Daily Mart - Supermarket in Gomti Nagar, Lucknow",
-    description:
-      "Shop no 19-22, Kathauta Chauraha Rd, in front of petrol pump, Vijayant Khand, Gomti Nagar. Rated 5.0 ★.",
-    type: "website",
-  },
+  title: "future automations | AI-powered systems for real businesses",
+  description: "From custom automations to AI agents, we help teams save time, cut manual work and ship what matters.",
 };
 
 export default function RootLayout({
@@ -28,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="antialiased selection:bg-emerald-600 selection:text-white bg-[#fbfdfa] text-gray-900">
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}>
+      <body className="antialiased font-sans bg-[#F4F4F6] text-[#0A0A0C] selection:bg-black selection:text-white">
         {children}
       </body>
     </html>
