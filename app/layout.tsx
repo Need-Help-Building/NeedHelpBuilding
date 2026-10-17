@@ -46,19 +46,24 @@ export const metadata: Metadata = {
   description:
     "We build custom automations, AI agents, high-converting web apps, and enterprise systems for growing businesses. Fast execution, direct communication, production-ready code.",
   keywords: [
+    "NeedHelpBuilding",
+    "NBH",
+    "NeedHelpBuilding agency",
+    "NeedHelpBuilding software development",
+    "web application development agency",
+    "custom software development",
+    "AI automation services",
+    "business process automation",
+    "digital solutions for small and medium-sized businesses",
     "AI agents",
     "workflow automation",
-    "custom software development",
-    "web application development",
     "Next.js agency",
-    "business automation",
-    "enterprise systems",
-    "software engineering agency",
-    "need help building",
+    "fractional CTO for startups",
   ],
   authors: [{ name: "Need Help Building Team", url: "https://needhelpbuilding.com" }],
   creator: "Need Help Building",
   publisher: "Need Help Building",
+  applicationName: "Need Help Building",
   formatDetection: {
     email: false,
     address: false,
@@ -69,11 +74,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png" },
-      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "192x192" },
     ],
     apple: [
-      { url: "/apple-icon.png", type: "image/png" },
+      { url: "/apple-icon.png", type: "image/png", sizes: "180x180" },
     ],
     shortcut: ["/favicon.png"],
   },
@@ -115,6 +120,7 @@ export const metadata: Metadata = {
   },
 };
 
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -122,50 +128,176 @@ const jsonLd = {
       "@type": "Organization",
       "@id": "https://needhelpbuilding.com/#organization",
       name: "Need Help Building",
+      alternateName: ["NeedHelpBuilding", "NBH", "NEED HELP BUILDING?"],
       url: "https://needhelpbuilding.com",
-      logo: "https://needhelpbuilding.com/favicon.png",
+      logo: {
+        "@type": "ImageObject",
+        "@id": "https://needhelpbuilding.com/#logo",
+        url: "https://needhelpbuilding.com/favicon.png",
+        contentUrl: "https://needhelpbuilding.com/favicon.png",
+        caption: "Need Help Building Logo",
+      },
+      image: "https://needhelpbuilding.com/hero.png",
       email: "hello@needhelpbuilding.com",
+      telephone: "+91-9219061093",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+91-9219061093",
+          contactType: "customer service",
+          email: "hello@needhelpbuilding.com",
+          availableLanguage: ["English"],
+        },
+      ],
       description:
-        "We build custom automations, AI agents, high-converting web apps, and enterprise systems for growing businesses.",
-      sameAs: [],
+        "Need Help Building engineers custom web applications, bespoke UI/UX designs, end-to-end business automations, and digital systems for scaling businesses and startups.",
+      knowsAbout: [
+        "Web Application Development",
+        "Custom Software Engineering",
+        "Business Automation",
+        "AI Agents and Workflow Systems",
+        "Next.js Architecture",
+        "Fractional CTO Leadership",
+      ],
+      sameAs: [
+        "https://wa.me/919219061093",
+      ],
     },
     {
       "@type": "WebSite",
       "@id": "https://needhelpbuilding.com/#website",
       url: "https://needhelpbuilding.com",
       name: "NEED HELP BUILDING?",
+      alternateName: ["NeedHelpBuilding", "NBH"],
       publisher: {
         "@id": "https://needhelpbuilding.com/#organization",
       },
       description:
         "Custom automations, AI agents, high-converting web apps, and enterprise systems for growing businesses.",
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://needhelpbuilding.com/#webpage",
+      url: "https://needhelpbuilding.com",
+      name: "NEED HELP BUILDING? | Custom Automations, AI Agents & Web Apps",
+      isPartOf: {
+        "@id": "https://needhelpbuilding.com/#website",
+      },
+      about: {
+        "@id": "https://needhelpbuilding.com/#organization",
+      },
+      description:
+        "We build custom automations, AI agents, high-converting web apps, and enterprise systems for growing businesses.",
+      inLanguage: "en-US",
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: "https://needhelpbuilding.com/hero.png",
+      },
     },
     {
       "@type": "ProfessionalService",
       "@id": "https://needhelpbuilding.com/#service",
       name: "NEED HELP BUILDING?",
+      alternateName: ["NeedHelpBuilding", "NBH"],
       url: "https://needhelpbuilding.com",
       image: "https://needhelpbuilding.com/hero.png",
+      telephone: "+91-9219061093",
+      email: "hello@needhelpbuilding.com",
       priceRange: "$$",
       address: {
         "@type": "PostalAddress",
         addressCountry: "US",
       },
-      offers: [
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Need Help Building Core Capabilities",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Websites & Web Applications",
+              description:
+                "Full-stack Next.js and React web applications built for speed, SEO domination, and effortless conversion. From interactive landing pages to high-scale SaaS products.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Bespoke Web Design & UI/UX",
+              description:
+                "Custom typography, micro-interactions, responsive design systems, and neo-brutalist aesthetics engineered for strong brand recall.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Business Automations",
+              description:
+                "Automated lead capture, CRM syncing, AI telephone triage, invoicing pipelines, and instant customer notifications.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Custom Digital Systems & AI Agents",
+              description:
+                "Custom integrations, AI copilots, payment setups, database syncing, and specialized tooling tailored to your business needs without vendor lock-in.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Fractional CTO & Equity Partnership for Startups",
+              description:
+                "Technical co-founder and CTO co-pilot partnership with shared runway and hands-on architecture delivery.",
+            },
+          },
+        ],
+      },
+      review: [
         {
-          "@type": "Offer",
-          name: "Workflow & AI Automations",
-          description: "Custom internal tools, multi-step integrations, and AI agent workflows.",
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Jay Agrawal",
+            jobTitle: "Co-Founder",
+            worksFor: {
+              "@type": "Organization",
+              name: "Ganges",
+            },
+          },
+          reviewBody:
+            "NeedHelpBuilding turned our concept into a high-performance web platform in record time. Their architectural clarity, speed of execution, and attention to user flow made a massive impact on our early traction.",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
         },
         {
-          "@type": "Offer",
-          name: "Custom Web Applications",
-          description: "High-performance Next.js web applications and digital products.",
-        },
-        {
-          "@type": "Offer",
-          name: "Enterprise Integrations & Systems",
-          description: "Secure, reliable backend systems and API integrations.",
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Arinjay Saxena",
+            jobTitle: "Co-Founder",
+            worksFor: {
+              "@type": "Organization",
+              name: "Earnbuddy",
+            },
+          },
+          reviewBody:
+            "Partnering with them gave us the technical muscle of an elite engineering team without the startup friction. From intuitive UI/UX design to rock-solid automations, they delivered exactly what Earnbuddy needed to scale.",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
         },
       ],
     },

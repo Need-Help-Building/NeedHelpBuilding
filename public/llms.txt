@@ -1,0 +1,70 @@
+# NeedHelpBuilding (NHB)
+
+> High-velocity digital agency engineering custom web applications, bespoke UI/UX design, end-to-end business automations, and intelligent software systems for startups and scaling businesses.
+
+NeedHelpBuilding (also known as NHB) acts as a full-stack digital product engineering partner and fractional technical co-founder / CTO. We take ideas from initial architecture to live production-grade reality with rapid execution, zero vendor lock-in, and reliable systems.
+
+- **Website**: https://needhelpbuilding.com
+- **Contact Email**: hello@needhelpbuilding.com
+- **Direct Phone / WhatsApp**: +91 9219061093
+- **Primary Focus**: Web Applications, Bespoke Web Design, Business Automation, AI Agents, Fractional Startup CTO
+
+---
+
+## Core Capabilities & Services
+
+### 1. Websites & Web Applications
+Full-stack Next.js and React web applications built for speed, SEO domination, and seamless conversion. From interactive landing pages and customer-facing web apps to high-scale SaaS products.
+- Architecture: Next.js (App Router), React, TypeScript, Tailwind CSS, Edge Rendering.
+- Performance: Sub-second load times, mobile-optimized responsive layouts, Core Web Vitals optimization.
+- Live Proof / Flagship: [YoureStoreHere](https://yourstorehere.vercel.app) — Instant online storefront creator for independent brands with direct Stripe checkout and order routing.
+
+### 2. Bespoke Web Design & UI/UX
+Distinctive, unforgettable aesthetics that avoid corporate monotony. Custom typography, fluid micro-interactions, responsive design systems, and neo-brutalist finesse designed to maximize brand recall and user engagement.
+
+### 3. Business Automations & Workflow Systems
+Elimination of repetitive operational overhead. Automated multi-step lead capture, CRM synchronization, telephone triage, invoicing pipelines, and real-time customer notifications.
+- Live Proof / Flagship: [Caller.work](https://caller.work) — AI phone receptionist and voice agent that answers in 2 rings, answers customer questions, checks live availability, and books appointments directly into CRM calendars.
+
+### 4. Custom Digital Systems & AI Workflows
+Specialized internal tooling, AI copilots, custom API integrations, database synchronization, and scalable backend workflows tailored to business requirements without vendor lock-in.
+- Flagship / In Development: Sous Chef — Rugged touchscreen kitchen assistant tablet app automating recipe scaling, prep checklists, and inventory waste tracking for commercial restaurant kitchens.
+
+### 5. Fractional CTO & Equity Partnership for Startups
+Technical co-founder and engineering leadership model for high-potential early-stage startups.
+- Shared technical runway, co-founder operating model, and rapid MVP deployment.
+- Case Study Partners: Ganges (Co-founded by Jay Agrawal), Earnbuddy (Co-founded by Arinjay Saxena).
+
+### 6. Client Referral Scheme
+10% mutual benefit program: referred clients receive 10% off their total project scope, and the referring partner receives 10% direct cash commission or build credit.
+
+---
+
+## Flagship Case Studies
+
+1. **YOURESTOREHERE**
+   - URL: https://yourstorehere.vercel.app
+   - Category: Ecommerce Web App
+   - Outcome: Store setup in under 5 minutes, sub-0.5s page load times, 25% reduction in checkout drop-off.
+   - Stack: Next.js, Stripe, Serverless Architecture.
+
+2. **CALLER.WORK**
+   - URL: https://caller.work
+   - Category: Voice Automation & AI Telephone Agent
+   - Outcome: Zero missed calls, 2-ring pickup speed, +30% lead conversion.
+   - Integration: Natural voice synthesis, Google Calendar, Cal.com, CRM auto-sync, SMS alerts.
+
+3. **SOUS CHEF**
+   - Category: Kitchen Tech & Commercial Automation (In Development)
+   - Outcome: 40% reduction in prep errors, cook onboarding reduced to 2 days, ~15% food waste savings.
+
+---
+
+## Authority & Contact Details
+
+- **Company Entity**: NeedHelpBuilding (also known as NHB)
+- **Official URL**: https://needhelpbuilding.com
+- **Sitemap**: https://needhelpbuilding.com/sitemap.xml
+- **Inquiries**: hello@needhelpbuilding.com
+- **Direct Messaging**: [WhatsApp +91 9219061093](https://wa.me/919219061093)
+- **Referral Channel**: hello@needhelpbuilding.com (Subject: Client Referral Introduction)
