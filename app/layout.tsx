@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { Anton, Archivo_Black, Space_Grotesk, Inter, Silkscreen } from "next/font/google";
+import { Anton, Archivo_Black, Space_Grotesk, Inter, Silkscreen, Caveat } from "next/font/google";
 import "./globals.css";
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-handwritten",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
 
 const anton = Anton({
   weight: "400",
@@ -312,7 +319,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${archivoBlack.variable} ${silkscreen.variable} ${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}
+      className={`${anton.variable} ${archivoBlack.variable} ${silkscreen.variable} ${spaceGrotesk.variable} ${inter.variable} ${caveat.variable} scroll-smooth`}
     >
       <head>
         <link rel="icon" type="image/png" href="/favicon.png" />

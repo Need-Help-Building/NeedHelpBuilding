@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Need Help Building? | Custom Automations, AI Agents & Web Apps</title>
+<link id="gf" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#fff;--fg:#14122b;--acc:#3d2bff;--accfg:#fff;--hot:#ff5c39;--lime:#c8ff5a;--r:28px;--hf:"Bricolage Grotesque";--bf:"DM Sans";--soft:color-mix(in srgb,var(--fg) 6%,var(--bg));--line:color-mix(in srgb,var(--fg) 15%,var(--bg));--mut:color-mix(in srgb,var(--fg) 62%,var(--bg));box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 var(--bf),system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:var(--hf),system-ui,sans-serif;font-weight:800;line-height:1.02;letter-spacing:-.03em;margin:0}
+a{color:inherit}button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.w{max-width:1160px;margin:0 auto;padding:0 22px}
+section{padding:88px 0}
+.k{color:var(--acc);font-weight:600;margin:0 0 14px}
+h2{font-size:clamp(34px,5.5vw,64px);max-width:16ch}
+.lead{color:var(--mut);max-width:54ch;font-size:19px;margin:18px 0 0}
+.btn{display:inline-block;border:2px solid var(--fg);background:var(--bg);padding:11px 22px;border-radius:99px;font-weight:600;text-decoration:none;cursor:pointer}
+.btn.p{background:var(--acc);border-color:var(--acc);color:var(--accfg)}
+nav{position:sticky;top:calc(10px + env(safe-area-inset-top,0px));z-index:10;margin:10px auto 0;max-width:1116px;width:calc(100% - 24px);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 20px;border:1px solid var(--line);border-radius:99px;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px)}
+nav b{font-family:var(--hf);font-weight:800}nav .l{display:flex;gap:22px}nav .l a{text-decoration:none;font-weight:500;color:var(--mut)}
+nav .btn{padding:8px 18px;border-color:var(--acc);background:var(--acc);color:var(--accfg)}
+.hero{padding:76px 0 60px;background-image:radial-gradient(var(--line) 1.5px,transparent 1.5px);background-size:28px 28px}
+.hero h1{font-size:clamp(52px,11vw,148px);max-width:11ch}
+.rot{display:inline-block;color:var(--hot);transition:opacity .25s,transform .25s}.rot.o{opacity:0;transform:translateY(.2em)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.mq{border-block:2px solid var(--fg);overflow:hidden;white-space:nowrap;padding:14px 0;background:var(--lime);color:#14122b;font-family:var(--hf);font-weight:800;font-size:20px}
+.mq div{display:inline-block;animation:mq 34s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:44px}
+.tile{border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:12px;min-height:260px;border:1px solid var(--line);background:var(--soft);grid-column:span 2}
+.tile h3{font-size:28px}.tile p{margin:0;opacity:.85}.tile small{margin-top:auto;font-weight:600}
+.tile.s4{grid-column:span 4}.tile.a{background:var(--acc);color:var(--accfg);border-color:var(--acc)}.tile.b{background:var(--hot);color:#14122b;border-color:var(--hot)}
+.cs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:44px}
+.cd{border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.bd{align-self:flex-start;font-size:13px;font-weight:600;padding:3px 12px;border-radius:99px;background:var(--lime);color:#14122b}
+.cd h3{font-size:30px}.cd p{margin:0;color:var(--mut)}
+.st{display:flex;gap:18px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+.st b{font-family:var(--hf);font-size:28px;display:block;line-height:1}.st span{font-size:13px;color:var(--mut)}
+.eq{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;margin-top:44px}
+.pl{display:grid;gap:12px;align-content:start}.pl div{border:1px solid var(--line);border-radius:20px;padding:18px 22px}
+.pl b{display:block;font-size:19px}.pl span{color:var(--mut)}
+.pitch{background:var(--fg);color:var(--bg);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.pitch h3{font-size:34px}.pitch ul{margin:0;padding-left:20px}.pitch .btn{background:var(--lime);border-color:var(--lime);color:#14122b}
+.slot{background:var(--hot);color:#14122b;font-weight:600;padding:3px 12px;border-radius:99px;font-size:14px}
+.ts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:44px}
+.ts blockquote{margin:0;border-radius:var(--r);background:var(--soft);padding:28px;display:flex;flex-direction:column;gap:14px}
+.ts cite{font-style:normal;font-weight:600}.ts cite span{display:block;color:var(--mut);font-weight:400;font-size:14px}
+.ref{border-radius:var(--r);background:var(--acc);color:var(--accfg);padding:44px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center}
+.ref h2{font-size:clamp(30px,4.5vw,52px);max-width:none}.ref .big{font-family:var(--hf);font-weight:800;font-size:clamp(48px,8vw,96px);line-height:1}
+.end{text-align:center;padding:96px 0}.end h2{margin:0 auto;max-width:14ch}.end .cta{justify-content:center}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mut);font-size:15px}footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ceo{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:28px;align-items:center;margin:44px 0 36px;border:1px solid var(--line);border-radius:var(--r);padding:20px;background:var(--soft)}
+.av{display:flex;align-items:center;justify-content:center;font-family:var(--hf);font-weight:800;color:#14122b}
+.ceo .av{aspect-ratio:1;border-radius:calc(var(--r) - 6px);font-size:90px}.ceo h3{font-size:clamp(30px,4.5vw,48px);margin:6px 0 10px}
+.role{color:var(--acc);font-weight:600}
+.tg{display:flex;gap:6px;flex-wrap:wrap}.tg span{font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:2px 12px}
+.bar{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;margin:36px 0 20px}.ceo+.bar{margin-top:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:var(--bg);padding:6px 16px;border-radius:99px;cursor:pointer;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.sr{border:1px solid var(--line);background:var(--bg);border-radius:99px;padding:8px 16px;min-width:210px}
+.tm{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.mc{border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
+.mc .av{height:110px;border-radius:calc(var(--r) - 10px);font-size:40px}.mc h3{font-size:22px;margin-top:6px}.mc p{margin:0;color:var(--mut);font-size:15px}
+.mc .ac{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:6px}
+.em{grid-column:1/-1;border:2px dashed var(--line);border-radius:var(--r);padding:30px;text-align:center}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:45;background:var(--bg);border-left:2px solid var(--fg);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.dr header{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;border-bottom:1px solid var(--line)}
+.tabs .chip{white-space:nowrap}
+.dr .bd2{overflow:auto;padding:18px;display:flex;flex-direction:column;gap:14px;flex:1}
+.dr label,.dlg label{display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:13px}
+.dr input[type=text],.dr textarea,.dr select,.dlg input[type=text],.dlg textarea{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:8px 10px;font-weight:400;font-size:15px}
+.dr input[type=color]{width:100%;height:38px;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:2px}
+.dr fieldset{border:1px solid var(--line);border-radius:16px;margin:0;padding:12px;display:flex;flex-direction:column;gap:12px}
+.dr legend{font-weight:700;padding:0 6px}
+.dr .ft{padding:14px 18px;border-top:1px solid var(--line);display:flex;gap:10px;justify-content:space-between}
+.ov{position:fixed;inset:0;background:rgba(10,8,30,.65);display:flex;padding:20px;overflow:auto;z-index:60}
+.dlg{background:var(--bg);border-radius:var(--r);width:100%;max-width:520px;padding:26px;display:flex;flex-direction:column;gap:14px;margin:auto}
+.sw{display:flex;gap:8px}.sw button{width:32px;height:32px;border-radius:50%;border:2px solid var(--line);cursor:pointer}
+.sw button[aria-pressed="true"]{outline:3px solid var(--acc);outline-offset:2px}
+.row{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}.dg{border-color:#d92d20!important;color:#d92d20}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:10px 20px;border-radius:99px;z-index:80}
+.intro{position:fixed;inset:0;z-index:100;background:var(--acc);color:var(--accfg);display:flex;flex-direction:column;justify-content:center;padding:0 6vw;transition:transform .9s cubic-bezier(.76,0,.24,1)}
+.intro.out{transform:translateY(-100%)}
+.intro .ln{overflow:hidden}.intro .ln span{display:block;font-family:var(--hf);font-weight:800;font-size:clamp(52px,14vw,190px);line-height:.95;letter-spacing:-.04em;transform:translateY(105%);animation:up .8s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.18s + .1s)}
+@keyframes up{to{transform:none}}
+@media (max-width:860px){nav .l{display:none}.tile,.tile.s4{grid-column:span 6}.eq,.ref,.ceo{grid-template-columns:1fr}section{padding:64px 0}}
+@media (prefers-reduced-motion:reduce){.mq div{animation:none}html{scroll-behavior:auto}.intro{display:none}}
+</style>
+</head>
+<body>
+<div id="intro"></div><div id="site"></div><div id="adm"></div>
+<script id="d" type="application/json">{
+"brand":"NEED HELP BUILDING?",
+"theme":{"mode":"auto","radius":28,"hot":"#ff5c39","lime":"#c8ff5a","light":{"bg":"#ffffff","fg":"#14122b","acc":"#3d2bff"},"dark":{"bg":"#0d0c1d","fg":"#f3f2ff","acc":"#8b7fff"}},
+"font":{"head":"Bricolage Grotesque","body":"DM Sans"},
+"intro":{"on":true,"text":"NEED HELP BUILDING?"},
+"hero":{"kicker":"Websites, web design, automations, systems","before":"We build","words":["websites","automations","AI agents","web apps","systems"],"after":"that work.","lead":"We build websites, custom web designs, business automations, and intelligent digital systems. From high-converting storefronts and custom web applications to automated operations that run your business on autopilot.","cta1":"Book now","cta2":"Our services"},
+"marquee":["Custom websites & web apps","Bespoke web design & UI/UX","End-to-end business automations","High-speed edge deployments","Zero-latency API integrations","Fractional CTO for startups","Rapid prototyping & execution"],
+"services":{"kicker":"Our core capabilities","title":"Websites. Bespoke designs. Automations.","lead":"From award-winning web design and lightning-fast web applications to bespoke automations that run your entire back-office on autopilot. We turn complex ideas into live, revenue-generating digital realities.","items":[
+{"title":"Websites & web apps","text":"Full-stack Next.js and React web applications built for speed, SEO domination, and effortless conversion. From interactive landing pages to high-scale SaaS products.","tag":"Flagship: YourStoreHere"},
+{"title":"Bespoke web design & UI/UX","text":"Bold, unforgettable aesthetics that refuse to blend into corporate mediocrity. Custom typography, micro-interactions and responsive design systems.","tag":"Studio: Craft & Branding"},
+{"title":"Business automations","text":"Eliminate repetitive human work. Lead capture, CRM syncing, AI telephone triage, invoicing pipelines and instant customer notifications that never sleep.","tag":"Flagship: Caller.work"},
+{"title":"Custom digital systems","text":"Custom integrations, AI copilots, payment setups, database syncing, and specialized tooling tailored to your business needs without vendor lock-in.","tag":"Flagship: Sous Chef"}]},
+"work":{"kicker":"Flagship case studies","title":"Proven systems in the wild","items":[
+{"status":"In progress","title":"Sous Chef","text":"A smart prep assistant for restaurant kitchens. A rugged kitchen tablet app with a spill-proof touchscreen UI, automatic recipe scaling by expected covers, prep checklists that update inventory, and an end-of-day prepped vs. wasted summary.","stats":[{"v":"-40%","l":"Prep errors"},{"v":"2 days","l":"Onboarding new cooks"},{"v":"15%","l":"Est. food savings"}],"link":"","btn":""},
+{"status":"Live","title":"YourStoreHere","text":"Instant online stores for independent brands.","stats":[],"link":"https://yourstorehere.vercel.app","btn":"Visit site"},
+{"status":"Live","title":"Caller.work","text":"AI phone agent that answers calls and books appointments.","stats":[],"link":"https://caller.work","btn":"Visit site"}]},
+"startups":{"kicker":"Agency CTO. Equity partnership program","title":"We become your technical co-founder & CTO.","lead":"Zero upfront tech risk, split runway, shared equity. You bring the market vision and customer distribution. We engineer the entire tech apparatus, from high-converting frontends to autonomous backend infrastructure.","pillars":[{"t":"Equity share","d":"We invest our engineering capabilities directly for skin in the game. True alignment."},{"t":"Cost split","d":"Shared operational expenditure ensures you extend runway without compromising code quality."},{"t":"Full stack","d":"Web apps, internal tooling, edge databases, UI/UX, and AI automations fully managed."}],"slots":"4 slots left","pitchTitle":"Pitching happens every Sunday.","pitchText":"Every Sunday, our founding engineering team reviews pitches from early-stage founders. If selected, we enter a 14-day sprint to scope, design, and deploy your product into market as your technical partner.","pitchList":["Pitch deck or product scope","Co-founder details & runway","Proposed equity split range"],"pitchBtn":"Pitch your startup"},
+"testimonials":{"kicker":"Client testimonials","title":"Proof in production.","items":[
+{"q":"NeedHelpBuilding turned our concept into a high-performance web platform in record time. Their architectural clarity, speed of execution, and attention to user flow made a massive impact on our early traction.","n":"Jay Agrawal","r":"Co-founder @ Ganges"},
+{"q":"Partnering with them gave us the technical muscle of an elite engineering team without the startup friction. From intuitive UI/UX design to rock-solid automations, they delivered exactly what Earnbuddy needed to scale.","n":"Arinjay Saxena","r":"Co-founder @ Earnbuddy"}]},
+"referral":{"kicker":"Exclusive to previous & existing clients","title":"Client referral scheme: 10% for both sides.","text":"Built with us before? Introduce another founder or business. They get 10% off their total scope, and you receive 10% direct cash commission or credit towards your next build.","big":"10% + 10%"},
+"contact":{"kicker":"Ready to scale automatically?","title":"Let's build your systems.","text":"Tell us what you want to build or automate. We will review your requirements, design the architecture, and get your project into development immediately.","btn":"Start your project now","phone":"+919219061093"},
+"team":{"kicker":"The people","title":"The team behind the builds.","lead":"Developers, designers and automation engineers who scope, build and ship your product.","roles":["CEO & Founder","Project Manager","Web Developer","UI/UX Designer","Automation & AI Engineer","Sales & Outreach"],"members":[
+{"id":"m1","ceo":true,"name":"Aarav Mehta","role":"CEO & Founder","title":"Sets direction and owns every client relationship","bio":"Demo profile. Leads the studio, runs the Sunday startup pitch review and signs off on every sprint.","skills":["Strategy","Product","Pitch review"],"link":"","tone":0},
+{"id":"m2","name":"Riya Sharma","role":"Project Manager","title":"Keeps sprints on schedule","bio":"Demo profile. Scopes projects and is the main contact for clients during a build.","skills":["Scoping","Sprints"],"link":"","tone":3},
+{"id":"m3","name":"Kabir Singh","role":"Web Developer","title":"Full-stack, Next.js and Supabase","bio":"Demo profile. Builds web apps and admin panels from database to deploy.","skills":["Next.js","React","Supabase"],"link":"","tone":1},
+{"id":"m4","name":"Neha Verma","role":"Web Developer","title":"Frontend and performance","bio":"Demo profile. Turns designs into fast, accessible interfaces.","skills":["React","Tailwind","SEO"],"link":"","tone":2},
+{"id":"m5","name":"Ishaan Gupta","role":"UI/UX Designer","title":"Brand and interface design","bio":"Demo profile. Designs bold layouts, type systems and prototypes.","skills":["Figma","Branding"],"link":"","tone":4},
+{"id":"m6","name":"Tanvi Rao","role":"Automation & AI Engineer","title":"Workflows and AI agents","bio":"Demo profile. Connects CRMs, payments and phone agents.","skills":["Python","Agents","APIs"],"link":"","tone":0},
+{"id":"m7","name":"Dev Malhotra","role":"Sales & Outreach","title":"Leads and partnerships","bio":"Demo profile. Handles inquiries, follow-ups and founder pitches.","skills":["Outreach","CRM"],"link":"","tone":5}]}
+}</script>
+<script>
+let C=JSON.parse(document.getElementById('d').textContent);try{const sv=localStorage.getItem('nhb_cfg');if(sv&&!window.claude)C=JSON.parse(sv)}catch(e){}
+const T=C.team;
+const TONES=['#ffd23f','#ff9a7a','#a9f0c2','#a9c4ff','#f3b8ff','#ffffff'];
+const FONTS=['Bricolage Grotesque','DM Sans','Space Grotesk','Syne','Outfit','Sora','Manrope','Inter','Poppins','Unbounded','Playfair Display','Fraunces','Instrument Serif'];
+const WA='https://wa.me/919219061093?text=';
+let canEdit=false,filter='All',q='',tab='theme',open=false;
+const $=id=>document.getElementById(id);
+function h(t,a,...k){const e=document.createElement(t);for(const[x,v]of Object.entries(a||{})){if(x==='class')e.className=v;else if(x.startsWith('on'))e.addEventListener(x.slice(2),v);else e.setAttribute(x,v)}for(const c of k.flat(Infinity))if(c!=null&&c!==false)e.append(c.nodeType?c:document.createTextNode(c));return e}
+const ini=n=>n.trim().split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+function toast(m){const t=h('div',{class:'toast',role:'status'},m);document.body.append(t);setTimeout(()=>t.remove(),3500)}
+async function commit(){
+  const art=window.claude?await claude.use('artifact'):null;
+  if(!art){const c=document.documentElement.cloneNode(true);['site','adm','intro'].forEach(i=>c.querySelector('#'+i).innerHTML='');c.querySelector('#d').textContent=JSON.stringify(C).replace(/</g,'\\u003c');try{localStorage.setItem('nhb_cfg',JSON.stringify(C))}catch(e){}const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['<!DOCTYPE html>\n'+c.outerHTML],{type:'text/html'}));a.download='index.html';a.click();toast('Saved in this browser. Upload the downloaded index.html to your host to update the live site.');return}
+  const c=document.documentElement.cloneNode(true);
+  ['site','adm','intro'].forEach(i=>c.querySelector('#'+i).innerHTML='');
+  c.querySelector('#d').textContent=JSON.stringify(C).replace(/</g,'\\u003c');
+  try{await art.publish('<!DOCTYPE html>\n'+c.outerHTML)}
+  catch(e){toast(e&&e.code==='conflict'?'Someone else saved first. Reloading with their version.':'Could not save. Check your edit access.')}
+}
+function theme(){
+  const th=C.theme,dk=th.mode==='dark'||(th.mode==='auto'&&matchMedia('(prefers-color-scheme:dark)').matches),p=dk?th.dark:th.light,s=document.documentElement.style;
+  s.setProperty('--bg',p.bg);s.setProperty('--fg',p.fg);s.setProperty('--acc',p.acc);s.setProperty('--hot',th.hot);s.setProperty('--lime',th.lime);s.setProperty('--r',th.radius+'px');
+  const lum=x=>{const n=parseInt(x.slice(1),16);return ((n>>16)*.299+((n>>8)&255)*.587+(n&255)*.114)};
+  s.setProperty('--accfg',lum(p.acc)>150?'#14122b':'#ffffff');
+  s.setProperty('--hf','"'+C.font.head+'"');s.setProperty('--bf','"'+C.font.body+'"');
+  s.colorScheme=dk?'dark':'light';
+  const fam=[...new Set([C.font.head,C.font.body])].map(f=>'family='+f.replace(/ /g,'+')+':wght@400;500;600;700;800').join('&');
+  const u='https://fonts.googleapis.com/css2?'+fam+'&display=swap';if($('gf').href!==u)$('gf').href=u;
+}
+const sec=(id,st,...k)=>h('section',{id,style:st||null},h('div',{class:'w'},k));
+const hd=(o,x)=>[h('p',{class:'k'},o.kicker),h('h2',{},o.title),o.lead&&h('p',{class:'lead'},o.lead)];
+const tg=m=>m.skills.length?h('div',{class:'tg'},m.skills.map(s=>h('span',{},s))):null;
+function card(m){return h('article',{class:'mc'},h('div',{class:'av',style:'background:'+TONES[m.tone%6],'aria-hidden':'true'},ini(m.name)),h('span',{class:'role'},m.role),h('h3',{},m.name),m.title&&h('p',{style:'color:var(--fg);font-weight:500'},m.title),m.bio&&h('p',{},m.bio),tg(m),h('div',{class:'ac'},m.link?h('a',{href:m.link,target:'_blank',rel:'noopener'},'Profile'):h('span'),canEdit&&h('button',{class:'btn',onclick:()=>form(m)},'Edit')))}
+function team(){
+  const ceo=T.members.find(m=>m.ceo);
+  const rl=[...new Set(T.members.filter(m=>!m.ceo).map(m=>m.role))].sort((a,b)=>(T.roles.indexOf(a)+99*!T.roles.includes(a))-(T.roles.indexOf(b)+99*!T.roles.includes(b)));
+  if(filter!=='All'&&!rl.includes(filter))filter='All';
+  const rest=T.members.filter(m=>!m.ceo&&(filter==='All'||m.role===filter)&&(!q||(m.name+m.role+m.skills.join(' ')).toLowerCase().includes(q)));
+  return [ceo&&h('div',{class:'ceo'},h('div',{class:'av',style:'background:'+TONES[ceo.tone%6],'aria-hidden':'true'},ini(ceo.name)),h('div',{},h('span',{class:'role'},ceo.role),h('h3',{},ceo.name),ceo.title&&h('b',{},ceo.title),h('p',{style:'max-width:56ch'},ceo.bio),tg(ceo),canEdit&&h('button',{class:'btn',onclick:()=>form(ceo)},'Edit'))),
+  h('div',{class:'bar'},h('div',{class:'chips',role:'group','aria-label':'Filter by role'},['All',...rl].map(r=>h('button',{class:'chip','aria-pressed':String(r===filter),onclick:()=>{filter=r;render()}},r))),
+    h('input',{class:'sr',type:'search',id:'sr',placeholder:'Search name or skill','aria-label':'Search team',value:q,oninput:e=>{q=e.target.value.toLowerCase();const p=e.target.selectionStart;render();const s=$('sr');s.focus();s.setSelectionRange(p,p)}})),
+  h('div',{class:'tm'},rest.length?rest.map(card):h('div',{class:'em'},'No team members match.'))];
+}
+function render(){
+  theme();const H=C.hero,S=C.services,W=C.work,U=C.startups,R=C.referral,K=C.contact,X=C.testimonials;
+  const mq=C.marquee.join(' ✦ ')+' ✦ ';
+  $('site').replaceChildren(...[
+    h('nav',{'aria-label':'Main'},h('b',{},C.brand),h('div',{class:'l'},[['services','Services'],['work','Work'],['startups','Startups'],['team','Team'],['contact','Contact']].map(([i,l])=>h('a',{href:'#'+i},l))),h('a',{class:'btn',href:'#contact'},"Let's talk")),
+    h('header',{class:'hero'},h('div',{class:'w'},h('p',{class:'k'},H.kicker),h('h1',{},H.before+' ',h('span',{class:'rot',id:'rot'},H.words[0]||''),' '+H.after),h('p',{class:'lead'},H.lead),h('div',{class:'cta'},h('a',{class:'btn p',href:'#contact'},H.cta1),h('a',{class:'btn',href:'#services'},H.cta2)))),
+    h('div',{class:'mq','aria-hidden':'true'},h('div',{},mq+mq)),
+    sec('services',null,hd(S),h('div',{class:'bento'},S.items.map((s,i)=>h('article',{class:'tile'+([0,3].includes(i%4)?' s4':'')+(i%4===0?' a':i%4===3?' b':'')},h('h3',{},s.title),h('p',{},s.text),h('small',{},s.tag))))),
+    sec('work','background:var(--soft)',hd(W),h('div',{class:'cs'},W.items.map(c=>h('article',{class:'cd'},h('span',{class:'bd'},c.status),h('h3',{},c.title),h('p',{},c.text),h('div',{class:'st'},c.stats.map(s=>h('div',{},h('b',{},s.v),h('span',{},s.l))),c.link&&h('a',{class:'btn',href:c.link,target:'_blank',rel:'noopener'},c.btn||'Visit')))))),
+    sec('startups',null,hd(U),h('div',{class:'eq'},h('div',{class:'pl'},U.pillars.map(p=>h('div',{},h('b',{},p.t),h('span',{},p.d)))),h('div',{class:'pitch'},h('span',{class:'slot'},U.slots),h('h3',{},U.pitchTitle),h('p',{style:'margin:0'},U.pitchText),h('ul',{},U.pitchList.map(l=>h('li',{},l))),h('a',{class:'btn',href:WA+encodeURIComponent('Hi NeedHelpBuilding team, I want to pitch my startup.'),target:'_blank',rel:'noopener'},U.pitchBtn)))),
+    sec('team','background:var(--soft)',hd(T),team()),
+    sec('testi',null,hd(X),h('div',{class:'ts'},X.items.map(t=>h('blockquote',{},'“'+t.q+'”',h('cite',{},t.n,h('span',{},t.r)))))),
+    h('section',{style:'padding-top:0'},h('div',{class:'w'},h('div',{class:'ref'},h('div',{},h('p',{class:'k',style:'color:inherit;opacity:.8'},R.kicker),h('h2',{},R.title),h('p',{style:'margin:16px 0 0'},R.text)),h('div',{class:'big'},R.big)))),
+    h('section',{class:'end',id:'contact'},h('div',{class:'w'},h('p',{class:'k'},K.kicker),h('h2',{},K.title),h('p',{class:'lead',style:'margin-inline:auto'},K.text),h('div',{class:'cta'},h('a',{class:'btn p',href:WA+encodeURIComponent('Hi NeedHelpBuilding team, I want to start a project with you.'),target:'_blank',rel:'noopener'},K.btn),h('a',{class:'btn',href:'tel:'+K.phone},K.phone)))),
+    h('footer',{},h('div',{class:'w'},h('span',{},C.brand),h('a',{href:'https://www.needhelpbuilding.com'},'needhelpbuilding.com'),!window.claude&&!canEdit&&h('a',{href:'#',onclick:e=>{e.preventDefault();login()}},'Admin'))),
+    canEdit&&!open&&h('button',{class:'btn p fab',onclick:()=>{open=true;render();drawer()}},'Customize site')
+  ].filter(Boolean));
+  startRot();
+}
+let rt;function startRot(){clearInterval(rt);const r=$('rot'),w=C.hero.words;if(!r||w.length<2||matchMedia('(prefers-reduced-motion:reduce)').matches)return;let i=0;rt=setInterval(()=>{r.classList.add('o');setTimeout(()=>{i=(i+1)%w.length;r.textContent=w[i];r.classList.remove('o')},260)},2600)}
+/* admin drawer: generic editor */
+let raf;const live=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(render)};
+const lbl=(l,e)=>h('label',{},l,e);
+const nice=k=>k.replace(/([A-Z])/g,' $1').replace(/^./,c=>c.toUpperCase());
+function ed(o,k){
+  const v=o[k],L=nice(k);
+  if(k==='id'||k==='tone')return null;
+  if(typeof v==='boolean'){const i=h('input',{type:'checkbox'});i.checked=v;i.onchange=()=>{o[k]=i.checked;live()};return h('label',{style:'flex-direction:row;align-items:center;gap:8px'},i,L)}
+  if(typeof v==='number'){const i=h('input',{type:'range',min:0,max:48,value:v});i.oninput=()=>{o[k]=+i.value;live()};return lbl(L+' ('+v+'px)',i)}
+  if(typeof v==='string'){
+    if(/^#[0-9a-f]{6}$/i.test(v)){const i=h('input',{type:'color',value:v});i.oninput=()=>{o[k]=i.value;live()};return lbl(L,i)}
+    if(k==='mode'||k==='head'||k==='body'){const s=h('select',{},(k==='mode'?['auto','light','dark']:FONTS).map(x=>h('option',{value:x},x)));s.value=v;s.onchange=()=>{o[k]=s.value;live()};return lbl(L,s)}
+    const i=h(v.length>60?'textarea':'input',v.length>60?{rows:4}:{type:'text'});i.value=v;i.oninput=()=>{o[k]=i.value;live()};return lbl(L,i)}
+  if(Array.isArray(v)&&(!v.length||typeof v[0]==='string')){const i=h('textarea',{rows:Math.min(8,v.length+1)});i.value=v.join('\n');i.oninput=()=>{o[k]=i.value.split('\n').filter(x=>x.trim());live()};return lbl(L+' (one per line)',i)}
+  if(Array.isArray(v)){return h('fieldset',{},h('legend',{},L),v.map((it,n)=>h('fieldset',{},h('legend',{},'#'+(n+1)),Object.keys(it).map(x=>ed(it,x)),h('button',{class:'btn dg',type:'button',onclick:()=>{v.splice(n,1);render();drawer()}},'Remove'))),h('button',{class:'btn',type:'button',onclick:()=>{const t=JSON.parse(JSON.stringify(v[0]||{}));const z=x=>typeof x==='string'?'':Array.isArray(x)?[]:typeof x==='object'&&x?Object.fromEntries(Object.entries(x).map(([a,b])=>[a,z(b)])):x;v.push(z(t));render();drawer()}},'Add item'))}
+  if(v&&typeof v==='object')return h('fieldset',{},h('legend',{},L),Object.keys(v).map(x=>ed(v,x)));
+  return null;
+}
+const TABS=[['theme','Theme & fonts'],['intro','Intro'],['hero','Hero'],['marquee','Ticker'],['services','Services'],['work','Work'],['startups','Startups'],['testimonials','Reviews'],['referral','Referral'],['contact','Contact'],['team','Team']];
+function drawer(){
+  if(!open){$('adm').replaceChildren();return}
+  let body;
+  if(tab==='theme')body=[ed(C,'theme'),ed(C,'font'),lbl('Brand name',(()=>{const i=h('input',{type:'text'});i.value=C.brand;i.oninput=()=>{C.brand=i.value;live()};return i})())];
+  else if(tab==='team')body=[h('button',{class:'btn p',onclick:()=>form()},'Add member'),h('p',{style:'margin:0;color:var(--mut);font-size:14px'},'Use Edit on any card to change a member.'),ed(T,'kicker'),ed(T,'title'),ed(T,'lead')];
+  else if(['marquee','hero','intro','services','work','startups','testimonials','referral','contact'].includes(tab))body=[tab==='marquee'?ed(C,'marquee'):Object.keys(C[tab]).map(x=>ed(C[tab],x))];
+  $('adm').replaceChildren(h('aside',{class:'dr','aria-label':'Customize site'},
+    h('header',{},h('b',{},'Customize site'),h('span',{style:'display:flex;gap:8px'},h('button',{class:'btn',onclick:()=>intro(true)},'Replay intro'),h('button',{class:'btn',onclick:()=>{open=false;render();drawer()}},'Close'))),
+    h('div',{class:'tabs',role:'tablist'},TABS.map(([k,l])=>h('button',{class:'chip',role:'tab','aria-pressed':String(k===tab),onclick:()=>{tab=k;drawer()}},l))),
+    h('div',{class:'bd2'},body),
+    h('div',{class:'ft'},h('span',{style:'color:var(--mut);font-size:13px'},'Changes show live. Publish to keep them.'),h('button',{class:'btn p',onclick:commit},window.claude?'Publish changes':'Save & download'))));
+}
+function form(m){
+  const isNew=!m,v=m||{id:'m'+Date.now(),name:'',role:'',title:'',bio:'',skills:[],link:'',tone:Math.floor(Math.random()*5)};let tone=v.tone;const f={};
+  const inp=(k,l,ta,val,x)=>h('label',{},l,f[k]=h(ta?'textarea':'input',Object.assign({type:'text',value:val},ta?{rows:3}:{},x||{})));
+  const sw=h('div',{class:'sw'},TONES.map((c,i)=>h('button',{type:'button','aria-label':'Colour '+(i+1),'aria-pressed':String(i===tone),style:'background:'+c,onclick:()=>{tone=i;sw.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',String(j===i)))}})));
+  const ceo=h('input',{type:'checkbox'});ceo.checked=!!v.ceo;
+  const ov=h('div',{class:'ov'},h('div',{class:'dlg',role:'dialog','aria-modal':'true'},h('h3',{},isNew?'Add member':'Edit member'),
+    inp('name','Name',0,v.name),h('label',{},'Role',f.role=h('input',{type:'text',value:v.role,list:'rl',placeholder:'Pick one or type a new role'}),h('datalist',{id:'rl'},T.roles.map(r=>h('option',{value:r})))),
+    inp('title','One-line title',0,v.title),inp('bio','About',1,v.bio),inp('skills','Skills (comma separated)',0,v.skills.join(', ')),inp('link','Profile link',0,v.link,{placeholder:'https://'}),
+    h('div',{},h('div',{style:'font-weight:600;font-size:13px;margin-bottom:6px'},'Photo colour'),sw),
+    h('label',{style:'flex-direction:row;align-items:center;gap:8px'},ceo,'Feature as CEO at the top'),
+    h('div',{class:'row'},!isNew?h('button',{class:'btn dg',type:'button',onclick:()=>{if(!confirm('Remove '+v.name+'?'))return;T.members=T.members.filter(x=>x.id!==v.id);ov.remove();render()}},'Remove'):h('span'),
+      h('span',{style:'display:flex;gap:8px'},h('button',{class:'btn',type:'button',onclick:()=>ov.remove()},'Cancel'),h('button',{class:'btn p',type:'button',onclick:()=>{
+        const name=f.name.value.trim(),role=f.role.value.trim();if(!name||!role){toast('Name and role are required.');return}
+        const o={id:v.id,name,role,title:f.title.value.trim(),bio:f.bio.value.trim(),skills:f.skills.value.split(',').map(s=>s.trim()).filter(Boolean),link:f.link.value.trim(),tone,ceo:ceo.checked};
+        if(o.ceo)T.members.forEach(x=>x.ceo=false);if(!T.roles.includes(role))T.roles.push(role);
+        const i=T.members.findIndex(x=>x.id===v.id);if(i<0)T.members.push(o);else T.members[i]=o;ov.remove();render();toast('Saved on screen. Use Publish changes to keep it.')}},'Save member')))));
+  document.body.append(ov);f.name.focus();
+}
+function intro(force){
+  const el=$('intro');if(!C.intro.on&&!force)return;if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const ws=C.intro.text.split(/\s+/).filter(Boolean);
+  el.replaceChildren(h('div',{class:'intro','aria-hidden':'true'},ws.map((w,i)=>h('div',{class:'ln'},h('span',{style:'--i:'+i},w)))));
+  const n=el.firstChild;setTimeout(()=>n.classList.add('out'),ws.length*180+1300);setTimeout(()=>el.replaceChildren(),ws.length*180+2400);
+}
+const ADMIN_HASH='8d699b5e93b9def2ba44d92f788018519d11ef9fe925a0110c1c522da92de451';
+async function sha(x){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(x));return [...new Uint8Array(b)].map(v=>v.toString(16).padStart(2,'0')).join('')}
+async function login(){const p=prompt('Admin passcode');if(!p)return;if(await sha(p)===ADMIN_HASH){canEdit=true;try{sessionStorage.setItem('nhb_admin','1')}catch(e){}render()}else toast('Wrong passcode.')}
+try{if(!window.claude&&sessionStorage.getItem('nhb_admin'))canEdit=true}catch(e){}
+render();intro();
+if(window.claude)claude.use('user').then(u=>{if(u&&u.canEdit()){canEdit=true;render()}}).catch(()=>{});
+</script>
+</body>
+</html>
