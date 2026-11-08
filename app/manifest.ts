@@ -2,31 +2,18 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Need Help Building | Digital Engineering & Automations",
-    short_name: "NeedHelpBuilding",
+    name: "NeedHelpBuilding — Digital Product Engineering, AI & Technology Consulting",
+    short_name: "NHB",
     description:
-      "We build custom automations, AI agents, high-converting web apps, and enterprise systems for growing businesses.",
+      "We help businesses make better technology decisions, then design, engineer and run the systems: AI agents, automation, software and digital products.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0c0c0d",
-    theme_color: "#0c0c0d",
+    background_color: "#f7f6f2",
+    theme_color: "#f7f6f2",
     icons: [
-      {
-        src: "/favicon.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-      {
-        src: "/icon.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-      {
-        src: "/apple-icon.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
+      { src: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { src: "/icon.png", sizes: "192x192", type: "image/png" },
+      { src: "/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
   };
 }
-

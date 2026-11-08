@@ -1,21 +1,24 @@
 import type { MetadataRoute } from "next";
 import { SERVICES_DATA } from "./services/services-data";
+import { projects } from "@/content/work";
+import { site } from "@/content/site";
+
+const UPDATED = new Date("2026-11-08T00:00:00.000Z");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const serviceUrls: MetadataRoute.Sitemap = SERVICES_DATA.map((service) => ({
-    url: `https://needhelpbuilding.com/services/${service.slug}`,
-    lastModified: new Date("2026-10-18T00:00:00.000Z"),
-    changeFrequency: "weekly",
-    priority: 0.9,
-  }));
-
   return [
-    {
-      url: "https://needhelpbuilding.com",
-      lastModified: new Date("2026-10-18T00:00:00.000Z"),
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    ...serviceUrls,
+    { url: site.url, lastModified: UPDATED, changeFrequency: "weekly", priority: 1.0 },
+    ...projects.map((p) => ({
+      url: `${site.url}/work/${p.slug}`,
+      lastModified: UPDATED,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    ...SERVICES_DATA.map((service) => ({
+      url: `${site.url}/services/${service.slug}`,
+      lastModified: UPDATED,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 }
