@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
-import { Anton, Archivo_Black, Space_Grotesk, Inter, Silkscreen } from "next/font/google";
+import { Figtree, Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
-const anton = Anton({
-  weight: "400",
+const figtree = Figtree({
   subsets: ["latin"],
-  variable: "--font-anton",
-  display: "swap",
-});
-
-const archivoBlack = Archivo_Black({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-archivo",
-  display: "swap",
-});
-
-const silkscreen = Silkscreen({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-pixel",
+  variable: "--font-figtree",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -313,7 +299,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${archivoBlack.variable} ${silkscreen.variable} ${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}
+      className={`${figtree.variable} ${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}
     >
       <head>
         <link rel="icon" type="image/png" href="/favicon.png" />

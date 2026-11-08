@@ -1,0 +1,1314 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e6]:
+    - generic [ref=e8]:
+      - link [ref=e10] [cursor=pointer]:
+        - /url: /
+        - img "GeekyAnts" [ref=e11]
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - link "GeekyAnts AI" [ref=e14] [cursor=pointer]:
+            - /url: /artificial-intelligence-consulting
+        - listitem [ref=e17]:
+          - group [ref=e18]:
+            - generic "What We Do" [ref=e19] [cursor=pointer]
+        - listitem [ref=e22]:
+          - group [ref=e23]:
+            - generic "Industries" [ref=e24] [cursor=pointer]
+        - listitem [ref=e27]:
+          - group [ref=e28]:
+            - generic "Engineering" [ref=e29] [cursor=pointer]
+        - listitem [ref=e32]:
+          - group [ref=e33]:
+            - generic "Insights" [ref=e34] [cursor=pointer]
+        - listitem [ref=e37]:
+          - group [ref=e38]:
+            - generic "About" [ref=e39] [cursor=pointer]
+      - link "Contact Us" [ref=e42] [cursor=pointer]:
+        - /url: /hire
+  - main [ref=e45]:
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - heading [level=1] [ref=e51]:
+          - generic [ref=e52]: Turning AmbitiousTechnology Strategiesinto Production-GradeReality
+        - paragraph [ref=e54]: From AI adoption to legacy modernization to product scale - we bring the thinking and the team.
+        - link "Schedule a Strategy Conversation" [ref=e55] [cursor=pointer]:
+          - /url: /hire
+      - figure [ref=e57]
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - img "SpringTree" [ref=e69]
+        - generic [aria-hidden]: SpringTree
+      - generic [ref=e70]:
+        - img "Google" [ref=e73]
+        - generic [aria-hidden]: Google
+      - generic [ref=e74]:
+        - img "OliveGarden" [ref=e77]
+        - generic [aria-hidden]: OliveGarden
+      - generic [ref=e78]:
+        - img "Darden" [ref=e81]
+        - generic [aria-hidden]: Darden
+      - generic [ref=e82]:
+        - img "soccerverse" [ref=e85]
+        - generic [aria-hidden]: soccerverse
+      - generic [ref=e86]:
+        - img "ICICI" [ref=e89]
+        - generic [aria-hidden]: ICICI
+      - generic [ref=e90]:
+        - img "kingsley Gate" [ref=e93]
+        - generic [aria-hidden]: kingsley Gate
+      - generic [ref=e94]:
+        - img "Atsign" [ref=e97]
+        - generic [aria-hidden]: Atsign
+      - generic [ref=e98]:
+        - img "SKF" [ref=e101]
+        - generic [aria-hidden]: SKF
+      - generic [ref=e102]:
+        - img "Thyrocare" [ref=e105]
+        - generic [aria-hidden]: Thyrocare
+      - generic [ref=e106]:
+        - img "WeWork" [ref=e109]
+        - generic [aria-hidden]: WeWork
+      - generic [ref=e110]:
+        - img "goosehead insurance" [ref=e113]
+        - generic [aria-hidden]: goosehead insurance
+      - generic [ref=e114]:
+        - img "Blissclub" [ref=e117]
+        - generic [aria-hidden]: Blissclub
+      - generic [ref=e118]:
+        - img "MetroGhar" [ref=e121]
+        - generic [aria-hidden]: MetroGhar
+      - generic [aria-hidden] [ref=e122]:
+        - generic [aria-hidden]: SpringTree
+      - generic [aria-hidden] [ref=e126]:
+        - generic [aria-hidden]: Google
+      - generic [aria-hidden] [ref=e130]:
+        - generic [aria-hidden]: OliveGarden
+      - generic [aria-hidden] [ref=e134]:
+        - generic [aria-hidden]: Darden
+      - generic [aria-hidden] [ref=e138]:
+        - generic [aria-hidden]: soccerverse
+      - generic [aria-hidden] [ref=e142]:
+        - generic [aria-hidden]: ICICI
+      - generic [aria-hidden] [ref=e146]:
+        - generic [aria-hidden]: kingsley Gate
+      - generic [aria-hidden] [ref=e150]:
+        - generic [aria-hidden]: Atsign
+      - generic [aria-hidden] [ref=e154]:
+        - generic [aria-hidden]: SKF
+      - generic [aria-hidden] [ref=e158]:
+        - generic [aria-hidden]: Thyrocare
+      - generic [aria-hidden] [ref=e162]:
+        - generic [aria-hidden]: WeWork
+      - generic [aria-hidden] [ref=e166]:
+        - generic [aria-hidden]: goosehead insurance
+      - generic [aria-hidden] [ref=e170]:
+        - generic [aria-hidden]: Blissclub
+      - generic [aria-hidden] [ref=e174]:
+        - generic [aria-hidden]: MetroGhar
+    - generic [ref=e181]:
+      - paragraph [ref=e182]:
+        - generic [ref=e186]: Why now
+      - heading "The Companies that will Lead the Next Decade are Being Engineered Right Now." [level=2] [ref=e188]:
+        - generic [ref=e189]: The
+        - generic [ref=e190]: Companies
+        - generic [ref=e191]: that
+        - generic [ref=e192]: will
+        - generic [ref=e193]: Lead
+        - generic [ref=e194]: the
+        - generic [ref=e195]: Next
+        - generic [ref=e196]: Decade
+        - generic [ref=e197]: are
+        - generic [ref=e198]: Being
+        - generic [ref=e199]: Engineered
+        - generic [ref=e200]: Right
+        - generic [ref=e201]: Now.
+      - generic [ref=e202]:
+        - paragraph [ref=e203]: Enterprise is being Reimagined.
+        - paragraph [ref=e204]: Products are being Reinvented.
+        - paragraph [ref=e205]: We engineer Both.
+    - generic [ref=e210]:
+      - generic [ref=e211]:
+        - term [ref=e212]: Years of Engineering Products
+        - definition [ref=e213]:
+          - generic "20+" [ref=e214]
+      - generic [ref=e216]:
+        - term [ref=e217]: Products Shipped to Production
+        - definition [ref=e218]:
+          - generic "1000+" [ref=e219]
+      - generic [ref=e221]:
+        - term [ref=e222]: Projects
+        - definition [ref=e223]:
+          - generic "600+" [ref=e224]
+      - generic [ref=e226]:
+        - term [ref=e227]: Product Engineers
+        - definition [ref=e228]:
+          - generic "350+" [ref=e229]
+    - generic [ref=e234]:
+      - generic [ref=e235]:
+        - paragraph [ref=e236]:
+          - generic [ref=e240]: AntFlow AI · Our agentic development framework
+        - img "Agentic Development Platform by GeekyAnts" [ref=e243]
+        - heading "Agentic Development Framework by GeekyAnts" [level=2] [ref=e244]
+      - generic [ref=e245]:
+        - generic [ref=e246]: AntFlow AI connects what your business needs with how software gets built, helping GeekyAnts deliver with greater speed, clarity, and confidence.
+        - link "See How AntFlow AI Works" [ref=e249] [cursor=pointer]:
+          - /url: /antflow-ai
+    - 'button "Play video: Agentic Development Platform by GeekyAnts" [ref=e259] [cursor=pointer]'
+    - generic [ref=e265]:
+      - paragraph [ref=e266]:
+        - generic [ref=e270]: Practices
+      - generic [ref=e271]:
+        - heading "Four Practices One Engineering Standard ." [level=2] [ref=e272]:
+          - text: Four Practices One Engineering Standard
+          - generic: .
+        - paragraph [ref=e275]: Every practice combines strategic consulting with hands-on engineering — because advice without execution is just a slide deck.
+      - generic [ref=e276]:
+        - generic [ref=e277]:
+          - article [ref=e278]:
+            - paragraph [ref=e279]: 01 / 04
+            - heading "AI & Intelligent Systems" [level=3] [ref=e280]
+            - paragraph [ref=e281]: From AI strategy to production-grade LLM integration, autonomous agents, and intelligent workflows - we take AI from experiment to enterprise.
+            - list [ref=e282]:
+              - listitem [ref=e283]:
+                - link "Agentic AI" [ref=e285] [cursor=pointer]:
+                  - /url: /artificial-intelligence-consulting/agentic-ai
+              - listitem [ref=e286]:
+                - link "ML Model Development" [ref=e288] [cursor=pointer]:
+                  - /url: /artificial-intelligence-consulting/ai-ml
+              - listitem [ref=e289]:
+                - link "AI Pods" [ref=e291] [cursor=pointer]:
+                  - /url: /artificial-intelligence-consulting/ai-pods
+              - listitem [ref=e292]:
+                - link "Digital Transformation" [ref=e294] [cursor=pointer]:
+                  - /url: /service/digital-transformation-service
+              - listitem [ref=e295]:
+                - link "AI Strategies" [ref=e297] [cursor=pointer]:
+                  - /url: /artificial-intelligence-consulting/ai-strategy
+              - listitem [ref=e298]:
+                - link "Artificial Intelligence" [ref=e300] [cursor=pointer]:
+                  - /url: /ai
+              - listitem [ref=e301]:
+                - link "AI Developer" [ref=e303] [cursor=pointer]:
+                  - /url: /hire-ai-developers
+          - article [ref=e304]:
+            - paragraph [ref=e305]: 02 / 04
+            - heading "AI-Powered Product Engineering" [level=3] [ref=e306]
+            - paragraph [ref=e307]: From idea to prototype to production - we build products at AI speed with the engineering discipline that makes them last.
+            - list [ref=e308]:
+              - listitem [ref=e309]:
+                - link "Prototype to Production" [ref=e311] [cursor=pointer]:
+                  - /url: /ai-powered-product-engineering/prototype-to-production
+              - listitem [ref=e312]:
+                - link "AI Native Engineering" [ref=e314] [cursor=pointer]:
+                  - /url: /ai-powered-product-engineering/native-engineering
+              - listitem [ref=e315]:
+                - link "Fractional Engineering Team" [ref=e317] [cursor=pointer]:
+                  - /url: /ai-powered-product-engineering/fractional-engineering-teams
+              - listitem [ref=e318]:
+                - link "Code Quality Engineering Excellence" [ref=e320] [cursor=pointer]:
+                  - /url: /ai-powered-product-engineering/code-quality-engineering
+              - listitem [ref=e321]:
+                - link "Scaling MVP to Market" [ref=e323] [cursor=pointer]:
+                  - /url: /ai-powered-product-engineering/scaling-mvp-to-market
+              - listitem [ref=e324]:
+                - link "Product studio AI era" [ref=e326] [cursor=pointer]:
+                  - /url: /ai-powered-product-engineering/product-studio
+          - article [ref=e327]:
+            - paragraph [ref=e328]: 03 / 04
+            - heading "Enterprise System Modernization Services" [level=3] [ref=e329]
+            - paragraph [ref=e330]: We re-architect legacy systems for AI-readiness, scale, and speed - then stay to manage and evolve them.
+            - list [ref=e331]:
+              - listitem [ref=e332]:
+                - link "App Modernization" [ref=e334] [cursor=pointer]:
+                  - /url: /enterprise-system-modernization/app-modernization
+              - listitem [ref=e335]:
+                - link "Data & Integration Modernization" [ref=e337] [cursor=pointer]:
+                  - /url: /enterprise-system-modernization/data-integration-modernization-services
+              - listitem [ref=e338]:
+                - link "Process & Delivery Transformation" [ref=e340] [cursor=pointer]:
+                  - /url: /enterprise-system-modernization/process-delivery-transformation
+              - listitem [ref=e341]:
+                - link "Cloud & Infrastructure Modernization" [ref=e343] [cursor=pointer]:
+                  - /url: /enterprise-system-modernization/cloud-infrastructure-services
+              - listitem [ref=e344]:
+                - link "Performance & Security" [ref=e346] [cursor=pointer]:
+                  - /url: /enterprise-system-modernization/performance-security-optimization
+          - article [ref=e347]:
+            - paragraph [ref=e348]: 04 / 04
+            - heading "Digital Customer Experience" [level=3] [ref=e349]
+            - paragraph [ref=e350]: We bring engineering, design, and strategy on the same page - ensuring your customer experiences build trust, deliver measurable business outcomes, and work at scale. When these disciplines work in isolation, experiences break. When they work together, experiences compound in value over time.
+            - list [ref=e351]:
+              - listitem [ref=e352]:
+                - link "Discovery & Experience Strategy" [ref=e354] [cursor=pointer]:
+                  - /url: /customer-experience/discovery-experience-strategy
+              - listitem [ref=e355]:
+                - link "Product & Digital Experience Design" [ref=e357] [cursor=pointer]:
+                  - /url: /customer-experience/digital-experience-design
+              - listitem [ref=e358]:
+                - link "Migration Legacy UX to Modern CX" [ref=e360] [cursor=pointer]:
+                  - /url: /customer-experience/legacy-ux-to-modern-cx-migration
+              - listitem [ref=e361]:
+                - link "AI-Powered & Agentic Experience Design" [ref=e363] [cursor=pointer]:
+                  - /url: /customer-experience/agentic-experience-design
+              - listitem [ref=e364]:
+                - link "Design System & CX Consistency" [ref=e366] [cursor=pointer]:
+                  - /url: /customer-experience/design-system-cx-consistency
+              - listitem [ref=e367]:
+                - link "Ongoing CX & Design Retainers" [ref=e369] [cursor=pointer]:
+                  - /url: /customer-experience/ongoing-cx-design-retainers
+              - listitem [ref=e370]:
+                - link "Digital Product Design" [ref=e372] [cursor=pointer]:
+                  - /url: /service/digital-product-design-services
+        - figure "01 / 04 AI & Intelligent Systems" [ref=e374]:
+          - generic [ref=e376]:
+            - generic [ref=e377]: 01 / 04
+            - generic [ref=e378]: AI & Intelligent Systems
+    - generic [ref=e382]:
+      - paragraph [ref=e383]:
+        - generic [ref=e387]: Work
+      - generic [ref=e388]:
+        - heading "We Measure Success in Business Impact, Not Lines of Code ." [level=2] [ref=e389]:
+          - text: We Measure Success in Business Impact, Not Lines of Code
+          - generic: .
+        - link "View all" [ref=e392] [cursor=pointer]:
+          - /url: /case-studies
+      - group "Filter case studies" [ref=e395]:
+        - button "Featured" [pressed] [ref=e396] [cursor=pointer]
+        - button "E-commerce" [ref=e397] [cursor=pointer]
+        - button "Healthcare" [ref=e398] [cursor=pointer]
+        - button "Real Estate" [ref=e399] [cursor=pointer]
+        - button "Fintech" [ref=e400] [cursor=pointer]
+        - button "Media and Entertainment" [ref=e401] [cursor=pointer]
+      - generic [ref=e402]:
+        - article [ref=e403]:
+          - link "RBI Domain Migration For India’s Largest Private Bank" [ref=e404] [cursor=pointer]:
+            - /url: /case-studies/rbi-mandated-domain-migration-zero-downtime
+            - img "RBI Domain Migration For India’s Largest Private Bank" [ref=e409]
+          - heading [level=3] [ref=e410]:
+            - link "RBI Domain Migration For India’s Largest Private Bank" [ref=e411] [cursor=pointer]:
+              - /url: /case-studies/rbi-mandated-domain-migration-zero-downtime
+          - generic [ref=e412]:
+            - text: GeekyAnts executed a large-scale domain migration for Reserve Bank of India compliance, enabling one of India’s largest private banks to transition its
+            - link "digital infrastructure" [ref=e413] [cursor=pointer]:
+              - /url: /service/digital-transformation-service
+            - text: to RBI-mandated domains without disrupting live banking services.
+          - generic [ref=e414]:
+            - generic [ref=e415]:
+              - term [ref=e416]: reduction in manual effort
+              - definition [ref=e417]: 99%
+            - generic [ref=e418]:
+              - term [ref=e419]: pages processed in ~2 minutes
+              - definition [ref=e420]: 10,000
+            - generic [ref=e421]:
+              - term [ref=e422]: response accuracy
+              - definition [ref=e423]: 85%+
+          - link "Read case study" [ref=e424] [cursor=pointer]:
+            - /url: /case-studies/rbi-mandated-domain-migration-zero-downtime
+        - article [ref=e428]:
+          - link "Healthcare SaaS Platform" [ref=e429] [cursor=pointer]:
+            - /url: /case-studies/dentify-40-percent-onboarding-time-reduction
+            - paragraph [ref=e430]: Healthcare
+            - img "Healthcare SaaS Platform" [ref=e435]
+          - heading [level=3] [ref=e436]:
+            - link "Healthcare SaaS Platform" [ref=e437] [cursor=pointer]:
+              - /url: /case-studies/dentify-40-percent-onboarding-time-reduction
+          - generic [ref=e438]: We modernized Dentify’s onboarding workflows by introducing AI-driven automation and optimizing backend workflows, reducing friction in doctor onboarding and improving operational efficiency.
+          - generic [ref=e439]:
+            - generic [ref=e440]:
+              - term [ref=e441]: Improvement in the doctor's efficiency for treatment planning
+              - definition [ref=e442]: 35%
+            - generic [ref=e443]:
+              - term [ref=e444]: Reduction in onboarding completion time
+              - definition [ref=e445]: 40%
+            - generic [ref=e446]:
+              - term [ref=e447]: Patient Management
+              - definition [ref=e448]: Real-Time
+          - link "Read case study" [ref=e449] [cursor=pointer]:
+            - /url: /case-studies/dentify-40-percent-onboarding-time-reduction
+        - article [ref=e453]:
+          - link "Property Inspection Platform" [ref=e454] [cursor=pointer]:
+            - /url: /case-studies/property-ai-rag-real-estate-inspections
+            - paragraph [ref=e455]: Real Estate
+            - img "Property Inspection Platform" [ref=e460]
+          - heading [level=3] [ref=e461]:
+            - link "Property Inspection Platform" [ref=e462] [cursor=pointer]:
+              - /url: /case-studies/property-ai-rag-real-estate-inspections
+          - generic [ref=e463]: We built a scalable backend architecture supporting AI chatbots, QR-based workflows, and production-grade RAG pipelines to automate property inspections and reporting.
+          - generic [ref=e464]:
+            - generic [ref=e465]:
+              - term [ref=e466]: answer accuracy
+              - definition [ref=e467]: 80%
+            - generic [ref=e468]:
+              - term [ref=e469]: relevance to the property data
+              - definition [ref=e470]: 90%
+            - generic [ref=e471]:
+              - term [ref=e472]: On-site interactions with voice-enabled queries
+              - definition [ref=e473]: 2x
+          - link "Read case study" [ref=e474] [cursor=pointer]:
+            - /url: /case-studies/property-ai-rag-real-estate-inspections
+        - article [ref=e478]:
+          - link "Consumer Commerce Platform" [ref=e479] [cursor=pointer]:
+            - /url: /case-studies/dollardash-cloud-cost-optimization
+            - paragraph [ref=e480]: Fintech
+            - img "Consumer Commerce Platform" [ref=e485]
+          - heading [level=3] [ref=e486]:
+            - link "Consumer Commerce Platform" [ref=e487] [cursor=pointer]:
+              - /url: /case-studies/dollardash-cloud-cost-optimization
+          - generic [ref=e488]: We executed a comprehensive cloud infrastructure overhaul for this digital banking platform to eliminate over-provisioning and inefficient resource allocation. By rightsizing database instances and automating environment scaling, we stabilized the backend while slashing overhead.
+          - generic [ref=e489]:
+            - generic [ref=e490]:
+              - term [ref=e491]: Reduction in monthly cloud costs
+              - definition [ref=e492]: 60%
+            - generic [ref=e493]:
+              - term [ref=e494]: Saved per month
+              - definition [ref=e495]: $4800
+            - generic [ref=e496]:
+              - term [ref=e497]: Annual savings
+              - definition [ref=e498]: $57,000+
+          - link "Read case study" [ref=e499] [cursor=pointer]:
+            - /url: /case-studies/dollardash-cloud-cost-optimization
+    - generic [ref=e505]:
+      - generic [ref=e506]:
+        - paragraph [ref=e507]:
+          - generic [ref=e511]: AntFabric
+        - generic [ref=e512]:
+          - generic [ref=e513]: AntFabric
+          - generic [ref=e518]: "- By GeekyAnts"
+        - heading "Give your organization the foundation to become AI-native" [level=2] [ref=e519]
+        - link "Consult With Us on AntFabric" [ref=e521] [cursor=pointer]:
+          - /url: https://www.antfabric.ai/contact
+      - generic [ref=e523]:
+        - generic [aria-hidden]:
+          - generic:
+            - generic:
+              - paragraph:
+                - generic: Manage all
+                - generic: tasks
+                - generic: in one place
+        - paragraph [ref=e524]: Manage all tasks, chats, meetings and AI Agents in one place
+        - iframe [ref=e528]
+    - generic [ref=e531]:
+      - generic [ref=e532]:
+        - paragraph [ref=e533]:
+          - generic [ref=e537]: Partners
+        - heading "Partnered With the Platforms That Power Modern Enterprise ." [level=2] [ref=e538]:
+          - text: Partnered With the Platforms That Power Modern Enterprise
+          - generic: .
+      - list [ref=e541]:
+        - listitem [ref=e542]:
+          - link "AWS CONSULTING PARTNER" [ref=e543] [cursor=pointer]:
+            - /url: /aws-consulting-services
+            - generic [ref=e547]: AWS
+            - generic [ref=e548]: CONSULTING PARTNER
+        - listitem [ref=e552]:
+          - generic [ref=e553]:
+            - generic [ref=e557]: Vercel
+            - generic [ref=e558]: OFFICIAL PARTNER
+        - listitem [ref=e559]:
+          - generic [ref=e560]:
+            - generic [ref=e564]: GitHub
+            - generic [ref=e565]: TECHNOLOGY PARTNER
+        - listitem [ref=e566]:
+          - generic [ref=e567]:
+            - generic [ref=e571]: Anthropic/Claude
+            - generic [ref=e572]: MEMBER OF THE CLAUDE PARTNER NETWORK (Services Track)
+        - listitem [ref=e573]:
+          - generic [ref=e574]:
+            - generic [ref=e578]: OpenAI
+            - generic [ref=e579]: SELECT PARTNER
+    - generic [ref=e583]:
+      - paragraph [ref=e584]:
+        - generic [ref=e588]: Industries
+      - heading "Industries We Serve ." [level=2] [ref=e589]:
+        - text: Industries We Serve
+        - generic: .
+      - list [ref=e592]:
+        - listitem [ref=e593]:
+          - link "Healthcare Our expert team offers top-notch Healthcare App Development Services. Partner with a trusted healthcare app development company and hire skilled app developers today." [ref=e594] [cursor=pointer]:
+            - /url: /industry/healthcare-app-development-services
+            - generic [ref=e598]:
+              - generic [ref=e599]: Healthcare
+              - generic [ref=e600]: Our expert team offers top-notch Healthcare App Development Services. Partner with a trusted healthcare app development company and hire skilled app developers today.
+        - listitem [ref=e605]:
+          - link "Fintech Secure, scalable fintech and banking app development." [ref=e606] [cursor=pointer]:
+            - /url: /industry/fintech-app-development-services
+            - generic [ref=e610]:
+              - generic [ref=e611]: Fintech
+              - generic [ref=e612]: Secure, scalable fintech and banking app development.
+        - listitem [ref=e617]:
+          - link "Food and Beverages Customized AI-driven F&B apps for a booming business." [ref=e618] [cursor=pointer]:
+            - /url: /industry/food-and-beverage-app-design-development-services
+            - generic [ref=e622]:
+              - generic [ref=e623]: Food and Beverages
+              - generic [ref=e624]: Customized AI-driven F&B apps for a booming business.
+        - listitem [ref=e629]:
+          - link "Manufacturing Smarter apps for process efficiency and operational excellence." [ref=e630] [cursor=pointer]:
+            - /url: /industry/manufacturing-software-development-services
+            - generic [ref=e634]:
+              - generic [ref=e635]: Manufacturing
+              - generic [ref=e636]: Smarter apps for process efficiency and operational excellence.
+        - listitem [ref=e641]:
+          - link "E-commerce E-commerce apps that retain customers, boost sales and conversions." [ref=e642] [cursor=pointer]:
+            - /url: /industry/ecommerce-app-development-services
+            - generic [ref=e646]:
+              - generic [ref=e647]: E-commerce
+              - generic [ref=e648]: E-commerce apps that retain customers, boost sales and conversions.
+        - listitem [ref=e653]:
+          - link "Travel and Hospitality Travel apps for seamless experiences, and memorable moments." [ref=e654] [cursor=pointer]:
+            - /url: /industry/travel-hospitality-software-development-services
+            - generic [ref=e658]:
+              - generic [ref=e659]: Travel and Hospitality
+              - generic [ref=e660]: Travel apps for seamless experiences, and memorable moments.
+        - listitem [ref=e665]:
+          - link "Real Estate Smart property management and listing apps with locale specific expertise." [ref=e666] [cursor=pointer]:
+            - /url: /industry/real-estate-software-development-services
+            - generic [ref=e670]:
+              - generic [ref=e671]: Real Estate
+              - generic [ref=e672]: Smart property management and listing apps with locale specific expertise.
+        - listitem [ref=e677]:
+          - link "Gaming Immersive gaming app development services for today and the future." [ref=e678] [cursor=pointer]:
+            - /url: /industry/game-app-development-services
+            - generic [ref=e682]:
+              - generic [ref=e683]: Gaming
+              - generic [ref=e684]: Immersive gaming app development services for today and the future.
+        - listitem [ref=e689]:
+          - link "Social Media GeekyAnts offers custom social media app development services to build scalable, AI-powered platforms that enhance user engagement and retention." [ref=e690] [cursor=pointer]:
+            - /url: /industry/social-media-app-development-services
+            - generic [ref=e694]:
+              - generic [ref=e695]: Social Media
+              - generic [ref=e696]: GeekyAnts offers custom social media app development services to build scalable, AI-powered platforms that enhance user engagement and retention.
+        - listitem [ref=e701]:
+          - link "Sports Cross-platform sports app development by GeekyAnts. Build fast, scalable apps for live scores, fan engagement, team management & more—across mobile, web, and wearables." [ref=e702] [cursor=pointer]:
+            - /url: /industry/sports-app-development-services
+            - generic [ref=e706]:
+              - generic [ref=e707]: Sports
+              - generic [ref=e708]: Cross-platform sports app development by GeekyAnts. Build fast, scalable apps for live scores, fan engagement, team management & more—across mobile, web, and wearables.
+        - listitem [ref=e713]:
+          - link "Education GeekyAnts offers the best education and e-learning app and software development services for the education industry that can help you make the shift from traditional practices to a digital infrastructure" [ref=e714] [cursor=pointer]:
+            - /url: /industry/education-software-development-services
+            - generic [ref=e718]:
+              - generic [ref=e719]: Education
+              - generic [ref=e720]: GeekyAnts offers the best education and e-learning app and software development services for the education industry that can help you make the shift from traditional practices to a digital infrastructure
+        - listitem [ref=e725]:
+          - link "On-demand Booking Trusted on demand app development company offering custom on demand app development services to build scalable, user-centric solutions for global businesses." [ref=e726] [cursor=pointer]:
+            - /url: /industry/on-demand-app-development-services
+            - generic [ref=e730]:
+              - generic [ref=e731]: On-demand Booking
+              - generic [ref=e732]: Trusted on demand app development company offering custom on demand app development services to build scalable, user-centric solutions for global businesses.
+        - listitem [ref=e737]:
+          - link "Banking, Finance, and Insurance Banking, Finance, and Insurance Consulting Services that transform legacy tech into secure, AI-powered platforms with proven performance and ROI." [ref=e738] [cursor=pointer]:
+            - /url: /industry-expertise/banking-finance-insurance
+            - generic [ref=e742]:
+              - generic [ref=e743]: Banking, Finance, and Insurance
+              - generic [ref=e744]: Banking, Finance, and Insurance Consulting Services that transform legacy tech into secure, AI-powered platforms with proven performance and ROI.
+        - listitem [ref=e749]:
+          - link "Media and Entertainment Transform your media operations with our Media and Entertainment IT services and solutions. We specialize in AI, cloud modernization, MAM/DAM, and custom OTT app development to drive audience engagement." [ref=e750] [cursor=pointer]:
+            - /url: /industry/entertainment-software-development-services
+            - generic [ref=e754]:
+              - generic [ref=e755]: Media and Entertainment
+              - generic [ref=e756]: Transform your media operations with our Media and Entertainment IT services and solutions. We specialize in AI, cloud modernization, MAM/DAM, and custom OTT app development to drive audience engagement.
+        - listitem [ref=e761]:
+          - link "Hiring Transform your hiring process with our HR IT Transformation Services. We specialize in AI-driven recruitment, Applicant Tracking System (ATS) modernization, and automated workflows to accelerate talent acquisition." [ref=e762] [cursor=pointer]:
+            - /url: /industry/recruitment-software-development-solutions
+            - generic [ref=e766]:
+              - generic [ref=e767]: Hiring
+              - generic [ref=e768]: Transform your hiring process with our HR IT Transformation Services. We specialize in AI-driven recruitment, Applicant Tracking System (ATS) modernization, and automated workflows to accelerate talent acquisition.
+        - listitem [ref=e773]:
+          - link "Insurance Expert insurance software development services for claims, underwriting, and compliance. From policy automation to fraud detection, GeekyAnts delivers secure InsurTech solutions." [ref=e774] [cursor=pointer]:
+            - /url: /industry/fintech-insurance/Insurance-software-development-services
+            - generic [ref=e778]:
+              - generic [ref=e779]: Insurance
+              - generic [ref=e780]: Expert insurance software development services for claims, underwriting, and compliance. From policy automation to fraud detection, GeekyAnts delivers secure InsurTech solutions.
+    - region "Technologies" [ref=e787]:
+      - generic [ref=e790]:
+        - link "React Native" [ref=e791] [cursor=pointer]:
+          - /url: /hire-react-native-developers
+        - generic [ref=e795]: React
+        - link "Flutter" [ref=e799] [cursor=pointer]:
+          - /url: /hire-flutter-developers
+        - generic [ref=e803]: Angular
+        - generic [ref=e807]: Vue.js
+        - generic [ref=e811]: Svelte
+        - link "Native iOS" [ref=e815] [cursor=pointer]:
+          - /url: https://geekyants.com/hire-ios-developers
+        - link "Android" [ref=e819] [cursor=pointer]:
+          - /url: https://geekyants.com/hire-android-app-developers
+        - generic [ref=e823]: App Gateway
+        - link "Python" [ref=e827] [cursor=pointer]:
+          - /url: /hire-python-developers
+        - link "GraphQL" [ref=e831] [cursor=pointer]:
+          - /url: /hire-graphql-api-developers
+        - link "Node.js" [ref=e835] [cursor=pointer]:
+          - /url: /hire-nodejs-developers
+        - link "NestJS" [ref=e839] [cursor=pointer]:
+          - /url: /hire-nest-js-developers
+        - generic [ref=e843]: PHP
+        - generic [ref=e847]: Microsoft .NET
+        - generic [ref=e851]: Spring Boot
+        - generic [ref=e855]: Molecular
+        - generic [ref=e859]: Hasura
+        - generic [ref=e863]: Django
+        - generic [ref=e867]: Firebase
+        - link "Golang" [ref=e871] [cursor=pointer]:
+          - /url: /hire-golang-developers
+        - link "Laravel" [ref=e875] [cursor=pointer]:
+          - /url: /hire-laravel-developers
+        - link "PostgreSQL" [ref=e879] [cursor=pointer]:
+          - /url: /hire-postgresql-developers
+        - link "Redis" [ref=e883] [cursor=pointer]:
+          - /url: /engineering/backend/product-backend-studio/redis-caching-services
+        - generic [ref=e887]: DynamoDB
+        - generic [ref=e891]: Firestore
+        - link "Next.js" [ref=e895] [cursor=pointer]:
+          - /url: /hire-next-js-developers
+        - generic [ref=e899]: MariaDB
+        - generic [ref=e903]: MongoDB
+        - generic [ref=e907]: MySQL
+        - generic [ref=e911]: SQLite
+        - link "gluestack-ui" [ref=e915] [cursor=pointer]:
+          - /url: https://gluestack.io/?utm_source=geekyants&utm_medium=referral&utm_campaign=gluestack
+        - generic [ref=e919]: Expo
+        - link [aria-hidden] [ref=e923] [cursor=pointer]:
+          - /url: /hire-react-native-developers
+          - generic [ref=e926]: React Native
+        - generic [ref=e930]: React
+        - link [aria-hidden] [ref=e931] [cursor=pointer]:
+          - /url: /hire-flutter-developers
+          - generic [ref=e934]: Flutter
+        - generic [ref=e938]: Angular
+        - generic [ref=e942]: Vue.js
+        - generic [ref=e946]: Svelte
+        - link [aria-hidden] [ref=e947] [cursor=pointer]:
+          - /url: https://geekyants.com/hire-ios-developers
+          - generic [ref=e950]: Native iOS
+        - link [aria-hidden] [ref=e951] [cursor=pointer]:
+          - /url: https://geekyants.com/hire-android-app-developers
+          - generic [ref=e954]: Android
+        - generic [ref=e958]: App Gateway
+        - link [aria-hidden] [ref=e959] [cursor=pointer]:
+          - /url: /hire-python-developers
+          - generic [ref=e962]: Python
+        - link [aria-hidden] [ref=e963] [cursor=pointer]:
+          - /url: /hire-graphql-api-developers
+          - generic [ref=e966]: GraphQL
+        - link [aria-hidden] [ref=e967] [cursor=pointer]:
+          - /url: /hire-nodejs-developers
+          - generic [ref=e970]: Node.js
+        - link [aria-hidden] [ref=e971] [cursor=pointer]:
+          - /url: /hire-nest-js-developers
+          - generic [ref=e974]: NestJS
+        - generic [ref=e978]: PHP
+        - generic [ref=e982]: Microsoft .NET
+        - generic [ref=e986]: Spring Boot
+        - generic [ref=e990]: Molecular
+        - generic [ref=e994]: Hasura
+        - generic [ref=e998]: Django
+        - generic [ref=e1002]: Firebase
+        - link [aria-hidden] [ref=e1003] [cursor=pointer]:
+          - /url: /hire-golang-developers
+          - generic [ref=e1006]: Golang
+        - link [aria-hidden] [ref=e1007] [cursor=pointer]:
+          - /url: /hire-laravel-developers
+          - generic [ref=e1010]: Laravel
+        - link [aria-hidden] [ref=e1011] [cursor=pointer]:
+          - /url: /hire-postgresql-developers
+          - generic [ref=e1014]: PostgreSQL
+        - link [aria-hidden] [ref=e1015] [cursor=pointer]:
+          - /url: /engineering/backend/product-backend-studio/redis-caching-services
+          - generic [ref=e1018]: Redis
+        - generic [ref=e1022]: DynamoDB
+        - generic [ref=e1026]: Firestore
+        - link [aria-hidden] [ref=e1027] [cursor=pointer]:
+          - /url: /hire-next-js-developers
+          - generic [ref=e1030]: Next.js
+        - generic [ref=e1034]: MariaDB
+        - generic [ref=e1038]: MongoDB
+        - generic [ref=e1042]: MySQL
+        - generic [ref=e1046]: SQLite
+        - link [aria-hidden] [ref=e1047] [cursor=pointer]:
+          - /url: https://gluestack.io/?utm_source=geekyants&utm_medium=referral&utm_campaign=gluestack
+          - generic [ref=e1050]: gluestack-ui
+        - generic [ref=e1054]: Expo
+    - generic [ref=e1058]:
+      - generic [ref=e1060]:
+        - paragraph [ref=e1061]:
+          - generic [ref=e1065]: Point of view
+        - heading "We Bring a Point of View ." [level=2] [ref=e1066]:
+          - text: We Bring a Point of View
+          - generic: .
+        - img "A GeekyAnts product pod talking through the day’s work" [ref=e1072]
+      - list [ref=e1073]:
+        - listitem [ref=e1074]:
+          - generic [ref=e1075]: "01"
+          - generic [ref=e1076]:
+            - heading "We diagnose before we build." [level=3] [ref=e1077]
+            - generic [ref=e1078]: Our assessments often reveal the most important problem isn't the one the client came to us with. This saves months of misdirected effort and significant wasted investment.
+        - listitem [ref=e1080]:
+          - generic [ref=e1081]: "02"
+          - generic [ref=e1082]:
+            - heading "AI-native engineering, grounded in 20 years of discipline." [level=3] [ref=e1083]
+            - generic [ref=e1084]: We use AI to accelerate delivery. But we never ship without the testing, security, and architecture that production demands. Speed without rigor is just faster failure.
+        - listitem [ref=e1086]:
+          - generic [ref=e1087]: "03"
+          - generic [ref=e1088]:
+            - heading "We build tools the industry depends on." [level=3] [ref=e1089]
+            - generic [ref=e1090]: NativeBase. gluestack-ui. React Native core contributions. React Summit 2024 Productivity Award. Thousands of developers trust our foundations.
+        - listitem [ref=e1092]:
+          - generic [ref=e1093]: "04"
+          - generic [ref=e1094]:
+            - heading "We stay. We don't ship and disappear." [level=3] [ref=e1095]
+            - generic [ref=e1096]: 550+ engagements. Clients who've been with us for 5+ years. We're invested in long-term success, not just the current project scope.
+    - region [ref=e1102]:
+      - paragraph [ref=e1103]:
+        - generic [ref=e1107]: Insights
+      - generic [ref=e1108]:
+        - generic [ref=e1109]:
+          - heading "Ideas from the Engineering Frontline." [level=2] [ref=e1110]
+          - paragraph [ref=e1111]: Case studies, research, and perspectives from our work across AI, FinTech, HealthTech, and product engineering.
+        - generic [ref=e1112]:
+          - button "Previous slide" [disabled]
+          - button "Next slide" [disabled]
+      - generic [ref=e1114]:
+        - group [ref=e1115]:
+          - article [ref=e1116]:
+            - generic [ref=e1117]:
+              - img "How GeekyAnts Builds AI-Led SaaS MVPs" [ref=e1122]
+              - generic [ref=e1123]: Jul 6, 2026
+            - generic [ref=e1124]:
+              - paragraph [ref=e1125]: Guide
+              - heading [level=3] [ref=e1126]:
+                - link "How GeekyAnts Builds AI-Led SaaS MVPs" [ref=e1127] [cursor=pointer]:
+                  - /url: /guide/how-geekyants-builds-ai-led-saas-mvps
+              - paragraph [ref=e1128]: Discover how GeekyAnts helps digital platform founders build AI-led SaaS MVPs with product discovery, scalable architecture, AI integration, and transparent delivery.
+              - generic [aria-hidden] [ref=e1129]: Read guide
+        - group [ref=e1132]:
+          - article [ref=e1133]:
+            - generic [ref=e1134]:
+              - img "Why Healthcare Organizations Are Moving Beyond Telehealth Toward AI-Driven Care Systems" [ref=e1139]
+              - generic [ref=e1140]: Jul 22, 2026
+            - generic [ref=e1141]:
+              - paragraph [ref=e1142]: Article
+              - heading [level=3] [ref=e1143]:
+                - link "Why Healthcare Organizations Are Moving Beyond Telehealth Toward AI-Driven Care Systems" [ref=e1144] [cursor=pointer]:
+                  - /url: /blog/why-healthcare-organizations-are-moving-beyond-telehealth-toward-ai-driven-care-systems
+              - paragraph [ref=e1145]: Why healthcare organizations are moving past telehealth toward AI systems that run care operations, and what leaders need to get there.
+              - generic [aria-hidden] [ref=e1146]: Read article
+        - group [ref=e1149]:
+          - article [ref=e1150]:
+            - generic [ref=e1151]:
+              - 'img "Building an AI-Native Delivery Partnership: Turning AI-Generated Code into Production-Ready Software" [ref=e1156]'
+              - generic [ref=e1157]: May 25, 2026
+            - generic [ref=e1158]:
+              - paragraph [ref=e1159]: Guide
+              - heading [level=3] [ref=e1160]:
+                - 'link "Building an AI-Native Delivery Partnership: Turning AI-Generated Code into Production-Ready Software" [ref=e1161] [cursor=pointer]':
+                  - /url: /guide/building-an-ai-native-delivery-partnership-turning-ai-generated-code-into-production-ready-software
+              - paragraph [ref=e1162]: Turn AI-generated code into secure, scalable, production-ready software with expert cloud, DevOps, testing, release engineering, and ongoing support.
+              - generic [aria-hidden] [ref=e1163]: Read guide
+        - group [ref=e1166]:
+          - article [ref=e1167]:
+            - generic [ref=e1168]:
+              - 'img "AI Operators in Insurance: Improving Customer Experience Through Intelligent Automation" [ref=e1173]'
+              - generic [ref=e1174]: Jul 20, 2026
+            - generic [ref=e1175]:
+              - paragraph [ref=e1176]: Article
+              - heading [level=3] [ref=e1177]:
+                - 'link "AI Operators in Insurance: Improving Customer Experience Through Intelligent Automation" [ref=e1178] [cursor=pointer]':
+                  - /url: /blog/ai-operators-in-insurance-improving-customer-experience-through-intelligent-automation
+              - paragraph [ref=e1179]: A practical guide to how AI Operators are changing insurance customer experience, covering real use cases, architecture, and governance. Includes a framework for choosing between build, buy, and partner.
+              - generic [aria-hidden] [ref=e1180]: Read article
+        - group [ref=e1183]:
+          - article [ref=e1184]:
+            - generic [ref=e1185]:
+              - img "thegeekconf mini 2026" [ref=e1190]
+              - generic [ref=e1191]: Apr 18, 2026
+            - generic [ref=e1192]:
+              - paragraph [ref=e1193]: Event
+              - heading [level=3] [ref=e1194]:
+                - link "thegeekconf mini 2026" [ref=e1195] [cursor=pointer]:
+                  - /url: /events/thegeekconf-mini-2026
+              - paragraph [ref=e1196]: Discover key insights from thegeekconf mini 2026 on building production-ready AI products, agentic workflows, model governance, and enterprise AI systems.
+              - generic [aria-hidden] [ref=e1197]: View event
+        - group [ref=e1200]:
+          - article [ref=e1201]:
+            - generic [ref=e1202]:
+              - 'img "Year-End GeekChronicles Monthly Magazine Issue 12: Scaling, Strategy, and the Shift to Agentic AI" [ref=e1207]'
+              - generic [ref=e1208]: Jan 7, 2026
+            - generic [ref=e1209]:
+              - paragraph [ref=e1210]: Magazine
+              - heading [level=3] [ref=e1211]:
+                - 'link "Year-End GeekChronicles Monthly Magazine Issue 12: Scaling, Strategy, and the Shift to Agentic AI" [ref=e1212] [cursor=pointer]':
+                  - /url: /magazine/geekchronicles-business-and-tech/year-end-geekchronicles-monthly-magazine-issue-12-scaling-strategy-and-the-shift-to-agentic-ai
+              - paragraph [ref=e1213]: The December 2025 issue focuses on Scaling, Strategy, and the shift to Agentic AI. Read reports on the Design department's 45+ projects and 90% billability; the BA team's 98% milestone delivery; and the Product team's 100K weekly downloads. Explore the insights from thegeekconf 2025 on the future of engineering, governance, and how to successfully adopt AI-driven autonomous systems for enterprise excellence.
+              - generic [aria-hidden] [ref=e1214]: Read article
+        - group [ref=e1217]:
+          - article [ref=e1218]:
+            - generic [ref=e1219]:
+              - 'img "GeekChronicles Monthly Issue 11: AI, Fraud, and the Future of Digital Platforms" [ref=e1224]'
+              - generic [ref=e1225]: Dec 12, 2025
+            - generic [ref=e1226]:
+              - paragraph [ref=e1227]: Magazine
+              - heading [level=3] [ref=e1228]:
+                - 'link "GeekChronicles Monthly Issue 11: AI, Fraud, and the Future of Digital Platforms" [ref=e1229] [cursor=pointer]':
+                  - /url: /magazine/geekchronicles-business-and-tech/geekchronicles-monthly-issue-11-ai-fraud-and-the-future-of-digital-platforms
+              - paragraph [ref=e1230]: This is the 11th issue of the monthly magazine, focusing on key themes in technology. It includes a deep dive into the professionalisation of financial crime through deepfake-enabled fraud and the defensive strategies institutions are adopting. It also explores advancements in AI with an article on Cache-Augmented Generation (CAG) as an evolution beyond RAG, and an examination of Top Health, an AI-driven nutritional tracking platform. Additionally, the issue covers the milestone release of gluestack v3 by GeekyAnts and the technical complexities of implementing iOS Live Activities in React Native.
+              - generic [aria-hidden] [ref=e1231]: Read article
+        - group [ref=e1234]:
+          - article [ref=e1235]:
+            - generic [ref=e1236]:
+              - img "Geekathon 2026" [ref=e1241]
+              - generic [ref=e1242]: Feb 27, 2026
+            - generic [ref=e1243]:
+              - paragraph [ref=e1244]: Event
+              - heading [level=3] [ref=e1245]:
+                - link "Geekathon 2026" [ref=e1246] [cursor=pointer]:
+                  - /url: /events/geekathon-2026
+              - paragraph [ref=e1247]: Geekathon 2026 showcased autonomous AI agents, self-healing systems, and multi-agent architectures redefining how developers build production-ready software.
+              - generic [aria-hidden] [ref=e1248]: View event
+    - generic [ref=e1254]:
+      - paragraph [ref=e1255]:
+        - generic [ref=e1259]: Recognition
+      - heading "Our Recognition" [level=2] [ref=e1260]
+      - paragraph [ref=e1261]: Every practice combines strategic consulting with hands-on engineering — because advice without execution is just a slide deck.
+      - list [ref=e1263]:
+        - listitem [ref=e1264]:
+          - link "Good Firms | Best company to work with GoodFirms Best Company to Work With" [ref=e1265] [cursor=pointer]:
+            - /url: /blog/geekyants-recognized-by-goodfirms-as-the-best-company-to-work-with
+            - generic:
+              - generic:
+                - generic:
+                  - img "Good Firms | Best company to work with"
+            - generic [ref=e1266]:
+              - generic [ref=e1267]: GoodFirms
+              - generic [ref=e1268]: Best Company to Work With
+        - listitem [ref=e1269]:
+          - link "Clutch Champion Fall 2025 Clutch • 2025 Clutch Champion" [ref=e1270] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic:
+              - generic:
+                - generic:
+                  - img "Clutch Champion Fall 2025"
+            - generic [ref=e1271]:
+              - generic [ref=e1272]: Clutch • 2025
+              - generic [ref=e1273]: Clutch Champion
+        - listitem [ref=e1274]:
+          - link "ET Now Business Award | Excellence in A.I & Digital Transformation ET Now • 2026 Excellence in AI & Digital Transformation" [ref=e1275] [cursor=pointer]:
+            - /url: https://www.etnownews.com/hub/business-conclave-awards-2026-ahmedabad/winners
+            - generic:
+              - generic:
+                - generic:
+                  - img "ET Now Business Award | Excellence in A.I & Digital Transformation"
+            - generic [ref=e1276]:
+              - generic [ref=e1277]: ET Now • 2026
+              - generic [ref=e1278]: Excellence in AI & Digital Transformation
+        - listitem [ref=e1279]:
+          - link "Business of Apps | Top App Development Companies 2026 Business of Apps • 2026 Top App Development Companies" [ref=e1280] [cursor=pointer]:
+            - /url: https://www.businessofapps.com/app-developers/geekyants/
+            - generic:
+              - generic:
+                - generic:
+                  - img "Business of Apps | Top App Development Companies 2026"
+            - generic [ref=e1281]:
+              - generic [ref=e1282]: Business of Apps • 2026
+              - generic [ref=e1283]: Top App Development Companies
+        - listitem [ref=e1284]:
+          - link "Top User Research Company 2025 Clutch • 2025 Top User Research Company" [ref=e1285] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic:
+              - generic:
+                - generic:
+                  - img "Top User Research Company 2025"
+            - generic [ref=e1286]:
+              - generic [ref=e1287]: Clutch • 2025
+              - generic [ref=e1288]: Top User Research Company
+        - listitem [ref=e1289]:
+          - link "Top Software Developers Manufacturing 2026 Clutch • 2026 Top Software Developers - Manufacturing" [ref=e1290] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic:
+              - generic:
+                - generic:
+                  - img "Top Software Developers Manufacturing 2026"
+            - generic [ref=e1291]:
+              - generic [ref=e1292]: Clutch • 2026
+              - generic [ref=e1293]: Top Software Developers - Manufacturing
+        - listitem [ref=e1294]:
+          - link "Top React Native Developer 2026 Clutch • 2026 Top React Native Developer" [ref=e1295] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic:
+              - generic:
+                - generic:
+                  - img "Top React Native Developer 2026"
+            - generic [ref=e1296]:
+              - generic [ref=e1297]: Clutch • 2026
+              - generic [ref=e1298]: Top React Native Developer
+        - listitem [ref=e1299]:
+          - link "Top Health & Wellness App Developers 2026 Clutch • 2026 Top Health & Wellness App Developers" [ref=e1300] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic:
+              - generic:
+                - generic:
+                  - img "Top Health & Wellness App Developers 2026"
+            - generic [ref=e1301]:
+              - generic [ref=e1302]: Clutch • 2026
+              - generic [ref=e1303]: Top Health & Wellness App Developers
+        - listitem [ref=e1304]:
+          - link "Top Financial App Developers 2026 Clutch • 2026 Top Financial App Developers" [ref=e1305] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic:
+              - generic:
+                - generic:
+                  - img "Top Financial App Developers 2026"
+            - generic [ref=e1306]:
+              - generic [ref=e1307]: Clutch • 2026
+              - generic [ref=e1308]: Top Financial App Developers
+        - listitem [ref=e1309]:
+          - link "Top App Development Company Europe 2026 Clutch • 2026 Top App Development Company - Europe" [ref=e1310] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic:
+              - generic:
+                - generic:
+                  - img "Top App Development Company Europe 2026"
+            - generic [ref=e1311]:
+              - generic [ref=e1312]: Clutch • 2026
+              - generic [ref=e1313]: Top App Development Company - Europe
+        - listitem [ref=e1314]:
+          - link "RightFirms | Mobile App Development - 2026 RightFirms • 2026 Top Mobile App Development" [ref=e1315] [cursor=pointer]:
+            - /url: https://www.rightfirms.co/company/geekyants
+            - generic:
+              - generic:
+                - generic:
+                  - img "RightFirms | Mobile App Development - 2026"
+            - generic [ref=e1316]:
+              - generic [ref=e1317]: RightFirms • 2026
+              - generic [ref=e1318]: Top Mobile App Development
+        - listitem [ref=e1319]:
+          - link "Clutch Global Spring Award 2025 Clutch • 2025 Clutch Global Award" [ref=e1320] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic:
+              - generic:
+                - generic:
+                  - img "Clutch Global Spring Award 2025"
+            - generic [ref=e1321]:
+              - generic [ref=e1322]: Clutch • 2025
+              - generic [ref=e1323]: Clutch Global Award
+        - listitem [ref=e1324]:
+          - link "Design Rush | Best Application Development Company in the US 2026 DesignRush • 2026 Best Application Development Company in the US" [ref=e1325] [cursor=pointer]:
+            - /url: https://www.designrush.com/agency/profile/geekyants
+            - generic:
+              - generic:
+                - generic:
+                  - img "Design Rush | Best Application Development Company in the US 2026"
+            - generic [ref=e1326]:
+              - generic [ref=e1327]: DesignRush • 2026
+              - generic [ref=e1328]: Best Application Development Company in the US
+        - listitem [ref=e1329]:
+          - generic [ref=e1330]:
+            - generic:
+              - generic:
+                - generic:
+                  - img "UpCity Top Mobile App Developer"
+            - generic [ref=e1331]:
+              - generic [ref=e1332]: UpCity
+              - generic [ref=e1333]: Top Mobile App Developer
+        - listitem [ref=e1334]:
+          - generic [ref=e1335]:
+            - generic:
+              - generic:
+                - generic:
+                  - img "GoodFirms Top Mobile App Development Company in USA"
+            - generic [ref=e1336]:
+              - generic [ref=e1337]: GoodFirms
+              - generic [ref=e1338]: Top Mobile App Development Company in USA
+        - listitem [ref=e1339]:
+          - generic [ref=e1340]:
+            - generic:
+              - generic:
+                - generic:
+                  - img "AppFutura Top React Native App Development Company"
+            - generic [ref=e1341]:
+              - generic [ref=e1342]: AppFutura
+              - generic [ref=e1343]: Top React Native App Development Company
+        - listitem [ref=e1344]:
+          - generic [ref=e1345]:
+            - generic:
+              - generic:
+                - generic:
+                  - img "TopDevelopers Top UI/UX Designing Company 2020"
+            - generic [ref=e1346]:
+              - generic [ref=e1347]: TopDevelopers • 2020
+              - generic [ref=e1348]: Top UI/UX Designing Company
+        - listitem [aria-hidden] [ref=e1349]:
+          - link [ref=e1350] [cursor=pointer]:
+            - /url: /blog/geekyants-recognized-by-goodfirms-as-the-best-company-to-work-with
+            - generic [ref=e1351]:
+              - generic [ref=e1352]: GoodFirms
+              - generic [ref=e1353]: Best Company to Work With
+        - listitem [aria-hidden] [ref=e1354]:
+          - link [ref=e1355] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic [ref=e1356]:
+              - generic [ref=e1357]: Clutch • 2025
+              - generic [ref=e1358]: Clutch Champion
+        - listitem [aria-hidden] [ref=e1359]:
+          - link [ref=e1360] [cursor=pointer]:
+            - /url: https://www.etnownews.com/hub/business-conclave-awards-2026-ahmedabad/winners
+            - generic [ref=e1361]:
+              - generic [ref=e1362]: ET Now • 2026
+              - generic [ref=e1363]: Excellence in AI & Digital Transformation
+        - listitem [aria-hidden] [ref=e1364]:
+          - link [ref=e1365] [cursor=pointer]:
+            - /url: https://www.businessofapps.com/app-developers/geekyants/
+            - generic [ref=e1366]:
+              - generic [ref=e1367]: Business of Apps • 2026
+              - generic [ref=e1368]: Top App Development Companies
+        - listitem [aria-hidden] [ref=e1369]:
+          - link [ref=e1370] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic [ref=e1371]:
+              - generic [ref=e1372]: Clutch • 2025
+              - generic [ref=e1373]: Top User Research Company
+        - listitem [aria-hidden] [ref=e1374]:
+          - link [ref=e1375] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic [ref=e1376]:
+              - generic [ref=e1377]: Clutch • 2026
+              - generic [ref=e1378]: Top Software Developers - Manufacturing
+        - listitem [aria-hidden] [ref=e1379]:
+          - link [ref=e1380] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic [ref=e1381]:
+              - generic [ref=e1382]: Clutch • 2026
+              - generic [ref=e1383]: Top React Native Developer
+        - listitem [aria-hidden] [ref=e1384]:
+          - link [ref=e1385] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic [ref=e1386]:
+              - generic [ref=e1387]: Clutch • 2026
+              - generic [ref=e1388]: Top Health & Wellness App Developers
+        - listitem [aria-hidden] [ref=e1389]:
+          - link [ref=e1390] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic [ref=e1391]:
+              - generic [ref=e1392]: Clutch • 2026
+              - generic [ref=e1393]: Top Financial App Developers
+        - listitem [aria-hidden] [ref=e1394]:
+          - link [ref=e1395] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic [ref=e1396]:
+              - generic [ref=e1397]: Clutch • 2026
+              - generic [ref=e1398]: Top App Development Company - Europe
+        - listitem [aria-hidden] [ref=e1399]:
+          - link [ref=e1400] [cursor=pointer]:
+            - /url: https://www.rightfirms.co/company/geekyants
+            - generic [ref=e1401]:
+              - generic [ref=e1402]: RightFirms • 2026
+              - generic [ref=e1403]: Top Mobile App Development
+        - listitem [aria-hidden] [ref=e1404]:
+          - link [ref=e1405] [cursor=pointer]:
+            - /url: https://clutch.co/profile/geekyants#portfolio-and-awards
+            - generic [ref=e1406]:
+              - generic [ref=e1407]: Clutch • 2025
+              - generic [ref=e1408]: Clutch Global Award
+        - listitem [aria-hidden] [ref=e1409]:
+          - link [ref=e1410] [cursor=pointer]:
+            - /url: https://www.designrush.com/agency/profile/geekyants
+            - generic [ref=e1411]:
+              - generic [ref=e1412]: DesignRush • 2026
+              - generic [ref=e1413]: Best Application Development Company in the US
+        - listitem [aria-hidden] [ref=e1414]:
+          - generic [ref=e1416]:
+            - generic [ref=e1417]: UpCity
+            - generic [ref=e1418]: Top Mobile App Developer
+        - listitem [aria-hidden] [ref=e1419]:
+          - generic [ref=e1421]:
+            - generic [ref=e1422]: GoodFirms
+            - generic [ref=e1423]: Top Mobile App Development Company in USA
+        - listitem [aria-hidden] [ref=e1424]:
+          - generic [ref=e1426]:
+            - generic [ref=e1427]: AppFutura
+            - generic [ref=e1428]: Top React Native App Development Company
+        - listitem [aria-hidden] [ref=e1429]:
+          - generic [ref=e1431]:
+            - generic [ref=e1432]: TopDevelopers • 2020
+            - generic [ref=e1433]: Top UI/UX Designing Company
+    - generic [ref=e1437]:
+      - paragraph [ref=e1438]:
+        - generic [ref=e1442]: Clients
+      - generic [ref=e1443]:
+        - heading "What our clients say about working with us ." [level=2] [ref=e1444]:
+          - text: What our clients say about working with us
+          - generic: .
+        - link "More testimonials" [ref=e1447] [cursor=pointer]:
+          - /url: /testimonials
+      - generic [ref=e1450]:
+        - generic [ref=e1451]:
+          - generic [aria-hidden] [ref=e1452]: 01 / 11
+          - generic [ref=e1453]:
+            - button "Previous testimonials" [disabled] [ref=e1454]
+            - button "Next testimonials" [ref=e1457] [cursor=pointer]
+        - list "Testimonials" [ref=e1460]:
+          - listitem [ref=e1461]:
+            - figure "Raynesh Raynesh Power-Tech Consulting" [ref=e1462]:
+              - blockquote [ref=e1463]: “GeekyAnts is a dedicated team that works as one unit to deliver amazing outcomes for clients. I have no hesitation in recommending GeekyAnts because when it matters, they have the commitment to get it done.”
+              - generic [ref=e1464]:
+                - img "Raynesh" [ref=e1469]
+                - generic [ref=e1470]:
+                  - generic [ref=e1471]: Raynesh
+                  - generic [ref=e1472]: Power-Tech Consulting
+          - listitem [ref=e1473]:
+            - figure "Head of Product Management Head of Product Management PayPoint plc" [ref=e1474]:
+              - blockquote [ref=e1475]: “Their code is clean and easy to implement. The app has great ratings across devices.”
+              - generic [ref=e1476]:
+                - img "Head of Product Management" [ref=e1481]
+                - generic [ref=e1482]:
+                  - generic [ref=e1483]: Head of Product Management
+                  - generic [ref=e1484]: PayPoint plc
+          - listitem [ref=e1485]:
+            - figure "Dhruv Parpiya Dhruv Parpiya Tiffyn.ai" [ref=e1486]:
+              - blockquote [ref=e1487]: “GeekyAnts is a fun, structured partner that delivers high-quality results. I highly recommend them for their ability to work autonomously as true partners who take pride and ownership in every project.”
+              - generic [ref=e1488]:
+                - img "Dhruv Parpiya" [ref=e1493]
+                - generic [ref=e1494]:
+                  - generic [ref=e1495]: Dhruv Parpiya
+                  - generic [ref=e1496]: Tiffyn.ai
+          - listitem [ref=e1497]:
+            - figure "Founder Founder NeuralFrame" [ref=e1498]:
+              - blockquote [ref=e1499]: “They are an excellent organization that continues to exceed our expectations.”
+              - generic [ref=e1500]:
+                - img "Founder" [ref=e1505]
+                - generic [ref=e1506]:
+                  - generic [ref=e1507]: Founder
+                  - generic [ref=e1508]: NeuralFrame
+          - listitem [ref=e1509]:
+            - figure "Verified Review — 4.8/5 rating Verified Review — 4.8/5 rating Clutch (112 reviews)" [ref=e1510]:
+              - blockquote [ref=e1511]: “Exceptional responsiveness and professionalism. Highly positive feedback from beta customers.”
+              - generic [ref=e1512]:
+                - img "Verified Review — 4.8/5 rating" [ref=e1517]
+                - generic [ref=e1518]:
+                  - generic [ref=e1519]: Verified Review — 4.8/5 rating
+                  - generic [ref=e1520]: Clutch (112 reviews)
+          - listitem [ref=e1521]:
+            - figure "Patrick Patrick inno:peak" [ref=e1522]:
+              - blockquote [ref=e1523]: “A good partnership with a company like GeekyAnts is better than having a huge company. Everyone takes care of their expertise and delivers quality, it allows us to do big things.”
+              - generic [ref=e1524]:
+                - img "Patrick" [ref=e1529]
+                - generic [ref=e1530]:
+                  - generic [ref=e1531]: Patrick
+                  - generic [ref=e1532]: inno:peak
+          - listitem [ref=e1533]:
+            - figure "Co-Founder Co-Founder Sprive" [ref=e1534]:
+              - blockquote [ref=e1535]: “Their team went the extra mile to make sure that they really understood the problem we’re trying to solve.”
+              - generic [ref=e1536]:
+                - img "Co-Founder" [ref=e1541]
+                - generic [ref=e1542]:
+                  - generic [ref=e1543]: Co-Founder
+                  - generic [ref=e1544]: Sprive
+          - listitem [ref=e1545]:
+            - figure "Liviit" [ref=e1546]:
+              - blockquote [ref=e1547]: “As Seth Godin said, “Knowing when to quit might be the best lesson you can learn.” About 18 months ago, I made the tough decision to step away from the web app, despite the time and money invested. I explored mobile options, evaluated tech stacks, and searched for the right partner. Thanks to NativeBase and their TechTalks, I chose GeekyAnts—and today, I couldn’t be more satisfied with that decision.”
+              - generic [ref=e1548]:
+                - generic [aria-hidden] [ref=e1549]: L
+                - generic [ref=e1550]: Liviit
+          - listitem [ref=e1552]:
+            - figure "Software Development Engineer III Software Development Engineer III Jupiter" [ref=e1553]:
+              - blockquote [ref=e1554]: “Their deep knowledge of cross-platform application development using React Native and Flutter is impressive.”
+              - generic [ref=e1555]:
+                - img "Software Development Engineer III" [ref=e1560]
+                - generic [ref=e1561]:
+                  - generic [ref=e1562]: Software Development Engineer III
+                  - generic [ref=e1563]: Jupiter
+          - listitem [ref=e1564]:
+            - figure "Co-Founder & CEO Co-Founder & CEO Elever Investment Adviser" [ref=e1565]:
+              - blockquote [ref=e1566]: “They work as if they are part of our company.”
+              - generic [ref=e1567]:
+                - img "Co-Founder & CEO" [ref=e1572]
+                - generic [ref=e1573]:
+                  - generic [ref=e1574]: Co-Founder & CEO
+                  - generic [ref=e1575]: Elever Investment Adviser
+          - listitem [ref=e1576]:
+            - figure "Project Director, Digital Transformation Project Director, Digital Transformation AirOps" [ref=e1577]:
+              - blockquote [ref=e1578]: “They anticipated potential problems and recommended solutions. This is a rare skill.”
+              - generic [ref=e1579]:
+                - img "Project Director, Digital Transformation" [ref=e1584]
+                - generic [ref=e1585]:
+                  - generic [ref=e1586]: Project Director, Digital Transformation
+                  - generic [ref=e1587]: AirOps
+  - generic [ref=e1591]:
+    - generic [ref=e1595]:
+      - paragraph [ref=e1596]:
+        - generic [ref=e1600]: Start a project
+      - heading "The Right Conversation Can Save You Six Months." [level=2] [ref=e1601]:
+        - generic [ref=e1602]: The Right Conversation Can
+        - text: Save You Six Months.
+      - generic [ref=e1603]:
+        - link "Book a Call" [ref=e1605] [cursor=pointer]:
+          - /url: /hire
+        - link "info@geekyants.com" [ref=e1607] [cursor=pointer]:
+          - /url: mailto:info@geekyants.com
+    - region "Our offices" [ref=e1610]:
+      - list [ref=e1612]:
+        - listitem [ref=e1613]:
+          - generic [ref=e1614]:
+            - generic [ref=e1615]: Bangalore
+            - generic [ref=e1617]:
+              - link "GeekyAnts India Pvt Ltd" [ref=e1618] [cursor=pointer]:
+                - /url: /hire#offices
+              - paragraph [ref=e1619]: No. 18, 2nd Cross Rd, BTM Layout, Bangalore, Karnataka 560076, India
+            - link "+91-8043058884" [ref=e1620] [cursor=pointer]:
+              - /url: tel:+918043058884
+        - listitem [ref=e1624]:
+          - generic [ref=e1625]:
+            - generic [ref=e1626]: London
+            - generic [ref=e1628]:
+              - link "GeekyAnts UK Ltd" [ref=e1629] [cursor=pointer]:
+                - /url: /hire#offices
+              - paragraph [ref=e1630]: SPACES Finsbury Park, 17 City North Place, London, England N4 3FU, UK
+            - link "+44 1702 655221" [ref=e1631] [cursor=pointer]:
+              - /url: tel:+441702655221
+        - listitem [ref=e1635]:
+          - generic [ref=e1636]:
+            - generic [ref=e1637]: San Francisco
+            - generic [ref=e1639]:
+              - link "GeekyAnts Inc" [ref=e1640] [cursor=pointer]:
+                - /url: /hire#offices
+              - paragraph [ref=e1641]: 315 Montgomery Street, 9th & 10th floors, San Francisco, CA 94104, USA
+            - link "+1-845-534-6825" [ref=e1642] [cursor=pointer]:
+              - /url: tel:+18455346825
+    - contentinfo [ref=e1647]:
+      - generic [ref=e1648]:
+        - generic [ref=e1649]:
+          - generic [ref=e1650]:
+            - link "GeekyAnts" [ref=e1651] [cursor=pointer]:
+              - /url: /
+            - paragraph [ref=e1656]: Innovate · Collaborate · Build
+            - navigation "Social media" [ref=e1657]:
+              - list [ref=e1658]:
+                - listitem [ref=e1659]:
+                  - link "LinkedIn" [ref=e1660] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/geekyants-official
+                - listitem [ref=e1663]:
+                  - link "Twitter" [ref=e1664] [cursor=pointer]:
+                    - /url: https://x.com/geekyants
+                - listitem [ref=e1667]:
+                  - link "YouTube" [ref=e1668] [cursor=pointer]:
+                    - /url: https://www.youtube.com/geekyants
+                - listitem [ref=e1671]:
+                  - link "Instagram" [ref=e1672] [cursor=pointer]:
+                    - /url: https://www.instagram.com/geekyantsofficial/
+                - listitem [ref=e1675]:
+                  - link "Discord" [ref=e1676] [cursor=pointer]:
+                    - /url: https://discord.com/invite/7RGjwKD7TH
+                - listitem [ref=e1679]:
+                  - link "GitHub" [ref=e1680] [cursor=pointer]:
+                    - /url: https://github.com/GeekyAnts
+                - listitem [ref=e1683]:
+                  - link "Facebook" [ref=e1684] [cursor=pointer]:
+                    - /url: https://www.facebook.com/geekyants/
+            - generic [ref=e1687]:
+              - generic [ref=e1688]:
+                - textbox "Subscribe" [ref=e1689]
+                - button "Subscribe" [ref=e1690] [cursor=pointer]
+              - alert [ref=e1693]
+          - navigation "Footer navigation" [ref=e1695]:
+            - generic [ref=e1696]:
+              - generic [ref=e1697]:
+                - heading "Our Services" [level=2] [ref=e1698]
+                - list [ref=e1699]:
+                  - listitem [ref=e1700]:
+                    - link "Mobile App Development" [ref=e1701] [cursor=pointer]:
+                      - /url: /service/hire-mobile-app-development-services
+                  - listitem [ref=e1702]:
+                    - link "Web App Development" [ref=e1703] [cursor=pointer]:
+                      - /url: /service/hire-web-app-development-services
+                  - listitem [ref=e1704]:
+                    - link "AI Development" [ref=e1705] [cursor=pointer]:
+                      - /url: /ai/ai-development-services
+                  - listitem [ref=e1706]:
+                    - link "Software Development" [ref=e1707] [cursor=pointer]:
+                      - /url: /service/custom-software-development-services
+                  - listitem [ref=e1708]:
+                    - link "Offshore Development" [ref=e1709] [cursor=pointer]:
+                      - /url: /service/software-development/hire-offshore-developers
+                  - listitem [ref=e1710]:
+                    - link "Free AI Consulting" [ref=e1711] [cursor=pointer]:
+                      - /url: /consulting-services/book-free-ai-consultation
+              - generic [ref=e1712]:
+                - heading "Technologies" [level=2] [ref=e1713]
+                - list [ref=e1714]:
+                  - listitem [ref=e1715]:
+                    - link "AI" [ref=e1716] [cursor=pointer]:
+                      - /url: /hire-ai-developers
+                  - listitem [ref=e1717]:
+                    - link "iOS" [ref=e1718] [cursor=pointer]:
+                      - /url: /hire-ios-developers
+                  - listitem [ref=e1719]:
+                    - link "Android" [ref=e1720] [cursor=pointer]:
+                      - /url: /hire-android-app-developers
+                  - listitem [ref=e1721]:
+                    - link ".NET" [ref=e1722] [cursor=pointer]:
+                      - /url: /hire-dot-net-developers
+                  - listitem [ref=e1723]:
+                    - link "Python" [ref=e1724] [cursor=pointer]:
+                      - /url: /hire-python-developers
+                  - listitem [ref=e1725]:
+                    - link "React Native" [ref=e1726] [cursor=pointer]:
+                      - /url: /hire-react-native-developers
+                  - listitem [ref=e1727]:
+                    - link "Next.js" [ref=e1728] [cursor=pointer]:
+                      - /url: /hire-next-js-developers
+                  - listitem [ref=e1729]:
+                    - link "Flutter" [ref=e1730] [cursor=pointer]:
+                      - /url: /hire-flutter-developers
+                  - listitem [ref=e1731]:
+                    - link "Node.js" [ref=e1732] [cursor=pointer]:
+                      - /url: /hire-nodejs-developers
+                  - listitem [ref=e1733]:
+                    - link "NestJS" [ref=e1734] [cursor=pointer]:
+                      - /url: /hire-nest-js-developers
+                  - listitem [ref=e1735]:
+                    - link "Golang" [ref=e1736] [cursor=pointer]:
+                      - /url: /hire-golang-developers
+                  - listitem [ref=e1737]:
+                    - link "Laravel" [ref=e1738] [cursor=pointer]:
+                      - /url: /hire-laravel-developers
+              - generic [ref=e1739]:
+                - heading "Quick Links" [level=2] [ref=e1740]
+                - list [ref=e1741]:
+                  - listitem [ref=e1742]:
+                    - link "Press Releases" [ref=e1743] [cursor=pointer]:
+                      - /url: /blog/news
+                  - listitem [ref=e1744]:
+                    - link "Case Studies" [ref=e1745] [cursor=pointer]:
+                      - /url: /case-studies
+                  - listitem [ref=e1746]:
+                    - link "Open Source" [ref=e1747] [cursor=pointer]:
+                      - /url: /open-source
+                  - listitem [ref=e1748]:
+                    - link "Testimonials" [ref=e1749] [cursor=pointer]:
+                      - /url: /testimonials
+                  - listitem [ref=e1750]:
+                    - link "Developer Resources" [ref=e1751] [cursor=pointer]:
+                      - /url: /developers
+                  - listitem [ref=e1752]:
+                    - link "AI Accelerators" [ref=e1753] [cursor=pointer]:
+                      - /url: /ai-accelerator
+        - generic [ref=e1754]:
+          - generic [ref=e1755]:
+            - paragraph [ref=e1756]: Copyright
+            - paragraph [ref=e1757]: 2026 © GeekyAnts. All rights reserved.
+          - generic [ref=e1758]:
+            - paragraph [ref=e1759]: Legal
+            - navigation "Legal" [ref=e1760]:
+              - list [ref=e1761]:
+                - listitem [ref=e1762]:
+                  - link "Privacy Policy" [ref=e1763] [cursor=pointer]:
+                    - /url: /privacy-policy
+                - listitem [ref=e1764]:
+                  - link "Terms & Conditions" [ref=e1765] [cursor=pointer]:
+                    - /url: /terms
+                - listitem [ref=e1766]:
+                  - link "Financial Reports" [ref=e1767] [cursor=pointer]:
+                    - /url: /reports
+          - generic [ref=e1768]:
+            - paragraph [ref=e1769]: Language
+            - button "Global, Choose a region" [ref=e1771] [cursor=pointer]: Global
