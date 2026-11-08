@@ -21,7 +21,7 @@ export default function SiteFooter() {
         </p>
 
         <div className="mt-16 grid gap-12 border-t border-ivory/12 pt-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <Image
               src="/logo.png"
               alt="NHB — NeedHelpBuilding, digital products & services"
@@ -79,7 +79,7 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:col-span-8 lg:grid-cols-5">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:col-span-9 lg:grid-cols-5 lg:pl-8">
             {footerColumns.map((column) => (
               <div key={column.title}>
                 <h3 className="t-eyebrow text-ivory/45">{column.title}</h3>

@@ -260,6 +260,15 @@ html:not(.js) .hl,
 [data-delay="7"] { --reveal-delay: 7; }
 [data-delay="8"] { --reveal-delay: 8; }
 
+@keyframes hero-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 /* Screenshot that slowly pans on hover (portfolio previews) */
 .shot-pan img {
   object-position: top center;
@@ -282,7 +291,9 @@ html:not(.js) .hl,
    Reduced motion: no smooth scroll, no reveals, no looping animation
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  .js [data-reveal]:not([data-inview]) {
+  /* Same specificity as the hiding rule above, declared later, so it wins. */
+  .js [data-reveal]:not([data-reveal="mark"]):not([data-inview]),
+  .js [data-reveal="fade"]:not([data-inview]) {
     opacity: 1;
     transform: none;
   }

@@ -45,11 +45,6 @@ export default function SectionHeading({
       >
         <Marked text={title} />
       </h2>
-      {aside && (
-        <div data-reveal data-delay="2" className="flex items-end lg:col-span-4 lg:justify-end">
-          {aside}
-        </div>
-      )}
       {lede && (
         <div
           data-reveal
@@ -57,6 +52,12 @@ export default function SectionHeading({
           className={cn("t-lede max-w-2xl lg:col-span-7", dark ? "text-ivory/70" : "text-muted")}
         >
           {lede}
+        </div>
+      )}
+      {aside && (
+        // After the lede on phones; beside the title on desktop.
+        <div data-reveal data-delay="2" className="flex items-end lg:col-span-4 lg:col-start-9 lg:row-start-2 lg:justify-end">
+          {aside}
         </div>
       )}
     </div>
