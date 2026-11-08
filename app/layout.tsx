@@ -331,7 +331,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased bg-[#0c0c0d] text-white overflow-x-hidden selection:bg-[#fbda03] selection:text-black">
+      <body className="antialiased bg-[#0f0f0f] text-white overflow-x-hidden">
         {children}
         <SwarmRebuildLauncher />
       </body>

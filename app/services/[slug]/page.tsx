@@ -46,23 +46,23 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const otherServices = SERVICES_DATA.filter((s) => s.slug !== slug);
 
   return (
-    <main className="min-h-screen w-full bg-[#0c0c0d] text-white flex flex-col items-center selection:bg-[#fbda03] selection:text-black">
+    <main className="min-h-screen w-full bg-[#0f0f0f] text-white flex flex-col items-center selection:bg-[#efeee9] selection:text-black">
       {/* ============================================================ */}
       {/* TOP COMPACT HEADER / BREADCRUMB                              */}
       {/* ============================================================ */}
-      <header className="sticky top-0 z-50 w-full bg-[#0c0c0d]/95 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 lg:px-12 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-50 w-full bg-[#0f0f0f]/95 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 lg:px-12 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link
             href="/"
             className="flex items-center group cursor-pointer select-none"
             aria-label="Back to home"
           >
-            <span className="font-anton text-white text-xl sm:text-2xl tracking-tight uppercase group-hover:text-[#fbda03] transition-colors">
-              NEED HELP BUILDING<span className="text-[#fbda03]">?</span>
+            <span className="font-anton text-white text-xl sm:text-2xl tracking-tight uppercase group-hover:text-[#efeee9] transition-colors">
+              NEED HELP BUILDING<span className="text-[#efeee9]">?</span>
             </span>
           </Link>
           <span className="text-white/30 hidden sm:inline">•</span>
-          <span className="text-xs font-mono font-bold tracking-widest text-[#fbda03] uppercase hidden sm:inline">
+          <span className="text-xs font-mono font-bold tracking-widest text-[#efeee9] uppercase hidden sm:inline">
             SERVICES / {service.category}
           </span>
         </div>
@@ -70,7 +70,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="font-anton text-xs sm:text-sm uppercase tracking-wider text-white hover:text-[#fbda03] border border-white/20 px-3 py-1.5 transition-colors"
+            className="font-anton text-xs sm:text-sm uppercase tracking-wider text-white hover:text-[#efeee9] border border-white/20 px-3 py-1.5 transition-colors"
           >
             ← ALL SERVICES
           </Link>
@@ -78,7 +78,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             href="https://wa.me/919219061093?text=Hi%20NeedHelpBuilding%20team%2C%20I%20am%20interested%20in%20your%20services."
             target="_blank"
             rel="noreferrer"
-            className="bg-[#fbda03] text-black border-[2px] border-black px-4 py-1.5 font-anton text-xs sm:text-sm uppercase tracking-wider hover:bg-white transition-colors"
+            className="bg-[#efeee9] text-black border border-black px-4 py-1.5 font-anton text-xs sm:text-sm uppercase tracking-wider hover:bg-white transition-colors"
           >
             BOOK A CALL
           </a>
@@ -90,7 +90,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       {/* ============================================================ */}
       <section className="relative w-full max-w-7xl px-4 sm:px-8 pt-12 sm:pt-20 pb-16 flex flex-col gap-8 border-b border-white/10">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="bg-[#fbda03] text-black font-anton text-xs sm:text-sm px-3 py-1 border-[2px] border-black uppercase tracking-wider">
+          <span className="bg-[#efeee9] text-black font-anton text-xs sm:text-sm px-3 py-1 border border-black uppercase tracking-wider">
             {service.badge}
           </span>
           <span className="font-mono text-xs text-gray-400 uppercase tracking-widest">
@@ -102,7 +102,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           {service.title}
         </h1>
 
-        <p className="text-[#fbda03] font-anton text-xl sm:text-3xl max-w-4xl tracking-wide uppercase leading-tight">
+        <p className="text-[#efeee9] font-anton text-xl sm:text-3xl max-w-4xl tracking-wide uppercase leading-tight">
           {service.tagline}
         </p>
 
@@ -115,13 +115,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             href="https://wa.me/919219061093?text=Hi%20NeedHelpBuilding%20team%2C%20I%20want%20to%20discuss%20a%20project%20for%20this%20service."
             target="_blank"
             rel="noreferrer"
-            className="bg-[#fbda03] text-black border-[3.5px] border-black px-8 py-4 font-anton text-lg sm:text-xl uppercase tracking-wider shadow-[5px_5px_0px_0px_rgba(255,255,255,0.9)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+            className="bg-[#efeee9] text-black border border-black px-8 py-4 font-anton text-lg sm:text-xl uppercase tracking-wider hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
           >
             INITIATE THIS PROJECT NOW
           </a>
           <a
             href="mailto:hello@needhelpbuilding.com"
-            className="border-[3px] border-white/40 hover:border-white text-white px-6 py-3.5 font-anton text-base sm:text-lg uppercase tracking-wider transition-colors"
+            className="border border-white/40 hover:border-white text-white px-6 py-3.5 font-anton text-base sm:text-lg uppercase tracking-wider transition-colors"
           >
             EMAIL REQUIREMENTS →
           </a>
@@ -133,7 +133,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       {/* ============================================================ */}
       <section className="w-full max-w-7xl px-4 sm:px-8 py-16 border-b border-white/10">
         <div className="flex flex-col gap-2 mb-8">
-          <span className="font-mono text-xs font-black tracking-widest text-[#fbda03] uppercase">
+          <span className="font-mono text-xs font-black tracking-widest text-[#efeee9] uppercase">
             NUMERICAL BENCHMARKS & VERIFIED OUTCOMES
           </span>
           <h2 className="font-anton text-3xl sm:text-5xl uppercase tracking-tight">
@@ -145,12 +145,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           {service.metrics.map((metric, i) => (
             <div
               key={i}
-              className="bg-[#18181b] border-[3px] border-black p-6 shadow-[5px_5px_0px_0px_#fbda03] flex flex-col justify-between"
+              className="bg-[#161616] border border-black p-6 flex flex-col justify-between"
             >
               <span className="font-mono text-xs text-gray-400 font-bold uppercase tracking-wider">
                 {metric.label}
               </span>
-              <div className="my-4 font-anton text-4xl sm:text-5xl text-[#fbda03] leading-none">
+              <div className="my-4 font-anton text-4xl sm:text-5xl text-[#efeee9] leading-none">
                 {metric.value}
               </div>
               <span className="text-xs text-gray-300 font-medium">
@@ -168,7 +168,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         {/* Left Column: What We Do */}
         <div className="flex flex-col gap-6">
           <div>
-            <span className="font-mono text-xs font-black tracking-widest text-[#fbda03] uppercase">
+            <span className="font-mono text-xs font-black tracking-widest text-[#efeee9] uppercase">
               DELIVERABLES
             </span>
             <h2 className="font-anton text-3xl sm:text-5xl uppercase tracking-tight mt-1">
@@ -180,9 +180,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {service.whatWeDo.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-[#18181b] border-[2px] border-white/20 p-4 flex items-start gap-4 hover:border-[#fbda03] transition-colors"
+                className="bg-[#161616] border border-white/20 p-4 flex items-start gap-4 hover:border-[#efeee9] transition-colors"
               >
-                <div className="w-7 h-7 bg-[#fbda03] text-black font-anton flex items-center justify-center shrink-0 border border-black text-sm">
+                <div className="w-7 h-7 bg-[#efeee9] text-black font-anton flex items-center justify-center shrink-0 border border-black text-sm">
                   {idx + 1}
                 </div>
                 <p className="text-sm sm:text-base font-semibold text-gray-200 leading-snug">
@@ -196,7 +196,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         {/* Right Column: How We Do It */}
         <div className="flex flex-col gap-6">
           <div>
-            <span className="font-mono text-xs font-black tracking-widest text-[#fbda03] uppercase">
+            <span className="font-mono text-xs font-black tracking-widest text-[#efeee9] uppercase">
               METHODOLOGY
             </span>
             <h2 className="font-anton text-3xl sm:text-5xl uppercase tracking-tight mt-1">
@@ -208,9 +208,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {service.howWeDoIt.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white text-black border-[3.5px] border-black p-6 shadow-[6px_6px_0px_0px_#fbda03] flex flex-col gap-2"
+                className="bg-white text-black border border-black p-6 flex flex-col gap-2"
               >
-                <div className="flex items-center justify-between border-b-[2px] border-black/15 pb-2">
+                <div className="flex items-center justify-between border-b border-black/15 pb-2">
                   <span className="font-anton text-2xl text-black">
                     PHASE {step.step}
                   </span>
@@ -237,7 +237,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {service.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-[#18181b] border border-white/30 text-white font-mono text-xs px-3 py-1 font-bold"
+                  className="bg-[#161616] border border-white/30 text-white font-mono text-xs px-3 py-1 font-bold"
                 >
                   {tech}
                 </span>
@@ -251,12 +251,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       {/* DEDICATED VERIFIED TESTIMONIAL                               */}
       {/* ============================================================ */}
       <section className="w-full max-w-7xl px-4 sm:px-8 py-16 border-b border-white/10">
-        <div className="bg-[#fbda03] text-black border-[4px] border-black p-6 sm:p-12 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.95)] flex flex-col gap-6">
-          <div className="flex items-center justify-between border-b-[2.5px] border-black/25 pb-4">
+        <div className="bg-[#efeee9] text-black border border-black p-6 sm:p-12 flex flex-col gap-6">
+          <div className="flex items-center justify-between border-b border-black/25 pb-4">
             <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-widest text-black/80">
               VERIFIED CLIENT ENDORSEMENT // {service.title}
             </span>
-            <span className="font-anton text-sm tracking-wider uppercase bg-black text-[#fbda03] px-3 py-1">
+            <span className="font-anton text-sm tracking-wider uppercase bg-black text-[#efeee9] px-3 py-1">
               5.0 ★★★★★
             </span>
           </div>
@@ -266,7 +266,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </blockquote>
 
           <div className="flex items-center gap-4 pt-2">
-            <div className="w-12 h-12 rounded-full bg-black text-[#fbda03] font-anton text-xl flex items-center justify-center border-[2px] border-black">
+            <div className="w-12 h-12 rounded-full bg-black text-[#efeee9] font-anton text-xl flex items-center justify-center border border-black">
               {service.testimonial.avatarText}
             </div>
             <div>
@@ -287,7 +287,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <section className="w-full max-w-7xl px-4 sm:px-8 py-16 border-b border-white/10 flex flex-col gap-8">
         <div className="flex items-center justify-between">
           <div>
-            <span className="font-mono text-xs font-black tracking-widest text-[#fbda03] uppercase">
+            <span className="font-mono text-xs font-black tracking-widest text-[#efeee9] uppercase">
               LOOKING FOR MORE?
             </span>
             <h2 className="font-anton text-3xl sm:text-4xl uppercase tracking-tight mt-1">
@@ -296,7 +296,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
           <Link
             href="/"
-            className="font-anton text-sm uppercase tracking-wider text-[#fbda03] hover:underline hidden sm:inline"
+            className="font-anton text-sm uppercase tracking-wider text-[#efeee9] hover:underline hidden sm:inline"
           >
             VIEW ALL 9 CAPABILITIES →
           </Link>
@@ -307,20 +307,20 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             <Link
               key={other.slug}
               href={`/services/${other.slug}`}
-              className="bg-[#18181b] border-[2.5px] border-white/20 hover:border-[#fbda03] p-5 flex flex-col justify-between gap-3 group transition-all hover:-translate-y-1"
+              className="bg-[#161616] border border-white/20 hover:border-[#efeee9] p-5 flex flex-col justify-between gap-3 group transition-all hover:-translate-y-1"
             >
               <div>
                 <span className="font-mono text-[10px] text-gray-400 font-bold uppercase tracking-wider block mb-1">
                   {other.category}
                 </span>
-                <h3 className="font-anton text-xl text-white group-hover:text-[#fbda03] transition-colors leading-tight uppercase">
+                <h3 className="font-anton text-xl text-white group-hover:text-[#efeee9] transition-colors leading-tight uppercase">
                   {other.title}
                 </h3>
                 <p className="text-xs text-gray-400 mt-2 line-clamp-2 leading-relaxed">
                   {other.shortDesc}
                 </p>
               </div>
-              <span className="font-anton text-xs text-[#fbda03] uppercase tracking-wider">
+              <span className="font-anton text-xs text-[#efeee9] uppercase tracking-wider">
                 EXPLORE SPECIFICS →
               </span>
             </Link>
@@ -343,7 +343,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="flex items-center gap-4 shrink-0">
           <Link
             href="/"
-            className="border-[2px] border-white/30 text-white px-5 py-2.5 font-anton text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-colors"
+            className="border border-white/30 text-white px-5 py-2.5 font-anton text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-colors"
           >
             HOME
           </Link>
@@ -351,7 +351,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             href="https://wa.me/919219061093?text=Hi%20NeedHelpBuilding%20team%2C%20I%20want%20to%20discuss%20a%20project."
             target="_blank"
             rel="noreferrer"
-            className="bg-[#fbda03] text-black border-[3px] border-black px-6 py-2.5 font-anton text-sm sm:text-base uppercase tracking-wider shadow-[4px_4px_0px_0px_#fff] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+            className="bg-[#efeee9] text-black border border-black px-6 py-2.5 font-anton text-sm sm:text-base uppercase tracking-wider hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
           >
             START ON WHATSAPP
           </a>

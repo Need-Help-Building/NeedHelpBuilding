@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  background-color: #0c0c0d;
+  background-color: #0f0f0f;
   color: #ffffff;
   overflow-x: hidden;
   font-family: var(--font-sans), sans-serif;
@@ -254,11 +254,11 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0c0c0d;
+  background: #0f0f0f;
 }
 ::-webkit-scrollbar-thumb {
-  background: #fbda03;
-  border: 2px solid #0c0c0d;
+  background: #efeee9;
+  border: 2px solid #0f0f0f;
 }
 
 /* Subtle background geometric drift animations */
@@ -309,4 +309,60 @@ body {
 .animate-hanging-sign {
   transform-origin: top center;
   animation: hangingSignSway 7s ease-in-out infinite;
+}
+
+/* ============================================================ */
+/* DARKROOM EDITORIAL THEME — monochrome, oversized type, flat   */
+/* ============================================================ */
+:root {
+  --nhb-bg: #0f0f0f;
+  --nhb-fg: #efeee9;
+  --nhb-line: rgba(239, 238, 233, 0.14);
+}
+
+body {
+  background-color: var(--nhb-bg);
+  color: var(--nhb-fg);
+  letter-spacing: -0.005em;
+}
+
+/* Hard black outlines read as soft hairlines on the dark canvas */
+.border-black {
+  border-color: var(--nhb-line);
+}
+
+/* Large display type: tight, condensed, heavy */
+.font-anton {
+  letter-spacing: -0.005em;
+}
+
+/* No swaying / drifting toy-box motion */
+.animate-hanging-sign,
+.animate-bg-drift,
+.animate-bg-drift-rev {
+  animation: none;
+}
+
+/* Photography goes monochrome (logo stays untouched) */
+main img {
+  filter: grayscale(1) contrast(1.05);
+}
+header img {
+  filter: none;
+}
+
+/* Scrollbar + selection */
+::-webkit-scrollbar-thumb {
+  background: #efeee9;
+  border: 2px solid #0f0f0f;
+}
+::selection {
+  background: #efeee9;
+  color: #0f0f0f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
