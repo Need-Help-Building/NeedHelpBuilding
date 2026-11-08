@@ -180,7 +180,7 @@ export default function FeaturedWork() {
           <article
             data-reveal
             aria-labelledby="work-sous"
-            className="group grid overflow-hidden rounded-3xl border border-ink/10 bg-white transition-colors hover:border-ink/30 md:grid-cols-2 lg:col-span-7"
+            className="group grid overflow-hidden rounded-3xl border border-ink/10 bg-white transition-colors hover:border-ink/30 md:grid-cols-2 lg:col-span-12 xl:col-span-7"
           >
             <div className="relative flex items-center bg-lilac-soft px-6 pt-14 pb-8 sm:px-8">
               <span className="absolute top-4 left-4 rounded-full border border-ink/20 bg-ivory/80 px-2.5 py-1 font-mono text-[10px] tracking-wide text-ink/75">
@@ -207,7 +207,7 @@ export default function FeaturedWork() {
           </article>
 
           {/* Startup partnerships — stacked compact cards */}
-          <div data-reveal data-delay="1" className="grid gap-5 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
+          <div data-reveal data-delay="1" className="grid gap-5 sm:grid-cols-2 lg:col-span-12 xl:col-span-5 xl:grid-cols-1">
             {partners.map((p, i) => {
               const quote = testimonials.find((t) => t.projectSlug === p.slug);
               return (

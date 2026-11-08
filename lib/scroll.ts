@@ -7,9 +7,11 @@ export function setLenis(instance: Lenis | null) {
   lenis = instance;
 }
 
-export const HEADER_OFFSET = 84;
-
-/** Scroll to an element id (with or without "#"), smoothly when allowed. */
+/**
+ * Scroll to an element id (with or without "#"), smoothly when allowed.
+ * The sticky-header clearance comes from CSS `[id] { scroll-margin-top }` alone — Lenis and native
+ * scrollIntoView both honour it, so no extra offset is added here (adding one double-counts it).
+ */
 export function scrollToId(hash: string) {
   const id = decodeURIComponent(hash.replace(/^#/, ""));
   const el = id ? document.getElementById(id) : null;
@@ -19,12 +21,8 @@ export function scrollToId(hash: string) {
     return;
   }
   if (!el) return;
-  if (lenis) {
-    lenis.scrollTo(el, { offset: -HEADER_OFFSET, force: true });
-  } else {
-    const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-    window.scrollTo({ top });
-  }
+  if (lenis) lenis.scrollTo(el, { force: true });
+  else el.scrollIntoView({ block: "start" });
 }
 
 /** Freeze page scrolling (e.g. while the mobile menu is open). */

@@ -3,12 +3,12 @@
 ## Progress
 | Phase | Name | Status | Plans |
 |-------|------|--------|-------|
-| 1 | Foundation: tokens, layout, content layer, navigation, footer | Not Started | 01-01, 01-02 |
-| 2 | Narrative I: Hero, Positioning, AI capability, Four disciplines (§02–§05) | Not Started | 02-01 |
-| 3 | Narrative II: Work, AI spotlight, Process, Tech stack (§06–§09) | Not Started | 03-01 |
-| 4 | Narrative III: Industries, Consulting, Why NHB, Insights, Credibility, Testimonials, Final CTA (§10–§16) | Not Started | 04-01 |
-| 5 | Case studies, SEO & integration (work pages, OG image, JSON-LD, sitemap, service-page chrome, legacy cleanup) | Not Started | 05-01 |
-| 6 | Verification & polish (build, lint, browser review at 6 widths, a11y, reduced motion) | Not Started | 06-01 |
+| 1 | Foundation: tokens, layout, content layer, navigation, footer | Complete | 01-01, 01-02 |
+| 2 | Narrative I: Hero, Positioning, AI capability, Four disciplines (§02–§05) | Complete | 02-01 |
+| 3 | Narrative II: Work, AI spotlight, Process, Tech stack (§06–§09) | Complete | 03-01 |
+| 4 | Narrative III: Industries, Consulting, Why NHB, Insights, Credibility, Testimonials, Final CTA (§10–§16) | Complete | 04-01 |
+| 5 | Case studies, SEO & integration (work pages, OG image, JSON-LD, sitemap, service-page chrome, legacy cleanup) | Complete | 05-01 |
+| 6 | Verification & polish (build, lint, browser review at 6 widths, a11y, reduced motion) | Complete | 06-01 |
 
 ---
 
