@@ -43,7 +43,7 @@ export default function SectionHeading({
         data-reveal
         className={cn("t-h2 lg:col-span-8", dark ? "text-ivory" : "text-ink", titleClassName)}
       >
-        <Marked text={title} />
+        <Marked text={title} tone={tone} />
       </h2>
       {lede && (
         <div
