@@ -1,0 +1,339 @@
+- generic [active] [ref=f7e1]:
+  - generic [ref=f7e2]:
+    - banner [ref=f7e4]:
+      - generic [ref=f7e5]:
+        - generic [ref=f7e6]:
+          - link "G GeekyAnts" [ref=f7e7] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f7e8]: G
+            - generic [ref=f7e9]: GeekyAnts
+          - navigation [ref=f7e10]:
+            - generic [ref=f7e11] [cursor=pointer]: GeekyAnts AI
+            - generic [ref=f7e14] [cursor=pointer]: What We Do
+            - generic [ref=f7e18] [cursor=pointer]: Industries
+            - generic [ref=f7e22] [cursor=pointer]: Engineering
+            - link "Insights" [ref=f7e26] [cursor=pointer]:
+              - /url: "#insights"
+            - link "About" [ref=f7e27] [cursor=pointer]:
+              - /url: "#about"
+        - link "Contact Us" [ref=f7e29] [cursor=pointer]:
+          - /url: mailto:info@geekyants.com
+    - main [ref=f7e30]:
+      - generic [ref=f7e33]:
+        - generic [ref=f7e34]: AI-Powered Digital Engineering
+        - heading "Turning Ambitious Technology Strategies into Production-Grade Reality" [level=1] [ref=f7e38]
+        - paragraph [ref=f7e39]: From AI adoption to legacy modernization to product scale — we bring the architectural rigor, engineering firepower, and dedicated teams to build software that compounds in enterprise value.
+        - generic [ref=f7e40]:
+          - link "Schedule a Strategy Conversation" [ref=f7e41] [cursor=pointer]:
+            - /url: "#contact"
+          - link "See How AntFlow AI Works" [ref=f7e44] [cursor=pointer]:
+            - /url: "#antflow"
+      - generic [ref=f7e45]:
+        - paragraph [ref=f7e47]: Trusted by high-growth enterprises and industry leaders worldwide
+        - generic [ref=f7e49]:
+          - generic [ref=f7e50]: Google
+          - generic [ref=f7e52]: OliveGarden
+          - generic [ref=f7e54]: Darden
+          - generic [ref=f7e56]: ICICI Bank
+          - generic [ref=f7e58]: Kingsley Gate
+          - generic [ref=f7e60]: Atsign
+          - generic [ref=f7e62]: SKF
+          - generic [ref=f7e64]: Thyrocare
+          - generic [ref=f7e66]: WeWork
+          - generic [ref=f7e68]: Goosehead Insurance
+          - generic [ref=f7e70]: MetroGhar
+          - generic [ref=f7e72]: Google
+          - generic [ref=f7e74]: OliveGarden
+          - generic [ref=f7e76]: Darden
+          - generic [ref=f7e78]: ICICI Bank
+          - generic [ref=f7e80]: Kingsley Gate
+          - generic [ref=f7e82]: Atsign
+          - generic [ref=f7e84]: SKF
+          - generic [ref=f7e86]: Thyrocare
+          - generic [ref=f7e88]: WeWork
+          - generic [ref=f7e90]: Goosehead Insurance
+          - generic [ref=f7e92]: MetroGhar
+      - generic [ref=f7e96]:
+        - generic [ref=f7e97]:
+          - text: Why Now
+          - heading "The Companies that will Lead the Next Decade are Being Engineered Right Now." [level=2] [ref=f7e98]
+          - generic [ref=f7e99]:
+            - paragraph [ref=f7e100]: Enterprise is being Reimagined. Workflows are becoming autonomous, pipelines are turning intelligent, and users expect zero latency.
+            - paragraph [ref=f7e101]: Products are being Reinvented. Software is no longer just static forms; it is active, responsive, and constantly optimizing itself.
+            - paragraph [ref=f7e102]: We engineer Both.
+        - generic [ref=f7e103]:
+          - generic [ref=f7e104]:
+            - generic [ref=f7e105]: 20+
+            - generic [ref=f7e106]: Years of Engineering Products
+          - generic [ref=f7e107]:
+            - generic [ref=f7e108]: 550+
+            - generic [ref=f7e109]: Products Shipped to Production
+          - generic [ref=f7e110]:
+            - generic [ref=f7e111]: 700+
+            - generic [ref=f7e112]: Completed Enterprise Projects
+          - generic [ref=f7e113]:
+            - generic [ref=f7e114]: 300+
+            - generic [ref=f7e115]: Elite Product Engineers
+      - generic [ref=f7e117]:
+        - generic [ref=f7e118]:
+          - generic [ref=f7e119]: AntFlow AI · Our Agentic Development Framework
+          - heading "Agentic Development Framework by GeekyAnts" [level=2] [ref=f7e120]
+          - paragraph [ref=f7e121]: AntFlow AI connects what your business needs with how software gets built, helping teams transition from slow traditional sprints to AI-orchestrated velocity with verified quality controls.
+        - generic [ref=f7e122]:
+          - generic [ref=f7e123]:
+            - heading "AI Agent Swarms" [level=3] [ref=f7e128]
+            - paragraph [ref=f7e129]: Autonomous code generation agents, security auditors, and PR reviewers coordinate directly against your backlog with deterministic boundaries.
+          - generic [ref=f7e130]:
+            - heading "Deterministic CI/CD" [level=3] [ref=f7e136]
+            - paragraph [ref=f7e137]: Every AI-assisted pull request is validated through end-to-end sandbox testing, regression suites, and automated type verification.
+          - generic [ref=f7e138]:
+            - heading "Enterprise Governance" [level=3] [ref=f7e142]
+            - paragraph [ref=f7e143]: Strict human-in-the-loop sign-offs, data protection boundaries, and SOC-2 compliant practices ensure zero IP contamination.
+      - generic [ref=f7e145]:
+        - generic [ref=f7e146]:
+          - text: Practices
+          - heading "Four Practices, One Engineering Standard." [level=2] [ref=f7e147]
+          - paragraph [ref=f7e148]: Every practice combines strategic consulting with hands-on engineering — because advice without execution is just a slide deck.
+        - generic [ref=f7e149]:
+          - generic [ref=f7e150]:
+            - generic [ref=f7e151]:
+              - generic [ref=f7e152]: 01 / 04
+              - heading "AI & Intelligent Systems" [level=3] [ref=f7e153]
+              - paragraph [ref=f7e154]: From AI strategy to production-grade LLM integration, autonomous agents, and intelligent workflows — we take AI from experiment to enterprise reality.
+            - generic [ref=f7e156]:
+              - generic [ref=f7e157]: Agentic AI
+              - generic [ref=f7e158]: ML Model Development
+              - generic [ref=f7e159]: AI Pods
+              - generic [ref=f7e160]: Digital Transformation
+              - generic [ref=f7e161]: AI Strategies
+              - generic [ref=f7e162]: Production LLMs
+          - generic [ref=f7e163]:
+            - generic [ref=f7e164]:
+              - generic [ref=f7e165]: 02 / 04
+              - heading "AI-Powered Product Engineering" [level=3] [ref=f7e166]
+              - paragraph [ref=f7e167]: From idea to prototype to scaled production — we build modern cloud, mobile, and web products at AI speed with elite engineering discipline.
+            - generic [ref=f7e169]:
+              - generic [ref=f7e170]: Prototype to Production
+              - generic [ref=f7e171]: AI Native Engineering
+              - generic [ref=f7e172]: Fractional Teams
+              - generic [ref=f7e173]: Code Quality
+              - generic [ref=f7e174]: Scaling MVP to Market
+          - generic [ref=f7e175]:
+            - generic [ref=f7e176]:
+              - generic [ref=f7e177]: 03 / 04
+              - heading "Enterprise System Modernization" [level=3] [ref=f7e178]
+              - paragraph [ref=f7e179]: We re-architect monolithic legacy systems for AI-readiness, distributed scale, and lightning-fast developer velocity — then stay to evolve them.
+            - generic [ref=f7e181]:
+              - generic [ref=f7e182]: App Modernization
+              - generic [ref=f7e183]: Data & Integration
+              - generic [ref=f7e184]: Process Transformation
+              - generic [ref=f7e185]: Cloud Infrastructure
+              - generic [ref=f7e186]: Performance & Security
+          - generic [ref=f7e187]:
+            - generic [ref=f7e188]:
+              - generic [ref=f7e189]: 04 / 04
+              - heading "Digital Customer Experience" [level=3] [ref=f7e190]
+              - paragraph [ref=f7e191]: We align engineering, UX architecture, and business KPIs so customer experiences build lifelong trust and compound value at scale.
+            - generic [ref=f7e193]:
+              - generic [ref=f7e194]: Discovery Strategy
+              - generic [ref=f7e195]: Digital Product Design
+              - generic [ref=f7e196]: Legacy UX Migration
+              - generic [ref=f7e197]: Agentic Experience Design
+              - generic [ref=f7e198]: Design Systems
+      - generic [ref=f7e200]:
+        - generic [ref=f7e201]:
+          - generic [ref=f7e202]:
+            - text: Case Studies & Work
+            - heading "We Measure Success in Business Impact, Not Lines of Code." [level=2] [ref=f7e203]
+          - generic [ref=f7e204]:
+            - button "ALL" [ref=f7e205]
+            - button "Fintech" [ref=f7e206]
+            - button "Healthcare" [ref=f7e207]
+            - button "Real Estate" [ref=f7e208]
+            - button "E-commerce" [ref=f7e209]
+        - generic [ref=f7e210]:
+          - generic [ref=f7e211]:
+            - generic [ref=f7e212]:
+              - generic [ref=f7e213]: DIGITAL INFRASTRUCTURE
+              - heading "RBI Domain Migration For India’s Largest Private Bank" [level=3] [ref=f7e214]
+              - paragraph [ref=f7e215]: Executed a mission-critical domain migration for Reserve Bank of India compliance, allowing the largest private bank to transition zero-downtime banking infra.
+            - generic [ref=f7e216]:
+              - generic [ref=f7e217]:
+                - generic [ref=f7e218]:
+                  - generic [ref=f7e219]: 99%
+                  - generic [ref=f7e220]: Manual Effort Reduced
+                - generic [ref=f7e221]:
+                  - generic [ref=f7e222]: 10,000
+                  - generic [ref=f7e223]: Pages In ~2 Mins
+                - generic [ref=f7e224]:
+                  - generic [ref=f7e225]: 85%+
+                  - generic [ref=f7e226]: Response Accuracy
+              - button "Read full case study" [ref=f7e227]
+          - generic [ref=f7e231]:
+            - generic [ref=f7e232]:
+              - generic [ref=f7e233]: HEALTHCARE
+              - heading "Healthcare SaaS Platform" [level=3] [ref=f7e234]
+              - paragraph [ref=f7e235]: Modernized onboarding workflows using automated AI triage and backend synchronization, minimizing friction for medical specialists.
+            - generic [ref=f7e236]:
+              - generic [ref=f7e237]:
+                - generic [ref=f7e238]:
+                  - generic [ref=f7e239]: 35%
+                  - generic [ref=f7e240]: Dr. Efficiency Gain
+                - generic [ref=f7e241]:
+                  - generic [ref=f7e242]: 40%
+                  - generic [ref=f7e243]: Onboarding Time Drop
+                - generic [ref=f7e244]:
+                  - generic [ref=f7e245]: Real-Time
+                  - generic [ref=f7e246]: Patient Care Sync
+              - button "Read full case study" [ref=f7e247]
+          - generic [ref=f7e251]:
+            - generic [ref=f7e252]:
+              - generic [ref=f7e253]: REAL ESTATE
+              - heading "AI Property Inspection Platform" [level=3] [ref=f7e254]
+              - paragraph [ref=f7e255]: Built high-throughput backend architecture powering AI vision inspection, QR workflows, and multi-tenant RAG search pipelines.
+            - generic [ref=f7e256]:
+              - generic [ref=f7e257]:
+                - generic [ref=f7e258]:
+                  - generic [ref=f7e259]: 80%
+                  - generic [ref=f7e260]: Inspection Accuracy
+                - generic [ref=f7e261]:
+                  - generic [ref=f7e262]: 90%
+                  - generic [ref=f7e263]: Data Relevance
+                - generic [ref=f7e264]:
+                  - generic [ref=f7e265]: 2x
+                  - generic [ref=f7e266]: Voice Field Interactions
+              - button "Read full case study" [ref=f7e267]
+          - generic [ref=f7e271]:
+            - generic [ref=f7e272]:
+              - generic [ref=f7e273]: COMMERCE & CLOUD
+              - heading "Consumer Commerce Cloud Overhaul" [level=3] [ref=f7e274]
+              - paragraph [ref=f7e275]: Eliminated chronic infrastructure over-provisioning, rightsized clusters, and automated continuous autoscaling to slash OPEX.
+            - generic [ref=f7e276]:
+              - generic [ref=f7e277]:
+                - generic [ref=f7e278]:
+                  - generic [ref=f7e279]: 60%
+                  - generic [ref=f7e280]: Cloud Cost Cut
+                - generic [ref=f7e281]:
+                  - generic [ref=f7e282]: $4,800
+                  - generic [ref=f7e283]: Saved Monthly
+                - generic [ref=f7e284]:
+                  - generic [ref=f7e285]: $57K+
+                  - generic [ref=f7e286]: Annual Net Savings
+              - button "Read full case study" [ref=f7e287]
+      - generic [ref=f7e292]:
+        - generic [ref=f7e293]:
+          - text: Point of View
+          - heading "We Bring a Point of View." [level=2] [ref=f7e294]
+        - generic [ref=f7e295]:
+          - generic [ref=f7e296]:
+            - generic [ref=f7e297]: "01"
+            - heading "We diagnose before we build." [level=3] [ref=f7e298]
+            - paragraph [ref=f7e299]: Our assessments often reveal the most important problem isn't the one the client originally scoped. This saves months of misdirected effort and significant capital.
+          - generic [ref=f7e300]:
+            - generic [ref=f7e301]: "02"
+            - heading "AI-native, grounded in discipline." [level=3] [ref=f7e302]
+            - paragraph [ref=f7e303]: We use AI to accelerate delivery. But we never ship without the rigorous tests, security boundaries, and clean architectures that production scale demands.
+          - generic [ref=f7e304]:
+            - generic [ref=f7e305]: "03"
+            - heading "We build tools the industry depends on." [level=3] [ref=f7e306]
+            - paragraph [ref=f7e307]: Creators of NativeBase, gluestack-ui, and core React Native contributors. Over 500,000 developers rely on tools engineered right inside our labs.
+          - generic [ref=f7e308]:
+            - generic [ref=f7e309]: "04"
+            - heading "We stay. We don't ship and disappear." [level=3] [ref=f7e310]
+            - paragraph [ref=f7e311]: 550+ deployments with clients who have partnered with us for 5+ continuous years. We are invested in long-term enterprise growth, not one-off handoffs.
+      - generic [ref=f7e313]:
+        - heading "Technologies We Master & Contribute To" [level=3] [ref=f7e314]
+        - generic [ref=f7e315]:
+          - generic [ref=f7e316]: React Native
+          - generic [ref=f7e317]: Next.js
+          - generic [ref=f7e318]: React
+          - generic [ref=f7e319]: TypeScript
+          - generic [ref=f7e320]: Python
+          - generic [ref=f7e321]: GraphQL
+          - generic [ref=f7e322]: Node.js
+          - generic [ref=f7e323]: NestJS
+          - generic [ref=f7e324]: Golang
+          - generic [ref=f7e325]: PostgreSQL
+          - generic [ref=f7e326]: Tailwind CSS
+          - generic [ref=f7e327]: Redis
+          - generic [ref=f7e328]: AWS
+          - generic [ref=f7e329]: Vercel
+          - generic [ref=f7e330]: Docker
+          - generic [ref=f7e331]: Kubernetes
+          - generic [ref=f7e332]: PyTorch
+          - generic [ref=f7e333]: gluestack-ui
+      - generic [ref=f7e335]:
+        - generic [ref=f7e336]: Start A Project
+        - heading "The Right Conversation Can Save You Six Months." [level=2] [ref=f7e337]
+        - paragraph [ref=f7e338]: Speak directly with our senior technology partners. We'll examine your architecture, roadmap, and delivery bottlenecks.
+        - generic [ref=f7e339]:
+          - link "Book a Call with an Architect" [ref=f7e340] [cursor=pointer]:
+            - /url: mailto:info@geekyants.com
+          - link "info@geekyants.com" [ref=f7e341] [cursor=pointer]:
+            - /url: mailto:info@geekyants.com
+    - contentinfo [ref=f7e342]:
+      - generic [ref=f7e344]:
+        - generic [ref=f7e345]:
+          - generic [ref=f7e346]:
+            - generic [ref=f7e347]: G
+            - generic [ref=f7e348]: GeekyAnts
+          - paragraph [ref=f7e349]: AI-Powered Digital Product Engineering & Technology Consulting Company. Innovate · Collaborate · Build.
+          - generic [ref=f7e350]: 2026 © GeekyAnts. All rights reserved.
+        - generic [ref=f7e351]:
+          - heading "Our Services" [level=4] [ref=f7e352]
+          - list [ref=f7e353]:
+            - listitem [ref=f7e354]:
+              - link "Mobile App Development" [ref=f7e355] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e356]:
+              - link "Web App Development" [ref=f7e357] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e358]:
+              - link "AI Development" [ref=f7e359] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e360]:
+              - link "Software Development" [ref=f7e361] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e362]:
+              - link "Offshore Engineering" [ref=f7e363] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=f7e364]:
+          - heading "Technologies" [level=4] [ref=f7e365]
+          - list [ref=f7e366]:
+            - listitem [ref=f7e367]:
+              - link "React Native" [ref=f7e368] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e369]:
+              - link "Next.js" [ref=f7e370] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e371]:
+              - link "Flutter" [ref=f7e372] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e373]:
+              - link "Python & LLMs" [ref=f7e374] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e375]:
+              - link "NestJS & Golang" [ref=f7e376] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=f7e377]:
+          - heading "Quick Links" [level=4] [ref=f7e378]
+          - list [ref=f7e379]:
+            - listitem [ref=f7e380]:
+              - link "Case Studies" [ref=f7e381] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e382]:
+              - link "Open Source" [ref=f7e383] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e384]:
+              - link "Testimonials" [ref=f7e385] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e386]:
+              - link "AI Accelerators" [ref=f7e387] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f7e388]:
+              - link "Privacy Policy" [ref=f7e389] [cursor=pointer]:
+                - /url: "#"
+  - button "Rebuild website using Swarm Cursors" [ref=f7e390] [cursor=pointer]:
+    - generic [ref=f7e394]: Rebuild Page
+    - generic [ref=f7e395]: ⌥⇧S
+  - alert [ref=f7e396]

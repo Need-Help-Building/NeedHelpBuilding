@@ -1,0 +1,287 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "NEED HELP BUILDING?" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=e6]:
+          - link "Why Now" [ref=e7] [cursor=pointer]:
+            - /url: "#about"
+          - link "Practices" [ref=e8] [cursor=pointer]:
+            - /url: "#practices"
+          - link "Work" [ref=e9] [cursor=pointer]:
+            - /url: "#work"
+          - link "Point of View" [ref=e10] [cursor=pointer]:
+            - /url: "#philosophy"
+          - link "Contact" [ref=e11] [cursor=pointer]:
+            - /url: "#contact"
+        - link "Contact Us" [ref=e13] [cursor=pointer]:
+          - /url: mailto:hello@needhelpbuilding.com
+    - main [ref=e14]:
+      - generic [ref=e16]:
+        - generic [ref=e17]: AI-Powered Digital Product Engineering
+        - heading "Turning Ambitious Technology Strategies into Production-Grade Reality." [level=1] [ref=e18]
+        - paragraph [ref=e19]: From AI adoption to legacy modernization to product scale — we bring the thinking and the team to build software that compounds in enterprise value.
+        - generic [ref=e20]:
+          - link "Schedule a Strategy Conversation" [ref=e21] [cursor=pointer]:
+            - /url: mailto:hello@needhelpbuilding.com
+          - link "Explore Practices" [ref=e24] [cursor=pointer]:
+            - /url: "#practices"
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: Trusted by high-growth enterprises and industry leaders worldwide
+        - generic [ref=e28]:
+          - generic [ref=e29]: Google
+          - generic [ref=e30]: Olive Garden
+          - generic [ref=e31]: Darden
+          - generic [ref=e32]: ICICI Bank
+          - generic [ref=e33]: Kingsley Gate
+          - generic [ref=e34]: Atsign
+          - generic [ref=e35]: SKF
+          - generic [ref=e36]: Thyrocare
+          - generic [ref=e37]: WeWork
+          - generic [ref=e38]: Goosehead Insurance
+          - generic [ref=e39]: MetroGhar
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - text: Why Now
+          - heading "The Companies that will Lead the Next Decade are Being Engineered Right Now." [level=2] [ref=e44]
+          - generic [ref=e45]:
+            - paragraph [ref=e46]: Enterprise is being Reimagined. Workflows are becoming autonomous, pipelines are turning intelligent, and users expect zero latency.
+            - paragraph [ref=e47]: Products are being Reinvented. Software is no longer just static forms; it is active, responsive, and constantly optimizing itself.
+            - paragraph [ref=e48]: We engineer Both.
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: 20+
+            - generic [ref=e52]: Years of Engineering Products
+          - generic [ref=e53]:
+            - generic [ref=e54]: 550+
+            - generic [ref=e55]: Products Shipped to Production
+          - generic [ref=e56]:
+            - generic [ref=e57]: 700+
+            - generic [ref=e58]: Projects Completed
+          - generic [ref=e59]:
+            - generic [ref=e60]: 300+
+            - generic [ref=e61]: Product Engineers
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - text: Agentic Development Framework
+          - heading "Connecting what your business needs with how software gets built." [level=2] [ref=e65]
+          - paragraph [ref=e66]: Transitioning teams from traditional sprint overhead to orchestrated AI velocity, backed by deterministic testing and rigorous enterprise boundaries.
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: Pillar 01
+            - heading "AI Agent Swarms" [level=3] [ref=e70]
+            - paragraph [ref=e71]: Autonomous code generation agents, security auditors, and PR reviewers coordinate directly against your backlog with deterministic guardrails.
+          - generic [ref=e72]:
+            - generic [ref=e73]: Pillar 02
+            - heading "Deterministic CI/CD" [level=3] [ref=e74]
+            - paragraph [ref=e75]: Every AI-generated contribution is validated through automated test sandboxes, end-to-end regression suites, and verified builds before shipping.
+          - generic [ref=e76]:
+            - generic [ref=e77]: Pillar 03
+            - heading "Enterprise Governance" [level=3] [ref=e78]
+            - paragraph [ref=e79]: Strict human-in-the-loop sign-offs, data protection boundaries, and SOC-2 compliant practices ensure zero IP risk and clean architecture.
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - text: Practices
+          - heading "Four Practices, One Engineering Standard." [level=2] [ref=e83]
+          - paragraph [ref=e84]: Every practice combines strategic consulting with hands-on engineering — because advice without execution is just a slide deck.
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - generic [ref=e88]: 01 / 04
+              - heading "AI & Intelligent Systems" [level=3] [ref=e89]
+              - paragraph [ref=e90]: From AI strategy to production-grade LLM integration, autonomous agents, and intelligent workflows — we take AI from experiment to enterprise reality.
+            - generic [ref=e91]:
+              - generic [ref=e92]: Agentic AI
+              - generic [ref=e93]: ML Model Development
+              - generic [ref=e94]: AI Pods
+              - generic [ref=e95]: Digital Transformation
+              - generic [ref=e96]: AI Strategies
+              - generic [ref=e97]: Production LLMs
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - generic [ref=e100]: 02 / 04
+              - heading "AI-Powered Product Engineering" [level=3] [ref=e101]
+              - paragraph [ref=e102]: From idea to prototype to scaled production — we build modern cloud, mobile, and web products at AI speed with elite engineering discipline.
+            - generic [ref=e103]:
+              - generic [ref=e104]: Prototype to Production
+              - generic [ref=e105]: AI Native Engineering
+              - generic [ref=e106]: Fractional Teams
+              - generic [ref=e107]: Code Quality
+              - generic [ref=e108]: Scaling MVP to Market
+          - generic [ref=e109]:
+            - generic [ref=e110]:
+              - generic [ref=e111]: 03 / 04
+              - heading "Enterprise System Modernization" [level=3] [ref=e112]
+              - paragraph [ref=e113]: We re-architect monolithic legacy systems for AI-readiness, distributed scale, and lightning-fast developer velocity — then stay to evolve them.
+            - generic [ref=e114]:
+              - generic [ref=e115]: App Modernization
+              - generic [ref=e116]: Data & Integration
+              - generic [ref=e117]: Process Transformation
+              - generic [ref=e118]: Cloud Infrastructure
+              - generic [ref=e119]: Performance & Security
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - generic [ref=e122]: 04 / 04
+              - heading "Digital Customer Experience" [level=3] [ref=e123]
+              - paragraph [ref=e124]: We align engineering, UX architecture, and business KPIs so customer experiences build lifelong trust and compound value at scale.
+            - generic [ref=e125]:
+              - generic [ref=e126]: Discovery Strategy
+              - generic [ref=e127]: Digital Product Design
+              - generic [ref=e128]: Legacy UX Migration
+              - generic [ref=e129]: Agentic Experience Design
+              - generic [ref=e130]: Design Systems
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - generic [ref=e134]:
+            - text: Case Studies
+            - heading "We Measure Success in Business Impact, Not Lines of Code." [level=2] [ref=e135]
+          - generic [ref=e136]:
+            - button "ALL" [ref=e137]
+            - button "Fintech" [ref=e138]
+            - button "Healthcare" [ref=e139]
+            - button "Real Estate" [ref=e140]
+            - button "Commerce" [ref=e141]
+        - generic [ref=e142]:
+          - generic [ref=e143]:
+            - generic [ref=e144]:
+              - generic [ref=e145]: DIGITAL INFRASTRUCTURE
+              - heading "RBI Domain Migration For India’s Largest Private Bank" [level=3] [ref=e146]
+              - paragraph [ref=e147]: Executed a large-scale domain migration for Reserve Bank of India compliance, enabling one of India’s largest private banks to transition its digital infrastructure to RBI-mandated domains without disrupting live banking services.
+            - generic [ref=e148]:
+              - generic [ref=e149]:
+                - generic [ref=e150]:
+                  - generic [ref=e151]: 99%
+                  - generic [ref=e152]: Manual Effort Reduction
+                - generic [ref=e153]:
+                  - generic [ref=e154]: 10,000
+                  - generic [ref=e155]: Pages In ~2 Mins
+                - generic [ref=e156]:
+                  - generic [ref=e157]: 85%+
+                  - generic [ref=e158]: Response Accuracy
+              - generic [ref=e159] [cursor=pointer]: Read Case Study
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - generic [ref=e165]: HEALTHCARE
+              - heading "Healthcare SaaS Platform" [level=3] [ref=e166]
+              - paragraph [ref=e167]: Modernized onboarding workflows by introducing AI-driven automation and optimizing backend workflows, reducing friction in doctor onboarding and improving operational efficiency.
+            - generic [ref=e168]:
+              - generic [ref=e169]:
+                - generic [ref=e170]:
+                  - generic [ref=e171]: 35%
+                  - generic [ref=e172]: Dr. Efficiency Gain
+                - generic [ref=e173]:
+                  - generic [ref=e174]: 40%
+                  - generic [ref=e175]: Onboarding Time Drop
+                - generic [ref=e176]:
+                  - generic [ref=e177]: Real-Time
+                  - generic [ref=e178]: Patient Care Sync
+              - generic [ref=e179] [cursor=pointer]: Read Case Study
+          - generic [ref=e183]:
+            - generic [ref=e184]:
+              - generic [ref=e185]: REAL ESTATE
+              - heading "Property Inspection Platform" [level=3] [ref=e186]
+              - paragraph [ref=e187]: Built a scalable backend architecture supporting AI chatbots, QR-based workflows, and production-grade RAG pipelines to automate property inspections and reporting.
+            - generic [ref=e188]:
+              - generic [ref=e189]:
+                - generic [ref=e190]:
+                  - generic [ref=e191]: 80%
+                  - generic [ref=e192]: Answer Accuracy
+                - generic [ref=e193]:
+                  - generic [ref=e194]: 90%
+                  - generic [ref=e195]: Data Relevance
+                - generic [ref=e196]:
+                  - generic [ref=e197]: 2x
+                  - generic [ref=e198]: On-site Interactions
+              - generic [ref=e199] [cursor=pointer]: Read Case Study
+          - generic [ref=e203]:
+            - generic [ref=e204]:
+              - generic [ref=e205]: FINTECH & COMMERCE
+              - heading "Consumer Commerce Platform" [level=3] [ref=e206]
+              - paragraph [ref=e207]: Executed a comprehensive cloud infrastructure overhaul for this digital banking platform to eliminate over-provisioning and slash monthly cloud infrastructure costs.
+            - generic [ref=e208]:
+              - generic [ref=e209]:
+                - generic [ref=e210]:
+                  - generic [ref=e211]: 60%
+                  - generic [ref=e212]: Cloud Cost Cut
+                - generic [ref=e213]:
+                  - generic [ref=e214]: $4,800
+                  - generic [ref=e215]: Saved Monthly
+                - generic [ref=e216]:
+                  - generic [ref=e217]: $57,000+
+                  - generic [ref=e218]: Annual Net Savings
+              - generic [ref=e219] [cursor=pointer]: Read Case Study
+      - generic [ref=e224]:
+        - generic [ref=e225]:
+          - text: Point of View
+          - heading "We Bring a Point of View." [level=2] [ref=e226]
+        - generic [ref=e227]:
+          - generic [ref=e228]:
+            - generic [ref=e229]: "01"
+            - heading "We diagnose before we build." [level=3] [ref=e230]
+            - paragraph [ref=e231]: Our assessments often reveal the most important problem isn't the one the client came to us with. This saves months of misdirected effort and significant wasted investment.
+          - generic [ref=e232]:
+            - generic [ref=e233]: "02"
+            - heading "AI-native engineering, grounded in 20 years of discipline." [level=3] [ref=e234]
+            - paragraph [ref=e235]: We use AI to accelerate delivery. But we never ship without the testing, security, and architecture that production demands. Speed without rigor is just faster failure.
+          - generic [ref=e236]:
+            - generic [ref=e237]: "03"
+            - heading "We build tools the industry depends on." [level=3] [ref=e238]
+            - paragraph [ref=e239]: NativeBase. gluestack-ui. React Native core contributions. Hundreds of thousands of developers trust our foundations.
+          - generic [ref=e240]:
+            - generic [ref=e241]: "04"
+            - heading "We stay. We don't ship and disappear." [level=3] [ref=e242]
+            - paragraph [ref=e243]: 550+ engagements. Clients who've been with us for 5+ years. We're invested in long-term success, not just the current project scope.
+      - generic [ref=e245]:
+        - generic [ref=e246]: Technologies We Master & Contribute To
+        - generic [ref=e247]:
+          - generic [ref=e248]: React Native
+          - generic [ref=e249]: Next.js
+          - generic [ref=e250]: React
+          - generic [ref=e251]: TypeScript
+          - generic [ref=e252]: Python
+          - generic [ref=e253]: GraphQL
+          - generic [ref=e254]: Node.js
+          - generic [ref=e255]: NestJS
+          - generic [ref=e256]: Golang
+          - generic [ref=e257]: PostgreSQL
+          - generic [ref=e258]: Tailwind CSS
+          - generic [ref=e259]: Redis
+          - generic [ref=e260]: AWS
+          - generic [ref=e261]: Vercel
+          - generic [ref=e262]: Docker
+          - generic [ref=e263]: Kubernetes
+          - generic [ref=e264]: PyTorch
+          - generic [ref=e265]: gluestack-ui
+      - generic [ref=e268]:
+        - text: Start A Project
+        - heading "The Right Conversation Can Save You Six Months." [level=2] [ref=e269]
+        - paragraph [ref=e270]: Speak directly with senior technology partners. We'll examine your architecture, roadmap, and delivery bottlenecks.
+        - generic [ref=e271]:
+          - link "Book a Call with an Architect" [ref=e272] [cursor=pointer]:
+            - /url: mailto:hello@needhelpbuilding.com
+          - link "hello@needhelpbuilding.com" [ref=e273] [cursor=pointer]:
+            - /url: mailto:hello@needhelpbuilding.com
+    - contentinfo [ref=e274]:
+      - generic [ref=e276]:
+        - generic [ref=e277]:
+          - generic [ref=e278]: NEED HELP BUILDING?
+          - paragraph [ref=e279]: AI-Powered Digital Product Engineering & Consulting. Transforming legacy stacks into high-performance production systems.
+          - generic [ref=e280]: 2026 © Need Help Building. All rights reserved.
+        - generic [ref=e281]:
+          - generic [ref=e282]: Practices
+          - list [ref=e283]:
+            - listitem [ref=e284]: AI & Intelligent Systems
+            - listitem [ref=e285]: Product Engineering
+            - listitem [ref=e286]: System Modernization
+            - listitem [ref=e287]: Customer Experience
+        - generic [ref=e288]:
+          - generic [ref=e289]: Contact
+          - list [ref=e290]:
+            - listitem [ref=e291]: hello@needhelpbuilding.com
+            - listitem [ref=e292]: +91-9219061093
+            - listitem [ref=e293]: Global Remote & Engineering Hub
+  - button "Rebuild website using Swarm Cursors" [ref=e294] [cursor=pointer]:
+    - generic [ref=e298]: Rebuild Page
+    - generic [ref=e299]: ⌥⇧S
+  - alert [ref=e300]
