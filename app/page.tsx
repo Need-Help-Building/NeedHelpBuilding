@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
+import HeaderNav from "@/components/HeaderNav";
+
 export default function HomePage() {
   const [activeWorkFilter, setActiveWorkFilter] = useState("ALL");
 
@@ -131,30 +133,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
       {/* Top Header */}
-      <header className="border-b border-neutral-800">
-        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight text-white hover:text-neutral-300">
-            NEED HELP BUILDING?
-          </Link>
-
-          <nav className="hidden md:flex items-center gap-8 text-sm text-neutral-400">
-            <a href="#about" className="hover:text-white transition-colors">Why Now</a>
-            <a href="#practices" className="hover:text-white transition-colors">Practices</a>
-            <a href="#work" className="hover:text-white transition-colors">Work</a>
-            <a href="#philosophy" className="hover:text-white transition-colors">Point of View</a>
-            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
-          </nav>
-
-          <div>
-            <a
-              href="mailto:hello@needhelpbuilding.com"
-              className="text-xs uppercase tracking-widest px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition-colors"
-            >
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </header>
+      <HeaderNav />
 
       <main>
         {/* HERO SECTION */}

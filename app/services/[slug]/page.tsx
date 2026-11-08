@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2 } from "lucide-react";
 import { SERVICES_DATA, ServiceItem } from "../services-data";
+import HeaderNav from "@/components/HeaderNav";
 
 interface ServicePageProps {
   params: Promise<{
@@ -49,35 +50,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   return (
     <main className="min-h-screen w-full bg-black text-white flex flex-col items-center selection:bg-white selection:text-black">
       {/* Top Header */}
-      <header className="sticky top-0 z-50 w-full bg-black/90 backdrop-blur-md border-b border-neutral-800 px-6 sm:px-12 py-5 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link
-            href="/"
-            className="text-lg font-bold tracking-tight text-white hover:text-neutral-300 transition-colors"
-          >
-            NEED HELP BUILDING?
-          </Link>
-          <span className="text-neutral-600 hidden sm:inline">/</span>
-          <span className="text-xs uppercase tracking-widest text-neutral-400 font-mono hidden sm:inline">
-            {service.category}
-          </span>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <Link
-            href="/#practices"
-            className="text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors"
-          >
-            All Services
-          </Link>
-          <a
-            href="mailto:hello@needhelpbuilding.com"
-            className="text-xs uppercase tracking-widest px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition-colors"
-          >
-            Contact
-          </a>
-        </div>
-      </header>
+      <div className="w-full">
+        <HeaderNav />
+      </div>
 
       {/* Hero Section */}
       <section className="w-full max-w-6xl px-6 pt-20 pb-20 border-b border-neutral-800 flex flex-col">
