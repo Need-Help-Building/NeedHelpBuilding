@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import "./legacy.css";
 
 export default function AssetsPage() {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);

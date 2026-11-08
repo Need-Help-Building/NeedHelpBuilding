@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2 } from "lucide-react";
-import { SERVICES_DATA, ServiceItem } from "../services-data";
-import HeaderNav from "@/components/HeaderNav";
+import { ArrowRight } from "lucide-react";
+import { SERVICES_DATA } from "../services-data";
+
+const ACRONYMS = new Set(["AI", "UI", "UX", "QA", "CTO", "&", "/"]);
+
+/** "FULL STACK WEB DEVELOPMENT" → "Full Stack Web Development" (keeps acronyms). */
+function toTitle(value: string) {
+  return value
+    .split(" ")
+    .map((word) => (ACRONYMS.has(word) ? word : word.charAt(0) + word.slice(1).toLowerCase()))
+    .join(" ");
+}
 
 interface ServicePageProps {
   params: Promise<{
@@ -22,15 +31,17 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const service = SERVICES_DATA.find((s) => s.slug === slug);
   if (!service) {
     return {
-      title: "Service Not Found | NEED HELP BUILDING?",
+      title: "Service not found",
     };
   }
 
+  const title = toTitle(service.title);
   return {
-    title: `${service.title} | NEED HELP BUILDING?`,
+    title,
     description: service.shortDesc,
+    alternates: { canonical: `/services/${service.slug}` },
     openGraph: {
-      title: `${service.title} | NEED HELP BUILDING?`,
+      title: `${title} — NeedHelpBuilding`,
       description: service.shortDesc,
       url: `https://needhelpbuilding.com/services/${service.slug}`,
     },
@@ -48,12 +59,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const otherServices = SERVICES_DATA.filter((s) => s.slug !== slug);
 
   return (
-    <main className="min-h-screen w-full bg-black text-white flex flex-col items-center selection:bg-white selection:text-black">
-      {/* Top Header */}
-      <div className="w-full">
-        <HeaderNav />
-      </div>
-
+    <main id="main" className="min-h-screen w-full bg-black text-white flex flex-col items-center selection:bg-white selection:text-black">
       {/* Hero Section */}
       <section className="w-full max-w-6xl px-6 pt-20 pb-20 border-b border-neutral-800 flex flex-col">
         <div className="flex items-center gap-3 mb-6">
@@ -90,24 +96,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Metrics Row */}
-      <section className="w-full max-w-6xl px-6 py-16 border-b border-neutral-800">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {service.metrics.map((m, idx) => (
-            <div key={idx} className="space-y-2 border-l border-neutral-800 pl-6">
-              <div className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-                {m.value}
-              </div>
-              <div className="text-xs uppercase tracking-widest text-neutral-400 font-medium">
-                {m.label}
-              </div>
-              <div className="text-xs text-neutral-500">
-                {m.subtext}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/*
+        Metrics row and "Client Verification" testimonial intentionally not rendered:
+        the figures and testimonials in services-data.ts are unverified (several attribute
+        quotes to people/companies NHB cannot substantiate). Re-enable only with verified data.
+      */}
 
       {/* Overview & What We Do */}
       <section id="capabilities" className="w-full max-w-6xl px-6 py-24 border-b border-neutral-800">
@@ -190,28 +183,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Client Voice */}
-      <section className="w-full max-w-6xl px-6 py-24 border-b border-neutral-800">
-        <div className="border border-neutral-800 p-8 sm:p-12 space-y-8">
-          <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
-            Client Verification
-          </span>
-          <p className="text-xl sm:text-2xl text-neutral-200 font-light leading-relaxed max-w-4xl">
-            "{service.testimonial.quote}"
-          </p>
-          <div className="flex items-center gap-4 pt-4 border-t border-neutral-900">
-            <div>
-              <div className="text-sm font-bold text-white">
-                {service.testimonial.author}
-              </div>
-              <div className="text-xs text-neutral-500">
-                {service.testimonial.role} · {service.testimonial.company}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Next Services Grid */}
       <section className="w-full max-w-6xl px-6 py-20 border-b border-neutral-800">
         <div className="mb-10 flex items-center justify-between">
@@ -271,20 +242,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="w-full border-t border-neutral-800 py-12 text-sm text-neutral-500">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-xs uppercase tracking-wider text-neutral-600">
-            2026 © NEED HELP BUILDING. All rights reserved.
-          </div>
-          <div className="flex gap-6 text-xs uppercase tracking-wider text-neutral-500">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <Link href="/#practices" className="hover:text-white">Services</Link>
-            <a href="mailto:hello@needhelpbuilding.com" className="hover:text-white">Contact</a>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
