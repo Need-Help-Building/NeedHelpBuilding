@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Sora, Space_Grotesk, DM_Sans, JetBrains_Mono, Caveat } from "next/font/google";
+import { Instrument_Sans, Sora, Space_Grotesk, Inter, JetBrains_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 import { SwarmRebuildLauncher } from "../swarm";
 
@@ -10,8 +10,8 @@ const caveat = Caveat({
   display: "swap",
 });
 
-const anton = Bricolage_Grotesque({
-  weight: ["600", "700", "800"],
+const anton = Instrument_Sans({
+  weight: ["500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-anton",
   display: "swap",
@@ -38,7 +38,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const inter = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   weight: ["400", "500", "600", "700"],

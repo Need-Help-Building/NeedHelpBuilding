@@ -32,7 +32,7 @@ export const SHADER_CONFIGS = [
     swirlIterations: 10,
     shape: "checks" as const,
     shapeScale: 0.1,
-    colors: ["hsl(120, 100%, 25%)", "hsl(140, 100%, 60%)", "hsl(100, 90%, 30%)", "hsl(130, 100%, 70%)"],
+    colors: ["hsl(75, 100%, 20%)", "hsl(70, 100%, 47%)", "hsl(90, 90%, 30%)", "hsl(72, 100%, 65%)"],
   },
   {
     proportion: 0.45,
@@ -52,7 +52,7 @@ export const SHADER_CONFIGS = [
     swirlIterations: 11,
     shape: "checks" as const,
     shapeScale: 0.11,
-    colors: ["hsl(250, 100%, 30%)", "hsl(270, 100%, 65%)", "hsl(260, 90%, 35%)", "hsl(265, 100%, 70%)"],
+    colors: ["hsl(232, 100%, 30%)", "hsl(231, 100%, 65%)", "hsl(262, 100%, 55%)", "hsl(255, 100%, 75%)"],
   },
   {
     proportion: 0.42,
@@ -101,7 +101,7 @@ export function ShaderCard({
   children: React.ReactNode
 }) {
   return (
-    <div className={`relative ${className}`}>
+    <div className={`nhb-card relative ${className}`}>
       <div className="absolute inset-0 rounded-3xl overflow-hidden">
         <ShaderBackdrop variant={variant} />
       </div>

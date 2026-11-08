@@ -100,6 +100,18 @@ const handleCopyEmail = () => {
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const targets = Array.from(document.querySelectorAll("main > section:not(:first-of-type), main > footer"));
+    targets.forEach((el) => el.classList.add("nhb-reveal"));
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("nhb-in"); io.unobserve(e.target); } }),
+      { threshold: 0.08 }
+    );
+    targets.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   const navigateToSection = (targetId: string, label: string) => {
     if (isTransitioning) return;
     setWipeTitle(label);
@@ -236,13 +248,13 @@ const handleCopyEmail = () => {
       {/* ============================================================ */}
       {/* STICKY MINIMAL NAVIGATION (DARKROOM EDITORIAL STYLE)         */}
       {/* ============================================================ */}
-      <header className="sticky top-0 z-50 w-full bg-[#0f0f0f]/95 backdrop-blur px-4 sm:px-8 lg:px-12 h-[64px] grid grid-cols-[1fr_auto_1fr] items-center border-b border-white/10">
+      <header className="nhb-glass nhb-nav sticky top-3 z-50 w-[calc(100%-24px)] sm:w-[calc(100%-48px)] max-w-[1400px] mt-3 rounded-full px-5 sm:px-8 h-[64px] grid grid-cols-[1fr_auto_1fr] items-center">
         {/* Left: uppercase links */}
         <nav className="hidden lg:flex items-center gap-6">
           <button
             onClick={() => setServicesMegaMenuOpen(!servicesMegaMenuOpen)}
             onMouseEnter={() => setServicesMegaMenuOpen(true)}
-            className="text-[11px] font-medium tracking-[0.08em] uppercase flex items-center gap-1.5 text-[#efeee9] hover:text-white/60 transition-colors cursor-pointer"
+            className="text-[12px] font-medium tracking-[0.06em] uppercase flex items-center gap-1.5 text-[#efeee9] hover:text-white/60 transition-colors cursor-pointer"
             aria-expanded={servicesMegaMenuOpen}
             aria-label="Toggle all services menu"
           >
@@ -262,7 +274,7 @@ const handleCopyEmail = () => {
                 setServicesMegaMenuOpen(false);
                 navigateToSection(item.href, item.label);
               }}
-              className="text-[11px] font-medium tracking-[0.08em] uppercase text-[#efeee9] hover:text-white/60 transition-colors cursor-pointer"
+              className="text-[12px] font-medium tracking-[0.06em] uppercase text-[#efeee9] hover:text-white/60 transition-colors cursor-pointer"
             >
               {item.label}
             </button>
@@ -285,13 +297,13 @@ const handleCopyEmail = () => {
             data-cal-namespace="needhelpbuilding"
             data-cal-link="need-help-building/needhelpbuilding"
             data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-            className="hidden sm:inline-block text-[11px] font-medium tracking-[0.08em] uppercase text-[#efeee9] hover:text-white/60 transition-colors cursor-pointer"
+            className="hidden sm:inline-block bg-white text-black hover:bg-[#c5f200] rounded-full px-5 py-2 text-[12px] font-semibold tracking-[0.06em] uppercase transition-colors cursor-pointer"
           >
             LET&apos;S TALK
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-[11px] font-medium tracking-[0.08em] uppercase text-[#efeee9] cursor-pointer"
+            className="lg:hidden text-[12px] font-medium tracking-[0.06em] uppercase text-[#efeee9] cursor-pointer"
             aria-label="Toggle navigation"
           >
             {mobileMenuOpen ? "CLOSE" : "MENU"}
@@ -306,7 +318,7 @@ const handleCopyEmail = () => {
         <div
           onMouseEnter={() => setServicesMegaMenuOpen(true)}
           onMouseLeave={() => setServicesMegaMenuOpen(false)}
-          className="fixed inset-x-0 top-[65px] sm:top-[74px] z-40 bg-[#0f0f0f] border-b border-[#efeee9] max-h-[85vh] overflow-y-auto transition-all animate-fadeIn"
+          className="fixed inset-x-0 top-[88px] sm:top-[92px] z-40 bg-[#0f0f0f] border-b border-[#efeee9] max-h-[85vh] overflow-y-auto transition-all animate-fadeIn"
         >
           {/* Halftone texture */}
           <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px]" />
@@ -468,59 +480,56 @@ const handleCopyEmail = () => {
       )}
 
       {/* ============================================================ */}
-      {/* SECTION 1: HERO — OVERSIZED TYPE + OFFSET IMAGERY            */}
+      {/* SECTION 1: HERO — CENTERED SPOTLIGHT, TRACKING-IN HEADLINE   */}
       {/* ============================================================ */}
-      <section className="relative w-full flex flex-col px-4 sm:px-8 lg:px-12 pt-4 sm:pt-6 pb-10 sm:pb-16">
-        <h1 className="font-anton uppercase text-[#efeee9] leading-[0.9] tracking-[-0.01em] select-none text-[clamp(52px,13.2vw,230px)]">
+      <section className="relative w-full flex flex-col items-center px-4 sm:px-8 lg:px-12 pt-14 sm:pt-24 pb-14 sm:pb-24 overflow-hidden">
+        <div className="nhb-spotlight" aria-hidden="true" />
+
+        <h1 className="nhb-hero-title relative font-anton uppercase text-[#f7f6f5] text-center leading-[0.95] select-none text-[clamp(44px,9.5vw,168px)]">
           NEED HELP
           <br />
           BUILDING?
         </h1>
 
-        <div className="relative mt-6 sm:mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-          {/* Left column: copy + actions */}
-          <div className="lg:col-span-4 flex flex-col justify-between gap-8 order-2 lg:order-1">
-            <p className="text-[#efeee9]/70 text-sm sm:text-base max-w-md font-medium leading-relaxed">
-              We build websites, custom web designs, business automations, and intelligent digital systems. From high-converting storefronts and custom web applications to automated operations that run your business on autopilot.
-            </p>
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 max-w-md">
-              <button
-                onClick={() => setServicesFullscreenOpen(true)}
-                aria-label="Open services menu"
-                className="group flex items-center justify-between gap-3 bg-[#efeee9] hover:bg-white text-black px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] transition-colors cursor-pointer w-full"
-              >
-                <span>VIEW SERVICES</span>
-                <span className="text-base group-hover:rotate-45 transition-transform duration-200">↗</span>
-              </button>
-              <button
-                onClick={() => navigateToSection("#contact", "WORK WITH US")}
-                className="flex items-center justify-between gap-3 border border-white/30 hover:border-[#efeee9] hover:bg-[#efeee9] hover:text-black text-[#efeee9] px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] transition-colors cursor-pointer w-full"
-              >
-                <span>{isBooked ? "WE GOT YOUR SPOT!" : "BOOK NOW"}</span>
-                <span className="text-base">→</span>
-              </button>
-            </div>
-          </div>
+        <p className="nhb-fade-up relative mt-8 text-center text-[#f7f6f5]/70 text-sm sm:text-lg max-w-3xl font-medium leading-relaxed" style={{ animationDelay: "0.9s" }}>
+          We build websites, custom web designs, business automations, and intelligent digital systems. From high-converting storefronts and custom web applications to automated operations that run your business on autopilot.
+        </p>
 
-          {/* Right column: offset grayscale image with layer-panel chips */}
-          <div className="relative lg:col-span-8 order-1 lg:order-2 aspect-[16/10] overflow-hidden rounded-3xl bg-black">
-            <ShaderBackdrop variant={0} />
-            <Image
-              src="/hero.png"
-              alt="NEED HELP BUILDING? — systems, automations and web apps"
-              fill
-              priority
-              sizes="(min-width: 1024px) 66vw, 100vw"
-              className="object-cover mix-blend-multiply"
-            />
-            <div className="absolute right-3 bottom-3 sm:right-6 sm:bottom-6 w-[220px] sm:w-[280px] bg-black/75 backdrop-blur border border-white/15 rounded-2xl text-[#efeee9] text-[10px] sm:text-xs font-semibold uppercase tracking-[0.1em] overflow-hidden">
-              {["WEBSITES", "WEB DESIGN", "AUTOMATIONS", "SYSTEMS"].map((label, i) => (
-                <div key={label} className="flex items-center gap-3 px-4 py-2.5 border-t first:border-t-0 border-white/10">
-                  <span className={`w-2 h-2 ${i % 2 === 0 ? "bg-[#efeee9]" : "border border-white/40"}`} />
-                  <span>{label}</span>
-                </div>
-              ))}
-            </div>
+        <div className="nhb-fade-up relative mt-8 flex flex-col sm:flex-row items-center gap-3" style={{ animationDelay: "1.1s" }}>
+          <button
+            onClick={() => setServicesFullscreenOpen(true)}
+            aria-label="Open services menu"
+            className="group flex items-center justify-center gap-2 bg-white hover:bg-[#c5f200] text-black rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] transition-colors cursor-pointer w-full sm:w-auto"
+          >
+            <span>VIEW SERVICES</span>
+            <span className="text-base group-hover:rotate-45 transition-transform duration-200">↗</span>
+          </button>
+          <button
+            onClick={() => navigateToSection("#contact", "WORK WITH US")}
+            className="nhb-glass flex items-center justify-center gap-2 text-white hover:bg-white/15 rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] transition-colors cursor-pointer w-full sm:w-auto"
+          >
+            <span>{isBooked ? "WE GOT YOUR SPOT!" : "BOOK NOW"}</span>
+            <span className="text-base">→</span>
+          </button>
+        </div>
+
+        {/* Showcase: shader stage with blended hero art */}
+        <div className="nhb-fade-up relative mt-14 sm:mt-20 w-full max-w-6xl aspect-[16/10] sm:aspect-[16/8] overflow-hidden rounded-[28px] sm:rounded-[36px] bg-black border border-white/10" style={{ animationDelay: "1.3s" }}>
+          <ShaderBackdrop variant={0} />
+          <Image
+            src="/hero.png"
+            alt="NEED HELP BUILDING? — systems, automations and web apps"
+            fill
+            priority
+            sizes="(min-width: 1152px) 1152px, 100vw"
+            className="object-cover mix-blend-multiply"
+          />
+          <div className="absolute left-3 bottom-3 sm:left-6 sm:bottom-6 flex flex-wrap gap-2 max-w-[calc(100%-24px)]">
+            {["WEBSITES", "WEB DESIGN", "AUTOMATIONS", "SYSTEMS"].map((label) => (
+              <span key={label} className="nhb-glass rounded-full px-3.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.1em] text-white">
+                {label}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -528,7 +537,7 @@ const handleCopyEmail = () => {
       {/* ============================================================ */}
       {/* TICKER MARQUEE BAR                                           */}
       {/* ============================================================ */}
-      <div className="w-full bg-[#efeee9] text-black border-b border-black py-3 overflow-hidden whitespace-nowrap select-none font-anton text-2xl tracking-wider flex items-center shadow-lg">
+      <div className="w-full bg-white/[0.03] text-white/90 border-y border-white/10 backdrop-blur py-4 overflow-hidden whitespace-nowrap select-none font-anton text-2xl tracking-wider flex items-center shadow-lg">
         <div className="animate-marquee flex items-center gap-8">
           {[
             "CUSTOM WEBSITES & WEB APPS",
