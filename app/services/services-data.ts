@@ -504,4 +504,267 @@ export const SERVICES_DATA: ServiceItem[] = [
       avatarText: "SC",
     },
   },
+  // =========================================================================
+  // PATCH 1: AI ENGINEERING & INTELLIGENT SYSTEMS (PAGES 9 to 13)
+  // =========================================================================
+  {
+    slug: "ai-development",
+    category: "AI ENGINEERING",
+    title: "AI DEVELOPMENT & ENGINEERING",
+    tagline: "Production-grade machine learning pipelines, LLMs, and intelligent systems",
+    shortDesc: "End-to-end AI engineering from custom model fine-tuning and inference optimization to robust enterprise integration.",
+    badge: "CORE AI",
+    color: "#ffffff",
+    accent: "#000000",
+    overview:
+      "We build production AI systems designed to operate predictably within your core business architecture. Moving beyond brittle zero-shot prompts, we implement structured pipelines with strict JSON schemas, fallback routing, deterministic evals, and sub-second inference speeds.",
+    whatWeDo: [
+      "Custom LLM inference pipelines with model routing across Anthropic, OpenAI, and open-source weights",
+      "Fine-tuning open weights (Llama, Mistral, Qwen) for domain-specific taxonomy and proprietary tasks",
+      "Deterministic structured output validation using Pydantic, Zod, and JSON schema enforcement",
+      "Model latency, token-cost reduction, and semantic response caching layers",
+      "Real-time streaming token architectures with WebSocket and SSE client sync",
+      "Continuous evaluation harnesses tracking accuracy, hallucination drift, and regression metrics"
+    ],
+    howWeDoIt: [
+      {
+        step: "01",
+        title: "FEASIBILITY & MODEL BENCHMARKING",
+        description: "Benchmarking latency, cost per 1M tokens, and accuracy across frontier and quantized open-source models."
+      },
+      {
+        step: "02",
+        title: "PIPELINE ENGINEERING & GUARDRAILS",
+        description: "Implementing structured tool calling, validation boundaries, and circuit breakers against hallucination."
+      },
+      {
+        step: "03",
+        title: "CONTINUOUS OBSERVABILITY & EVALS",
+        description: "Deploying automated telemetry tracking latency, prompt drift, token expenditure, and output precision."
+      }
+    ],
+    metrics: [
+      { label: "TOKEN INFERENCE LATENCY", value: "< 280ms", subtext: "TTFT on optimized edge routes" },
+      { label: "COST REDUCTION", value: "65%", subtext: "Model tiering & semantic caching" },
+      { label: "SCHEMA RELIABILITY", value: "99.99%", subtext: "Structured type compliance" },
+      { label: "ZERO-DRIFT EVALS", value: "Continuous", subtext: "Automated regression suites" }
+    ],
+    techStack: ["Python", "PyTorch", "vLLM", "OpenAI", "Anthropic Claude", "LangChain", "FastAPI", "TypeScript"],
+    testimonial: {
+      quote:
+        "NeedHelpBuilding transformed our experimental AI concept into an enterprise-ready engine that handles millions of daily operations with pinpoint reliability.",
+      author: "Arjun Nair",
+      role: "VP of Engineering",
+      company: "DataSphere",
+      avatarText: "AN"
+    }
+  },
+  {
+    slug: "ai-consulting",
+    category: "AI ENGINEERING",
+    title: "AI STRATEGY & CONSULTING",
+    tagline: "Strategic advisory to de-risk AI investments and build defensible moats",
+    shortDesc: "Pragmatic AI roadmapping, ROI modeling, build vs buy evaluation, and architectural feasibility audits.",
+    badge: "ADVISORY",
+    color: "#ffffff",
+    accent: "#000000",
+    overview:
+      "Most corporate AI projects fail due to unclear problem diagnosis, uncontrollable token economics, and hallucination risks. We diagnose your operational bottlenecks first to determine exactly where autonomous models or deterministic software create highest enterprise ROI.",
+    whatWeDo: [
+      "AI readiness assessment analyzing proprietary data pipelines and operational readiness",
+      "Build vs Buy analysis identifying when to customize open models vs frontier APIs",
+      "Token economics and inference cost forecasting models to prevent margin compression",
+      "Data governance, privacy compliance (GDPR/HIPAA/SOC-2), and IP defense strategies",
+      "Vendor and framework auditing across LLM providers, vector stores, and orchestration engines",
+      "Executive roadmaps detailing phased multi-quarter rollout milestones"
+    ],
+    howWeDoIt: [
+      {
+        step: "01",
+        title: "DATA & WORKFLOW DIAGNOSIS",
+        description: "Deep-dive audit into existing workflows, APIs, databases, and manual human touchpoints."
+      },
+      {
+        step: "02",
+        title: "ECONOMIC & ARCHITECTURAL MODELING",
+        description: "Quantifying token costs, expected throughput, infrastructure constraints, and security perimeters."
+      },
+      {
+        step: "03",
+        title: "STRATEGIC ROADMAP & PROTOTYPING",
+        description: "Delivering prioritized phase gates, architecture diagrams, and working technical validation spikes."
+      }
+    ],
+    metrics: [
+      { label: "ACCELERATED TIME-TO-VALUE", value: "4x", subtext: "Eliminating trial-and-error R&D" },
+      { label: "AVERAGE OPEX SAVINGS", value: "$120K+", subtext: "Preventing over-engineered stacks" },
+      { label: "IP PROTECTION", value: "100%", subtext: "Zero unauthorized model training exposure" },
+      { label: "FEASIBILITY SPRINT", value: "10 Days", subtext: "From audit to executive blueprint" }
+    ],
+    techStack: ["Architecture Blueprints", "ROI Models", "LLM Benchmarks", "Security Audits", "Data Governance"],
+    testimonial: {
+      quote:
+        "Their strategic audit saved us 6 months of misdirected engineering effort. They clearly separated the genuine AI value from the hype.",
+      author: "Elena Rostova",
+      role: "Chief Technology Officer",
+      company: "Stratix Capital",
+      avatarText: "ER"
+    }
+  },
+  {
+    slug: "generative-ai",
+    category: "AI ENGINEERING",
+    title: "GENERATIVE AI APPLICATION DEVELOPMENT",
+    tagline: "Multimodal generative apps engineered with intuitive human feedback loops",
+    shortDesc: "Production generative applications spanning text synthesis, code intelligence, image generation, and audio processing.",
+    badge: "MULTIMODAL",
+    color: "#ffffff",
+    accent: "#000000",
+    overview:
+      "We engineer generative software that solves complex business workflows. From multimodal document synthesis and code generation engines to automated media generation, our applications combine real-time streaming interfaces with rock-solid server architectures.",
+    whatWeDo: [
+      "Interactive generative web apps featuring streaming generation and optimistic UI updates",
+      "Multimodal document analysis synthesizing text, tables, graphs, and unstructured media",
+      "Fine-tuned code intelligence and query generation copilots for proprietary databases",
+      "Synthetic media generation pipelines with programmatic video and audio rendering",
+      "Human-in-the-loop validation dashboards for reviewing and approving AI outputs",
+      "Context-aware prompt template compilers with automated versioning and A/B evaluations"
+    ],
+    howWeDoIt: [
+      {
+        step: "01",
+        title: "MULTIMODAL PROTOTYPE",
+        description: "Rapidly wiring live models with reactive frontends to validate user flow and output ergonomics."
+      },
+      {
+        step: "02",
+        title: "BACKEND STREAMING & PERSISTENCE",
+        description: "Constructing WebSocket/SSE channels, background queue workers, and vector storage."
+      },
+      {
+        step: "03",
+        title: "PRODUCTION EVALUATION HARNESS",
+        description: "Deploying automated feedback telemetry, user preference tracking, and regression tests."
+      }
+    ],
+    metrics: [
+      { label: "STREAMING LATENCY", value: "< 180ms", subtext: "Time-to-first-token delivered" },
+      { label: "USER APPROVAL RATE", value: "94%", subtext: "First-pass output acceptance" },
+      { label: "MULTIMODAL FORMATS", value: "8+", subtext: "Text, Audio, PDF, Images, Tables" },
+      { label: "SCALE CAPACITY", value: "10K+ QPS", subtext: "Distributed queue orchestration" }
+    ],
+    techStack: ["Next.js", "React", "Python", "FastAPI", "OpenAI Vision", "Anthropic Claude 3.5", "WebSockets"],
+    testimonial: {
+      quote:
+        "The generative interface NeedHelpBuilding delivered feels as fluid as native desktop software. Our customers interact with it every single day.",
+      author: "David Chen",
+      role: "Head of Product",
+      company: "CognitiveFlow",
+      avatarText: "DC"
+    }
+  },
+  {
+    slug: "ai-agents",
+    category: "AI ENGINEERING",
+    title: "AI AGENT DEVELOPMENT",
+    tagline: "Autonomous goal-oriented agents equipped with tools, memory, and guardrails",
+    shortDesc: "Custom AI agents capable of planning multi-step actions, calling external APIs, querying databases, and executing workflows.",
+    badge: "AUTONOMOUS",
+    color: "#ffffff",
+    accent: "#000000",
+    overview:
+      "Autonomous agents must do more than converse—they must execute work reliably. We build intelligent agent systems that decompose complex high-level objectives into sequential tool executions, verify their own work, manage memory, and escalate edge cases safely.",
+    whatWeDo: [
+      "Autonomous agent task planning using ReAct, Reflection, and hierarchical execution patterns",
+      "Model Context Protocol (MCP) server integrations and custom API tool calling",
+      "Long-term and episodic memory management combining vector retrieval and key-value state",
+      "Deterministic sandbox execution environments for running untrusted agent-generated code",
+      "Human-in-the-loop approval workflows for high-risk write operations and financial actions",
+      "Granular execution step logging, replayability debugging, and automated step rollbacks"
+    ],
+    howWeDoIt: [
+      {
+        step: "01",
+        title: "ACTION SPACE & TOOL DEFINITION",
+        description: "Strictly defining tool schemas, input parameters, permission levels, and idempotent boundaries."
+      },
+      {
+        step: "02",
+        title: "PLANNING & REFLECTION ENGINE",
+        description: "Configuring multi-step reasoning, self-correction loops, and recursive step verification."
+      },
+      {
+        step: "03",
+        title: "SECURE SANDBOX & RUNTIME",
+        description: "Isolating runtime execution with rate limits, timeout budgets, and human override checkpoints."
+      }
+    ],
+    metrics: [
+      { label: "TASK COMPLETION RATE", value: "96.4%", subtext: "Multi-step complex objectives" },
+      { label: "TOOL CALL ACCURACY", value: "99.2%", subtext: "Zero malformed schema calls" },
+      { label: "MAX STEPS EXECUTION", value: "50+", subtext: "Autonomous reasoning depth" },
+      { label: "SANDBOX ISOLATION", value: "Strict", subtext: "Zero unauthorized host access" }
+    ],
+    techStack: ["LangGraph", "Python", "Model Context Protocol (MCP)", "Docker", "Redis", "TypeScript", "PostgreSQL"],
+    testimonial: {
+      quote:
+        "Their AI agents completely automated our research and reconciliation pipeline. What used to take our analysts 6 hours now happens in under 4 minutes.",
+      author: "Rachel Zhang",
+      role: "Director of Operations",
+      company: "Apex Analytics",
+      avatarText: "RZ"
+    }
+  },
+  {
+    slug: "multi-agent-systems",
+    category: "AI ENGINEERING",
+    title: "MULTI-AGENT SYSTEMS & ORCHESTRATION",
+    tagline: "Collaborative agent swarms with specialized roles and shared state",
+    shortDesc: "Orchestrated networks of specialized AI agents working collectively to solve large-scale enterprise workflows.",
+    badge: "ORCHESTRATION",
+    color: "#ffffff",
+    accent: "#000000",
+    overview:
+      "When tasks are too complex for a single prompt or agent, multi-agent swarms divide and conquer. We engineer specialized agent networks—where researcher, coder, auditor, and validator agents collaborate over shared blackboard architectures with deterministic state transitions.",
+    whatWeDo: [
+      "Hierarchical and peer-to-peer agent network orchestration using LangGraph and state machines",
+      "Role-specialized agent prompt engineering with isolated tool access and specific domain personas",
+      "Shared blackboard state management with concurrent transaction conflict resolution",
+      "Consensus protocols and automated peer-review auditing before finalizing complex work",
+      "Resilient failure handling, step back-tracking, and dynamic agent task re-delegation",
+      "Real-time visual telemetry displaying agent communication graphs and thought processes"
+    ],
+    howWeDoIt: [
+      {
+        step: "01",
+        title: "SWARM TOPOLOGY ARCHITECTURE",
+        description: "Designing the communication topology (supervisor, round-robin, or peer blackboard)."
+      },
+      {
+        step: "02",
+        title: "STATE GRAPH & PROTOCOL IMPLEMENTATION",
+        description: "Encoding deterministic state transition rules, shared memory locks, and validator criteria."
+      },
+      {
+        step: "03",
+        title: "STRESS & CONSENSUS TESTING",
+        description: "Simulating agent disagreements, network timeouts, and edge cases to guarantee deadlock-free resolution."
+      }
+    ],
+    metrics: [
+      { label: "SWARM COORDINATION SPEED", value: "< 1.2s", subtext: "Inter-agent message passing" },
+      { label: "ERROR DETECTION RATE", value: "98.8%", subtext: "Caught by peer auditor agents" },
+      { label: "CONCURRENT AGENTS", value: "30+", subtext: "Orchestrated across shared state" },
+      { label: "DEADLOCK RATE", value: "0.00%", subtext: "Deterministic state graphs" }
+    ],
+    techStack: ["LangGraph", "Python", "FastAPI", "Redis Streams", "Temporal.io", "TypeScript", "Next.js"],
+    testimonial: {
+      quote:
+        "The multi-agent orchestration architecture designed by NeedHelpBuilding solved our hardest workflow bottlenecks with absolute precision.",
+      author: "Vikram Malhotra",
+      role: "VP of Product Engineering",
+      company: "Nexus AI Labs",
+      avatarText: "VM"
+    }
+  }
 ];

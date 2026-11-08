@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowLeft, ArrowUpRight, ArrowRight, CheckCircle2 } from "lucide-react";
 import { SERVICES_DATA, ServiceItem } from "../services-data";
 
 interface ServicePageProps {
@@ -46,315 +47,267 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const otherServices = SERVICES_DATA.filter((s) => s.slug !== slug);
 
   return (
-    <main className="min-h-screen w-full bg-[#0c0c0d] text-white flex flex-col items-center selection:bg-[#fbda03] selection:text-black">
-      {/* ============================================================ */}
-      {/* TOP COMPACT HEADER / BREADCRUMB                              */}
-      {/* ============================================================ */}
-      <header className="sticky top-0 z-50 w-full bg-[#0c0c0d]/95 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 lg:px-12 py-4 flex items-center justify-between">
+    <main className="min-h-screen w-full bg-black text-white flex flex-col items-center selection:bg-white selection:text-black">
+      {/* Top Header */}
+      <header className="sticky top-0 z-50 w-full bg-black/90 backdrop-blur-md border-b border-neutral-800 px-6 sm:px-12 py-5 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link
             href="/"
-            className="flex items-center group cursor-pointer select-none"
-            aria-label="Back to home"
+            className="text-lg font-bold tracking-tight text-white hover:text-neutral-300 transition-colors"
           >
-            <span className="font-anton text-white text-xl sm:text-2xl tracking-tight uppercase group-hover:text-[#fbda03] transition-colors">
-              NEED HELP BUILDING<span className="text-[#fbda03]">?</span>
-            </span>
+            NEED HELP BUILDING?
           </Link>
-          <span className="text-white/30 hidden sm:inline">•</span>
-          <span className="text-xs font-mono font-bold tracking-widest text-[#fbda03] uppercase hidden sm:inline">
-            SERVICES / {service.category}
+          <span className="text-neutral-600 hidden sm:inline">/</span>
+          <span className="text-xs uppercase tracking-widest text-neutral-400 font-mono hidden sm:inline">
+            {service.category}
           </span>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <Link
-            href="/"
-            className="font-anton text-xs sm:text-sm uppercase tracking-wider text-white hover:text-[#fbda03] border border-white/20 px-3 py-1.5 transition-colors"
+            href="/#practices"
+            className="text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors"
           >
-            ← ALL SERVICES
+            All Services
           </Link>
           <a
-            href="https://wa.me/919219061093?text=Hi%20NeedHelpBuilding%20team%2C%20I%20am%20interested%20in%20your%20services."
-            target="_blank"
-            rel="noreferrer"
-            className="bg-[#fbda03] text-black border-[2px] border-black px-4 py-1.5 font-anton text-xs sm:text-sm uppercase tracking-wider hover:bg-white transition-colors"
+            href="mailto:hello@needhelpbuilding.com"
+            className="text-xs uppercase tracking-widest px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition-colors"
           >
-            BOOK A CALL
+            Contact
           </a>
         </div>
       </header>
 
-      {/* ============================================================ */}
-      {/* SERVICE HERO SECTION                                         */}
-      {/* ============================================================ */}
-      <section className="relative w-full max-w-7xl px-4 sm:px-8 pt-12 sm:pt-20 pb-16 flex flex-col gap-8 border-b border-white/10">
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="bg-[#fbda03] text-black font-anton text-xs sm:text-sm px-3 py-1 border-[2px] border-black uppercase tracking-wider">
+      {/* Hero Section */}
+      <section className="w-full max-w-6xl px-6 pt-20 pb-20 border-b border-neutral-800 flex flex-col">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="text-xs uppercase tracking-widest font-mono border border-neutral-700 px-3 py-1 text-neutral-400">
             {service.badge}
           </span>
-          <span className="font-mono text-xs text-gray-400 uppercase tracking-widest">
-            CATEGORY // {service.category}
+          <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
+            {service.category}
           </span>
         </div>
 
-        <h1 className="font-anton text-4xl xs:text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.92] max-w-5xl">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6 max-w-4xl">
           {service.title}
         </h1>
 
-        <p className="text-[#fbda03] font-anton text-xl sm:text-3xl max-w-4xl tracking-wide uppercase leading-tight">
+        <p className="text-xl text-neutral-400 font-light max-w-3xl leading-relaxed mb-10">
           {service.tagline}
         </p>
 
-        <p className="text-gray-300 text-base sm:text-xl font-medium max-w-4xl leading-relaxed">
-          {service.overview}
-        </p>
-
-        <div className="flex flex-wrap items-center gap-4 pt-2">
-          <a
-            href="https://wa.me/919219061093?text=Hi%20NeedHelpBuilding%20team%2C%20I%20want%20to%20discuss%20a%20project%20for%20this%20service."
-            target="_blank"
-            rel="noreferrer"
-            className="bg-[#fbda03] text-black border-[3.5px] border-black px-8 py-4 font-anton text-lg sm:text-xl uppercase tracking-wider shadow-[5px_5px_0px_0px_rgba(255,255,255,0.9)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
-          >
-            INITIATE THIS PROJECT NOW
-          </a>
+        <div className="flex flex-wrap gap-4 items-center">
           <a
             href="mailto:hello@needhelpbuilding.com"
-            className="border-[3px] border-white/40 hover:border-white text-white px-6 py-3.5 font-anton text-base sm:text-lg uppercase tracking-wider transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
           >
-            EMAIL REQUIREMENTS →
+            Discuss Your Architecture
+            <ArrowRight className="w-4 h-4" />
+          </a>
+          <a
+            href="#capabilities"
+            className="inline-flex items-center gap-2 px-6 py-3.5 border border-neutral-800 text-white font-medium text-sm hover:border-white transition-colors"
+          >
+            View Capabilities
           </a>
         </div>
       </section>
 
-      {/* ============================================================ */}
-      {/* KEY NUMERICAL PERFORMANCE BENCHMARKS (METRICS)               */}
-      {/* ============================================================ */}
-      <section className="w-full max-w-7xl px-4 sm:px-8 py-16 border-b border-white/10">
-        <div className="flex flex-col gap-2 mb-8">
-          <span className="font-mono text-xs font-black tracking-widest text-[#fbda03] uppercase">
-            NUMERICAL BENCHMARKS & VERIFIED OUTCOMES
-          </span>
-          <h2 className="font-anton text-3xl sm:text-5xl uppercase tracking-tight">
-            PROVEN IN PRODUCTION
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {service.metrics.map((metric, i) => (
-            <div
-              key={i}
-              className="bg-[#18181b] border-[3px] border-black p-6 shadow-[5px_5px_0px_0px_#fbda03] flex flex-col justify-between"
-            >
-              <span className="font-mono text-xs text-gray-400 font-bold uppercase tracking-wider">
-                {metric.label}
-              </span>
-              <div className="my-4 font-anton text-4xl sm:text-5xl text-[#fbda03] leading-none">
-                {metric.value}
+      {/* Metrics Row */}
+      <section className="w-full max-w-6xl px-6 py-16 border-b border-neutral-800">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {service.metrics.map((m, idx) => (
+            <div key={idx} className="space-y-2 border-l border-neutral-800 pl-6">
+              <div className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                {m.value}
               </div>
-              <span className="text-xs text-gray-300 font-medium">
-                {metric.subtext}
-              </span>
+              <div className="text-xs uppercase tracking-widest text-neutral-400 font-medium">
+                {m.label}
+              </div>
+              <div className="text-xs text-neutral-500">
+                {m.subtext}
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ============================================================ */}
-      {/* SECTION: WHAT WE DELIVER & HOW WE DO IT                      */}
-      {/* ============================================================ */}
-      <section className="w-full max-w-7xl px-4 sm:px-8 py-16 border-b border-white/10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-        {/* Left Column: What We Do */}
-        <div className="flex flex-col gap-6">
-          <div>
-            <span className="font-mono text-xs font-black tracking-widest text-[#fbda03] uppercase">
-              DELIVERABLES
+      {/* Overview & What We Do */}
+      <section id="capabilities" className="w-full max-w-6xl px-6 py-24 border-b border-neutral-800">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-5 space-y-6">
+            <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
+              The Architecture
             </span>
-            <h2 className="font-anton text-3xl sm:text-5xl uppercase tracking-tight mt-1">
-              WHAT WE DO
+            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
+              Engineering with Production Discipline.
             </h2>
-          </div>
+            <p className="text-neutral-400 text-base leading-relaxed">
+              {service.overview}
+            </p>
 
-          <div className="flex flex-col gap-3">
-            {service.whatWeDo.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-[#18181b] border-[2px] border-white/20 p-4 flex items-start gap-4 hover:border-[#fbda03] transition-colors"
-              >
-                <div className="w-7 h-7 bg-[#fbda03] text-black font-anton flex items-center justify-center shrink-0 border border-black text-sm">
-                  {idx + 1}
-                </div>
-                <p className="text-sm sm:text-base font-semibold text-gray-200 leading-snug">
-                  {item}
-                </p>
+            <div className="pt-6 border-t border-neutral-900 space-y-3">
+              <div className="text-xs uppercase tracking-widest text-neutral-500">
+                Technologies & Tools
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right Column: How We Do It */}
-        <div className="flex flex-col gap-6">
-          <div>
-            <span className="font-mono text-xs font-black tracking-widest text-[#fbda03] uppercase">
-              METHODOLOGY
-            </span>
-            <h2 className="font-anton text-3xl sm:text-5xl uppercase tracking-tight mt-1">
-              HOW WE DO IT
-            </h2>
-          </div>
-
-          <div className="flex flex-col gap-5">
-            {service.howWeDoIt.map((step, idx) => (
-              <div
-                key={idx}
-                className="bg-white text-black border-[3.5px] border-black p-6 shadow-[6px_6px_0px_0px_#fbda03] flex flex-col gap-2"
-              >
-                <div className="flex items-center justify-between border-b-[2px] border-black/15 pb-2">
-                  <span className="font-anton text-2xl text-black">
-                    PHASE {step.step}
+              <div className="flex flex-wrap gap-2">
+                {service.techStack.map((tech, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="text-xs border border-neutral-800 text-neutral-300 px-3 py-1 font-mono"
+                  >
+                    {tech}
                   </span>
-                  <span className="font-mono text-xs font-black uppercase text-black/60">
-                    STAGE // 0{idx + 1}
-                  </span>
-                </div>
-                <h3 className="font-anton text-xl uppercase mt-1 tracking-wide">
-                  {step.title}
-                </h3>
-                <p className="text-sm font-semibold text-black/85 leading-relaxed">
-                  {step.description}
-                </p>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* Tech Stack Pills */}
-          <div className="mt-4 pt-4 border-t border-white/10">
-            <span className="font-mono text-xs text-gray-400 font-bold uppercase tracking-wider block mb-3">
-              PRIMARY TECHNOLOGIES & TOOLS:
+          <div className="lg:col-span-7 space-y-6">
+            <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
+              Deliverables & Core Capabilities
             </span>
-            <div className="flex flex-wrap gap-2">
-              {service.techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="bg-[#18181b] border border-white/30 text-white font-mono text-xs px-3 py-1 font-bold"
-                >
-                  {tech}
-                </span>
+            <div className="divide-y divide-neutral-900 border-t border-b border-neutral-900">
+              {service.whatWeDo.map((item, idx) => (
+                <div key={idx} className="py-5 flex items-start gap-4">
+                  <span className="text-xs font-mono text-neutral-500 pt-1">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-base text-neutral-300 leading-relaxed font-normal">
+                    {item}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============================================================ */}
-      {/* DEDICATED VERIFIED TESTIMONIAL                               */}
-      {/* ============================================================ */}
-      <section className="w-full max-w-7xl px-4 sm:px-8 py-16 border-b border-white/10">
-        <div className="bg-[#fbda03] text-black border-[4px] border-black p-6 sm:p-12 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.95)] flex flex-col gap-6">
-          <div className="flex items-center justify-between border-b-[2.5px] border-black/25 pb-4">
-            <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-widest text-black/80">
-              VERIFIED CLIENT ENDORSEMENT // {service.title}
-            </span>
-            <span className="font-anton text-sm tracking-wider uppercase bg-black text-[#fbda03] px-3 py-1">
-              5.0 ★★★★★
-            </span>
-          </div>
+      {/* Process Steps */}
+      <section className="w-full max-w-6xl px-6 py-24 border-b border-neutral-800">
+        <div className="mb-16">
+          <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
+            How We Execute
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2">
+            Execution Framework
+          </h2>
+        </div>
 
-          <blockquote className="font-anton text-2xl sm:text-4xl lg:text-5xl uppercase leading-[1.05] tracking-tight text-black">
-            &ldquo;{service.testimonial.quote}&rdquo;
-          </blockquote>
-
-          <div className="flex items-center gap-4 pt-2">
-            <div className="w-12 h-12 rounded-full bg-black text-[#fbda03] font-anton text-xl flex items-center justify-center border-[2px] border-black">
-              {service.testimonial.avatarText}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {service.howWeDoIt.map((step, idx) => (
+            <div key={idx} className="border border-neutral-800 p-8 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="text-xs font-mono text-neutral-500">
+                  STEP // {step.step}
+                </div>
+                <h3 className="text-lg font-bold text-white tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-neutral-400 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Client Voice */}
+      <section className="w-full max-w-6xl px-6 py-24 border-b border-neutral-800">
+        <div className="border border-neutral-800 p-8 sm:p-12 space-y-8">
+          <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
+            Client Verification
+          </span>
+          <p className="text-xl sm:text-2xl text-neutral-200 font-light leading-relaxed max-w-4xl">
+            "{service.testimonial.quote}"
+          </p>
+          <div className="flex items-center gap-4 pt-4 border-t border-neutral-900">
             <div>
-              <div className="font-anton text-lg sm:text-xl uppercase tracking-wider text-black">
+              <div className="text-sm font-bold text-white">
                 {service.testimonial.author}
               </div>
-              <div className="text-xs sm:text-sm font-mono font-bold text-black/80 uppercase">
-                {service.testimonial.role} — {service.testimonial.company}
+              <div className="text-xs text-neutral-500">
+                {service.testimonial.role} · {service.testimonial.company}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============================================================ */}
-      {/* EXPLORE OTHER CORE SERVICES                                  */}
-      {/* ============================================================ */}
-      <section className="w-full max-w-7xl px-4 sm:px-8 py-16 border-b border-white/10 flex flex-col gap-8">
-        <div className="flex items-center justify-between">
-          <div>
-            <span className="font-mono text-xs font-black tracking-widest text-[#fbda03] uppercase">
-              LOOKING FOR MORE?
-            </span>
-            <h2 className="font-anton text-3xl sm:text-4xl uppercase tracking-tight mt-1">
-              EXPLORE OTHER SERVICES
-            </h2>
-          </div>
-          <Link
-            href="/"
-            className="font-anton text-sm uppercase tracking-wider text-[#fbda03] hover:underline hidden sm:inline"
-          >
-            VIEW ALL 9 CAPABILITIES →
+      {/* Next Services Grid */}
+      <section className="w-full max-w-6xl px-6 py-20 border-b border-neutral-800">
+        <div className="mb-10 flex items-center justify-between">
+          <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
+            Explore Other Disciplines
+          </span>
+          <Link href="/#practices" className="text-xs uppercase tracking-widest text-neutral-400 hover:text-white">
+            View All Practices →
           </Link>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {otherServices.slice(0, 4).map((other) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {otherServices.slice(0, 3).map((other, idx) => (
             <Link
-              key={other.slug}
+              key={idx}
               href={`/services/${other.slug}`}
-              className="bg-[#18181b] border-[2.5px] border-white/20 hover:border-[#fbda03] p-5 flex flex-col justify-between gap-3 group transition-all hover:-translate-y-1"
+              className="border border-neutral-800 p-6 hover:border-neutral-500 transition-colors group block"
             >
-              <div>
-                <span className="font-mono text-[10px] text-gray-400 font-bold uppercase tracking-wider block mb-1">
-                  {other.category}
-                </span>
-                <h3 className="font-anton text-xl text-white group-hover:text-[#fbda03] transition-colors leading-tight uppercase">
-                  {other.title}
-                </h3>
-                <p className="text-xs text-gray-400 mt-2 line-clamp-2 leading-relaxed">
-                  {other.shortDesc}
-                </p>
+              <div className="text-[11px] font-mono text-neutral-500 uppercase mb-2">
+                {other.category}
               </div>
-              <span className="font-anton text-xs text-[#fbda03] uppercase tracking-wider">
-                EXPLORE SPECIFICS →
-              </span>
+              <h4 className="text-base font-bold text-white group-hover:text-neutral-300 mb-2">
+                {other.title}
+              </h4>
+              <p className="text-xs text-neutral-400 line-clamp-2">
+                {other.shortDesc}
+              </p>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* ============================================================ */}
-      {/* DEDICATED BOTTOM ACTION BANNER                                */}
-      {/* ============================================================ */}
-      <footer className="w-full max-w-7xl px-4 sm:px-8 py-16 flex flex-col sm:flex-row items-center justify-between gap-6">
-        <div>
-          <span className="font-anton text-2xl sm:text-3xl uppercase tracking-tight">
-            READY TO DEPLOY THIS FOR YOUR BUSINESS?
+      {/* CTA Section */}
+      <section className="w-full max-w-6xl px-6 py-28">
+        <div className="space-y-6 max-w-3xl">
+          <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
+            Start An Engagement
           </span>
-          <p className="text-sm text-gray-400 font-medium mt-1">
-            We review requirements within 4 business hours and start architecture immediately.
+          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
+            Ready to Build With Production Rigor?
+          </h2>
+          <p className="text-lg text-neutral-400 leading-relaxed">
+            Direct communication with senior engineers and architects. Zero vendor lock-in, clean intellectual property ownership, and high execution speed.
           </p>
+          <div className="pt-4 flex flex-wrap gap-4">
+            <a
+              href="mailto:hello@needhelpbuilding.com"
+              className="px-6 py-3.5 bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
+            >
+              Schedule an Architecture Call
+            </a>
+            <a
+              href="mailto:hello@needhelpbuilding.com"
+              className="px-6 py-3.5 border border-neutral-800 text-white font-medium text-sm hover:border-white transition-colors"
+            >
+              hello@needhelpbuilding.com
+            </a>
+          </div>
         </div>
-        <div className="flex items-center gap-4 shrink-0">
-          <Link
-            href="/"
-            className="border-[2px] border-white/30 text-white px-5 py-2.5 font-anton text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-colors"
-          >
-            HOME
-          </Link>
-          <a
-            href="https://wa.me/919219061093?text=Hi%20NeedHelpBuilding%20team%2C%20I%20want%20to%20discuss%20a%20project."
-            target="_blank"
-            rel="noreferrer"
-            className="bg-[#fbda03] text-black border-[3px] border-black px-6 py-2.5 font-anton text-sm sm:text-base uppercase tracking-wider shadow-[4px_4px_0px_0px_#fff] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
-          >
-            START ON WHATSAPP
-          </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full border-t border-neutral-800 py-12 text-sm text-neutral-500">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-xs uppercase tracking-wider text-neutral-600">
+            2026 © NEED HELP BUILDING. All rights reserved.
+          </div>
+          <div className="flex gap-6 text-xs uppercase tracking-wider text-neutral-500">
+            <Link href="/" className="hover:text-white">Home</Link>
+            <Link href="/#practices" className="hover:text-white">Services</Link>
+            <a href="mailto:hello@needhelpbuilding.com" className="hover:text-white">Contact</a>
+          </div>
         </div>
       </footer>
     </main>

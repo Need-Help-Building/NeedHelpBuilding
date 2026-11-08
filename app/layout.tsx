@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Archivo_Black, Space_Grotesk, Inter, Silkscreen, Caveat } from "next/font/google";
 import "./globals.css";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const caveat = Caveat({
   subsets: ["latin"],
@@ -331,7 +332,9 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-[#0c0c0d] text-white overflow-x-hidden selection:bg-[#fbda03] selection:text-black">
-        {children}
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );

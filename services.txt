@@ -1,0 +1,198 @@
+These establish the company's identity and give visitors ways to engage.
+#	Page	URL
+1	Homepage	/
+2	About NeedHelpBuilding	/about
+3	Our Philosophy & Vision	/our-philosophy
+4	How We Work	/how-we-work
+5	Our Team & Engineers	/team
+6	Our Work & Case Studies	/work
+7	Contact Us	/contact
+8	Book a Consultation	/book-consultation
+
+Category 2. AI engineering and intelligent systems
+P0 · Highest priority
+ 16 pages
+
+This should be one of NHB's strongest service categories. We want visitors to immediately recognize that we understand modern AI engineering, not just prompt-based chatbot development.
+#	Page	URL
+9	AI Development & Engineering	/services/ai-development
+10	AI Strategy & Consulting	/services/ai-consulting
+11	Generative AI Application Development	/services/generative-ai
+12	AI Agent Development	/services/ai-agents
+13	Multi-Agent Systems & Orchestration	/services/multi-agent-systems
+14	Autonomous AI Workflows	/services/autonomous-workflows
+15	AI Chatbot Development	/services/ai-chatbots
+16	AI Voice Agents & Calling Systems	/services/voice-agents
+17	WhatsApp AI & Conversational Automation	/services/whatsapp-ai
+18	Retrieval-Augmented Generation (RAG)	/services/rag-development
+19	Enterprise Knowledge Systems	/services/enterprise-knowledge-systems
+20	LLM Integration & Customization	/services/llm-engineering
+21	AI Model Evaluation & Optimization	/services/ai-model-evaluation
+22	Intelligent Document Processing	/services/document-intelligence
+23	AI-Powered Data Analytics	/services/ai-data-analytics
+24	AI Governance, Security & Monitoring	/services/ai-governance
+
+Technical depth to demonstrate within this category:
+- LLMs, model selection and inference.
+- OpenAI, Anthropic, Gemini and open-source models.
+- LangChain, LangGraph and agent orchestration.
+- RAG pipelines, embeddings, vector databases and retrieval evaluation.
+- Fine-tuning, structured outputs and function calling.
+- MCP and tool integrations.
+- AI memory and context management.
+- Guardrails, observability and human-in-the-loop systems.
+- Model routing, caching, latency and token-cost optimization.
+- Multimodal AI, speech, image and video processing.
+These are capabilities to showcase only where NHB has genuine implementation expertise.
+Category 3. Business automation and intelligent operations
+P0 · Highest priority
+ 8 pages
+
+AI development and business automation should be separate categories. A business might need automation without generative AI, and vice versa.
+#	Page	URL
+25	Business Automation & Intelligent Operations	/services/business-automation
+26	Workflow Automation	/services/workflow-automation
+27	Process Automation & Optimization	/services/process-automation
+28	CRM & Sales Automation	/services/sales-automation
+29	Customer Support Automation	/services/customer-support-automation
+30	Marketing & Lead Generation Automation	/services/marketing-automation
+31	WhatsApp & Communication Automation	/services/communication-automation
+32	Enterprise Workflow Integration	/services/enterprise-automation
+
+Subservices and capabilities:
+- n8n, Make, Zapier and custom automation.
+- Webhooks and event-driven workflows.
+- Email and WhatsApp integrations.
+- Automated lead acquisition and qualification.
+- CRM synchronization.
+- Invoice and document workflows.
+- Scheduling and notification systems.
+- Multi-platform integrations.
+- Approval workflows and business process orchestration.
+Category 4. Technology consulting and engineering advisory
+P0 · Strategic differentiator
+ 12 pages
+
+This is the section that will make NHB look like a technology consulting and engineering company rather than simply an implementation vendor.
+#	Page	URL
+33	Technology Consulting & Advisory	/consulting/technology-consulting
+34	Software Architecture Consulting	/consulting/software-architecture
+35	Technical Strategy & Roadmapping	/consulting/technical-strategy
+36	Technology Stack Selection	/consulting/technology-stack
+37	AI Readiness & Feasibility Assessment	/consulting/ai-readiness
+38	AI Architecture Consulting	/consulting/ai-architecture
+39	MVP Feasibility & Technical Due Diligence	/consulting/technical-due-diligence
+40	Software Audit & Code Review	/consulting/software-audit
+41	Database & API Architecture Consulting	/consulting/database-api-architecture
+42	Cloud & Infrastructure Architecture Consulting	/consulting/cloud-architecture
+43	Scalability & Performance Consulting	/consulting/scalability
+44	Fractional CTO & Technical Leadership	/consulting/fractional-cto
+
+Additional consulting capabilities should include build-vs-buy decisions, legacy modernization planning, technology vendor evaluation, system migration planning and cybersecurity advisory.
+
+These can be offered as sub-engagements within the relevant consulting pages.
+Category 5. Web development and digital experiences
+P0 · Core revenue
+ 8 pages
+#	Page	URL
+45	Web Development Services	/services/web-development
+46	Business Website Development	/services/business-websites
+47	E-commerce Development	/services/ecommerce-development
+48	Web Application Development	/services/web-app-development
+49	Custom Web Portals	/services/web-portals
+50	CMS Development & Integration	/services/cms-development
+51	Landing Page Development	/services/landing-pages
+52	Website Redesign & Modernization	/services/website-modernization
+
+Include responsive design, accessibility, frontend engineering, backend integration, headless CMS, PWA capabilities, website maintenance and deployment within the relevant service pages.
+Category 6. Software and product engineering
+P0 · Core engineering
+ 10 pages
+#	Page	URL
+53	Custom Software Development	/services/custom-software
+54	SaaS Product Development	/services/saas-development
+55	MVP Development for Startups	/services/mvp-development
+56	Enterprise Software Development	/services/enterprise-software
+57	Custom CRM Development	/services/crm-development
+58	ERP Development & Implementation	/services/erp-development
+59	Business Dashboard Development	/services/dashboard-development
+60	Internal Business Systems	/services/internal-tools
+61	Marketplace Development	/services/marketplace-development
+62	Backend, API & Database Engineering	/services/backend-engineering
+
+The pages should demonstrate expertise in distributed systems, database architecture, authentication, authorization, integrations, multi-tenancy, caching, real-time applications and scalable backend systems.
+Category 7. Mobile application engineering
+P1 · Expand
+ 5 pages
+#	Page	URL
+63	Mobile App Development	/services/mobile-development
+64	iOS Application Development	/services/ios-development
+65	Android Application Development	/services/android-development
+66	Cross-Platform Application Development	/services/cross-platform-development
+67	Mobile App Maintenance & Modernization	/services/mobile-maintenance
+
+Category 8. Product design and user experience
+P1 · Expand
+ 5 pages
+#	Page	URL
+68	Digital Product Design	/services/product-design
+69	UI/UX Design	/services/ui-ux-design
+70	User Research & Experience Strategy	/services/user-research
+71	Design Systems & Component Libraries	/services/design-systems
+72	Wireframing, Prototyping & Interaction Design	/services/prototyping
+
+Category 9. Digital growth, SEO and discoverability
+P1 · Recurring revenue
+ 6 pages
+#	Page	URL
+73	Digital Growth & Optimization	/services/digital-growth
+74	Search Engine Optimization	/services/seo
+75	Local SEO & Google Business Management	/services/local-seo
+76	Technical SEO & Website Auditing	/services/technical-seo
+77	Generative Engine Optimization (GEO)	/services/geo
+78	Content Strategy & Performance Analytics	/services/content-analytics
+
+Include conversion rate optimization, search indexing, structured data, sitemaps, content optimization, Google Search Console, analytics configuration and ongoing reporting.
+Category 10. Quality assurance, testing and cybersecurity
+P1 · Engineering credibility
+ 7 pages
+#	Page	URL
+79	Software Quality Assurance	/services/quality-assurance
+80	Manual & Functional Testing	/services/manual-testing
+81	Automated Software Testing	/services/automated-testing
+82	Performance & Load Testing	/services/performance-testing
+83	Alpha & Beta Testing Management	/services/alpha-beta-testing
+84	Penetration Testing & Security Audits	/services/penetration-testing
+85	Application Security & Hardening	/services/application-security
+
+Include API testing, regression testing, integration testing, browser compatibility, accessibility audits, OWASP assessments, vulnerability reporting and remediation verification.
+Category 11. Cloud, DevOps and infrastructure
+P1 · Engineering depth
+ 5 pages
+#	Page	URL
+86	Cloud Solutions & Consulting	/services/cloud-solutions
+87	DevOps & Infrastructure Engineering	/services/devops
+88	CI/CD & Deployment Automation	/services/ci-cd
+89	Cloud Migration & Optimization	/services/cloud-migration
+90	Managed Infrastructure & Application Support	/services/managed-services
+
+Category 12. Industry-specific technology solutions
+P2 · Market expansion
+ 5 pages
+#	Page	URL
+91	Healthcare & Hospital Technology	/industries/healthcare
+92	Education & EdTech	/industries/education
+93	Retail, E-commerce & Hospitality	/industries/retail-hospitality
+94	Finance & FinTech	/industries/fintech
+95	Startups & Emerging Businesses	/industries/startups
+
+These should be solution-oriented pages, not just industry descriptions. For instance, healthcare should demonstrate hospital management, patient portals, appointment systems, prescriptions, billing and operational automation.
+Category 13. Commercial bundles, products and credibility
+P2 · Expansion
+ 5 pages
+#	Page	URL
+96	AI Transformation Package	/solutions/ai-transformation
+97	AI Agents & Automation Package	/solutions/ai-automation
+98	SaaS & Startup Launch Package	/solutions/startup-launch
+99	Digital Business Launch Package	/solutions/digital-launch
+100	Engineering Insights & Architecture Lab	/engineering

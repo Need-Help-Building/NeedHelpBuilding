@@ -1,0 +1,208 @@
+{
+  "communities": {
+    "0": [
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_paths"
+    ],
+    "1": [
+      "app_services_services_data",
+      "app_services_services_data_serviceitem",
+      "app_services_services_data_servicemetric",
+      "app_services_services_data_serviceprocessstep",
+      "app_services_services_data_services_data",
+      "app_services_services_data_servicetestimonial",
+      "app_services_slug_page",
+      "app_services_slug_page_generatemetadata",
+      "app_services_slug_page_generatestaticparams",
+      "app_services_slug_page_servicedetailpage",
+      "app_services_slug_page_servicepageprops",
+      "app_sitemap",
+      "app_sitemap_sitemap"
+    ],
+    "2": [
+      "app_layout",
+      "app_layout_anton",
+      "app_layout_archivoblack",
+      "app_layout_caveat",
+      "app_layout_inter",
+      "app_layout_jsonld",
+      "app_layout_metadata",
+      "app_layout_rootlayout",
+      "app_layout_silkscreen",
+      "app_layout_spacegrotesk"
+    ],
+    "3": [
+      "package",
+      "package_dependencies",
+      "package_dependencies_lucide_react",
+      "package_dependencies_next",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_name",
+      "package_private",
+      "package_version"
+    ],
+    "4": [
+      "package_devdependencies",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tailwindcss_postcss",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript"
+    ],
+    "5": [
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_start"
+    ],
+    "6": [
+      "tsconfig",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "7": [
+      "app_assets_page",
+      "app_assets_page_assetspage"
+    ],
+    "8": [
+      "app_manifest",
+      "app_manifest_manifest"
+    ],
+    "9": [
+      "app_page",
+      "app_page_homepage"
+    ],
+    "10": [
+      "app_robots",
+      "app_robots_robots"
+    ],
+    "11": [
+      "eslint_config",
+      "eslint_config_eslintconfig"
+    ],
+    "12": [
+      "next_config",
+      "next_config_nextconfig"
+    ],
+    "13": [
+      "postcss_config",
+      "postcss_config_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.11764705882352941,
+    "1": 0.19230769230769232,
+    "2": 0.2,
+    "3": 0.2222222222222222,
+    "4": 0.2222222222222222,
+    "5": 0.4,
+    "6": 0.6666666666666666,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 5
+    },
+    {
+      "id": "app_services_services_data_services_data",
+      "label": "SERVICES_DATA",
+      "degree": 3
+    },
+    {
+      "id": "app_services_services_data_serviceitem",
+      "label": "ServiceItem",
+      "degree": 2
+    },
+    {
+      "id": "tsconfig_compileroptions_paths",
+      "label": "paths",
+      "degree": 2
+    },
+    {
+      "id": "app_layout_caveat",
+      "label": "caveat",
+      "degree": 1
+    },
+    {
+      "id": "app_layout_anton",
+      "label": "anton",
+      "degree": 1
+    },
+    {
+      "id": "app_layout_archivoblack",
+      "label": "archivoBlack",
+      "degree": 1
+    },
+    {
+      "id": "app_layout_silkscreen",
+      "label": "silkscreen",
+      "degree": 1
+    },
+    {
+      "id": "app_layout_spacegrotesk",
+      "label": "spaceGrotesk",
+      "degree": 1
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `compilerOptions` connect `compilerOptions` to `tsconfig.json`?",
+      "why": "High betweenness centrality (0.054) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.045) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `scripts` connect `scripts` to `package.json`?",
+      "why": "High betweenness centrality (0.025) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `caveat`, `anton`, `archivoBlack` to the rest of the system?",
+      "why": "51 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `compilerOptions` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

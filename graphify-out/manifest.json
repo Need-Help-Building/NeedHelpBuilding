@@ -5,9 +5,9 @@
     "semantic_hash": "0b3a87086af5e5bf0cb0afa01d06de2e"
   },
   "app/layout.tsx": {
-    "mtime": 1794146570.9342902,
-    "ast_hash": "61e0f457dd8845c4b29bd3b94d08eb77",
-    "semantic_hash": "61e0f457dd8845c4b29bd3b94d08eb77"
+    "mtime": 1794147521.5108457,
+    "ast_hash": "8b66a5c1dedd04425454e2d0a5d8a2c4",
+    "semantic_hash": ""
   },
   "app/manifest.ts": {
     "mtime": 1792262072.489481,
@@ -25,14 +25,14 @@
     "semantic_hash": "b267b1e59101db42823aa406ffd7892b"
   },
   "app/services/[slug]/page.tsx": {
-    "mtime": 1792318435.1676834,
-    "ast_hash": "9a9fa468362ab487bf9046eb357d9203",
-    "semantic_hash": "9a9fa468362ab487bf9046eb357d9203"
+    "mtime": 1794147623.4602804,
+    "ast_hash": "63c1fc998385c905603741664ce7ecaf",
+    "semantic_hash": ""
   },
   "app/services/services-data.ts": {
-    "mtime": 1792318401.50053,
-    "ast_hash": "22ba7bddf55707fb5dac96ffdfd72fcd",
-    "semantic_hash": "22ba7bddf55707fb5dac96ffdfd72fcd"
+    "mtime": 1794147583.7082217,
+    "ast_hash": "4ce18335a526103b72dce26b139c761e",
+    "semantic_hash": ""
   },
   "app/sitemap.ts": {
     "mtime": 1792318572.8987195,
@@ -50,9 +50,9 @@
     "semantic_hash": "f69c704447a35d302321e2a740ddbd5d"
   },
   "package.json": {
-    "mtime": 1788875796.8291297,
-    "ast_hash": "7e7fb55b554340e9afaa8ba85bd77b20",
-    "semantic_hash": "7e7fb55b554340e9afaa8ba85bd77b20"
+    "mtime": 1794147480.536559,
+    "ast_hash": "80dad2fe99978a0dcf04854c1d70df99",
+    "semantic_hash": ""
   },
   "postcss.config.mjs": {
     "mtime": 1788875570.5848424,
@@ -63,5 +63,115 @@
     "mtime": 1788875691.7016478,
     "ast_hash": "02fc19ad21338c2ab820a70136310db4",
     "semantic_hash": "02fc19ad21338c2ab820a70136310db4"
+  },
+  "components/SmoothScrollProvider.tsx": {
+    "mtime": 1794147508.232224,
+    "ast_hash": "1abe0f6034a00ce8d6aac236857f950f",
+    "semantic_hash": ""
+  },
+  ".playwright-mcp/page-2026-11-08T13-03-20-583Z.yml": {
+    "mtime": 1794143000.588445,
+    "ast_hash": "1fb9e0fc15630c83a49ea602b165b32c",
+    "semantic_hash": ""
+  },
+  ".playwright-mcp/page-2026-11-08T13-33-06-466Z.yml": {
+    "mtime": 1794144786.467871,
+    "ast_hash": "0c26df1a90d34a7ce2e3b0a5d77bb488",
+    "semantic_hash": ""
+  },
+  ".playwright-mcp/page-2026-11-08T13-33-28-744Z.yml": {
+    "mtime": 1794144808.7450056,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  ".playwright-mcp/page-2026-11-08T13-33-52-475Z.yml": {
+    "mtime": 1794144832.47716,
+    "ast_hash": "70b211d802df75e5b398c20e80ddbe83",
+    "semantic_hash": ""
+  },
+  ".playwright-mcp/page-2026-11-08T13-58-44-747Z.yml": {
+    "mtime": 1794146324.7527704,
+    "ast_hash": "405fb0c42ff4bd0ebd66aac634002b24",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1788875833.5550563,
+    "ast_hash": "01e8142356e15c3404e0d84c48187cd0",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1788875833.556164,
+    "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1788875570.41691,
+    "ast_hash": "f15aaa42d5d299d091b1171097ea56ad",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1793857760.5592792,
+    "ast_hash": "8388c7c3fcf5c27a9c6c749d59a7f5eb",
+    "semantic_hash": ""
+  },
+  "public/llms.txt": {
+    "mtime": 1792262042.5321736,
+    "ast_hash": "46a5a1c89dc8f28e354670c0f50a8fcd",
+    "semantic_hash": ""
+  },
+  "services.txt": {
+    "mtime": 1794147324.2413442,
+    "ast_hash": "63c9cc9d8ce8903a07a507c491ada029",
+    "semantic_hash": ""
+  },
+  "app/apple-icon.png": {
+    "mtime": 1791758309.5411763,
+    "ast_hash": "7070062208b0f7b04d37d2c0fde86f62",
+    "semantic_hash": ""
+  },
+  "app/favicon.png": {
+    "mtime": 1791758309.5411763,
+    "ast_hash": "7070062208b0f7b04d37d2c0fde86f62",
+    "semantic_hash": ""
+  },
+  "app/icon.png": {
+    "mtime": 1791758309.5411763,
+    "ast_hash": "7070062208b0f7b04d37d2c0fde86f62",
+    "semantic_hash": ""
+  },
+  "public/apple-icon.png": {
+    "mtime": 1791758309.5411763,
+    "ast_hash": "7070062208b0f7b04d37d2c0fde86f62",
+    "semantic_hash": ""
+  },
+  "public/caller_work.png": {
+    "mtime": 1789962788.4295862,
+    "ast_hash": "c9d7026cc95a91615c6358c2906abf77",
+    "semantic_hash": ""
+  },
+  "public/favicon.png": {
+    "mtime": 1791758309.5411763,
+    "ast_hash": "7070062208b0f7b04d37d2c0fde86f62",
+    "semantic_hash": ""
+  },
+  "public/hero.png": {
+    "mtime": 1792267341.436671,
+    "ast_hash": "71b64e44cf7bb35292a0f6f104bc7119",
+    "semantic_hash": ""
+  },
+  "public/icon.png": {
+    "mtime": 1791758309.5411763,
+    "ast_hash": "7070062208b0f7b04d37d2c0fde86f62",
+    "semantic_hash": ""
+  },
+  "public/team.png": {
+    "mtime": 1792281187.7109466,
+    "ast_hash": "b3422e2dff1f863af2816551b9ace235",
+    "semantic_hash": ""
+  },
+  "public/yourstorehere.png": {
+    "mtime": 1789962766.7007403,
+    "ast_hash": "718db17397dcf8bf79637c86cc7fe983",
+    "semantic_hash": ""
   }
 }
