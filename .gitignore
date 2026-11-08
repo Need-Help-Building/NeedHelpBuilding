@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ralph loop state
+.ralph/logs/
+.ralph/status.json
+.ralph/progress.json
+.ralph/.call_count
+.ralph/.last_reset
+.ralph/.exit_signals
+.ralph/.response_analysis
+.ralph/.circuit_breaker_state
+.ralph/.claude_session_id
+.ralph/.ralph_session
+.ralph/.ralph_session_history
