@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown, ArrowUpRight, Menu, X, Sparkles, Code2, Cpu, Wrench } from "lucide-react";
+import { ChevronDown, ArrowUpRight, Menu, X, Cpu, Code2 } from "lucide-react";
 import { SERVICES_DATA } from "@/app/services/services-data";
 
 export default function HeaderNav() {
@@ -17,17 +17,8 @@ export default function HeaderNav() {
       s.category.toUpperCase().includes("ENGINEERING") &&
       !s.category.toUpperCase().includes("AI")
   );
-  const advisoryAndDesignServices = SERVICES_DATA.filter(
-    (s) =>
-      s.category.toUpperCase().includes("ADVISORY") ||
-      s.category.toUpperCase().includes("CONSULTING") ||
-      s.category.toUpperCase().includes("DESIGN")
-  );
   const otherServices = SERVICES_DATA.filter(
-    (s) =>
-      !aiServices.includes(s) &&
-      !engineeringServices.includes(s) &&
-      !advisoryAndDesignServices.includes(s)
+    (s) => !aiServices.includes(s) && !engineeringServices.includes(s)
   );
 
   useEffect(() => {
@@ -41,45 +32,45 @@ export default function HeaderNav() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-neutral-800 transition-colors">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-200 transition-colors">
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-10">
           <Link
             href="/"
-            className="text-lg font-bold tracking-tight text-white hover:text-neutral-300 transition-colors"
+            className="text-lg font-bold tracking-tight text-[#111111] hover:text-neutral-600 transition-colors"
           >
             NEED HELP BUILDING?
           </Link>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-8 text-sm text-neutral-400">
+          <nav className="hidden md:flex items-center gap-8 text-sm text-neutral-600">
             {/* Services Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 type="button"
                 onClick={() => setServicesOpen(!servicesOpen)}
                 className={`flex items-center gap-1.5 transition-colors cursor-pointer outline-none ${
-                  servicesOpen ? "text-white" : "hover:text-white"
+                  servicesOpen ? "text-[#111111] font-semibold" : "hover:text-[#111111]"
                 }`}
                 aria-expanded={servicesOpen}
               >
                 <span>Services</span>
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    servicesOpen ? "rotate-180 text-white" : "text-neutral-500"
+                    servicesOpen ? "rotate-180 text-[#111111]" : "text-neutral-400"
                   }`}
                 />
               </button>
 
               {/* Mega Dropdown Menu */}
               {servicesOpen && (
-                <div className="absolute top-full left-0 mt-3 w-[740px] -ml-20 bg-[#0a0a0c] border border-neutral-800 p-8 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                <div className="absolute top-full left-0 mt-3 w-[720px] -ml-16 bg-white border border-neutral-200 p-8 shadow-xl z-50 rounded-lg">
                   <div className="grid grid-cols-2 gap-8">
                     {/* Left Column: AI Engineering */}
                     <div className="space-y-4">
-                      <div className="flex items-center gap-2 pb-2 border-b border-neutral-800 text-xs font-mono uppercase tracking-widest text-neutral-400">
-                        <Cpu className="w-3.5 h-3.5 text-white" />
-                        <span>AI Engineering & Swarms</span>
+                      <div className="flex items-center gap-2 pb-2 border-b border-neutral-100 text-xs font-mono uppercase tracking-widest text-neutral-400">
+                        <Cpu className="w-3.5 h-3.5 text-[#111111]" />
+                        <span>AI Engineering</span>
                       </div>
                       <div className="space-y-3">
                         {aiServices.map((svc) => (
@@ -87,9 +78,9 @@ export default function HeaderNav() {
                             key={svc.slug}
                             href={`/services/${svc.slug}`}
                             onClick={() => setServicesOpen(false)}
-                            className="group block p-2 -mx-2 hover:bg-neutral-900/60 rounded transition-colors"
+                            className="group block p-2 -mx-2 hover:bg-neutral-50 rounded transition-colors"
                           >
-                            <div className="text-sm font-semibold text-white group-hover:text-neutral-200 flex items-center justify-between">
+                            <div className="text-sm font-semibold text-[#111111] group-hover:text-black flex items-center justify-between">
                               <span>{svc.title}</span>
                               <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-neutral-400" />
                             </div>
@@ -101,22 +92,22 @@ export default function HeaderNav() {
                       </div>
                     </div>
 
-                    {/* Right Column: Web, Systems & Advisory */}
+                    {/* Right Column: Web & Systems */}
                     <div className="space-y-6">
                       <div className="space-y-4">
-                        <div className="flex items-center gap-2 pb-2 border-b border-neutral-800 text-xs font-mono uppercase tracking-widest text-neutral-400">
-                          <Code2 className="w-3.5 h-3.5 text-white" />
-                          <span>Product & Systems Engineering</span>
+                        <div className="flex items-center gap-2 pb-2 border-b border-neutral-100 text-xs font-mono uppercase tracking-widest text-neutral-400">
+                          <Code2 className="w-3.5 h-3.5 text-[#111111]" />
+                          <span>Product Engineering</span>
                         </div>
                         <div className="space-y-3">
-                          {engineeringServices.concat(advisoryAndDesignServices).slice(0, 5).map((svc) => (
+                          {engineeringServices.concat(otherServices).slice(0, 5).map((svc) => (
                             <Link
                               key={svc.slug}
                               href={`/services/${svc.slug}`}
                               onClick={() => setServicesOpen(false)}
-                              className="group block p-2 -mx-2 hover:bg-neutral-900/60 rounded transition-colors"
+                              className="group block p-2 -mx-2 hover:bg-neutral-50 rounded transition-colors"
                             >
-                              <div className="text-sm font-semibold text-white group-hover:text-neutral-200 flex items-center justify-between">
+                              <div className="text-sm font-semibold text-[#111111] group-hover:text-black flex items-center justify-between">
                                 <span>{svc.title}</span>
                                 <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-neutral-400" />
                               </div>
@@ -129,14 +120,14 @@ export default function HeaderNav() {
                       </div>
 
                       {/* Bottom Banner */}
-                      <div className="p-3 bg-neutral-900/40 border border-neutral-800/80 rounded flex items-center justify-between">
-                        <div className="text-xs text-neutral-400 font-mono">
+                      <div className="p-3 bg-neutral-50 border border-neutral-200/80 rounded flex items-center justify-between">
+                        <div className="text-xs text-neutral-500 font-mono">
                           {SERVICES_DATA.length} Production Practices Active
                         </div>
                         <Link
                           href="/#practices"
                           onClick={() => setServicesOpen(false)}
-                          className="text-xs font-medium text-white hover:underline"
+                          className="text-xs font-semibold text-[#111111] hover:underline"
                         >
                           View All Practices →
                         </Link>
@@ -147,16 +138,16 @@ export default function HeaderNav() {
               )}
             </div>
 
-            <Link href="/#about" className="hover:text-white transition-colors">
+            <Link href="/#about" className="hover:text-[#111111] transition-colors">
               Why Now
             </Link>
-            <Link href="/#work" className="hover:text-white transition-colors">
+            <Link href="/#work" className="hover:text-[#111111] transition-colors">
               Work
             </Link>
-            <Link href="/#philosophy" className="hover:text-white transition-colors">
+            <Link href="/#philosophy" className="hover:text-[#111111] transition-colors">
               Point of View
             </Link>
-            <Link href="/#contact" className="hover:text-white transition-colors">
+            <Link href="/#contact" className="hover:text-[#111111] transition-colors">
               Contact
             </Link>
           </nav>
@@ -166,7 +157,7 @@ export default function HeaderNav() {
         <div className="flex items-center gap-4">
           <a
             href="mailto:hello@needhelpbuilding.com"
-            className="hidden sm:inline-flex text-xs uppercase tracking-widest px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition-colors"
+            className="hidden sm:inline-flex text-xs uppercase tracking-widest px-4 py-2 border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white transition-colors rounded"
           >
             Contact Us
           </a>
@@ -175,7 +166,7 @@ export default function HeaderNav() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-neutral-400 hover:text-white"
+            className="md:hidden p-2 text-neutral-600 hover:text-black"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -185,9 +176,9 @@ export default function HeaderNav() {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-neutral-800 bg-black px-6 py-6 space-y-6">
+        <div className="md:hidden border-b border-neutral-200 bg-white px-6 py-6 space-y-6">
           <div className="space-y-2">
-            <div className="text-xs font-mono uppercase tracking-widest text-neutral-500 pb-1 border-b border-neutral-900">
+            <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 pb-1 border-b border-neutral-100">
               Services ({SERVICES_DATA.length})
             </div>
             <div className="max-h-60 overflow-y-auto space-y-2 pt-2 pr-2">
@@ -196,7 +187,7 @@ export default function HeaderNav() {
                   key={svc.slug}
                   href={`/services/${svc.slug}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block text-sm text-neutral-300 hover:text-white py-1"
+                  className="block text-sm text-neutral-700 hover:text-black py-1"
                 >
                   {svc.title}
                 </Link>
@@ -204,32 +195,32 @@ export default function HeaderNav() {
             </div>
           </div>
 
-          <div className="space-y-3 pt-3 border-t border-neutral-900">
+          <div className="space-y-3 pt-3 border-t border-neutral-100">
             <Link
               href="/#about"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm text-neutral-400 hover:text-white"
+              className="block text-sm text-neutral-600 hover:text-black"
             >
               Why Now
             </Link>
             <Link
               href="/#work"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm text-neutral-400 hover:text-white"
+              className="block text-sm text-neutral-600 hover:text-black"
             >
               Work
             </Link>
             <Link
               href="/#philosophy"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm text-neutral-400 hover:text-white"
+              className="block text-sm text-neutral-600 hover:text-black"
             >
               Point of View
             </Link>
             <Link
               href="/#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm text-neutral-400 hover:text-white"
+              className="block text-sm text-neutral-600 hover:text-black"
             >
               Contact
             </Link>
@@ -238,7 +229,7 @@ export default function HeaderNav() {
           <div className="pt-2">
             <a
               href="mailto:hello@needhelpbuilding.com"
-              className="block text-center text-xs uppercase tracking-widest px-4 py-3 bg-white text-black font-semibold"
+              className="block text-center text-xs uppercase tracking-widest px-4 py-3 bg-[#111111] text-white font-medium rounded"
             >
               Contact Us
             </a>
