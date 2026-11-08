@@ -33,3 +33,4 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
 
   return <>{children}</>;
 }
+
