@@ -38,7 +38,7 @@ export default function AssetsPage() {
       desc: "Floating eyeball with responsive multi-direction gaze keyframes and 360° rotating star pupil.",
       component: (
         <div className="relative w-24 h-12 bg-white rounded-[50%] border border-black flex items-center justify-center overflow-hidden">
-          <div className="relative w-11 h-11 bg-[#8d8d89] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
+          <div className="relative w-11 h-11 bg-[#ff7ad9] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
             <svg viewBox="0 0 24 24" className="w-5 h-5 fill-black animate-star-spin">
               <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
             </svg>
@@ -261,7 +261,7 @@ export default function AssetsPage() {
               strokeDasharray="4 3"
               className="animate-beam-scan origin-top"
             />
-            <path d="M 52 26 C 52 10 98 10 98 26 Z" fill="#c9c9c4" stroke="#000" strokeWidth="3" />
+            <path d="M 52 26 C 52 10 98 10 98 26 Z" fill="#8be9fd" stroke="#000" strokeWidth="3" />
             <circle cx="75" cy="18" r="3.5" fill="#000" />
             <circle cx="76" cy="17" r="1.2" fill="#fff" />
             <ellipse cx="75" cy="28" rx="64" ry="12" fill="#efeee9" stroke="#000" strokeWidth="3.5" />
@@ -292,12 +292,12 @@ export default function AssetsPage() {
             <rect x="20" y="4" width="22" height="12" rx="2" fill="#000" stroke="#000" strokeWidth="2" />
             <path d="M 18 16 L 44 16 L 48 64 L 8 64 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
             <rect x="6" y="64" width="44" height="14" rx="3" fill="#000" stroke="#000" strokeWidth="3" />
-            <ellipse cx="28" cy="71" rx="16" ry="4" fill="#c9c9c4" />
+            <ellipse cx="28" cy="71" rx="16" ry="4" fill="#8be9fd" />
             <ellipse cx="24" cy="70" rx="6" ry="1.5" fill="#fff" />
             <rect x="88" y="4" width="22" height="12" rx="2" fill="#000" stroke="#000" strokeWidth="2" />
             <path d="M 86 16 L 112 16 L 122 64 L 82 64 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
             <rect x="80" y="64" width="44" height="14" rx="3" fill="#000" stroke="#000" strokeWidth="3" />
-            <ellipse cx="102" cy="71" rx="16" ry="4" fill="#c9c9c4" />
+            <ellipse cx="102" cy="71" rx="16" ry="4" fill="#8be9fd" />
             <ellipse cx="98" cy="70" rx="6" ry="1.5" fill="#fff" />
           </svg>
         </div>
@@ -347,7 +347,7 @@ export default function AssetsPage() {
             <rect x="58" y="68" width="14" height="36" rx="4" transform="rotate(-45 58 68)" fill="#efeee9" stroke="#000" strokeWidth="3.5" />
             <rect x="52" y="62" width="14" height="8" rx="2" transform="rotate(-45 52 62)" fill="#000" stroke="#000" strokeWidth="2" />
             <circle cx="44" cy="44" r="34" fill="#000" stroke="#000" strokeWidth="3.5" />
-            <circle cx="44" cy="44" r="30" fill="#c9c9c4" stroke="#000" strokeWidth="2.5" />
+            <circle cx="44" cy="44" r="30" fill="#8be9fd" stroke="#000" strokeWidth="2.5" />
             <path d="M 22 34 C 28 22 52 20 62 26" stroke="#fff" strokeWidth="4" strokeLinecap="round" />
             <circle cx="44" cy="44" r="8" stroke="#000" strokeWidth="2" fill="none" strokeDasharray="3 2" />
             <line x1="44" y1="30" x2="44" y2="58" stroke="#000" strokeWidth="1.5" />
@@ -391,7 +391,7 @@ export default function AssetsPage() {
             <rect x="2" y="2" width="116" height="74" rx="6" fill="#161616" stroke="#000" strokeWidth="3.5" />
             <rect x="14" y="10" width="92" height="42" rx="3" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
             <text x="20" y="16" fill="#000" fontSize="7" fontFamily="monospace" fontWeight="bold">SIDE A: SHIPS 24/7</text>
-            <rect x="30" y="24" width="60" height="22" rx="3" fill="#c9c9c4" stroke="#000" strokeWidth="2" />
+            <rect x="30" y="24" width="60" height="22" rx="3" fill="#8be9fd" stroke="#000" strokeWidth="2" />
             <circle cx="44" cy="35" r="7" fill="#fff" stroke="#000" strokeWidth="2" />
             <circle cx="76" cy="35" r="7" fill="#fff" stroke="#000" strokeWidth="2" />
             <path d="M 28 76 L 36 58 L 84 58 L 92 76 Z" fill="#0f0f0f" stroke="#000" strokeWidth="2.5" />
@@ -454,11 +454,11 @@ export default function AssetsPage() {
             <line x1="2" y1="30" x2="128" y2="30" stroke="#efeee9" strokeWidth="3" strokeDasharray="6 4" strokeLinecap="round" />
             <circle cx="42" cy="30" r="20" fill="#efeee9" stroke="#000" strokeWidth="4" />
             <circle cx="42" cy="30" r="14" fill="#0f0f0f" stroke="#000" strokeWidth="2.5" />
-            <circle cx="42" cy="30" r="6" fill="#c9c9c4" />
+            <circle cx="42" cy="30" r="6" fill="#8be9fd" />
             <rect x="58" y="27" width="14" height="6" rx="2" fill="#000" stroke="#000" strokeWidth="2" />
             <circle cx="88" cy="30" r="20" fill="#efeee9" stroke="#000" strokeWidth="4" />
             <circle cx="88" cy="30" r="14" fill="#0f0f0f" stroke="#000" strokeWidth="2.5" />
-            <circle cx="88" cy="30" r="6" fill="#c9c9c4" />
+            <circle cx="88" cy="30" r="6" fill="#8be9fd" />
           </svg>
         </div>
       ),
@@ -491,7 +491,7 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="90" height="100" viewBox="0 0 90 100" fill="none">
-            <circle cx="45" cy="40" r="28" fill="#c9c9c4" fillOpacity="0.4" stroke="#efeee9" strokeWidth="5" />
+            <circle cx="45" cy="40" r="28" fill="#8be9fd" fillOpacity="0.4" stroke="#efeee9" strokeWidth="5" />
             <circle cx="45" cy="40" r="28" stroke="#000" strokeWidth="2" />
             <path d="M 28 28 C 36 20 54 20 62 28" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
             <circle cx="73" cy="40" r="3" fill="#000" />
@@ -537,7 +537,7 @@ export default function AssetsPage() {
               <rect x="18" y="47" width="14" height="8" rx="2" fill="#000" stroke="#000" strokeWidth="2" />
               <rect x="32" y="44" width="70" height="14" rx="3" fill="#efeee9" stroke="#000" strokeWidth="3.5" />
               <rect x="100" y="42" width="16" height="18" rx="2" fill="#000" stroke="#000" strokeWidth="3" />
-              <ellipse cx="116" cy="51" rx="2" ry="9" fill="#c9c9c4" />
+              <ellipse cx="116" cy="51" rx="2" ry="9" fill="#8be9fd" />
             </g>
           </svg>
         </div>
@@ -625,7 +625,7 @@ export default function AssetsPage() {
             <path d="M 23 48 L 8 68 L 23 66 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
             <path d="M 47 48 L 62 68 L 47 66 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
             <path d="M 35 4 C 20 24 22 66 22 66 L 48 66 C 48 66 50 24 35 4 Z" fill="#ffffff" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
-            <circle cx="35" cy="30" r="6" fill="#c9c9c4" stroke="#000" strokeWidth="2" />
+            <circle cx="35" cy="30" r="6" fill="#8be9fd" stroke="#000" strokeWidth="2" />
             <circle cx="37" cy="28" r="2" fill="#fff" />
             <path d="M 35 4 C 30 14 30 18 30 18 L 40 18 C 40 18 40 14 35 4 Z" fill="#dc2626" />
           </svg>
@@ -663,9 +663,9 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-            <path d="M 4 82 Q 25 74 50 82 T 96 82" stroke="#c9c9c4" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M 4 82 Q 25 74 50 82 T 96 82" stroke="#8be9fd" strokeWidth="4" strokeLinecap="round" fill="none" />
             <path d="M 28 16 L 72 16 L 72 32 L 54 32 L 54 86 L 38 86 L 38 32 L 28 32 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
-            <ellipse cx="72" cy="24" rx="4" ry="8" fill="#c9c9c4" stroke="#000" strokeWidth="2" />
+            <ellipse cx="72" cy="24" rx="4" ry="8" fill="#8be9fd" stroke="#000" strokeWidth="2" />
             <line x1="70" y1="18" x2="74" y2="30" stroke="#fff" strokeWidth="2" />
             <line x1="38" y1="46" x2="54" y2="46" stroke="#000" strokeWidth="3" />
             <line x1="38" y1="62" x2="54" y2="62" stroke="#000" strokeWidth="3" />
@@ -759,9 +759,9 @@ export default function AssetsPage() {
           {[
             { h: "h-8", bg: "bg-[#efeee9]" },
             { h: "h-14", bg: "bg-[#efeee9]" },
-            { h: "h-11", bg: "bg-[#c9c9c4]" },
+            { h: "h-11", bg: "bg-[#8be9fd]" },
             { h: "h-16", bg: "bg-[#efeee9]" },
-            { h: "h-6", bg: "bg-[#c9c9c4]" },
+            { h: "h-6", bg: "bg-[#8be9fd]" },
             { h: "h-12", bg: "bg-[#efeee9]" },
           ].map((bar, i) => (
             <div key={i} className="flex flex-col items-center gap-1 w-3.5">
@@ -814,7 +814,7 @@ export default function AssetsPage() {
               <rect x="36" y="22" width="48" height="24" rx="4" fill="#ffffff" stroke="#000" strokeWidth="3.5" />
               <path d="M 32 18 L 88 18 L 84 22 L 34 22 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
               <rect x="80" y="24" width="8" height="20" rx="2" fill="#000" />
-              <circle cx="84" cy="34" r="3" fill="#c9c9c4" />
+              <circle cx="84" cy="34" r="3" fill="#8be9fd" />
               <circle cx="44" cy="28" r="2.5" fill="#dc2626" className="animate-ping" />
             </g>
           </svg>
@@ -836,7 +836,7 @@ export default function AssetsPage() {
             <path d="M 28 32 C 34 26 66 26 72 32" stroke="#fff" strokeWidth="3.5" strokeLinecap="round" />
             <rect x="4" y="38" width="10" height="18" rx="3" fill="#000" />
             <rect x="86" y="38" width="10" height="18" rx="3" fill="#000" />
-            <rect x="30" y="80" width="40" height="12" rx="3" fill="#c9c9c4" stroke="#000" strokeWidth="2.5" />
+            <rect x="30" y="80" width="40" height="12" rx="3" fill="#8be9fd" stroke="#000" strokeWidth="2.5" />
           </svg>
         </div>
       ),
@@ -854,9 +854,9 @@ export default function AssetsPage() {
             <rect x="14" y="12" width="62" height="88" rx="6" fill="#161616" stroke="#000" strokeWidth="3.5" />
             <rect x="22" y="4" width="46" height="8" rx="2" fill="#efeee9" stroke="#000" strokeWidth="2" />
             <circle cx="45" cy="38" r="14" fill="#000" stroke="#efeee9" strokeWidth="2.5" />
-            <circle cx="45" cy="38" r="8" fill="#c9c9c4" />
+            <circle cx="45" cy="38" r="8" fill="#8be9fd" />
             <circle cx="45" cy="74" r="16" fill="#000" stroke="#efeee9" strokeWidth="3" />
-            <circle cx="45" cy="74" r="9" fill="#c9c9c4" />
+            <circle cx="45" cy="74" r="9" fill="#8be9fd" />
             <circle cx="42" cy="71" r="2.5" fill="#fff" />
             <rect x="76" y="52" width="8" height="18" rx="2" fill="#000" />
           </svg>

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { SERVICES_DATA } from "./services/services-data";
+import { ShaderCard, ShaderBackdrop } from "@/components/ui/shader-card";
 
 declare global {
   interface Window {
@@ -154,7 +155,7 @@ const handleCopyEmail = () => {
       tag: "ECOMMERCE WEB APP",
       name: "YOURESTOREHERE",
       badge: "LIVE",
-      color: "#c9c9c4",
+      color: "#8be9fd",
       accent: "#0f0f0f",
       headline: "Instant online stores for independent brands",
       link: "https://yourstorehere.vercel.app",
@@ -182,7 +183,7 @@ const handleCopyEmail = () => {
       tag: "VOICE AUTOMATION",
       name: "CALLER.WORK",
       badge: "LIVE",
-      color: "#8d8d89",
+      color: "#ff7ad9",
       accent: "#0f0f0f",
       headline: "AI phone agent that answers calls and books appointments",
       link: "https://caller.work",
@@ -470,7 +471,7 @@ const handleCopyEmail = () => {
       {/* SECTION 1: HERO — OVERSIZED TYPE + OFFSET IMAGERY            */}
       {/* ============================================================ */}
       <section className="relative w-full flex flex-col px-4 sm:px-8 lg:px-12 pt-4 sm:pt-6 pb-10 sm:pb-16">
-        <h1 className="font-anton uppercase text-[#efeee9] leading-[0.9] tracking-[-0.01em] select-none text-[clamp(64px,19.5vw,330px)]">
+        <h1 className="font-anton uppercase text-[#efeee9] leading-[0.9] tracking-[-0.01em] select-none text-[clamp(52px,13.2vw,230px)]">
           NEED HELP
           <br />
           BUILDING?
@@ -502,16 +503,17 @@ const handleCopyEmail = () => {
           </div>
 
           {/* Right column: offset grayscale image with layer-panel chips */}
-          <div className="relative lg:col-span-8 order-1 lg:order-2 aspect-[16/10] overflow-hidden bg-[#c4c4c0]">
+          <div className="relative lg:col-span-8 order-1 lg:order-2 aspect-[16/10] overflow-hidden rounded-3xl bg-black">
+            <ShaderBackdrop variant={0} />
             <Image
               src="/hero.png"
               alt="NEED HELP BUILDING? — systems, automations and web apps"
               fill
               priority
               sizes="(min-width: 1024px) 66vw, 100vw"
-              className="object-cover grayscale contrast-110"
+              className="object-cover mix-blend-multiply"
             />
-            <div className="absolute right-3 bottom-3 sm:right-6 sm:bottom-6 w-[220px] sm:w-[280px] bg-[#0f0f0f]/95 rounded-md text-[#efeee9] text-[10px] sm:text-xs font-semibold uppercase tracking-[0.1em] overflow-hidden">
+            <div className="absolute right-3 bottom-3 sm:right-6 sm:bottom-6 w-[220px] sm:w-[280px] bg-black/75 backdrop-blur border border-white/15 rounded-2xl text-[#efeee9] text-[10px] sm:text-xs font-semibold uppercase tracking-[0.1em] overflow-hidden">
               {["WEBSITES", "WEB DESIGN", "AUTOMATIONS", "SYSTEMS"].map((label, i) => (
                 <div key={label} className="flex items-center gap-3 px-4 py-2.5 border-t first:border-t-0 border-white/10">
                   <span className={`w-2 h-2 ${i % 2 === 0 ? "bg-[#efeee9]" : "border border-white/40"}`} />
@@ -593,85 +595,47 @@ const handleCopyEmail = () => {
           </p>
         </div>
 
-        {/* BRUTALIST PINBOARD CARDS */}
+        {/* SHADER CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
-
-          <div className="relative bg-[#efeee9] text-black border border-black p-6">
-            <div className="absolute -top-5 left-6">
-              <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
-                <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#8d8d89" stroke="#000" strokeWidth="2.5" />
-                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </div>
-            <span className="font-anton text-3xl">01</span>
-            <h3 className="font-anton text-2xl uppercase mt-2 mb-2 leading-none">
-              WEBSITES & WEB APPS
-            </h3>
-            <p className="text-xs font-semibold leading-relaxed text-black/85">
-              Full-stack Next.js and React web applications built for speed, SEO domination, and effortless conversion. From interactive landing pages to high-scale SaaS products.
-            </p>
-            <div className="mt-4 pt-2 border-t border-black/30 font-anton text-xs tracking-wider">
-              FLAGSHIP: YOURESTOREHERE
-            </div>
-          </div>
-
-          <div className="relative bg-[#8d8d89] text-black border border-black p-6">
-            <div className="absolute -top-5 right-6">
-              <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
-                <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#ffffff" stroke="#000" strokeWidth="2.5" />
-                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </div>
-            <span className="font-anton text-3xl">02</span>
-            <h3 className="font-anton text-2xl uppercase mt-2 mb-2 leading-none">
-              BESPOKE WEB DESIGN & UI/UX
-            </h3>
-            <p className="text-xs font-semibold leading-relaxed text-black/85">
-              Bold, unforgettable aesthetics that refuse to blend into corporate mediocrity. Custom typography, micro-interactions, responsive design systems, and brutalist finesse.
-            </p>
-            <div className="mt-4 pt-2 border-t border-black/30 font-anton text-xs tracking-wider">
-              STUDIO: CRAFT & BRANDING
-            </div>
-          </div>
-
-          <div className="relative bg-[#c9c9c4] text-black border border-black p-6">
-            <div className="absolute -top-5 left-8">
-              <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
-                <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
-                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </div>
-            <span className="font-anton text-3xl">03</span>
-            <h3 className="font-anton text-2xl uppercase mt-2 mb-2 leading-none">
-              BUSINESS AUTOMATIONS
-            </h3>
-            <p className="text-xs font-semibold leading-relaxed text-black/85">
-              Eliminate repetitive human work. Automated lead capture, CRM syncing, AI telephone triage, invoicing pipelines, and instant customer notifications that never sleep.
-            </p>
-            <div className="mt-4 pt-2 border-t border-black/30 font-anton text-xs tracking-wider">
-              FLAGSHIP: CALLER.WORK
-            </div>
-          </div>
-
-          <div className="relative bg-white text-black border border-black p-6">
-            <div className="absolute -top-5 right-8">
-              <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
-                <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#8d8d89" stroke="#000" strokeWidth="2.5" />
-                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </div>
-            <span className="font-anton text-3xl">04</span>
-            <h3 className="font-anton text-2xl uppercase mt-2 mb-2 leading-none">
-              CUSTOM DIGITAL SYSTEMS
-            </h3>
-            <p className="text-xs font-semibold leading-relaxed text-black/85">
-              Custom integrations, AI copilots, payment setups, database syncing, and specialized tooling tailored to your business needs without vendor lock-in.
-            </p>
-            <div className="mt-4 pt-2 border-t border-black/30 font-anton text-xs tracking-wider">
-              FLAGSHIP: SOUS CHEF
-            </div>
-          </div>
-
+          {[
+            {
+              n: "01",
+              title: "WEBSITES & WEB APPS",
+              body: "Full-stack Next.js and React web applications built for speed, SEO domination, and effortless conversion. From interactive landing pages to high-scale SaaS products.",
+              foot: "FLAGSHIP: YOURESTOREHERE",
+              variant: 0,
+            },
+            {
+              n: "02",
+              title: "BESPOKE WEB DESIGN & UI/UX",
+              body: "Bold, unforgettable aesthetics that refuse to blend into corporate mediocrity. Custom typography, micro-interactions, responsive design systems, and brutalist finesse.",
+              foot: "STUDIO: CRAFT & BRANDING",
+              variant: 1,
+            },
+            {
+              n: "03",
+              title: "BUSINESS AUTOMATIONS",
+              body: "Eliminate repetitive human work. Automated lead capture, CRM syncing, AI telephone triage, invoicing pipelines, and instant customer notifications that never sleep.",
+              foot: "FLAGSHIP: CALLER.WORK",
+              variant: 4,
+            },
+            {
+              n: "04",
+              title: "CUSTOM DIGITAL SYSTEMS",
+              body: "Custom integrations, AI copilots, payment setups, database syncing, and specialized tooling tailored to your business needs without vendor lock-in.",
+              foot: "FLAGSHIP: SOUS CHEF",
+              variant: 3,
+            },
+          ].map((c) => (
+            <ShaderCard key={c.n} variant={c.variant} className="min-h-[360px]">
+              <span className="font-anton text-4xl text-white/90">{c.n}</span>
+              <h3 className="font-anton text-2xl uppercase mt-3 mb-3 leading-none">{c.title}</h3>
+              <p className="text-sm font-medium leading-relaxed text-gray-100 flex-grow">{c.body}</p>
+              <div className="mt-5 pt-3 border-t border-white/20 font-anton text-xs tracking-wider text-gray-200">
+                {c.foot}
+              </div>
+            </ShaderCard>
+          ))}
         </div>
       </section>
 
@@ -1102,7 +1066,7 @@ const handleCopyEmail = () => {
             {/* ILLUMINATING EYE ASSET IN STARTUP CTO */}
             <div className="relative w-14 sm:w-16 h-7 sm:h-8 hidden sm:flex items-center justify-center select-none pointer-events-none">
               <div className="relative w-14 sm:w-16 h-7 sm:h-8 bg-white rounded-[50%] border border-black flex items-center justify-center overflow-hidden">
-                <div className="relative w-5 h-5 bg-[#8d8d89] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
+                <div className="relative w-5 h-5 bg-[#ff7ad9] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
                   <svg viewBox="0 0 24 24" className="w-3 h-3 fill-black animate-star-spin">
                     <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
                   </svg>
@@ -1147,7 +1111,7 @@ const handleCopyEmail = () => {
 
           {/* Under-signboard Abstract Pill */}
           <div className="relative -mt-3 sm:-mt-4 z-20 max-w-full">
-            <div className="bg-[#c9c9c4] border border-black rounded-full px-4 sm:px-10 py-1.5 sm:py-2">
+            <div className="bg-[#8be9fd] border border-black rounded-full px-4 sm:px-10 py-1.5 sm:py-2">
               <span className="font-archivo text-[10px] xs:text-xs sm:text-base tracking-wider uppercase text-black font-extrabold text-center block">
                 ZERO UPFRONT TECH RISK &bull; SPLIT RUNWAY &bull; SHARED EQUITY
               </span>
@@ -1200,7 +1164,7 @@ const handleCopyEmail = () => {
                   num: "03",
                   title: "FULL STACK",
                   desc: "Web apps, internal tooling, edge databases, UI/UX, and AI automations fully managed.",
-                  bg: "bg-[#c9c9c4] text-black",
+                  bg: "bg-[#8be9fd] text-black",
                   tag: "#ffffff",
                 },
               ].map((p) => (
@@ -1379,7 +1343,7 @@ const handleCopyEmail = () => {
                       refY="4"
                       orient="auto"
                     >
-                      <polygon points="0 0, 10 4, 0 8" fill="#c9c9c4" stroke="#000" strokeWidth="1.2" />
+                      <polygon points="0 0, 10 4, 0 8" fill="#8be9fd" stroke="#000" strokeWidth="1.2" />
                     </marker>
                   </defs>
 
@@ -1397,7 +1361,7 @@ const handleCopyEmail = () => {
                   {/* Curly Arrow pointing to Suyash */}
                   <path
                     d="M 510 65 C 475 20, 445 95, 420 45 C 400 10, 380 35, 355 75"
-                    stroke="#c9c9c4"
+                    stroke="#8be9fd"
                     strokeWidth="4.5"
                     strokeLinecap="round"
                     strokeDasharray="8 4"
@@ -1413,7 +1377,7 @@ const handleCopyEmail = () => {
                   </span>
                 </div>
                 <div className="absolute top-0 right-4 sm:right-8 z-30">
-                  <span className="font-handwritten text-2xl sm:text-3xl lg:text-4xl text-[#c9c9c4] font-bold drop-shadow-[0_2px_4px_#000] inline-block">
+                  <span className="font-handwritten text-2xl sm:text-3xl lg:text-4xl text-[#8be9fd] font-bold drop-shadow-[0_2px_4px_#000] inline-block">
                     That&apos;s Suyash! →
                   </span>
                 </div>
@@ -1430,8 +1394,8 @@ const handleCopyEmail = () => {
 
             {/* RIGHT PERSON CARD: SUYASH (THE TECH GUY) */}
             <div className="lg:col-span-3 flex flex-col order-3">
-              <div className="bg-[#c9c9c4] text-black border border-black p-5 sm:p-6 relative hover:rotate-0 transition-transform">
-                <div className="font-mono text-[10px] font-black uppercase tracking-widest bg-black text-[#c9c9c4] px-2 py-0.5 inline-block w-fit mb-3">
+              <div className="bg-[#8be9fd] text-black border border-black p-5 sm:p-6 relative hover:rotate-0 transition-transform">
+                <div className="font-mono text-[10px] font-black uppercase tracking-widest bg-black text-[#8be9fd] px-2 py-0.5 inline-block w-fit mb-3">
                   TECH ARCHITECT &bull; CODE ENGINE
                 </div>
                 <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-tight leading-none mb-1">
@@ -1474,7 +1438,7 @@ const handleCopyEmail = () => {
               <rect x="36" y="22" width="48" height="24" rx="4" fill="#ffffff" stroke="#000" strokeWidth="3.5" />
               <path d="M 32 18 L 88 18 L 84 22 L 34 22 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
               <rect x="80" y="24" width="8" height="20" rx="2" fill="#000" />
-              <circle cx="84" cy="34" r="3" fill="#c9c9c4" />
+              <circle cx="84" cy="34" r="3" fill="#8be9fd" />
               <circle cx="44" cy="28" r="2.5" fill="#dc2626" className="animate-ping" />
             </g>
           </svg>
@@ -1483,7 +1447,7 @@ const handleCopyEmail = () => {
         {/* Header Title Board with Screws & Ribbon Aesthetics */}
         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto w-full">
           <div className="flex items-center gap-3 mb-4">
-            <div className="bg-[#c9c9c4] text-black border border-black px-6 py-1.5">
+            <div className="bg-[#8be9fd] text-black border border-black px-6 py-1.5">
               <span className="font-anton text-sm sm:text-base uppercase tracking-wider">
                 CLIENT TESTIMONIALS &bull; FOUNDER ENDORSEMENTS
               </span>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Archivo_Black, Space_Grotesk, Inter, Silkscreen, Caveat } from "next/font/google";
+import { Bricolage_Grotesque, Sora, Space_Grotesk, DM_Sans, JetBrains_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 import { SwarmRebuildLauncher } from "../swarm";
 
@@ -10,21 +10,21 @@ const caveat = Caveat({
   display: "swap",
 });
 
-const anton = Anton({
-  weight: "400",
+const anton = Bricolage_Grotesque({
+  weight: ["600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-anton",
   display: "swap",
 });
 
-const archivoBlack = Archivo_Black({
-  weight: "400",
+const archivoBlack = Sora({
+  weight: ["600", "700"],
   subsets: ["latin"],
   variable: "--font-archivo",
   display: "swap",
 });
 
-const silkscreen = Silkscreen({
+const silkscreen = JetBrains_Mono({
   weight: ["400", "700"],
   subsets: ["latin"],
   variable: "--font-pixel",
@@ -38,7 +38,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const inter = Inter({
+const inter = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   weight: ["400", "500", "600", "700"],
