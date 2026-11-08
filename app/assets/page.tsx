@@ -38,7 +38,7 @@ export default function AssetsPage() {
       desc: "Floating eyeball with responsive multi-direction gaze keyframes and 360° rotating star pupil.",
       component: (
         <div className="relative w-24 h-12 bg-white rounded-[50%] border border-black flex items-center justify-center overflow-hidden">
-          <div className="relative w-11 h-11 bg-[#ff7ad9] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
+          <div className="relative w-11 h-11 bg-[#ff8a4c] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
             <svg viewBox="0 0 24 24" className="w-5 h-5 fill-black animate-star-spin">
               <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
             </svg>
@@ -56,12 +56,12 @@ export default function AssetsPage() {
       component: (
         <div className="flex items-center -space-x-2">
           <div className="w-12 h-14 bg-white rounded-[50%] border border-black flex items-center justify-center overflow-hidden">
-            <div className="w-6 h-6 bg-[#efeee9] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
+            <div className="w-6 h-6 bg-[#ff5a1f] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
               <div className="w-2.5 h-2.5 bg-black rounded-full" />
             </div>
           </div>
           <div className="w-12 h-14 bg-white rounded-[50%] border border-black flex items-center justify-center overflow-hidden">
-            <div className="w-6 h-6 bg-[#efeee9] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
+            <div className="w-6 h-6 bg-[#ff5a1f] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
               <div className="w-2.5 h-2.5 bg-black rounded-full" />
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function AssetsPage() {
           <svg width="34" height="40" viewBox="0 0 28 34" fill="none">
             <path
               d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z"
-              fill="#efeee9"
+              fill="#ff5a1f"
               stroke="#000"
               strokeWidth="2.5"
             />
@@ -99,13 +99,13 @@ export default function AssetsPage() {
       desc: "Ceiling mounting flange, braided heavy-duty rope fibers, and iron cleat ring.",
       component: (
         <div className="h-28 w-12 flex flex-col items-center">
-          <div className="w-7 h-3 bg-[#111] border-2 border-[#efeee9] rounded-b-sm flex items-center justify-center">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#efeee9]" />
+          <div className="w-7 h-3 bg-[#111] border-2 border-[#ff5a1f] rounded-b-sm flex items-center justify-center">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#ff5a1f]" />
           </div>
           <div className="w-3 flex-1 bg-[#d8b068] border-x border-black relative overflow-hidden">
             <div className="w-full h-full opacity-60 bg-[repeating-linear-gradient(45deg,#8c5d28,#8c5d28_3px,#f3db98_3px,#f3db98_6px)]" />
           </div>
-          <div className="w-6 h-6 rounded-full border border-black bg-[#efeee9] flex items-center justify-center">
+          <div className="w-6 h-6 rounded-full border border-black bg-[#ff5a1f] flex items-center justify-center">
             <div className="w-2 h-2 rounded-full bg-black" />
           </div>
         </div>
@@ -125,7 +125,7 @@ export default function AssetsPage() {
         >
           <div
             className={`w-6 h-6 rounded-full border border-black transition-all transform ${
-              switchOn ? "translate-x-7 bg-[#efeee9]" : "translate-x-0 bg-white"
+              switchOn ? "translate-x-7 bg-[#ff5a1f]" : "translate-x-0 bg-white"
             }`}
           />
         </div>
@@ -160,15 +160,15 @@ export default function AssetsPage() {
           <svg className="w-full h-full overflow-visible" viewBox="0 0 140 60" fill="none">
             <path
               d="M 10 40 C 35 10, 65 55, 95 20 C 110 5, 120 15, 130 35"
-              stroke="#efeee9"
+              stroke="#ff5a1f"
               strokeWidth="3.5"
               strokeDasharray="6 3"
               strokeLinecap="round"
               fill="none"
             />
-            <polygon points="124 35, 134 38, 131 28" fill="#efeee9" stroke="#000" strokeWidth="1" />
+            <polygon points="124 35, 134 38, 131 28" fill="#ff5a1f" stroke="#000" strokeWidth="1" />
           </svg>
-          <span className="font-handwritten text-lg font-bold text-[#efeee9] absolute -top-1 right-0">Look here!</span>
+          <span className="font-handwritten text-lg font-bold text-[#ff5a1f] absolute -top-1 right-0">Look here!</span>
         </div>
       ),
     },
@@ -180,12 +180,12 @@ export default function AssetsPage() {
       category: "hardware",
       desc: "Retro operating system title bar with control buttons and code console.",
       component: (
-        <div className="w-48 bg-[#161616] border border-black overflow-hidden">
+        <div className="w-48 bg-[#141210] border border-black overflow-hidden">
           <div className="bg-black text-white px-2 py-1 flex items-center justify-between border-b border-black">
-            <span className="font-mono text-[10px] font-bold text-[#efeee9]">bash: ~agency</span>
+            <span className="font-mono text-[10px] font-bold text-[#ff5a1f]">bash: ~agency</span>
             <div className="flex gap-1">
               <span className="w-2 h-2 rounded-full bg-white/40" />
-              <span className="w-2 h-2 rounded-full bg-[#efeee9]" />
+              <span className="w-2 h-2 rounded-full bg-[#ff5a1f]" />
               <span className="w-2 h-2 rounded-full bg-red-500" />
             </div>
           </div>
@@ -224,9 +224,9 @@ export default function AssetsPage() {
           onClick={() => setRadarCount((c) => c + 1)}
           className="relative w-14 h-14 flex items-center justify-center group cursor-pointer"
         >
-          <div className="absolute inset-1 rounded-full border border-white/30 group-hover:border-[#efeee9] group-hover:scale-125 transition-all duration-300" />
-          <div className="absolute inset-3 rounded-full border border-dashed border-[#efeee9] animate-star-spin" />
-          <div className="w-4 h-4 bg-[#efeee9] rounded-full border-2 border-black flex items-center justify-center font-mono text-[8px] font-bold text-black">
+          <div className="absolute inset-1 rounded-full border border-white/30 group-hover:border-[#ff5a1f] group-hover:scale-125 transition-all duration-300" />
+          <div className="absolute inset-3 rounded-full border border-dashed border-[#ff5a1f] animate-star-spin" />
+          <div className="w-4 h-4 bg-[#ff5a1f] rounded-full border-2 border-black flex items-center justify-center font-mono text-[8px] font-bold text-black">
             {radarCount % 10}
           </div>
         </button>
@@ -248,23 +248,23 @@ export default function AssetsPage() {
           <svg width="150" height="95" viewBox="0 0 150 95" fill="none" className="overflow-visible">
             <defs>
               <linearGradient id="ufo-beam-grad" x1="75" y1="36" x2="75" y2="95" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#efeee9" stopOpacity="0.85" />
-                <stop offset="0.6" stopColor="#efeee9" stopOpacity="0.3" />
-                <stop offset="1" stopColor="#efeee9" stopOpacity="0.02" />
+                <stop stopColor="#ff5a1f" stopOpacity="0.85" />
+                <stop offset="0.6" stopColor="#ff5a1f" stopOpacity="0.3" />
+                <stop offset="1" stopColor="#ff5a1f" stopOpacity="0.02" />
               </linearGradient>
             </defs>
             <polygon
               points="60,38 90,38 128,95 22,95"
               fill="url(#ufo-beam-grad)"
-              stroke="#efeee9"
+              stroke="#ff5a1f"
               strokeWidth="1.5"
               strokeDasharray="4 3"
               className="animate-beam-scan origin-top"
             />
-            <path d="M 52 26 C 52 10 98 10 98 26 Z" fill="#8be9fd" stroke="#000" strokeWidth="3" />
+            <path d="M 52 26 C 52 10 98 10 98 26 Z" fill="#ffb347" stroke="#000" strokeWidth="3" />
             <circle cx="75" cy="18" r="3.5" fill="#000" />
             <circle cx="76" cy="17" r="1.2" fill="#fff" />
-            <ellipse cx="75" cy="28" rx="64" ry="12" fill="#efeee9" stroke="#000" strokeWidth="3.5" />
+            <ellipse cx="75" cy="28" rx="64" ry="12" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" />
             <ellipse cx="75" cy="34" rx="32" ry="6" fill="#000" stroke="#000" strokeWidth="2.5" />
             <circle cx="26" cy="28" r="2.5" fill="#000" />
             <circle cx="48" cy="30" r="3" fill="#fff" stroke="#000" strokeWidth="1.5" />
@@ -286,18 +286,18 @@ export default function AssetsPage() {
         <div className="relative flex items-center justify-center">
           <svg width="130" height="90" viewBox="0 0 130 90" fill="none">
             <rect x="53" y="16" width="24" height="42" rx="3" fill="#000" stroke="#000" strokeWidth="2.5" />
-            <rect x="58" y="24" width="14" height="14" rx="2" fill="#efeee9" stroke="#000" strokeWidth="2" />
+            <rect x="58" y="24" width="14" height="14" rx="2" fill="#ff5a1f" stroke="#000" strokeWidth="2" />
             <line x1="58" y1="28" x2="72" y2="28" stroke="#000" strokeWidth="1.5" />
             <line x1="58" y1="34" x2="72" y2="34" stroke="#000" strokeWidth="1.5" />
             <rect x="20" y="4" width="22" height="12" rx="2" fill="#000" stroke="#000" strokeWidth="2" />
-            <path d="M 18 16 L 44 16 L 48 64 L 8 64 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
+            <path d="M 18 16 L 44 16 L 48 64 L 8 64 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
             <rect x="6" y="64" width="44" height="14" rx="3" fill="#000" stroke="#000" strokeWidth="3" />
-            <ellipse cx="28" cy="71" rx="16" ry="4" fill="#8be9fd" />
+            <ellipse cx="28" cy="71" rx="16" ry="4" fill="#ffb347" />
             <ellipse cx="24" cy="70" rx="6" ry="1.5" fill="#fff" />
             <rect x="88" y="4" width="22" height="12" rx="2" fill="#000" stroke="#000" strokeWidth="2" />
-            <path d="M 86 16 L 112 16 L 122 64 L 82 64 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
+            <path d="M 86 16 L 112 16 L 122 64 L 82 64 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
             <rect x="80" y="64" width="44" height="14" rx="3" fill="#000" stroke="#000" strokeWidth="3" />
-            <ellipse cx="102" cy="71" rx="16" ry="4" fill="#8be9fd" />
+            <ellipse cx="102" cy="71" rx="16" ry="4" fill="#ffb347" />
             <ellipse cx="98" cy="70" rx="6" ry="1.5" fill="#fff" />
           </svg>
         </div>
@@ -313,18 +313,18 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center hover:scale-105 transition-transform cursor-pointer">
           <svg width="150" height="60" viewBox="0 0 150 60" fill="none">
-            <path d="M 4 20 L 16 16 L 16 26 Z" fill="#efeee9" stroke="#000" strokeWidth="3" />
-            <path d="M 146 20 L 134 16 L 134 26 Z" fill="#efeee9" stroke="#000" strokeWidth="3" />
+            <path d="M 4 20 L 16 16 L 16 26 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3" />
+            <path d="M 146 20 L 134 16 L 134 26 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3" />
             <path d="M 64 20 Q 75 16 86 20" stroke="#000" strokeWidth="7" strokeLinecap="round" />
-            <path d="M 64 20 Q 75 16 86 20" stroke="#efeee9" strokeWidth="3" strokeLinecap="round" />
-            <path d="M 16 16 L 68 18 L 62 48 C 55 54 25 54 18 44 Z" fill="#0f0f0f" stroke="#000" strokeWidth="4" strokeLinejoin="round" />
+            <path d="M 64 20 Q 75 16 86 20" stroke="#ff5a1f" strokeWidth="3" strokeLinecap="round" />
+            <path d="M 16 16 L 68 18 L 62 48 C 55 54 25 54 18 44 Z" fill="#0a0908" stroke="#000" strokeWidth="4" strokeLinejoin="round" />
             <line x1="28" y1="24" x2="42" y2="44" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
             <line x1="38" y1="24" x2="46" y2="36" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-            <path d="M 82 18 L 134 16 L 132 44 C 125 54 95 54 88 48 Z" fill="#0f0f0f" stroke="#000" strokeWidth="4" strokeLinejoin="round" />
+            <path d="M 82 18 L 134 16 L 132 44 C 125 54 95 54 88 48 Z" fill="#0a0908" stroke="#000" strokeWidth="4" strokeLinejoin="round" />
             <line x1="94" y1="24" x2="108" y2="44" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
             <line x1="104" y1="24" x2="112" y2="36" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-            <path d="M 16 16 L 68 18" stroke="#efeee9" strokeWidth="2.5" />
-            <path d="M 82 18 L 134 16" stroke="#efeee9" strokeWidth="2.5" />
+            <path d="M 16 16 L 68 18" stroke="#ff5a1f" strokeWidth="2.5" />
+            <path d="M 82 18 L 134 16" stroke="#ff5a1f" strokeWidth="2.5" />
           </svg>
         </div>
       ),
@@ -344,10 +344,10 @@ export default function AssetsPage() {
           }`}
         >
           <svg width="110" height="110" viewBox="0 0 110 110" fill="none">
-            <rect x="58" y="68" width="14" height="36" rx="4" transform="rotate(-45 58 68)" fill="#efeee9" stroke="#000" strokeWidth="3.5" />
+            <rect x="58" y="68" width="14" height="36" rx="4" transform="rotate(-45 58 68)" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" />
             <rect x="52" y="62" width="14" height="8" rx="2" transform="rotate(-45 52 62)" fill="#000" stroke="#000" strokeWidth="2" />
             <circle cx="44" cy="44" r="34" fill="#000" stroke="#000" strokeWidth="3.5" />
-            <circle cx="44" cy="44" r="30" fill="#8be9fd" stroke="#000" strokeWidth="2.5" />
+            <circle cx="44" cy="44" r="30" fill="#ffb347" stroke="#000" strokeWidth="2.5" />
             <path d="M 22 34 C 28 22 52 20 62 26" stroke="#fff" strokeWidth="4" strokeLinecap="round" />
             <circle cx="44" cy="44" r="8" stroke="#000" strokeWidth="2" fill="none" strokeDasharray="3 2" />
             <line x1="44" y1="30" x2="44" y2="58" stroke="#000" strokeWidth="1.5" />
@@ -388,13 +388,13 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="120" height="78" viewBox="0 0 120 78" fill="none">
-            <rect x="2" y="2" width="116" height="74" rx="6" fill="#161616" stroke="#000" strokeWidth="3.5" />
-            <rect x="14" y="10" width="92" height="42" rx="3" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
+            <rect x="2" y="2" width="116" height="74" rx="6" fill="#141210" stroke="#000" strokeWidth="3.5" />
+            <rect x="14" y="10" width="92" height="42" rx="3" fill="#ff5a1f" stroke="#000" strokeWidth="2.5" />
             <text x="20" y="16" fill="#000" fontSize="7" fontFamily="monospace" fontWeight="bold">SIDE A: SHIPS 24/7</text>
-            <rect x="30" y="24" width="60" height="22" rx="3" fill="#8be9fd" stroke="#000" strokeWidth="2" />
+            <rect x="30" y="24" width="60" height="22" rx="3" fill="#ffb347" stroke="#000" strokeWidth="2" />
             <circle cx="44" cy="35" r="7" fill="#fff" stroke="#000" strokeWidth="2" />
             <circle cx="76" cy="35" r="7" fill="#fff" stroke="#000" strokeWidth="2" />
-            <path d="M 28 76 L 36 58 L 84 58 L 92 76 Z" fill="#0f0f0f" stroke="#000" strokeWidth="2.5" />
+            <path d="M 28 76 L 36 58 L 84 58 L 92 76 Z" fill="#0a0908" stroke="#000" strokeWidth="2.5" />
           </svg>
         </div>
       ),
@@ -409,7 +409,7 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="86" height="86" viewBox="0 0 86 86" fill="none">
-            <path d="M 4 4 L 74 4 L 82 12 L 82 82 L 4 82 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
+            <path d="M 4 4 L 74 4 L 82 12 L 82 82 L 4 82 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
             <rect x="22" y="4" width="42" height="34" rx="2" fill="#fff" stroke="#000" strokeWidth="2.5" />
             <rect x="32" y="10" width="8" height="18" rx="1.5" fill="#000" />
             <rect x="14" y="44" width="58" height="32" rx="2" fill="#fff" stroke="#000" strokeWidth="2" />
@@ -434,8 +434,8 @@ export default function AssetsPage() {
             <text x="18" y="26" fill="#00ff66" fontSize="8" fontFamily="monospace" fontWeight="bold">&gt; AI_BUILDER</text>
             <text x="18" y="38" fill="#00ff66" fontSize="7" fontFamily="monospace">&gt; READY: 100%</text>
             <rect x="74" y="30" width="5" height="8" fill="#00ff66" className="animate-pulse" />
-            <circle cx="20" cy="70" r="2.5" fill="#efeee9" stroke="#000" strokeWidth="1" />
-            <path d="M 28 78 L 72 78 L 78 86 L 22 86 Z" fill="#161616" stroke="#000" strokeWidth="3" />
+            <circle cx="20" cy="70" r="2.5" fill="#ff5a1f" stroke="#000" strokeWidth="1" />
+            <path d="M 28 78 L 72 78 L 78 86 L 22 86 Z" fill="#141210" stroke="#000" strokeWidth="3" />
           </svg>
         </div>
       ),
@@ -451,14 +451,14 @@ export default function AssetsPage() {
         <div className="relative flex items-center justify-center">
           <svg width="130" height="60" viewBox="0 0 130 60" fill="none">
             <line x1="2" y1="30" x2="128" y2="30" stroke="#000" strokeWidth="8" strokeLinecap="round" />
-            <line x1="2" y1="30" x2="128" y2="30" stroke="#efeee9" strokeWidth="3" strokeDasharray="6 4" strokeLinecap="round" />
-            <circle cx="42" cy="30" r="20" fill="#efeee9" stroke="#000" strokeWidth="4" />
-            <circle cx="42" cy="30" r="14" fill="#0f0f0f" stroke="#000" strokeWidth="2.5" />
-            <circle cx="42" cy="30" r="6" fill="#8be9fd" />
+            <line x1="2" y1="30" x2="128" y2="30" stroke="#ff5a1f" strokeWidth="3" strokeDasharray="6 4" strokeLinecap="round" />
+            <circle cx="42" cy="30" r="20" fill="#ff5a1f" stroke="#000" strokeWidth="4" />
+            <circle cx="42" cy="30" r="14" fill="#0a0908" stroke="#000" strokeWidth="2.5" />
+            <circle cx="42" cy="30" r="6" fill="#ffb347" />
             <rect x="58" y="27" width="14" height="6" rx="2" fill="#000" stroke="#000" strokeWidth="2" />
-            <circle cx="88" cy="30" r="20" fill="#efeee9" stroke="#000" strokeWidth="4" />
-            <circle cx="88" cy="30" r="14" fill="#0f0f0f" stroke="#000" strokeWidth="2.5" />
-            <circle cx="88" cy="30" r="6" fill="#8be9fd" />
+            <circle cx="88" cy="30" r="20" fill="#ff5a1f" stroke="#000" strokeWidth="4" />
+            <circle cx="88" cy="30" r="14" fill="#0a0908" stroke="#000" strokeWidth="2.5" />
+            <circle cx="88" cy="30" r="6" fill="#ffb347" />
           </svg>
         </div>
       ),
@@ -473,9 +473,9 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="100" height="90" viewBox="0 0 100 90" fill="none">
-            <path d="M 18 36 L 82 36 L 90 82 L 10 82 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
+            <path d="M 18 36 L 82 36 L 90 82 L 10 82 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
             <circle cx="50" cy="58" r="16" fill="#fff" stroke="#000" strokeWidth="3" />
-            <circle cx="50" cy="58" r="6" fill="#efeee9" stroke="#000" strokeWidth="2" />
+            <circle cx="50" cy="58" r="6" fill="#ff5a1f" stroke="#000" strokeWidth="2" />
             <path d="M 6 22 C 6 12 28 8 36 18 L 64 18 C 72 8 94 12 94 22 C 94 28 82 28 80 20 L 20 20 C 18 28 6 28 6 22 Z" fill="#000" stroke="#000" strokeWidth="2.5" />
           </svg>
         </div>
@@ -491,11 +491,11 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="90" height="100" viewBox="0 0 90 100" fill="none">
-            <circle cx="45" cy="40" r="28" fill="#8be9fd" fillOpacity="0.4" stroke="#efeee9" strokeWidth="5" />
+            <circle cx="45" cy="40" r="28" fill="#ffb347" fillOpacity="0.4" stroke="#ff5a1f" strokeWidth="5" />
             <circle cx="45" cy="40" r="28" stroke="#000" strokeWidth="2" />
             <path d="M 28 28 C 36 20 54 20 62 28" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
             <circle cx="73" cy="40" r="3" fill="#000" />
-            <path d="M 73 43 C 78 55, 68 70, 72 94" stroke="#efeee9" strokeWidth="2.5" strokeDasharray="4 3" strokeLinecap="round" />
+            <path d="M 73 43 C 78 55, 68 70, 72 94" stroke="#ff5a1f" strokeWidth="2.5" strokeDasharray="4 3" strokeLinecap="round" />
           </svg>
         </div>
       ),
@@ -511,10 +511,10 @@ export default function AssetsPage() {
         <div className="relative flex items-center justify-center">
           <svg width="120" height="80" viewBox="0 0 120 80" fill="none">
             <path d="M 32 44 L 24 74 L 34 74 L 40 44 Z" fill="#000" stroke="#000" strokeWidth="2.5" />
-            <path d="M 24 30 L 78 12 L 78 60 L 24 44 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" />
+            <path d="M 24 30 L 78 12 L 78 60 L 24 44 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" />
             <ellipse cx="78" cy="36" rx="6" ry="24" fill="#e4e4e7" stroke="#000" strokeWidth="3" />
-            <path d="M 90 22 C 96 28 96 44 90 50" stroke="#efeee9" strokeWidth="3.5" strokeLinecap="round" className="animate-pulse" />
-            <path d="M 98 14 C 108 24 108 48 98 58" stroke="#efeee9" strokeWidth="3.5" strokeLinecap="round" className="animate-pulse delay-100" />
+            <path d="M 90 22 C 96 28 96 44 90 50" stroke="#ff5a1f" strokeWidth="3.5" strokeLinecap="round" className="animate-pulse" />
+            <path d="M 98 14 C 108 24 108 48 98 58" stroke="#ff5a1f" strokeWidth="3.5" strokeLinecap="round" className="animate-pulse delay-100" />
           </svg>
         </div>
       ),
@@ -532,12 +532,12 @@ export default function AssetsPage() {
             <line x1="60" y1="52" x2="24" y2="95" stroke="#000" strokeWidth="3.5" strokeLinecap="round" />
             <line x1="60" y1="52" x2="60" y2="95" stroke="#000" strokeWidth="3" strokeLinecap="round" />
             <line x1="60" y1="52" x2="96" y2="95" stroke="#000" strokeWidth="3.5" strokeLinecap="round" />
-            <circle cx="60" cy="52" r="5" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
+            <circle cx="60" cy="52" r="5" fill="#ff5a1f" stroke="#000" strokeWidth="2.5" />
             <g transform="rotate(-30 60 52)">
               <rect x="18" y="47" width="14" height="8" rx="2" fill="#000" stroke="#000" strokeWidth="2" />
-              <rect x="32" y="44" width="70" height="14" rx="3" fill="#efeee9" stroke="#000" strokeWidth="3.5" />
+              <rect x="32" y="44" width="70" height="14" rx="3" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" />
               <rect x="100" y="42" width="16" height="18" rx="2" fill="#000" stroke="#000" strokeWidth="3" />
-              <ellipse cx="116" cy="51" rx="2" ry="9" fill="#8be9fd" />
+              <ellipse cx="116" cy="51" rx="2" ry="9" fill="#ffb347" />
             </g>
           </svg>
         </div>
@@ -555,12 +555,12 @@ export default function AssetsPage() {
           <svg width="120" height="82" viewBox="0 0 120 82" fill="none">
             <line x1="20" y1="14" x2="45" y2="2" stroke="#000" strokeWidth="2.5" strokeLinecap="round" />
             <path d="M 38 14 L 38 6 L 82 6 L 82 14" stroke="#000" strokeWidth="4" strokeLinejoin="round" fill="none" />
-            <rect x="8" y="14" width="104" height="64" rx="6" fill="#161616" stroke="#000" strokeWidth="3.5" />
-            <circle cx="32" cy="48" r="16" fill="#000" stroke="#efeee9" strokeWidth="3" />
-            <circle cx="32" cy="48" r="7" fill="#efeee9" stroke="#000" strokeWidth="2" className="animate-pulse" />
-            <circle cx="88" cy="48" r="16" fill="#000" stroke="#efeee9" strokeWidth="3" />
-            <circle cx="88" cy="48" r="7" fill="#efeee9" stroke="#000" strokeWidth="2" className="animate-pulse" />
-            <rect x="52" y="36" width="16" height="24" rx="2" fill="#efeee9" stroke="#000" strokeWidth="2" />
+            <rect x="8" y="14" width="104" height="64" rx="6" fill="#141210" stroke="#000" strokeWidth="3.5" />
+            <circle cx="32" cy="48" r="16" fill="#000" stroke="#ff5a1f" strokeWidth="3" />
+            <circle cx="32" cy="48" r="7" fill="#ff5a1f" stroke="#000" strokeWidth="2" className="animate-pulse" />
+            <circle cx="88" cy="48" r="16" fill="#000" stroke="#ff5a1f" strokeWidth="3" />
+            <circle cx="88" cy="48" r="7" fill="#ff5a1f" stroke="#000" strokeWidth="2" className="animate-pulse" />
+            <rect x="52" y="36" width="16" height="24" rx="2" fill="#ff5a1f" stroke="#000" strokeWidth="2" />
           </svg>
         </div>
       ),
@@ -597,7 +597,7 @@ export default function AssetsPage() {
       category: "pop-culture",
       desc: "Inverted triangular extraterrestrial face with glossy almond eyes.",
       component: (
-        <div className="relative w-16 h-20 bg-[#efeee9] border border-black rounded-t-[50%] rounded-b-[40%] flex flex-col items-center pt-5">
+        <div className="relative w-16 h-20 bg-[#ff5a1f] border border-black rounded-t-[50%] rounded-b-[40%] flex flex-col items-center pt-5">
           <div className="flex gap-2">
             <div className="w-4 h-7 bg-black rounded-full flex items-start justify-end p-0.5">
               <div className="w-1.5 h-1.5 rounded-full bg-white" />
@@ -621,11 +621,11 @@ export default function AssetsPage() {
         <div className="relative flex flex-col items-center animate-float-bob">
           <svg width="70" height="100" viewBox="0 0 70 100" fill="none">
             <path d="M 27 68 C 22 84 35 96 35 96 C 35 96 48 84 43 68 Z" fill="#ef4444" className="animate-pulse" />
-            <path d="M 30 68 C 28 80 35 88 35 88 C 35 88 42 80 40 68 Z" fill="#efeee9" />
-            <path d="M 23 48 L 8 68 L 23 66 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
-            <path d="M 47 48 L 62 68 L 47 66 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
+            <path d="M 30 68 C 28 80 35 88 35 88 C 35 88 42 80 40 68 Z" fill="#ff5a1f" />
+            <path d="M 23 48 L 8 68 L 23 66 Z" fill="#ff5a1f" stroke="#000" strokeWidth="2.5" />
+            <path d="M 47 48 L 62 68 L 47 66 Z" fill="#ff5a1f" stroke="#000" strokeWidth="2.5" />
             <path d="M 35 4 C 20 24 22 66 22 66 L 48 66 C 48 66 50 24 35 4 Z" fill="#ffffff" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
-            <circle cx="35" cy="30" r="6" fill="#8be9fd" stroke="#000" strokeWidth="2" />
+            <circle cx="35" cy="30" r="6" fill="#ffb347" stroke="#000" strokeWidth="2" />
             <circle cx="37" cy="28" r="2" fill="#fff" />
             <path d="M 35 4 C 30 14 30 18 30 18 L 40 18 C 40 18 40 14 35 4 Z" fill="#dc2626" />
           </svg>
@@ -663,9 +663,9 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-            <path d="M 4 82 Q 25 74 50 82 T 96 82" stroke="#8be9fd" strokeWidth="4" strokeLinecap="round" fill="none" />
-            <path d="M 28 16 L 72 16 L 72 32 L 54 32 L 54 86 L 38 86 L 38 32 L 28 32 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
-            <ellipse cx="72" cy="24" rx="4" ry="8" fill="#8be9fd" stroke="#000" strokeWidth="2" />
+            <path d="M 4 82 Q 25 74 50 82 T 96 82" stroke="#ffb347" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M 28 16 L 72 16 L 72 32 L 54 32 L 54 86 L 38 86 L 38 32 L 28 32 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
+            <ellipse cx="72" cy="24" rx="4" ry="8" fill="#ffb347" stroke="#000" strokeWidth="2" />
             <line x1="70" y1="18" x2="74" y2="30" stroke="#fff" strokeWidth="2" />
             <line x1="38" y1="46" x2="54" y2="46" stroke="#000" strokeWidth="3" />
             <line x1="38" y1="62" x2="54" y2="62" stroke="#000" strokeWidth="3" />
@@ -683,7 +683,7 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="90" height="95" viewBox="0 0 90 95" fill="none">
-            <rect x="15" y="70" width="60" height="18" rx="3" fill="#efeee9" stroke="#000" strokeWidth="3" />
+            <rect x="15" y="70" width="60" height="18" rx="3" fill="#ff5a1f" stroke="#000" strokeWidth="3" />
             <circle cx="23" cy="79" r="2" fill="#000" />
             <circle cx="67" cy="79" r="2" fill="#000" />
             <ellipse cx="45" cy="70" rx="20" ry="7" fill="#000" stroke="#000" strokeWidth="2" />
@@ -712,7 +712,7 @@ export default function AssetsPage() {
             <text x="76" y="66" fill="#dc2626" fontSize="7" fontFamily="monospace" fontWeight="bold">MAX</text>
             <line x1="52" y1="68" x2="72" y2="34" stroke="#dc2626" strokeWidth="2.5" strokeLinecap="round" className="animate-pulse" />
             <circle cx="52" cy="68" r="6" fill="#000" />
-            <circle cx="52" cy="68" r="2" fill="#efeee9" />
+            <circle cx="52" cy="68" r="2" fill="#ff5a1f" />
           </svg>
         </div>
       ),
@@ -728,7 +728,7 @@ export default function AssetsPage() {
         <div className="relative flex items-center justify-center">
           <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
             <polygon points="45,2 41,8 49,8" fill="#dc2626" stroke="#000" strokeWidth="1" />
-            <circle cx="45" cy="48" r="36" fill="#161616" stroke="#000" strokeWidth="4" />
+            <circle cx="45" cy="48" r="36" fill="#141210" stroke="#000" strokeWidth="4" />
             <circle cx="45" cy="48" r="28" fill="#ffffff" stroke="#000" strokeWidth="2.5" />
             {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
               <line
@@ -741,7 +741,7 @@ export default function AssetsPage() {
                 strokeWidth={deg % 90 === 0 ? "2.5" : "1.5"}
               />
             ))}
-            <circle cx="45" cy="48" r="14" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
+            <circle cx="45" cy="48" r="14" fill="#ff5a1f" stroke="#000" strokeWidth="2.5" />
             <rect x="42" y="38" width="6" height="20" rx="1.5" fill="#000" />
           </svg>
         </div>
@@ -757,12 +757,12 @@ export default function AssetsPage() {
       component: (
         <div className="w-36 h-20 bg-black border border-black p-2 flex items-end justify-between">
           {[
-            { h: "h-8", bg: "bg-[#efeee9]" },
-            { h: "h-14", bg: "bg-[#efeee9]" },
-            { h: "h-11", bg: "bg-[#8be9fd]" },
-            { h: "h-16", bg: "bg-[#efeee9]" },
-            { h: "h-6", bg: "bg-[#8be9fd]" },
-            { h: "h-12", bg: "bg-[#efeee9]" },
+            { h: "h-8", bg: "bg-[#ff5a1f]" },
+            { h: "h-14", bg: "bg-[#ff5a1f]" },
+            { h: "h-11", bg: "bg-[#ffb347]" },
+            { h: "h-16", bg: "bg-[#ff5a1f]" },
+            { h: "h-6", bg: "bg-[#ffb347]" },
+            { h: "h-12", bg: "bg-[#ff5a1f]" },
           ].map((bar, i) => (
             <div key={i} className="flex flex-col items-center gap-1 w-3.5">
               <span className="w-full h-1 bg-white animate-pulse" />
@@ -780,16 +780,16 @@ export default function AssetsPage() {
       category: "interactive",
       desc: "Tactile high-security numeric keypad with LED authorization indicator.",
       component: (
-        <div className="bg-[#161616] border border-black p-2.5">
+        <div className="bg-[#141210] border border-black p-2.5">
           <div className="flex items-center justify-between border-b border-white/20 pb-1.5 mb-2">
-            <span className="font-mono text-[8px] text-[#efeee9] font-bold">ACCESS PIN</span>
+            <span className="font-mono text-[8px] text-[#ff5a1f] font-bold">ACCESS PIN</span>
             <span className="w-2 h-2 rounded-full bg-[#00ff66] animate-ping" />
           </div>
           <div className="grid grid-cols-3 gap-1.5">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
               <button
                 key={n}
-                className="w-6 h-6 bg-black hover:bg-[#efeee9] hover:text-black text-white font-mono text-[10px] font-black border border-white/30 flex items-center justify-center transition-colors cursor-pointer"
+                className="w-6 h-6 bg-black hover:bg-[#ff5a1f] hover:text-black text-white font-mono text-[10px] font-black border border-white/30 flex items-center justify-center transition-colors cursor-pointer"
               >
                 {n}
               </button>
@@ -812,9 +812,9 @@ export default function AssetsPage() {
             <path d="M 16 30 L 42 30" stroke="#000" strokeWidth="6" strokeLinecap="round" />
             <g transform="rotate(18 55 35)">
               <rect x="36" y="22" width="48" height="24" rx="4" fill="#ffffff" stroke="#000" strokeWidth="3.5" />
-              <path d="M 32 18 L 88 18 L 84 22 L 34 22 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
+              <path d="M 32 18 L 88 18 L 84 22 L 34 22 Z" fill="#ff5a1f" stroke="#000" strokeWidth="2.5" />
               <rect x="80" y="24" width="8" height="20" rx="2" fill="#000" />
-              <circle cx="84" cy="34" r="3" fill="#8be9fd" />
+              <circle cx="84" cy="34" r="3" fill="#ffb347" />
               <circle cx="44" cy="28" r="2.5" fill="#dc2626" className="animate-ping" />
             </g>
           </svg>
@@ -832,11 +832,11 @@ export default function AssetsPage() {
         <div className="relative flex items-center justify-center">
           <svg width="100" height="96" viewBox="0 0 100 96" fill="none">
             <circle cx="50" cy="46" r="40" fill="#ffffff" stroke="#000" strokeWidth="4" />
-            <rect x="18" y="22" width="64" height="46" rx="23" fill="#efeee9" stroke="#000" strokeWidth="3" />
+            <rect x="18" y="22" width="64" height="46" rx="23" fill="#ff5a1f" stroke="#000" strokeWidth="3" />
             <path d="M 28 32 C 34 26 66 26 72 32" stroke="#fff" strokeWidth="3.5" strokeLinecap="round" />
             <rect x="4" y="38" width="10" height="18" rx="3" fill="#000" />
             <rect x="86" y="38" width="10" height="18" rx="3" fill="#000" />
-            <rect x="30" y="80" width="40" height="12" rx="3" fill="#8be9fd" stroke="#000" strokeWidth="2.5" />
+            <rect x="30" y="80" width="40" height="12" rx="3" fill="#ffb347" stroke="#000" strokeWidth="2.5" />
           </svg>
         </div>
       ),
@@ -851,12 +851,12 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="90" height="110" viewBox="0 0 90 110" fill="none">
-            <rect x="14" y="12" width="62" height="88" rx="6" fill="#161616" stroke="#000" strokeWidth="3.5" />
-            <rect x="22" y="4" width="46" height="8" rx="2" fill="#efeee9" stroke="#000" strokeWidth="2" />
-            <circle cx="45" cy="38" r="14" fill="#000" stroke="#efeee9" strokeWidth="2.5" />
-            <circle cx="45" cy="38" r="8" fill="#8be9fd" />
-            <circle cx="45" cy="74" r="16" fill="#000" stroke="#efeee9" strokeWidth="3" />
-            <circle cx="45" cy="74" r="9" fill="#8be9fd" />
+            <rect x="14" y="12" width="62" height="88" rx="6" fill="#141210" stroke="#000" strokeWidth="3.5" />
+            <rect x="22" y="4" width="46" height="8" rx="2" fill="#ff5a1f" stroke="#000" strokeWidth="2" />
+            <circle cx="45" cy="38" r="14" fill="#000" stroke="#ff5a1f" strokeWidth="2.5" />
+            <circle cx="45" cy="38" r="8" fill="#ffb347" />
+            <circle cx="45" cy="74" r="16" fill="#000" stroke="#ff5a1f" strokeWidth="3" />
+            <circle cx="45" cy="74" r="9" fill="#ffb347" />
             <circle cx="42" cy="71" r="2.5" fill="#fff" />
             <rect x="76" y="52" width="8" height="18" rx="2" fill="#000" />
           </svg>
@@ -904,11 +904,11 @@ export default function AssetsPage() {
               fill="none"
               className="transition-all duration-300"
             />
-            <rect x="10" y="40" width="60" height="50" rx="6" fill="#efeee9" stroke="#000" strokeWidth="4" />
+            <rect x="10" y="40" width="60" height="50" rx="6" fill="#ff5a1f" stroke="#000" strokeWidth="4" />
             <circle cx="40" cy="62" r="5" fill="#000" />
             <polygon points="38,62 42,62 44,74 36,74" fill="#000" />
           </svg>
-          <span className="font-mono text-[9px] uppercase font-bold text-[#efeee9] mt-1">
+          <span className="font-mono text-[9px] uppercase font-bold text-[#ff5a1f] mt-1">
             {lockOpen ? "UNLOCKED" : "CLICK TO UNLOCK"}
           </span>
         </div>
@@ -925,8 +925,8 @@ export default function AssetsPage() {
         <div className="relative flex items-center justify-center">
           <svg width="110" height="90" viewBox="0 0 110 90" fill="none">
             <rect x="12" y="66" width="86" height="18" rx="2" fill="#3f3f46" stroke="#000" strokeWidth="3" />
-            <rect x="24" y="52" width="10" height="14" fill="#efeee9" stroke="#000" strokeWidth="2" />
-            <rect x="76" y="52" width="10" height="14" fill="#efeee9" stroke="#000" strokeWidth="2" />
+            <rect x="24" y="52" width="10" height="14" fill="#ff5a1f" stroke="#000" strokeWidth="2" />
+            <rect x="76" y="52" width="10" height="14" fill="#ff5a1f" stroke="#000" strokeWidth="2" />
             <line x1="29" y1="58" x2="68" y2="24" stroke="#dc2626" strokeWidth="6" strokeLinecap="round" />
             <circle cx="68" cy="24" r="6" fill="#000" stroke="#000" strokeWidth="2" />
             <circle cx="29" cy="58" r="4" fill="#000" />
@@ -946,9 +946,9 @@ export default function AssetsPage() {
           <svg width="120" height="60" viewBox="0 0 120 60" fill="none">
             <polygon points="12,18 36,18 20,42 4,42" fill="#e4e4e7" stroke="#000" strokeWidth="2.5" />
             <line x1="22" y1="26" x2="16" y2="34" stroke="#000" strokeWidth="1.5" />
-            <path d="M 28 20 L 114 20 C 117 20 118 24 116 28 L 110 40 L 24 40 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
+            <path d="M 28 20 L 114 20 C 117 20 118 24 116 28 L 110 40 L 24 40 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
             <rect x="52" y="24" width="14" height="12" rx="2" fill="#000" />
-            <line x1="56" y1="27" x2="62" y2="27" stroke="#efeee9" strokeWidth="1.5" />
+            <line x1="56" y1="27" x2="62" y2="27" stroke="#ff5a1f" strokeWidth="1.5" />
           </svg>
         </div>
       ),
@@ -966,7 +966,7 @@ export default function AssetsPage() {
             <rect x="6" y="20" width="22" height="20" rx="2" fill="#e4e4e7" stroke="#000" strokeWidth="2.5" />
             <rect x="12" y="24" width="4" height="12" fill="#000" />
             <rect x="20" y="24" width="4" height="12" fill="#000" />
-            <path d="M 28 14 L 92 14 L 92 46 L 28 46 Z" fill="#0f0f0f" stroke="#efeee9" strokeWidth="3" />
+            <path d="M 28 14 L 92 14 L 92 46 L 28 46 Z" fill="#0a0908" stroke="#ff5a1f" strokeWidth="3" />
             <line x1="38" y1="30" x2="80" y2="30" stroke="#06b6d4" strokeWidth="2" strokeDasharray="4 2" />
             <circle cx="82" cy="30" r="3" fill="#06b6d4" className="animate-ping" />
           </svg>
@@ -1002,16 +1002,16 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-            <rect x="18" y="18" width="54" height="54" rx="4" fill="#161616" stroke="#000" strokeWidth="3.5" />
-            <rect x="28" y="28" width="34" height="34" rx="2" fill="#efeee9" stroke="#000" strokeWidth="2" />
+            <rect x="18" y="18" width="54" height="54" rx="4" fill="#141210" stroke="#000" strokeWidth="3.5" />
+            <rect x="28" y="28" width="34" height="34" rx="2" fill="#ff5a1f" stroke="#000" strokeWidth="2" />
             <circle cx="24" cy="24" r="2" fill="#fff" />
             <text x="32" y="48" fill="#000" fontSize="9" fontFamily="monospace" fontWeight="black">AI_CORE</text>
             {[24, 34, 44, 54, 64].map((pos) => (
               <React.Fragment key={pos}>
-                <line x1={pos} y1="8" x2={pos} y2="18" stroke="#efeee9" strokeWidth="2.5" />
-                <line x1={pos} y1="72" x2={pos} y2="82" stroke="#efeee9" strokeWidth="2.5" />
-                <line x1="8" y1={pos} x2="18" y2={pos} stroke="#efeee9" strokeWidth="2.5" />
-                <line x1="72" y1={pos} x2="82" y2={pos} stroke="#efeee9" strokeWidth="2.5" />
+                <line x1={pos} y1="8" x2={pos} y2="18" stroke="#ff5a1f" strokeWidth="2.5" />
+                <line x1={pos} y1="72" x2={pos} y2="82" stroke="#ff5a1f" strokeWidth="2.5" />
+                <line x1="8" y1={pos} x2="18" y2={pos} stroke="#ff5a1f" strokeWidth="2.5" />
+                <line x1="72" y1={pos} x2="82" y2={pos} stroke="#ff5a1f" strokeWidth="2.5" />
               </React.Fragment>
             ))}
           </svg>
@@ -1033,8 +1033,8 @@ export default function AssetsPage() {
             <path d="M 12 44 L 68 44 C 72 44 74 47 74 50 L 70 108 C 70 111 67 113 64 113 L 16 113 C 13 113 10 111 10 108 L 6 50 C 6 47 8 44 12 44 Z" fill="#27272a" stroke="#000" strokeWidth="3.5" strokeLinejoin="round" />
             <rect x="18" y="52" width="44" height="20" rx="3" fill="#8c9f7a" stroke="#000" strokeWidth="2" />
             <text x="24" y="65" fill="#000" fontSize="8" fontFamily="monospace" fontWeight="bold">CH: 09</text>
-            <circle cx="28" cy="88" r="8" fill="#161616" stroke="#000" strokeWidth="1.5" />
-            <circle cx="52" cy="88" r="8" fill="#161616" stroke="#000" strokeWidth="1.5" />
+            <circle cx="28" cy="88" r="8" fill="#141210" stroke="#000" strokeWidth="1.5" />
+            <circle cx="52" cy="88" r="8" fill="#141210" stroke="#000" strokeWidth="1.5" />
           </svg>
         </div>
       ),
@@ -1049,9 +1049,9 @@ export default function AssetsPage() {
       component: (
         <div className="relative flex items-center justify-center">
           <svg width="95" height="95" viewBox="0 0 95 95" fill="none">
-            <circle cx="47" cy="47" r="42" fill="#0f0f0f" stroke="#000" strokeWidth="4" />
-            <circle cx="47" cy="47" r="36" fill="#161616" stroke="#efeee9" strokeWidth="2" strokeDasharray="6 3" />
-            <text x="40" y="32" fill="#efeee9" fontSize="8" fontFamily="monospace" fontWeight="bold">KM/H</text>
+            <circle cx="47" cy="47" r="42" fill="#0a0908" stroke="#000" strokeWidth="4" />
+            <circle cx="47" cy="47" r="36" fill="#141210" stroke="#ff5a1f" strokeWidth="2" strokeDasharray="6 3" />
+            <text x="40" y="32" fill="#ff5a1f" fontSize="8" fontFamily="monospace" fontWeight="bold">KM/H</text>
             <text x="34" y="62" fill="#fff" fontSize="16" fontFamily="var(--font-anton)" fontWeight="bold">240</text>
             <line x1="47" y1="47" x2="68" y2="28" stroke="#f97316" strokeWidth="3" strokeLinecap="round" />
             <circle cx="47" cy="47" r="5" fill="#fff" stroke="#000" strokeWidth="1.5" />
@@ -1070,11 +1070,11 @@ export default function AssetsPage() {
         <div className="relative flex items-center justify-center">
           <svg width="85" height="95" viewBox="0 0 85 95" fill="none">
             <rect x="14" y="64" width="56" height="24" rx="4" fill="#000" stroke="#000" strokeWidth="3.5" />
-            <path d="M 20 64 C 20 28 64 28 64 64 Z" fill="#efeee9" stroke="#000" strokeWidth="3.5" />
+            <path d="M 20 64 C 20 28 64 28 64 64 Z" fill="#ff5a1f" stroke="#000" strokeWidth="3.5" />
             <line x1="42" y1="28" x2="42" y2="64" stroke="#000" strokeWidth="2.5" />
             <path d="M 28 36 C 36 32 48 32 56 36" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
-            <path d="M 10 32 L 20 40" stroke="#efeee9" strokeWidth="3" strokeLinecap="round" className="animate-pulse" />
-            <path d="M 74 32 L 64 40" stroke="#efeee9" strokeWidth="3" strokeLinecap="round" className="animate-pulse" />
+            <path d="M 10 32 L 20 40" stroke="#ff5a1f" strokeWidth="3" strokeLinecap="round" className="animate-pulse" />
+            <path d="M 74 32 L 64 40" stroke="#ff5a1f" strokeWidth="3" strokeLinecap="round" className="animate-pulse" />
           </svg>
         </div>
       ),
@@ -1098,7 +1098,7 @@ export default function AssetsPage() {
             <div className="w-full h-1 bg-[#27272a] mx-2" />
             <div
               style={{ left: `${sliderVal}%` }}
-              className="absolute -translate-x-1/2 w-6 h-8 bg-[#efeee9] border border-black rounded-xs flex items-center justify-center cursor-pointer"
+              className="absolute -translate-x-1/2 w-6 h-8 bg-[#ff5a1f] border border-black rounded-xs flex items-center justify-center cursor-pointer"
             >
               <div className="w-1 h-4 bg-black" />
             </div>
@@ -1159,18 +1159,18 @@ export default function AssetsPage() {
   const filtered = activeTab === "all" ? assets : assets.filter((a) => a.category === activeTab);
 
   return (
-    <div className="min-h-screen bg-[#0f0f0f] text-white selection:bg-[#efeee9] selection:text-black">
+    <div className="min-h-screen bg-[#0a0908] text-white selection:bg-[#ff5a1f] selection:text-black">
       {/* Top Navbar Header */}
-      <header className="sticky top-0 z-50 bg-[#0f0f0f]/90 backdrop-blur-md border-b border-[#efeee9] px-4 sm:px-8 py-3.5 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-[#0a0908]/90 backdrop-blur-md border-b border-[#ff5a1f] px-4 sm:px-8 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="bg-[#efeee9] text-black border border-black px-3 py-1 font-anton text-xs sm:text-sm uppercase tracking-wider hover:bg-white transition-colors"
+            className="bg-[#ff5a1f] text-black border border-black px-3 py-1 font-anton text-xs sm:text-sm uppercase tracking-wider hover:bg-white transition-colors"
           >
             ← BACK TO HOME
           </Link>
           <span className="font-anton text-xl sm:text-2xl tracking-wide uppercase text-white">
-            DESIGN SYSTEM &bull; <span className="text-[#efeee9]">ASSETS WORKBENCH</span>
+            DESIGN SYSTEM &bull; <span className="text-[#ff5a1f]">ASSETS WORKBENCH</span>
           </span>
         </div>
 
@@ -1178,17 +1178,17 @@ export default function AssetsPage() {
           <span className="hidden sm:inline-block font-mono text-xs text-gray-400">
             50 CURATED VECTOR ASSETS
           </span>
-          <div className="w-3 h-3 rounded-full bg-[#efeee9] animate-pulse" />
+          <div className="w-3 h-3 rounded-full bg-[#ff5a1f] animate-pulse" />
         </div>
       </header>
 
       {/* Main Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-8 py-10 sm:py-14">
         {/* Intro Hero */}
-        <div className="mb-10 border border-black bg-[#161616] p-6 sm:p-8 relative">
+        <div className="mb-10 border border-black bg-[#141210] p-6 sm:p-8 relative">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs uppercase bg-[#efeee9] text-black font-black px-2 py-0.5 border border-black">
+              <span className="font-mono text-xs uppercase bg-[#ff5a1f] text-black font-black px-2 py-0.5 border border-black">
                 COMPONENT SUITE [50 TOTAL]
               </span>
               <span className="font-mono text-xs text-gray-400">
@@ -1197,7 +1197,7 @@ export default function AssetsPage() {
             </div>
 
             <h1 className="font-anton text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight leading-none text-white">
-              50 BRUTALIST &amp; <span className="text-[#efeee9]">INTERACTIVE ASSETS</span>.
+              50 BRUTALIST &amp; <span className="text-[#ff5a1f]">INTERACTIVE ASSETS</span>.
             </h1>
 
             <p className="text-gray-300 font-sans text-sm sm:text-base max-w-3xl leading-relaxed">
@@ -1220,7 +1220,7 @@ export default function AssetsPage() {
                 onClick={() => setActiveTab(tab.id as typeof activeTab)}
                 className={`font-anton text-xs sm:text-sm uppercase tracking-wider px-3.5 py-1.5 border border-black transition-all cursor-pointer ${
                   activeTab === tab.id
-                    ? "bg-[#efeee9] text-black"
+                    ? "bg-[#ff5a1f] text-black"
                     : "bg-[#27272a] text-gray-300 hover:bg-white hover:text-black"
                 }`}
               >
@@ -1235,12 +1235,12 @@ export default function AssetsPage() {
           {filtered.map((item, index) => (
             <div
               key={item.id}
-              className="bg-[#161616] border border-black p-5 flex flex-col justify-between transition-all group"
+              className="bg-[#141210] border border-black p-5 flex flex-col justify-between transition-all group"
             >
               {/* Header Title */}
               <div>
                 <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-4">
-                  <span className="font-anton text-sm uppercase tracking-wide text-white group-hover:text-[#efeee9] transition-colors">
+                  <span className="font-anton text-sm uppercase tracking-wide text-white group-hover:text-[#ff5a1f] transition-colors">
                     {item.title}
                   </span>
                   <span className="font-mono text-[9px] uppercase tracking-widest bg-white/10 px-2 py-0.5 text-gray-300 border border-white/10">
@@ -1249,7 +1249,7 @@ export default function AssetsPage() {
                 </div>
 
                 {/* Stage Canvas */}
-                <div className="w-full h-36 bg-[#0f0f0f] border border-black flex items-center justify-center p-4 relative overflow-hidden group-hover:border-[#efeee9]/50 transition-colors">
+                <div className="w-full h-36 bg-[#0a0908] border border-black flex items-center justify-center p-4 relative overflow-hidden group-hover:border-[#ff5a1f]/50 transition-colors">
                   {/* Subtle Grid dots */}
                   <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:10px_10px] pointer-events-none" />
                   <div className="relative z-10">{item.component}</div>
@@ -1269,7 +1269,7 @@ export default function AssetsPage() {
 
                 <button
                   onClick={() => copySnippet(`<Asset id="${item.id}" />`, index)}
-                  className="font-mono text-[11px] font-bold uppercase bg-black text-[#efeee9] hover:bg-[#efeee9] hover:text-black border border-black px-2.5 py-1 transition-colors cursor-pointer"
+                  className="font-mono text-[11px] font-bold uppercase bg-black text-[#ff5a1f] hover:bg-[#ff5a1f] hover:text-black border border-black px-2.5 py-1 transition-colors cursor-pointer"
                 >
                   {copiedIndex === index ? "COPIED! ✓" : "COPY TAG"}
                 </button>
@@ -1279,7 +1279,7 @@ export default function AssetsPage() {
         </div>
 
         {/* Footer Guidance */}
-        <div className="mt-14 p-6 bg-[#efeee9] text-black border border-black flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-14 p-6 bg-[#ff5a1f] text-black border border-black flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="font-anton text-2xl uppercase tracking-tight">50 CURATED VECTOR ASSETS READY</h3>
             <p className="font-sans text-xs sm:text-sm font-semibold text-black/85 mt-0.5">

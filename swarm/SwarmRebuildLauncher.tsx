@@ -78,7 +78,7 @@ export default function SwarmRebuildLauncher({
       aria-label="Rebuild website using Swarm Cursors"
       className={
         className ||
-        "fixed bottom-6 left-6 z-40 flex items-center gap-2.5 bg-[#fbda03] text-black font-anton text-xs sm:text-sm uppercase tracking-wider px-4 py-2.5 rounded-full border-[2.5px] border-black shadow-[4px_4px_0_0_#fff] hover:bg-white hover:shadow-[4px_4px_0_0_#fbda03] active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer group select-none"
+        "fixed bottom-6 left-6 z-40 flex items-center gap-2.5 bg-[#f1ebe0] text-[#0a0908] nx-mono text-[11px] px-4 py-2.5 rounded-full border border-[#0a0908]/20 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)] hover:bg-[#ff5a1f] transition-all cursor-pointer group select-none"
       }
     >
       <span className="relative flex h-2.5 w-2.5">
@@ -86,7 +86,7 @@ export default function SwarmRebuildLauncher({
         <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-black" />
       </span>
       <span>{label}</span>
-      <span className="hidden sm:inline-block font-mono text-[10px] font-bold bg-black text-[#fbda03] px-2 py-0.5 rounded-full border border-black">
+      <span className="hidden sm:inline-block font-mono text-[10px] font-bold bg-[#0a0908] text-[#ff5a1f] px-2 py-0.5 rounded-full">
         ⌥⇧S
       </span>
     </button>

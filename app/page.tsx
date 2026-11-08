@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SERVICES_DATA } from "./services/services-data";
 import { ShaderCard, ShaderBackdrop } from "@/components/ui/shader-card";
+import { Rise } from "@/components/ui/rise";
 
 declare global {
   interface Window {
@@ -103,9 +104,9 @@ const handleCopyEmail = () => {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const targets = Array.from(document.querySelectorAll("main > section:not(:first-of-type), main > footer"));
-    targets.forEach((el) => el.classList.add("nhb-reveal"));
+    targets.forEach((el) => el.classList.add("nx-reveal"));
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("nhb-in"); io.unobserve(e.target); } }),
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("nx-in"); io.unobserve(e.target); } }),
       { threshold: 0.08 }
     );
     targets.forEach((el) => io.observe(el));
@@ -220,61 +221,143 @@ const handleCopyEmail = () => {
     },
   ];
 
-  return (
-    <main className="relative min-h-screen w-full bg-[#0f0f0f] text-white flex flex-col items-center justify-start selection:bg-[#efeee9] selection:text-black overflow-x-hidden">
+  const [scrolled, setScrolled] = useState(false);
+  const [activeCap, setActiveCap] = useState(0);
 
-      {/* ============================================================ */}
-      {/* INDUSTRY-GRADE FULLSCREEN SECTION WIPE CURTAIN TRANSITION   */}
-      {/* ============================================================ */}
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const root = document.documentElement;
+        root.style.setProperty("--sy", y + "px");
+        const max = root.scrollHeight - window.innerHeight;
+        root.style.setProperty("--nx-progress", String(max > 0 ? y / max : 0));
+        setScrolled(y > 40);
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const NAV_LINKS = [
+    { label: "WORK", href: "#case-studies" },
+    { label: "STARTUPS & CTO", href: "#startups-cto" },
+    { label: "TEAM", href: "#team" },
+    { label: "TESTIMONIALS", href: "#testimonials" },
+    { label: "REFERRAL [10%]", href: "#referral" },
+  ];
+
+  const capabilities = [
+    {
+      n: "01",
+      title: "WEBSITES & WEB APPS",
+      body: "Full-stack Next.js and React web applications built for speed, SEO domination, and effortless conversion. From interactive landing pages to high-scale SaaS products.",
+      foot: "FLAGSHIP: YOURESTOREHERE",
+      variant: 0,
+    },
+    {
+      n: "02",
+      title: "BESPOKE WEB DESIGN & UI/UX",
+      body: "Bold, unforgettable aesthetics that refuse to blend into corporate mediocrity. Custom typography, micro-interactions, responsive design systems, and brutalist finesse.",
+      foot: "STUDIO: CRAFT & BRANDING",
+      variant: 1,
+    },
+    {
+      n: "03",
+      title: "BUSINESS AUTOMATIONS",
+      body: "Eliminate repetitive human work. Automated lead capture, CRM syncing, AI telephone triage, invoicing pipelines, and instant customer notifications that never sleep.",
+      foot: "FLAGSHIP: CALLER.WORK",
+      variant: 2,
+    },
+    {
+      n: "04",
+      title: "CUSTOM DIGITAL SYSTEMS",
+      body: "Custom integrations, AI copilots, payment setups, database syncing, and specialized tooling tailored to your business needs without vendor lock-in.",
+      foot: "FLAGSHIP: SOUS CHEF",
+      variant: 3,
+    },
+  ];
+
+  const marqueeWords = [
+    "CUSTOM WEBSITES & WEB APPS",
+    "BESPOKE WEB DESIGN & UI/UX",
+    "END-TO-END BUSINESS AUTOMATIONS",
+    "HIGH-SPEED EDGE DEPLOYMENTS",
+    "ZERO-LATENCY API INTEGRATIONS",
+    "FRACTIONAL CTO FOR STARTUPS",
+    "HIGH-CONVERTING DIGITAL SYSTEMS",
+    "RAPID PROTOTYPING & EXECUTION",
+  ];
+
+  const onTilt = (e: React.MouseEvent<HTMLDivElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    e.currentTarget.style.transform = `perspective(1200px) rotateY(${x * 7}deg) rotateX(${-y * 7}deg)`;
+  };
+  const offTilt = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.currentTarget.style.transform = "perspective(1200px) rotateY(0deg) rotateX(0deg)";
+  };
+
+  const cs = caseStudies[activeCaseStudy];
+
+  const sectionLabel = "nx-mono text-[11px] sm:text-xs text-bone-dim flex items-center gap-3";
+
+  return (
+    <main className="relative min-h-screen w-full bg-ink text-bone flex flex-col items-stretch selection:bg-ember selection:text-ink overflow-x-clip">
+      <div className="nx-progress" aria-hidden="true" />
+
+      {/* SECTION WIPE TRANSITION */}
       {isTransitioning && (
         <div
-          className={`fixed inset-0 z-[100] bg-[#efeee9] flex flex-col items-center justify-center p-8 border-y border-black pointer-events-none select-none ${transitionPhase === "in"
-              ? "animate-curtain-wipe-in"
-              : "animate-curtain-wipe-out"
-            }`}
+          className={`fixed inset-0 z-[100] bg-ember flex flex-col items-center justify-center p-8 pointer-events-none select-none ${
+            transitionPhase === "in" ? "animate-curtain-wipe-in" : "animate-curtain-wipe-out"
+          }`}
         >
-          <div className="flex flex-col items-center text-center gap-4">
-            <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-widest bg-black text-[#efeee9] px-4 py-1 border border-black">
-              NEED HELP BUILDING?
-            </span>
-            <h2 className="font-anton text-5xl sm:text-7xl md:text-8xl text-black uppercase tracking-tight leading-none">
-              {wipeTitle || "INITIALIZING..."}
-            </h2>
-            <div className="w-24 h-1.5 bg-black mt-2" />
+          <div className="flex flex-col items-center text-center gap-5">
+            <span className="nx-mono text-xs sm:text-sm text-ink">NEED HELP BUILDING?</span>
+            <h2 className="nx-display text-ink text-5xl sm:text-7xl md:text-8xl">{wipeTitle || "INITIALIZING..."}</h2>
           </div>
         </div>
       )}
 
       {/* ============================================================ */}
-      {/* STICKY MINIMAL NAVIGATION (DARKROOM EDITORIAL STYLE)         */}
+      {/* NAVIGATION                                                   */}
       {/* ============================================================ */}
-      <header className="nhb-glass nhb-nav sticky top-3 z-50 w-[calc(100%-24px)] sm:w-[calc(100%-48px)] max-w-[1400px] mt-3 rounded-full px-5 sm:px-8 h-[64px] grid grid-cols-[1fr_auto_1fr] items-center">
-        {/* Left: uppercase links */}
-        <nav className="hidden lg:flex items-center gap-6">
+      <header
+        className={`fixed top-0 inset-x-0 z-50 h-[72px] px-5 sm:px-10 grid grid-cols-[auto_1fr_auto] items-center gap-6 transition-all duration-500 ${
+          scrolled ? "bg-ink/80 backdrop-blur-xl border-b border-bone/10" : "bg-transparent border-b border-transparent"
+        }`}
+      >
+        <a href="#" className="flex items-center select-none cursor-pointer" aria-label="Need Help Building Home">
+          <Image src="/logo.png" alt="Need Help Building" width={1062} height={482} priority className="h-11 sm:h-12 w-auto" />
+        </a>
+
+        <nav className="hidden lg:flex items-center justify-center gap-9">
           <button
             onClick={() => setServicesMegaMenuOpen(!servicesMegaMenuOpen)}
             onMouseEnter={() => setServicesMegaMenuOpen(true)}
-            className="text-[12px] font-medium tracking-[0.06em] uppercase flex items-center gap-1.5 text-[#efeee9] hover:text-white/60 transition-colors cursor-pointer"
+            className="nx-mono nx-link text-[11px] text-bone flex items-center gap-2 cursor-pointer"
             aria-expanded={servicesMegaMenuOpen}
             aria-label="Toggle all services menu"
           >
             <span>SERVICES</span>
-            <span className={`text-[8px] transition-transform duration-200 ${servicesMegaMenuOpen ? "rotate-180" : ""}`}>▼</span>
+            <span className={`text-[8px] transition-transform duration-300 ${servicesMegaMenuOpen ? "rotate-180" : ""}`}>▼</span>
           </button>
-          {[
-            { label: "WORK", href: "#case-studies" },
-            { label: "STARTUPS & CTO", href: "#startups-cto" },
-            { label: "TEAM", href: "#team" },
-            { label: "TESTIMONIALS", href: "#testimonials" },
-            { label: "REFERRAL [10%]", href: "#referral" },
-          ].map((item) => (
+          {NAV_LINKS.map((item) => (
             <button
               key={item.label}
               onClick={() => {
                 setServicesMegaMenuOpen(false);
                 navigateToSection(item.href, item.label);
               }}
-              className="text-[12px] font-medium tracking-[0.06em] uppercase text-[#efeee9] hover:text-white/60 transition-colors cursor-pointer"
+              className="nx-mono nx-link text-[11px] text-bone cursor-pointer"
             >
               {item.label}
             </button>
@@ -282,28 +365,18 @@ const handleCopyEmail = () => {
         </nav>
         <div className="lg:hidden" />
 
-        {/* Center: logo */}
-        <a
-          href="#"
-          className="flex items-center justify-center select-none cursor-pointer"
-          aria-label="Need Help Building Home"
-        >
-          <Image src="/logo.png" alt="Need Help Building" width={1062} height={482} priority className="h-11 sm:h-12 w-auto" />
-        </a>
-
-        {/* Right: action */}
-        <div className="flex items-center justify-end gap-4 shrink-0">
+        <div className="flex items-center gap-4">
           <button
             data-cal-namespace="needhelpbuilding"
             data-cal-link="need-help-building/needhelpbuilding"
             data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-            className="hidden sm:inline-block bg-white text-black hover:bg-[#c5f200] rounded-full px-5 py-2 text-[12px] font-semibold tracking-[0.06em] uppercase transition-colors cursor-pointer"
+            className="nx-btn nx-btn-solid hidden sm:inline-flex !py-2.5"
           >
             LET&apos;S TALK
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-[12px] font-medium tracking-[0.06em] uppercase text-[#efeee9] cursor-pointer"
+            className="lg:hidden nx-mono text-[11px] text-bone border border-bone/20 rounded-full px-4 py-2 cursor-pointer"
             aria-label="Toggle navigation"
           >
             {mobileMenuOpen ? "CLOSE" : "MENU"}
@@ -311,87 +384,64 @@ const handleCopyEmail = () => {
         </div>
       </header>
 
-      {/* ============================================================ */}
-      {/* DEDICATED FULL-SPECTRUM SERVICES MEGA MENU (DESKTOP MODAL)   */}
-      {/* ============================================================ */}
+      {/* SERVICES MEGA MENU */}
       {servicesMegaMenuOpen && (
         <div
           onMouseEnter={() => setServicesMegaMenuOpen(true)}
           onMouseLeave={() => setServicesMegaMenuOpen(false)}
-          className="fixed inset-x-0 top-[88px] sm:top-[92px] z-40 bg-[#0f0f0f] border-b border-[#efeee9] max-h-[85vh] overflow-y-auto transition-all animate-fadeIn"
+          className="fixed inset-x-0 top-[72px] z-40 bg-ink/95 backdrop-blur-2xl border-b border-bone/10 max-h-[85vh] overflow-y-auto animate-fadeIn"
         >
-          {/* Halftone texture */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px]" />
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-10 flex flex-col gap-8 relative z-10">
-            {/* Header / Intro */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/15 pb-6">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-10 py-10 flex flex-col gap-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 border-b border-bone/10 pb-6">
               <div>
-                <div className="inline-flex items-center gap-2 bg-[#efeee9] text-black px-3 py-1 font-anton text-xs sm:text-sm uppercase tracking-wider mb-2">
-                  FULL-SPECTRUM TECHNICAL CAPABILITIES // 9 DEDICATED DOMAINS
-                </div>
-                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-tight text-white">
-                  EVERYTHING WE BUILD, AUTOMATE & SCALE
-                </h3>
+                <div className="nx-mono text-[11px] text-ember mb-3">FULL-SPECTRUM TECHNICAL CAPABILITIES // 9 DEDICATED DOMAINS</div>
+                <h3 className="nx-display text-3xl sm:text-5xl">EVERYTHING WE BUILD, AUTOMATE &amp; SCALE</h3>
               </div>
-
               <div className="flex items-center gap-3">
                 <a
                   href="https://wa.me/919219061093?text=Hi%20NeedHelpBuilding%20team%2C%20I%20want%20to%20discuss%20a%20project."
                   target="_blank"
                   rel="noreferrer"
-                  className="bg-[#efeee9] text-black border border-black px-4 py-2 font-anton text-xs sm:text-sm uppercase tracking-wider hover:bg-white transition-colors"
+                  className="nx-btn nx-btn-solid !py-2.5"
                 >
                   DISCUSS REQUIREMENTS NOW
                 </a>
-                <button
-                  onClick={() => setServicesMegaMenuOpen(false)}
-                  className="bg-white/10 hover:bg-white hover:text-black border border-white/20 px-3 py-2 font-anton text-xs uppercase text-white transition-colors cursor-pointer"
-                >
+                <button onClick={() => setServicesMegaMenuOpen(false)} className="nx-btn nx-btn-ghost !py-2.5">
                   CLOSE [ESC]
                 </button>
               </div>
             </div>
 
-            {/* 9 Services Grid (3x3 on desktop) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {SERVICES_DATA.map((service, index) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
                   onClick={() => setServicesMegaMenuOpen(false)}
-                  className="group bg-[#161616] hover:bg-[#efeee9] border border-white/20 hover:border-black p-5 flex flex-col justify-between gap-4 transition-all duration-150 hover:-translate-y-1"
+                  className="group rounded-3xl border border-bone/10 bg-ink-2 hover:bg-ember hover:text-ink hover:border-ember p-6 flex flex-col justify-between gap-6 transition-colors duration-500"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-[10px] font-black uppercase tracking-wider text-gray-400 group-hover:text-black/80">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="nx-mono text-[10px] text-bone-dim group-hover:text-ink/70">
                         0{index + 1} // {service.category}
                       </span>
-                      <span className="bg-white/10 group-hover:bg-black text-white group-hover:text-[#efeee9] font-anton text-[10px] px-2 py-0.5 border border-white/20 group-hover:border-black uppercase">
+                      <span className="nx-mono text-[10px] border border-bone/20 group-hover:border-ink/40 rounded-full px-2.5 py-0.5">
                         {service.badge}
                       </span>
                     </div>
-
-                    <h4 className="font-anton text-xl sm:text-2xl uppercase tracking-tight text-white group-hover:text-black leading-tight">
-                      {service.title}
-                    </h4>
-
-                    <p className="text-xs font-semibold text-gray-300 group-hover:text-black/90 mt-2 leading-relaxed">
-                      {service.shortDesc}
-                    </p>
+                    <h4 className="nx-display text-2xl sm:text-3xl leading-[0.95]">{service.title}</h4>
+                    <p className="text-sm text-bone-dim group-hover:text-ink/80 mt-3 leading-relaxed">{service.shortDesc}</p>
                   </div>
-
-                  <div className="pt-3 border-t border-white/10 group-hover:border-black/20 flex items-center justify-between font-anton text-xs uppercase tracking-wider text-[#efeee9] group-hover:text-black">
+                  <div className="pt-4 border-t border-bone/10 group-hover:border-ink/20 flex items-center justify-between nx-mono text-[11px]">
                     <span>VIEW DEDICATED SPECIFICS</span>
-                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                    <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
                   </div>
                 </Link>
               ))}
             </div>
 
-            {/* Bottom quick banner inside mega menu */}
-            <div className="bg-[#161616] border border-white/10 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span className="font-mono text-xs text-gray-300">
+            <div className="rounded-3xl border border-bone/10 bg-ink-2 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span className="text-sm text-bone-dim">
                 ⚡ Not sure which service matches your exact workflow? We configure hybrid end-to-end architectures.
               </span>
               <button
@@ -399,7 +449,7 @@ const handleCopyEmail = () => {
                 data-cal-link="need-help-building/needhelpbuilding"
                 data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                 onClick={() => setServicesMegaMenuOpen(false)}
-                className="bg-white text-black font-anton text-xs uppercase px-4 py-2 border border-black hover:bg-[#efeee9] transition-colors shrink-0"
+                className="nx-btn nx-btn-bone shrink-0 !py-2.5"
               >
                 SCHEDULE ARCHITECTURAL AUDIT
               </button>
@@ -408,34 +458,26 @@ const handleCopyEmail = () => {
         </div>
       )}
 
-
-      {/* FULLSCREEN BRUTALIST MOBILE MENU */}
+      {/* MOBILE MENU */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-[#0f0f0f] flex flex-col justify-between p-6 border border-[#efeee9]">
-          <div className="flex items-center justify-between border-b border-white/20 pb-4">
-            <div className="flex items-center gap-2">
-              <span className="font-anton text-2xl tracking-wider text-[#efeee9]">
-                NEED HELP BUILDING?
-              </span>
-            </div>
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="bg-white text-black font-anton text-sm px-4 py-1.5 border border-black cursor-pointer"
-            >
+        <div className="lg:hidden fixed inset-0 z-[60] bg-ink flex flex-col justify-between p-6 overflow-y-auto">
+          <div className="flex items-center justify-between border-b border-bone/10 pb-4">
+            <Image src="/logo.png" alt="Need Help Building" width={1062} height={482} className="h-11 w-auto" />
+            <button onClick={() => setMobileMenuOpen(false)} className="nx-mono text-[11px] border border-bone/20 rounded-full px-4 py-2 cursor-pointer">
               CLOSE [X]
             </button>
           </div>
 
-          <div className="flex flex-col gap-3 my-auto overflow-y-auto max-h-[60vh] pr-1">
-            <div className="bg-[#efeee9] text-black p-3 border border-black">
-              <span className="font-anton text-lg uppercase block mb-2">SERVICES & SPECIALIZATIONS</span>
-              <div className="grid grid-cols-1 gap-1.5">
+          <div className="flex flex-col gap-2 my-8">
+            <div className="rounded-3xl bg-ember text-ink p-5 mb-3">
+              <span className="nx-mono text-[11px] block mb-3">SERVICES &amp; SPECIALIZATIONS</span>
+              <div className="grid grid-cols-1">
                 {SERVICES_DATA.map((srv) => (
                   <Link
                     key={srv.slug}
                     href={`/services/${srv.slug}`}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-xs font-mono font-black uppercase text-black hover:underline flex items-center justify-between py-1 border-b border-black/20"
+                    className="nx-mono text-xs flex items-center justify-between py-2.5 border-b border-ink/20"
                   >
                     <span>{srv.title}</span>
                     <span>→</span>
@@ -458,75 +500,93 @@ const handleCopyEmail = () => {
                   setMobileMenuOpen(false);
                   navigateToSection(item.href, item.title);
                 }}
-                className="font-anton text-2xl sm:text-3xl text-left py-2.5 px-4 border border-black bg-[#161616] text-white hover:bg-white hover:text-black transition-colors cursor-pointer"
+                className="nx-display text-3xl text-left py-3 border-b border-bone/10 hover:text-ember transition-colors cursor-pointer"
               >
                 {item.label}
               </button>
             ))}
           </div>
 
-          <div className="border-t border-white/20 pt-4 flex flex-col gap-3">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigateToSection("#contact", "WORK WITH US");
-              }}
-              className="w-full bg-[#efeee9] text-black font-anton text-center py-3 text-base border border-black uppercase cursor-pointer"
-            >
-              BOOK A DISCOVERY CALL
-            </button>
-          </div>
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              navigateToSection("#contact", "WORK WITH US");
+            }}
+            className="nx-btn nx-btn-solid w-full"
+          >
+            BOOK A DISCOVERY CALL
+          </button>
         </div>
       )}
 
       {/* ============================================================ */}
-      {/* SECTION 1: HERO — CENTERED SPOTLIGHT, TRACKING-IN HEADLINE   */}
+      {/* 00 HERO                                                      */}
       {/* ============================================================ */}
-      <section className="relative w-full flex flex-col items-center px-4 sm:px-8 lg:px-12 pt-14 sm:pt-24 pb-14 sm:pb-24 overflow-hidden">
-        <div className="nhb-spotlight" aria-hidden="true" />
+      <section className="relative w-full flex flex-col px-5 sm:px-10 pt-28 sm:pt-32 pb-16 sm:pb-24 overflow-hidden">
+        <div
+          className="pointer-events-none absolute -top-40 right-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.22] blur-[120px]"
+          style={{ background: "radial-gradient(circle, #ff5a1f 0%, transparent 65%)" }}
+          aria-hidden="true"
+        />
 
-        <h1 className="nhb-hero-title relative font-anton uppercase text-[#f7f6f5] text-center leading-[0.95] select-none text-[clamp(44px,9.5vw,168px)]">
-          NEED HELP
-          <br />
-          BUILDING?
+        <h1 className="nx-display relative text-bone text-[clamp(38px,8.5vw,152px)]">
+          <span className="nx-hero-line block overflow-hidden pb-[0.07em]">
+            <span style={{ animationDelay: "0.1s" }}>NEED HELP</span>
+          </span>
+          <span className="nx-hero-line block overflow-hidden pb-[0.07em]">
+            <span style={{ animationDelay: "0.25s" }}>
+              BUILDING<span className="text-ember">?</span>
+            </span>
+          </span>
         </h1>
 
-        <p className="nhb-fade-up relative mt-8 text-center text-[#f7f6f5]/70 text-sm sm:text-lg max-w-3xl font-medium leading-relaxed" style={{ animationDelay: "0.9s" }}>
-          We build websites, custom web designs, business automations, and intelligent digital systems. From high-converting storefronts and custom web applications to automated operations that run your business on autopilot.
-        </p>
+        <div className="relative mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+          <p className="nx-fade lg:col-span-5 text-bone-dim text-base sm:text-lg leading-relaxed max-w-xl" style={{ animationDelay: "0.7s" }}>
+            We build websites, custom web designs, business automations, and intelligent digital systems. From high-converting storefronts and custom web applications to automated operations that run your business on autopilot.
+          </p>
 
-        <div className="nhb-fade-up relative mt-8 flex flex-col sm:flex-row items-center gap-3" style={{ animationDelay: "1.1s" }}>
-          <button
-            onClick={() => setServicesFullscreenOpen(true)}
-            aria-label="Open services menu"
-            className="group flex items-center justify-center gap-2 bg-white hover:bg-[#c5f200] text-black rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] transition-colors cursor-pointer w-full sm:w-auto"
-          >
-            <span>VIEW SERVICES</span>
-            <span className="text-base group-hover:rotate-45 transition-transform duration-200">↗</span>
-          </button>
-          <button
-            onClick={() => navigateToSection("#contact", "WORK WITH US")}
-            className="nhb-glass flex items-center justify-center gap-2 text-white hover:bg-white/15 rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] transition-colors cursor-pointer w-full sm:w-auto"
-          >
-            <span>{isBooked ? "WE GOT YOUR SPOT!" : "BOOK NOW"}</span>
-            <span className="text-base">→</span>
-          </button>
+          <div className="nx-fade lg:col-span-5 flex flex-col sm:flex-row gap-3" style={{ animationDelay: "0.85s" }}>
+            <button onClick={() => setServicesFullscreenOpen(true)} aria-label="Open services menu" className="nx-btn nx-btn-solid group">
+              <span>VIEW SERVICES</span>
+              <span className="transition-transform duration-300 group-hover:rotate-45">↗</span>
+            </button>
+            <button onClick={() => navigateToSection("#contact", "WORK WITH US")} className="nx-btn nx-btn-ghost">
+              <span>{isBooked ? "WE GOT YOUR SPOT!" : "BOOK NOW"}</span>
+              <span>→</span>
+            </button>
+          </div>
+
+          <div className="nx-fade hidden lg:flex lg:col-span-2 justify-end" style={{ animationDelay: "1s" }} aria-hidden="true">
+            <div className="relative w-28 h-28">
+              <svg viewBox="0 0 120 120" className="nx-spin absolute inset-0 w-full h-full">
+                <defs>
+                  <path id="nx-circ" d="M 60,60 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" />
+                </defs>
+                <text className="nx-mono" fontSize="10.5" fill="#f1ebe0" letterSpacing="3.2">
+                  <textPath href="#nx-circ">SCROLL • SCROLL • SCROLL • SCROLL •</textPath>
+                </text>
+              </svg>
+              <span className="absolute inset-0 flex items-center justify-center text-ember text-2xl">↓</span>
+            </div>
+          </div>
         </div>
 
-        {/* Showcase: shader stage with blended hero art */}
-        <div className="nhb-fade-up relative mt-14 sm:mt-20 w-full max-w-6xl aspect-[16/10] sm:aspect-[16/8] overflow-hidden rounded-[28px] sm:rounded-[36px] bg-black border border-white/10" style={{ animationDelay: "1.3s" }}>
+        {/* Stage */}
+        <div className="nx-fade relative mt-14 sm:mt-20 w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden rounded-[28px] sm:rounded-[40px] bg-ink-2 border border-bone/10" style={{ animationDelay: "1.1s" }}>
           <ShaderBackdrop variant={0} />
-          <Image
-            src="/hero.png"
-            alt="NEED HELP BUILDING? — systems, automations and web apps"
-            fill
-            priority
-            sizes="(min-width: 1152px) 1152px, 100vw"
-            className="object-cover mix-blend-multiply"
-          />
-          <div className="absolute left-3 bottom-3 sm:left-6 sm:bottom-6 flex flex-wrap gap-2 max-w-[calc(100%-24px)]">
+          <div className="absolute inset-[-10%]" style={{ transform: "translateY(calc(var(--sy) * -0.07))" }}>
+            <Image
+              src="/hero.png"
+              alt="NEED HELP BUILDING? — systems, automations and web apps"
+              fill
+              priority
+              sizes="(min-width: 1280px) 1400px, 100vw"
+              className="object-cover object-[50%_30%] mix-blend-multiply"
+            />
+          </div>
+          <div className="absolute left-4 bottom-4 sm:left-8 sm:bottom-8 flex flex-wrap gap-2 max-w-[calc(100%-32px)]">
             {["WEBSITES", "WEB DESIGN", "AUTOMATIONS", "SYSTEMS"].map((label) => (
-              <span key={label} className="nhb-glass rounded-full px-3.5 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.1em] text-white">
+              <span key={label} className="nx-mono text-[10px] sm:text-xs text-bone bg-ink/70 backdrop-blur-md border border-bone/15 rounded-full px-4 py-2">
                 {label}
               </span>
             ))}
@@ -535,113 +595,438 @@ const handleCopyEmail = () => {
       </section>
 
       {/* ============================================================ */}
-      {/* TICKER MARQUEE BAR                                           */}
+      {/* MARQUEE                                                      */}
       {/* ============================================================ */}
-      <div className="w-full bg-white/[0.03] text-white/90 border-y border-white/10 backdrop-blur py-4 overflow-hidden whitespace-nowrap select-none font-anton text-2xl tracking-wider flex items-center shadow-lg">
-        <div className="animate-marquee flex items-center gap-8">
-          {[
-            "CUSTOM WEBSITES & WEB APPS",
-            "•",
-            "BESPOKE WEB DESIGN & UI/UX",
-            "•",
-            "END-TO-END BUSINESS AUTOMATIONS",
-            "•",
-            "HIGH-SPEED EDGE DEPLOYMENTS",
-            "•",
-            "ZERO-LATENCY API INTEGRATIONS",
-            "•",
-            "FRACTIONAL CTO FOR STARTUPS",
-            "•",
-            "HIGH-CONVERTING DIGITAL SYSTEMS",
-            "•",
-            "RAPID PROTOTYPING & EXECUTION",
-            "•",
-            "CUSTOM WEBSITES & WEB APPS",
-            "•",
-            "BESPOKE WEB DESIGN & UI/UX",
-            "•",
-            "END-TO-END BUSINESS AUTOMATIONS",
-            "•",
-            "HIGH-SPEED EDGE DEPLOYMENTS",
-            "•",
-            "ZERO-LATENCY API INTEGRATIONS",
-            "•",
-            "FRACTIONAL CTO FOR STARTUPS",
-            "•",
-            "HIGH-CONVERTING DIGITAL SYSTEMS",
-            "•",
-            "RAPID PROTOTYPING & EXECUTION",
-            "•",
-          ].map((text, i) => (
-            <span key={i} className="cursor-default">
-              {text}
-            </span>
+      <div className="w-full border-y border-bone/10 py-6 sm:py-8 overflow-hidden select-none flex flex-col gap-3">
+        <div className="nx-marquee">
+          {[0, 1].map((dup) => (
+            <div key={dup} className="flex items-center shrink-0">
+              {marqueeWords.map((t, i) => (
+                <span key={`${dup}-${i}`} className={`nx-display text-[clamp(34px,6vw,96px)] whitespace-nowrap pr-8 sm:pr-14 ${i % 2 ? "nx-outline" : "text-bone"}`}>
+                  {t}
+                  <span className="text-ember"> •</span>
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </div>
 
       {/* ============================================================ */}
-      {/* SECTION 2: WHAT WE BUILD (CLEAN BRUTALIST PINBOARD)          */}
+      {/* 01 CAPABILITIES — ACCORDION                                  */}
       {/* ============================================================ */}
-      <section id="capabilities" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 flex flex-col gap-12">
-        <div className="flex flex-col gap-3">
-          <div className="inline-flex items-center gap-2 bg-white text-black px-3 py-1 border border-black font-anton text-lg tracking-wide w-fit">
-            OUR CORE CAPABILITIES
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <h2 className="font-anton text-5xl sm:text-7xl leading-[0.9] uppercase tracking-tight">
-              WEBSITES. BESPOKE DESIGNS. AUTOMATIONS.
+      <section id="capabilities" className="relative w-full max-w-[1400px] mx-auto px-5 sm:px-10 py-24 lg:py-36 flex flex-col gap-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+          <div className="lg:col-span-8 flex flex-col gap-6">
+            <div className={sectionLabel}>
+              <span className="text-ember">(01)</span>
+              <span>OUR CORE CAPABILITIES</span>
+            </div>
+            <h2 className="nx-display text-[clamp(28px,4.5vw,82px)]">
+              <Rise>WEBSITES.</Rise>
+              <Rise delay={120}>BESPOKE DESIGNS.</Rise>
+              <Rise delay={240}>
+                <span className="text-ember">AUTOMATIONS.</span>
+              </Rise>
             </h2>
-            <button
-              onClick={() => setServicesMegaMenuOpen(true)}
-              className="bg-[#efeee9] text-black border border-black px-5 py-2 font-anton text-sm uppercase tracking-wider hover:bg-white transition-colors cursor-pointer w-fit"
-            >
+          </div>
+          <div className="lg:col-span-4 flex flex-col gap-6 items-start">
+            <p className="text-bone-dim text-base leading-relaxed">
+              From award-winning web design and lightning-fast web applications to bespoke automations that run your entire back-office on autopilot. We turn complex ideas into live, revenue-generating digital realities.
+            </p>
+            <button onClick={() => setServicesMegaMenuOpen(true)} className="nx-btn nx-btn-ghost">
               EXPLORE ALL 9 SERVICES MEGA MENU ↗
             </button>
           </div>
-          <p className="text-gray-300 text-base sm:text-lg max-w-3xl font-medium">
-            From award-winning web design and lightning-fast web applications to bespoke automations that run your entire back-office on autopilot. We turn complex ideas into live, revenue-generating digital realities.
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-3 lg:h-[600px]">
+          {capabilities.map((c, i) => {
+            const on = activeCap === i;
+            return (
+              <div
+                key={c.n}
+                onMouseEnter={() => setActiveCap(i)}
+                onClick={() => setActiveCap(i)}
+                className={`nx-acc relative overflow-hidden rounded-[28px] border border-bone/10 bg-ink-2 cursor-pointer ${
+                  on ? "lg:flex-[5] min-h-[440px]" : "lg:flex-[1] min-h-[96px]"
+                }`}
+              >
+                {on && (
+                  <div className="absolute inset-0 nx-fade" style={{ animationDuration: "0.8s" }}>
+                    <ShaderBackdrop variant={c.variant} />
+                    <div className="absolute inset-0 bg-ink/55" />
+                  </div>
+                )}
+
+                {/* collapsed (desktop) */}
+                {!on && (
+                  <div className="hidden lg:flex absolute inset-0 flex-col items-center justify-between py-7 px-3">
+                    <span className="nx-display text-3xl text-bone-dim">{c.n}</span>
+                    <span className="nx-mono text-[11px] text-bone [writing-mode:vertical-rl] rotate-180 whitespace-nowrap">{c.title}</span>
+                  </div>
+                )}
+                {/* collapsed (mobile) */}
+                {!on && (
+                  <div className="lg:hidden flex items-center justify-between px-6 h-[96px]">
+                    <span className="nx-display text-lg sm:text-2xl pr-3">{c.title}</span>
+                    <span className="nx-display text-xl sm:text-2xl text-bone-dim shrink-0">{c.n}</span>
+                  </div>
+                )}
+
+                {on && (
+                  <div className="relative z-10 h-full min-h-[440px] flex flex-col justify-between p-7 sm:p-10 nx-fade" style={{ animationDelay: "0.15s" }}>
+                    <span className="nx-display text-6xl sm:text-8xl text-bone/90">{c.n}</span>
+                    <div className="flex flex-col gap-5 max-w-xl">
+                      <h3 className="nx-display text-3xl sm:text-5xl leading-[0.95]">{c.title}</h3>
+                      <p className="text-bone/85 text-sm sm:text-base leading-relaxed">{c.body}</p>
+                      <div className="pt-4 border-t border-bone/20 nx-mono text-[11px] text-bone/80">{c.foot}</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 02 CASE STUDIES — EDITORIAL STAGE                            */}
+      {/* ============================================================ */}
+      <section id="case-studies" className="relative w-full max-w-[1400px] mx-auto px-5 sm:px-10 py-24 lg:py-36 border-t border-bone/10 flex flex-col gap-14">
+        <div className="flex flex-col gap-6">
+          <div className={sectionLabel}>
+            <span className="text-ember">(02)</span>
+            <span>FLAGSHIP CASE STUDIES</span>
+          </div>
+          <h2 className="nx-display text-[clamp(28px,4.5vw,82px)]">
+            <Rise>PROVEN SYSTEMS</Rise>
+            <Rise delay={120}>
+              IN THE <span className="text-ember">WILD</span>
+            </Rise>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+          {/* Project index */}
+          <div className="lg:col-span-4 flex flex-col lg:sticky lg:top-28 self-start">
+            {caseStudies.map((item, idx) => {
+              const on = activeCaseStudy === idx;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveCaseStudy(idx)}
+                  onMouseEnter={() => setActiveCaseStudy(idx)}
+                  className={`group text-left py-6 border-t border-bone/10 last:border-b flex items-start gap-5 cursor-pointer transition-colors duration-500 ${
+                    on ? "text-bone" : "text-bone/35 hover:text-bone/70"
+                  }`}
+                >
+                  <span className={`nx-mono text-xs pt-2 ${on ? "text-ember" : ""}`}>0{idx + 1}</span>
+                  <span className="flex flex-col gap-3 flex-1">
+                    <span className="nx-display text-[clamp(16px,1.35vw,24px)] leading-[1] [overflow-wrap:anywhere]">{item.name}</span>
+                    <span className="nx-mono text-[10px] flex flex-wrap items-center gap-3">
+                      <span>{item.tag}</span>
+                      <span className={`rounded-full px-2.5 py-0.5 border ${on ? "border-ember text-ember" : "border-current"}`}>{item.badge}</span>
+                    </span>
+                  </span>
+                  <span className={`text-xl pt-1 transition-transform duration-500 ${on ? "translate-x-0 text-ember" : "-translate-x-2 opacity-0 group-hover:opacity-60 group-hover:translate-x-0"}`}>→</span>
+                </button>
+              );
+            })}
+
+            <div className="flex items-center gap-3 pt-6">
+              <button
+                onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
+                aria-label="Previous project"
+                className="w-12 h-12 rounded-full border border-bone/20 hover:bg-bone hover:text-ink flex items-center justify-center transition-colors cursor-pointer"
+              >
+                ←
+              </button>
+              <button
+                onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
+                aria-label="Next project"
+                className="w-12 h-12 rounded-full border border-bone/20 hover:bg-bone hover:text-ink flex items-center justify-center transition-colors cursor-pointer"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          {/* Stage */}
+          <div key={cs.id} className="lg:col-span-8 flex flex-col gap-8 nx-fade" style={{ animationDuration: "0.8s" }}>
+            <div className="relative overflow-hidden rounded-[32px] sm:rounded-[44px] border border-bone/10 bg-ink-2 aspect-[4/3] sm:aspect-[16/10]">
+              <ShaderBackdrop variant={activeCaseStudy + 1} />
+              <div
+                className="absolute inset-0 flex items-center justify-center p-5 sm:p-12"
+                onMouseMove={onTilt}
+                onMouseLeave={offTilt}
+              >
+                <div className="nx-tilt relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_40px_90px_-30px_rgba(0,0,0,0.85)] border border-bone/15 bg-ink">
+                  <Image src={cs.image} alt={`${cs.name} Screenshot`} fill sizes="(min-width: 1024px) 800px, 100vw" className="object-cover" />
+                </div>
+              </div>
+              <div className="absolute left-5 top-5 sm:left-8 sm:top-8 nx-mono text-[10px] text-bone bg-ink/70 backdrop-blur-md border border-bone/15 rounded-full px-4 py-2">
+                {cs.statusNote}
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+              <div className="flex flex-col gap-3 max-w-2xl">
+                <span className="nx-mono text-[10px] text-bone-dim">APPLICATION PREVIEW &amp; REPOSITORY STATUS</span>
+                <h3 className="nx-display text-2xl sm:text-4xl leading-[1]">{cs.headline}</h3>
+              </div>
+              {cs.link ? (
+                <a href={cs.link} target="_blank" rel="noreferrer" className="nx-btn nx-btn-solid shrink-0">
+                  <span>OPEN LIVE APPLICATION</span>
+                  <span>↗</span>
+                </a>
+              ) : (
+                <span className="nx-mono text-[11px] border border-ember text-ember rounded-full px-5 py-3 shrink-0">IN DEVELOPMENT PROTOTYPE</span>
+              )}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-bone/10">
+              <div className="flex flex-col gap-3">
+                <span className="nx-mono text-[10px] text-ember">THE BOTTLENECK / CHALLENGE</span>
+                <p className="text-bone/85 leading-relaxed">{cs.problem}</p>
+              </div>
+              <div className="flex flex-col gap-3">
+                <span className="nx-mono text-[10px] text-ember">ARCHITECTURE &amp; SOLUTION DEPLOYED</span>
+                <p className="text-bone/85 leading-relaxed">{cs.solution}</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4 pt-8 border-t border-bone/10">
+              <span className="nx-mono text-[10px] text-ember">KEY APPLICATION MODULES DELIVERED</span>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                {cs.deliverables.map((del, i) => (
+                  <li key={i} className="flex items-start gap-3 py-3 border-b border-bone/10 text-sm text-bone/85">
+                    <span className="text-ember">✓</span>
+                    <span>{del}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex flex-col gap-4 pt-8 border-t border-bone/10">
+              <span className="nx-mono text-[10px] text-ember">VERIFIED METRICS &amp; PRODUCTION IMPACT</span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {cs.impactStats.map((stat, i) => (
+                  <div key={i} className="flex flex-col gap-2">
+                    <span className="nx-display text-4xl sm:text-5xl text-bone">{stat.value}</span>
+                    <span className="nx-mono text-[10px] text-bone-dim">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 03 STARTUPS & CTO                                            */}
+      {/* ============================================================ */}
+      <section id="startups-cto" className="relative w-full max-w-[1400px] mx-auto px-5 sm:px-10 py-24 lg:py-36 border-t border-bone/10 flex flex-col gap-14">
+        <div className="flex flex-col gap-8">
+          <div className={`${sectionLabel} flex-wrap`}>
+            <span className="text-ember">(03)</span>
+            <span>EQUITY // CTO CO-PILOT</span>
+            <span className="border border-bone/20 rounded-full px-3 py-1 text-bone">AGENCY CTO &bull; EQUITY PARTNERSHIP PROGRAM</span>
+          </div>
+          <h3 className="nx-display text-[clamp(30px,6vw,108px)]">
+            <Rise>WE BECOME YOUR</Rise>
+            <Rise delay={120}>
+              <span className="text-ember">TECHNICAL <span className="whitespace-nowrap">CO-FOUNDER</span></span>
+            </Rise>
+            <Rise delay={240}>&amp; CTO.</Rise>
+          </h3>
+          <p className="nx-mono text-xs sm:text-sm text-bone-dim">ZERO UPFRONT TECH RISK &bull; SPLIT RUNWAY &bull; SHARED EQUITY</p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="lg:col-span-7 rounded-[32px] border border-bone/10 bg-ink-2 p-7 sm:p-10 flex flex-col gap-8">
+            <div className="flex items-center justify-between">
+              <span className="nx-mono text-[11px] text-bone-dim">CO-FOUNDER OPERATING MODEL</span>
+              <span className="nx-mono text-[10px] text-ink bg-ember rounded-full px-3 py-1">ACTIVE</span>
+            </div>
+            <p className="nx-display !normal-case !tracking-[-0.025em] !leading-[1.1] !font-bold text-2xl sm:text-3xl">
+              You bring the market vision and customer distribution. We engineer the entire tech apparatus, from high-converting frontends to autonomous backend infrastructure.
+            </p>
+            <p className="text-bone-dim leading-relaxed max-w-2xl">
+              Instead of bleeding seed money on unreliable freelance contractors or taking 8 months to hire a CTO, our elite agency team steps in as your dedicated in-house technical co-founder. We split development costs and align long-term incentives via an agreed equity percentage.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 rounded-[32px] bg-ember text-ink p-7 sm:p-10 flex flex-col gap-6">
+            <div className="flex items-center justify-between">
+              <span className="nx-mono text-[11px]">SUNDAY PITCH SLOT</span>
+              <span className="nx-mono text-[10px] border border-ink/40 rounded-full px-3 py-1">4 SLOTS LEFT</span>
+            </div>
+            <h4 className="nx-display text-4xl sm:text-5xl leading-[0.92]">PITCHING HAPPENS EVERY SUNDAY.</h4>
+            <p className="text-sm sm:text-base leading-relaxed text-ink/85">
+              Every Sunday, our founding engineering team reviews pitches from early-stage founders. If selected, we enter a 14-day sprint to scope, design, and deploy your product into market as your technical partner.
+            </p>
+            <ul className="flex flex-col nx-mono text-[11px]">
+              {["PITCH DECK OR PRODUCT SCOPE", "CO-FOUNDER DETAILS & RUNWAY", "PROPOSED EQUITY SPLIT RANGE"].map((t) => (
+                <li key={t} className="flex items-center gap-3 py-3 border-b border-ink/20">
+                  <span>✓</span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="mailto:hello@needhelpbuilding.com?subject=Startup%20CTO%20Equity%20Pitch&body=Hi%20NeedHelpBuilding%20Team%2C%0A%0AWe%20would%20love%20to%20pitch%20our%20startup%20for%20the%20Sunday%20session.%0A%0AStartup%20Name%3A%20%0AFounder(s)%3A%20%0AWebsite%2FDeck%20Link%3A%20%0AWhat%20we're%20building%3A%20"
+              className="nx-btn bg-ink text-bone hover:bg-bone hover:text-ink w-full"
+            >
+              PITCH YOUR STARTUP VIA EMAIL
+            </a>
+            <div className="flex flex-wrap items-center justify-between gap-2 nx-mono text-[10px]">
+              <span>INSTANT REVIEW:</span>
+              <span className="underline">HELLO@NEEDHELPBUILDING.COM</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { num: "01", title: "EQUITY SHARE", desc: "We invest our engineering capabilities directly for skin in the game. True alignment.", v: 0 },
+            { num: "02", title: "COST SPLIT", desc: "Shared operational expenditure ensures you extend runway without compromising code quality.", v: 3 },
+            { num: "03", title: "FULL STACK", desc: "Web apps, internal tooling, edge databases, UI/UX, and AI automations fully managed.", v: 5 },
+          ].map((p) => (
+            <ShaderCard key={p.num} variant={p.v} className="min-h-[300px]">
+              <span className="nx-mono text-[11px] text-bone/80">{p.num}. PILLAR</span>
+              <h4 className="nx-display text-3xl sm:text-4xl mt-auto mb-3">{p.title}</h4>
+              <p className="text-sm text-bone/85 leading-relaxed">{p.desc}</p>
+            </ShaderCard>
+          ))}
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 04 TEAM                                                      */}
+      {/* ============================================================ */}
+      <section id="team" className="relative w-full max-w-[1400px] mx-auto px-5 sm:px-10 py-24 lg:py-36 border-t border-bone/10 flex flex-col gap-14">
+        <div className="flex flex-col gap-6">
+          <div className={`${sectionLabel} flex-wrap`}>
+            <span className="text-ember">(04)</span>
+            <span>04 &bull; MEET THE BUILDERS &bull; NO CORPORATE FLUFF</span>
+          </div>
+          <h2 className="nx-display text-[clamp(28px,4.5vw,82px)]">
+            <Rise>THE FOUNDING DUO</Rise>
+            <Rise delay={120}>
+              BEHIND <span className="text-ember">EVERY BUILD</span>.
+            </Rise>
+          </h2>
+        </div>
+
+        <div className="relative overflow-hidden rounded-[32px] sm:rounded-[44px] border border-bone/10 bg-ink-2 aspect-[4/3] sm:aspect-[16/8]">
+          <ShaderBackdrop variant={4} />
+          <div className="absolute inset-0" style={{ transform: "translateY(calc(var(--sy) * -0.015))" }}>
+            <Image
+              src="/team.png"
+              alt="Divy Shukla (Sales) & Suyash (Tech) - Need Help Building Founders"
+              fill
+              sizes="(min-width: 1400px) 1320px, 100vw"
+              className="object-cover object-top grayscale contrast-110 mix-blend-multiply"
+            />
+          </div>
+          <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 bg-gradient-to-t from-ink/90 to-transparent">
+            <span className="nx-mono text-[11px] text-bone">← That&apos;s Divy!</span>
+            <span className="nx-mono text-[11px] text-ember hidden sm:inline">⚡ Divy hunts the revenue &bull; Suyash ships the production code</span>
+            <span className="nx-mono text-[11px] text-bone">That&apos;s Suyash! →</span>
+          </div>
+        </div>
+        <p className="sm:hidden nx-mono text-[11px] text-ember -mt-6">⚡ Divy hunts the revenue &bull; Suyash ships the production code</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {
+              role: "SALES • DEAL ARCHITECTURE",
+              name: "DIVY SHUKLA",
+              quote: "“The Sales Guy Who Never Takes No For An Answer”",
+              bio: "Turns ambiguous founder ideas into signed contracts, clears enterprise roadblocks, and scopes high-margin distribution channels before the first line of code is committed.",
+              tags: ["#Distribution", "#Pipelines", "#Growth"],
+            },
+            {
+              role: "TECH ARCHITECT • CODE ENGINE",
+              name: "SUYASH",
+              quote: "“The Tech Guy Who Ships Code While You Sleep”",
+              bio: "Full-stack systems architect, agentic AI hacker, and automation builder. Turns complex logic, APIs, and real-time databases into blazing-fast web engines with zero fluff.",
+              tags: ["#FullStack", "#AutonomousAI", "#NextJS"],
+            },
+          ].map((m) => (
+            <div key={m.name} className="rounded-[32px] border border-bone/10 bg-ink-2 p-7 sm:p-10 flex flex-col gap-6 hover:border-ember/60 transition-colors duration-500">
+              <span className="nx-mono text-[11px] text-ember">{m.role}</span>
+              <h3 className="nx-display text-5xl sm:text-6xl">{m.name}</h3>
+              <p className="nx-display !normal-case text-xl sm:text-2xl !tracking-[-0.02em] !leading-tight text-bone/90">{m.quote}</p>
+              <p className="text-bone-dim leading-relaxed">{m.bio}</p>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {m.tags.map((t) => (
+                  <span key={t} className="nx-mono text-[10px] border border-bone/20 rounded-full px-3 py-1.5">{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="nx-mono text-[11px] text-bone-dim text-center">DIRECT PARTNERSHIP &bull; 0 MIDDLEMEN &bull; ZERO OUTSOURCING</p>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 05 TESTIMONIALS                                              */}
+      {/* ============================================================ */}
+      <section id="testimonials" className="relative w-full max-w-[1400px] mx-auto px-5 sm:px-10 py-24 lg:py-36 border-t border-bone/10 flex flex-col gap-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+          <div className="lg:col-span-8 flex flex-col gap-6">
+            <div className={`${sectionLabel} flex-wrap`}>
+              <span className="text-ember">(05)</span>
+              <span>CLIENT TESTIMONIALS &bull; FOUNDER ENDORSEMENTS</span>
+            </div>
+            <h2 className="nx-display text-[clamp(28px,4.5vw,82px)]">
+              <Rise>PROOF IN</Rise>
+              <Rise delay={120}>
+                <span className="text-ember">PRODUCTION.</span>
+              </Rise>
+            </h2>
+          </div>
+          <p className="lg:col-span-4 text-bone-dim leading-relaxed">
+            Real feedback from startup founders and operators who trusted us to build and engineer their core digital systems.
           </p>
         </div>
 
-        {/* SHADER CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {[
             {
-              n: "01",
-              title: "WEBSITES & WEB APPS",
-              body: "Full-stack Next.js and React web applications built for speed, SEO domination, and effortless conversion. From interactive landing pages to high-scale SaaS products.",
-              foot: "FLAGSHIP: YOURESTOREHERE",
-              variant: 0,
+              stars: "★★★★★",
+              tag: "VERIFIED FOUNDER",
+              quote: "“NeedHelpBuilding turned our concept into a high-performance web platform in record time. Their architectural clarity, speed of execution, and attention to user flow made a massive impact on our early traction.”",
+              name: "JAY AGRAWAL",
+              role: "CO-FOUNDER @ GANGES",
+              initials: "G",
+              v: 1,
             },
             {
-              n: "02",
-              title: "BESPOKE WEB DESIGN & UI/UX",
-              body: "Bold, unforgettable aesthetics that refuse to blend into corporate mediocrity. Custom typography, micro-interactions, responsive design systems, and brutalist finesse.",
-              foot: "STUDIO: CRAFT & BRANDING",
-              variant: 1,
+              stars: "★★★★★",
+              tag: "CO-FOUNDER PARTNER",
+              quote: "“Partnering with them gave us the technical muscle of an elite engineering team without the startup friction. From intuitive UI/UX design to rock-solid automations, they delivered exactly what Earnbuddy needed to scale.”",
+              name: "ARINJAY SAXENA",
+              role: "CO-FOUNDER @ EARNBUDDY",
+              initials: "EB",
+              v: 2,
             },
-            {
-              n: "03",
-              title: "BUSINESS AUTOMATIONS",
-              body: "Eliminate repetitive human work. Automated lead capture, CRM syncing, AI telephone triage, invoicing pipelines, and instant customer notifications that never sleep.",
-              foot: "FLAGSHIP: CALLER.WORK",
-              variant: 4,
-            },
-            {
-              n: "04",
-              title: "CUSTOM DIGITAL SYSTEMS",
-              body: "Custom integrations, AI copilots, payment setups, database syncing, and specialized tooling tailored to your business needs without vendor lock-in.",
-              foot: "FLAGSHIP: SOUS CHEF",
-              variant: 3,
-            },
-          ].map((c) => (
-            <ShaderCard key={c.n} variant={c.variant} className="min-h-[360px]">
-              <span className="font-anton text-4xl text-white/90">{c.n}</span>
-              <h3 className="font-anton text-2xl uppercase mt-3 mb-3 leading-none">{c.title}</h3>
-              <p className="text-sm font-medium leading-relaxed text-gray-100 flex-grow">{c.body}</p>
-              <div className="mt-5 pt-3 border-t border-white/20 font-anton text-xs tracking-wider text-gray-200">
-                {c.foot}
+          ].map((t) => (
+            <ShaderCard key={t.name} variant={t.v} className="min-h-[460px]" innerClassName="!p-8 sm:!p-12 justify-between gap-10">
+              <div className="flex items-center justify-between">
+                <span className="text-ember tracking-[0.3em] text-lg">{t.stars}</span>
+                <span className="nx-mono text-[10px] border border-bone/25 rounded-full px-3 py-1.5">{t.tag}</span>
+              </div>
+              <p className="nx-display !normal-case !tracking-[-0.025em] !leading-[1.08] text-2xl sm:text-3xl !font-semibold text-bone">{t.quote}</p>
+              <div className="flex items-center gap-4">
+                <span className="w-14 h-14 rounded-full bg-ember text-ink flex items-center justify-center nx-display text-lg">{t.initials}</span>
+                <div className="flex flex-col gap-1">
+                  <span className="nx-display text-xl">{t.name}</span>
+                  <span className="nx-mono text-[10px] text-bone-dim">{t.role}</span>
+                </div>
               </div>
             </ShaderCard>
           ))}
@@ -649,1106 +1034,97 @@ const handleCopyEmail = () => {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 3: IN-DEPTH CASE STUDIES (CLEAN & POWERFUL)          */}
+      {/* 06 REFERRAL                                                  */}
       {/* ============================================================ */}
-      <section id="case-studies" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 border-t border-white/20 flex flex-col gap-10">
-
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-[#efeee9] text-black px-3 py-1 border border-black font-anton text-lg tracking-wide w-fit mb-3">
-              FLAGSHIP CASE STUDIES
-            </div>
-            <h2 className="font-anton text-5xl sm:text-7xl uppercase tracking-tight">
-              PROVEN SYSTEMS IN THE WILD
-            </h2>
+      <section id="referral" className="relative w-full max-w-[1400px] mx-auto px-5 sm:px-10 py-24 lg:py-36 border-t border-bone/10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-6 flex flex-col gap-8">
+          <div className={`${sectionLabel} flex-wrap`}>
+            <span className="text-ember">(06)</span>
+            <span>EXCLUSIVE TO PREVIOUS &amp; EXISTING CLIENTS</span>
           </div>
-
-          <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
-            <div className="flex sm:hidden items-center gap-1.5 mr-1">
-              <button
-                onClick={() => setActiveCaseStudy((activeCaseStudy - 1 + caseStudies.length) % caseStudies.length)}
-                aria-label="Previous project"
-                className="w-9 h-9 bg-[#efeee9] text-black border border-black flex items-center justify-center font-bold cursor-pointer"
-              >
-                ◀
-              </button>
-              <button
-                onClick={() => setActiveCaseStudy((activeCaseStudy + 1) % caseStudies.length)}
-                aria-label="Next project"
-                className="w-9 h-9 bg-[#efeee9] text-black border border-black flex items-center justify-center font-bold cursor-pointer"
-              >
-                ▶
-              </button>
-            </div>
-
-            {caseStudies.map((cs, idx) => (
-              <button
-                key={cs.id}
-                onClick={() => setActiveCaseStudy(idx)}
-                className={`px-3 sm:px-4 py-2 font-anton text-xs sm:text-sm uppercase tracking-wider border border-black transition-colors cursor-pointer ${activeCaseStudy === idx
-                  ? "bg-[#efeee9] text-black"
-                  : "bg-[#161616] text-gray-300 hover:text-white hover:border-[#efeee9]"
-                  }`}
-              >
-                {cs.name}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* ============================================================ */}
-        {/* INTERACTIVE RETINA LAPTOP OS WORKSTATION                    */}
-        {/* ============================================================ */}
-        {(() => {
-          const cs = caseStudies[activeCaseStudy];
-          return (
-            <div className="relative w-full flex flex-col items-center">
-              
-              {/* LAPTOP CHASSIS & BEZEL */}
-              <div className="w-full max-w-6xl flex flex-col items-center select-none">
-                
-                {/* 1. LAPTOP TOP DISPLAY ENCLOSURE */}
-                <div className="relative w-full bg-[#121212] border sm:border border-black rounded-t-2xl sm:rounded-t-3xl pt-3 px-3 sm:pt-4 sm:px-4 pb-2">
-                  
-                  {/* Top Display Bezel: Camera Notch & Sensors */}
-                  <div className="w-full flex items-center justify-between pb-2.5 px-2">
-                    {/* Window Controls */}
-                    <div className="flex items-center gap-2">
-                      <span className="w-3 h-3 rounded-full bg-[#ff5f56] border border-black inline-block" />
-                      <span className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-black inline-block" />
-                      <span className="w-3 h-3 rounded-full bg-[#27c93f] border border-black inline-block" />
-                    </div>
-
-                    {/* Centered Retina Webcam Assembly */}
-                    <div className="flex items-center gap-2 bg-[#000] px-3 py-1 rounded-full border border-white/20 shadow-inner">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#1e293b] border border-[#38bdf8] flex items-center justify-center">
-                        <span className="w-1 h-1 rounded-full bg-[#0284c7]" />
-                      </span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    </div>
-
-                    {/* Machine Brand Badge */}
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-[10px] font-black uppercase tracking-wider text-black bg-[#efeee9] px-2 py-0.5 border border-black">
-                        NHB // STUDIO BOOK M3
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* 2. LAPTOP ACTIVE OS SCREEN */}
-                  <div className="relative w-full min-h-[560px] sm:min-h-[640px] lg:min-h-[680px] bg-[#0f0f0f] border border-black rounded-lg overflow-hidden flex flex-col">
-                    
-                    {/* Top OS Menu Bar */}
-                    <div className="w-full bg-[#1c1c1f] border-b border-black px-3 py-1.5 flex items-center justify-between text-xs font-mono font-bold text-gray-300">
-                      <div className="flex items-center gap-3 sm:gap-5">
-                        <span className="text-[#efeee9] font-anton text-sm sm:text-base tracking-wider">
-                          NHB.OS
-                        </span>
-                        <span className="hidden sm:inline text-white">File</span>
-                        <span className="hidden sm:inline text-white">Edit</span>
-                        <span className="hidden sm:inline text-white">View</span>
-                        <span className="hidden md:inline text-white">Window</span>
-                        <span className="text-gray-400">Project: <strong className="text-white uppercase">{cs.name}</strong></span>
-                      </div>
-                      <div className="flex items-center gap-3 text-[11px]">
-                        <span className="hidden sm:inline text-emerald-400">● ONLINE</span>
-                        <span className="text-gray-400">BATTERY 100%</span>
-                        <span className="bg-black/60 px-2 py-0.5 border border-white/10 text-white font-mono">
-                          OCT 18 19:30
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* WORKSTATION DESKTOP ENVIRONMENT */}
-                    <div className="relative flex-1 bg-[#161616] p-3 sm:p-6 flex flex-col justify-between overflow-hidden">
-                      {/* Subtle desktop wallpaper pattern */}
-                      <div className="absolute inset-0 pointer-events-none opacity-10 bg-[radial-gradient(#efeee9_1px,transparent_1px)] [background-size:20px_20px]" />
-                      
-                      {/* TOP: APPLICATION TABS BAR (CHOOSE DIFFERENT BUILT APPLICATIONS) */}
-                      <div className="relative z-10 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-                        <span className="font-mono text-xs font-black text-black bg-[#efeee9] px-2.5 py-1.5 border border-black uppercase tracking-wider shrink-0">
-                          SYSTEM APPS:
-                        </span>
-                        {caseStudies.map((item, idx) => (
-                          <button
-                            key={item.id}
-                            onClick={() => {
-                              setActiveCaseStudy(idx);
-                              setActiveAppView("app");
-                            }}
-                            className={`px-3 sm:px-4 py-1.5 font-anton text-xs sm:text-sm uppercase tracking-wider border border-black transition-all cursor-pointer shrink-0 flex items-center gap-2 ${
-                              activeCaseStudy === idx
-                                ? "bg-white text-black -translate-y-0.5"
-                                : "bg-black/60 text-gray-300 hover:bg-black hover:text-white"
-                            }`}
-                          >
-                            <span
-                              className="w-2.5 h-2.5 rounded-full border border-black inline-block"
-                              style={{ backgroundColor: item.color }}
-                            />
-                            <span>{item.name}</span>
-                          </button>
-                        ))}
-                      </div>
-
-                      {/* MIDDLE: THE APPLICATION WORKSTATION WINDOW */}
-                      <div className="relative z-10 flex-1 my-3 bg-[#0f0f0f] border border-black flex flex-col overflow-hidden">
-                        
-                        {/* Application Window Title Bar + Dual File Selector */}
-                        <div className="bg-[#27272a] border-b border-black p-2 sm:px-4 flex flex-wrap items-center justify-between gap-2">
-                          {/* Left: App Title and Status */}
-                          <div className="flex items-center gap-2">
-                            <span className="font-anton text-sm sm:text-base text-white tracking-wider uppercase">
-                              {cs.name} // WORKSPACE
-                            </span>
-                            <span
-                              className="text-[10px] font-mono font-black uppercase px-2 py-0.5 border border-black"
-                              style={{ backgroundColor: cs.color, color: "#000" }}
-                            >
-                              {cs.badge}
-                            </span>
-                          </div>
-
-                          {/* Center/Right: THE TWO REQUIRED FILES (APPLICATION & CASE STUDY.TXT) */}
-                          <div className="flex items-center gap-1.5 sm:gap-2">
-                            {/* File 1: Application File */}
-                            <button
-                              onClick={() => setActiveAppView("app")}
-                              className={`px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider border border-black flex items-center gap-1.5 transition-all cursor-pointer ${
-                                activeAppView === "app"
-                                  ? "bg-[#efeee9] text-black"
-                                  : "bg-[#161616] text-gray-300 hover:text-white"
-                              }`}
-                            >
-                              <span>⚡</span>
-                              <span>{cs.name}.APP</span>
-                            </button>
-
-                            {/* File 2: Case Study.txt */}
-                            <button
-                              onClick={() => setActiveAppView("case-study")}
-                              className={`px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider border border-black flex items-center gap-1.5 transition-all cursor-pointer ${
-                                activeAppView === "case-study"
-                                  ? "bg-white text-black"
-                                  : "bg-[#161616] text-gray-300 hover:text-white"
-                              }`}
-                            >
-                              <span>📄</span>
-                              <span>CASE-STUDY.TXT</span>
-                            </button>
-                          </div>
-                        </div>
-
-                        {/* File Content Workspace */}
-                        <div className="flex-1 p-3 sm:p-6 overflow-y-auto max-h-[460px] sm:max-h-[500px]">
-                          
-                          {/* VIEW 1: THE RUNNING APPLICATION VIEW */}
-                          {activeAppView === "app" && (
-                            <div className="w-full flex flex-col gap-6 animate-fadeIn">
-                              {/* Application Live Bar */}
-                              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#161616] border border-white/20 p-3 sm:px-4">
-                                <div>
-                                  <span className="font-mono text-xs text-gray-400 font-bold uppercase block">
-                                    APPLICATION PREVIEW & REPOSITORY STATUS
-                                  </span>
-                                  <h4 className="font-anton text-xl sm:text-2xl text-white uppercase mt-0.5">
-                                    {cs.headline}
-                                  </h4>
-                                </div>
-                                <div>
-                                  {cs.link ? (
-                                    <a
-                                      href={cs.link}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                      className="inline-flex items-center gap-2 bg-[#efeee9] hover:bg-white text-black border border-black px-4 py-2 font-anton text-xs sm:text-sm uppercase tracking-wider transition-colors"
-                                    >
-                                      <span>OPEN LIVE APPLICATION</span>
-                                      <span>↗</span>
-                                    </a>
-                                  ) : (
-                                    <span className="inline-flex items-center gap-2 bg-black text-[#efeee9] border border-black px-4 py-1.5 font-anton text-xs uppercase tracking-wider">
-                                      <span className="w-2 h-2 rounded-full bg-[#efeee9] animate-ping" />
-                                      <span>IN DEVELOPMENT PROTOTYPE</span>
-                                    </span>
-                                  )}
-                                </div>
-                              </div>
-
-                              {/* Application Interactive Frame / Mockup */}
-                              <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] bg-[#050505] border border-black rounded overflow-hidden flex items-center justify-center">
-                                <Image
-                                  src={cs.image}
-                                  alt={`${cs.name} Screenshot`}
-                                  fill
-                                  className="object-cover object-top"
-                                />
-
-                                {/* Sous Chef Center Overlay */}
-                                {cs.id === "sous-chef" && (
-                                  <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex flex-col items-center justify-center p-4 z-20">
-                                    <div className="relative w-24 sm:w-32 h-12 sm:h-16 bg-white rounded-[50%] border border-black flex items-center justify-center overflow-hidden">
-                                      <div className="relative w-10 sm:w-14 h-10 sm:h-14 bg-[#efeee9] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
-                                        <svg viewBox="0 0 24 24" className="w-5 sm:w-7 h-5 sm:h-7 fill-black animate-star-spin">
-                                          <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
-                                        </svg>
-                                      </div>
-                                    </div>
-                                    <span className="mt-3 bg-black text-[#efeee9] font-anton text-xs sm:text-sm px-3 py-1 border border-[#efeee9] uppercase tracking-wider">
-                                      SOUS CHEF KITCHEN OS // ACTIVE DEV
-                                    </span>
-                                  </div>
-                                )}
-                              </div>
-
-                              {/* Deliverables quick grid */}
-                              <div className="bg-[#161616] border border-black p-4">
-                                <span className="font-mono text-xs font-bold text-[#efeee9] uppercase tracking-wider block mb-2">
-                                  KEY APPLICATION MODULES DELIVERED:
-                                </span>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                  {cs.deliverables.map((del, i) => (
-                                    <div key={i} className="flex items-start gap-2 text-xs font-bold text-gray-200">
-                                      <span className="text-[#efeee9]">✓</span>
-                                      <span>{del}</span>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          )}
-
-                          {/* VIEW 2: THE CASE STUDY.TXT FILE VIEW */}
-                          {activeAppView === "case-study" && (
-                            <div className="w-full bg-[#050505] text-[#34d399] border border-black p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed shadow-inner animate-fadeIn">
-                              <div className="flex items-center justify-between border-b border-emerald-900/50 pb-2 mb-4 text-[11px] text-gray-400">
-                                <span>FILENAME: /case-studies/{cs.id}/CASE-STUDY.TXT</span>
-                                <span>ENCODING: UTF-8 // VERIFIED</span>
-                              </div>
-
-                              <div className="flex flex-col gap-5 text-gray-300">
-                                <div>
-                                  <span className="text-[#efeee9] font-bold block mb-1">
-                                    // 1. EXECUTIVE SUMMARY & OBJECTIVE:
-                                  </span>
-                                  <p className="text-white pl-3 border-l-2 border-[#efeee9]">
-                                    {cs.name} — {cs.headline}. Target Domain: {cs.tag}. Production Status: {cs.statusNote}.
-                                  </p>
-                                </div>
-
-                                <div>
-                                  <span className="text-[#f87171] font-bold block mb-1">
-                                    // 2. THE BOTTLENECK / CHALLENGE:
-                                  </span>
-                                  <p className="pl-3 border-l-2 border-[#f87171] text-gray-300">
-                                    {cs.problem}
-                                  </p>
-                                </div>
-
-                                <div>
-                                  <span className="text-[#60a5fa] font-bold block mb-1">
-                                    // 3. ARCHITECTURE & SOLUTION DEPLOYED:
-                                  </span>
-                                  <p className="pl-3 border-l-2 border-[#60a5fa] text-gray-300">
-                                    {cs.solution}
-                                  </p>
-                                </div>
-
-                                <div>
-                                  <span className="text-[#efeee9] font-bold block mb-1">
-                                    // 4. VERIFIED METRICS & PRODUCTION IMPACT:
-                                  </span>
-                                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pl-3 pt-1">
-                                    {cs.impactStats.map((stat, i) => (
-                                      <div key={i} className="bg-black/60 border border-white/10 p-2.5">
-                                        <div className="text-xl sm:text-2xl font-anton text-[#efeee9] leading-none">
-                                          {stat.value}
-                                        </div>
-                                        <div className="text-[10px] text-gray-400 uppercase mt-1">
-                                          {stat.label}
-                                        </div>
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
-
-                                <div className="pt-2 text-xs text-gray-400 border-t border-emerald-900/40 flex items-center justify-between">
-                                  <span>STATUS: APPROVED FOR PRODUCTION DEPLOYMENT</span>
-                                  <span className="text-[#efeee9]">END OF FILE</span>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-
-                        </div>
-                      </div>
-
-                      {/* BOTTOM: OS DOCK BAR */}
-                      <div className="relative z-10 w-fit mx-auto bg-black/80 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-2 flex items-center gap-3 shadow-xl">
-                        {caseStudies.map((item, idx) => (
-                          <button
-                            key={item.id}
-                            onClick={() => {
-                              setActiveCaseStudy(idx);
-                              setActiveAppView("app");
-                            }}
-                            title={item.name}
-                            className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-black flex items-center justify-center font-anton text-xs transition-all cursor-pointer ${
-                              activeCaseStudy === idx
-                                ? "scale-110"
-                                : "hover:scale-105 opacity-80"
-                            }`}
-                            style={{ backgroundColor: item.color, color: "#000" }}
-                          >
-                            <span>{item.name.slice(0, 2)}</span>
-                            {activeCaseStudy === idx && (
-                              <span className="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-white shadow" />
-                            )}
-                          </button>
-                        ))}
-                      </div>
-
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* 3. LAPTOP DISPLAY HINGE */}
-                <div className="w-[32%] sm:w-[28%] h-3 sm:h-4 bg-[#09090b] border-x border-b border-black -mt-[1px] rounded-b-md shadow-inner z-10" />
-
-                {/* 4. LAPTOP LOWER CHASSIS & BASE KEYBOARD DECK */}
-                <div className="relative w-[104%] sm:w-[106%] -mt-1 h-5 sm:h-6 bg-[#e4e4e7] border border-black rounded-b-2xl flex items-center justify-center overflow-hidden">
-                  {/* Thumb opening groove */}
-                  <div className="w-20 sm:w-28 h-2 sm:h-2.5 bg-[#71717a] border-x border-b border-black rounded-b-sm shadow-inner" />
-                  {/* Highlights */}
-                  <div className="absolute inset-x-0 top-0 h-[2px] bg-white opacity-90" />
-                  <div className="absolute left-6 top-1/2 -translate-y-1/2 w-3 h-1 bg-black/40 rounded-full" />
-                  <div className="absolute right-6 top-1/2 -translate-y-1/2 w-3 h-1 bg-black/40 rounded-full" />
-                </div>
-
-              </div>
-
-            </div>
-          );
-        })()}
-      </section>
-
-      {/* ============================================================ */}
-      {/* SECTION 4: STARTUPS & AGENCY CTO (EQUITY PARTNERSHIP)        */}
-      {/* ============================================================ */}
-      <section id="startups-cto" className="relative w-full max-w-7xl px-4 sm:px-8 py-20 lg:py-28 flex flex-col gap-12 overflow-hidden">
-
-        {/* Ambient Subtle Tech Watermark Asset: Silicon Microchip in Background */}
-        <div className="absolute -right-8 top-12 opacity-10 pointer-events-none select-none hidden lg:block">
-          <svg width="220" height="220" viewBox="0 0 90 90" fill="none">
-            <rect x="18" y="18" width="54" height="54" rx="4" fill="#161616" stroke="#fff" strokeWidth="2" />
-            <rect x="28" y="28" width="34" height="34" rx="2" fill="#efeee9" stroke="#000" strokeWidth="2" />
-            {[24, 34, 44, 54, 64].map((pos) => (
-              <React.Fragment key={pos}>
-                <line x1={pos} y1="8" x2={pos} y2="18" stroke="#efeee9" strokeWidth="2" />
-                <line x1={pos} y1="72" x2={pos} y2="82" stroke="#efeee9" strokeWidth="2" />
-                <line x1="8" y1={pos} x2="18" y2={pos} stroke="#efeee9" strokeWidth="2" />
-                <line x1="72" y1={pos} x2="82" y2={pos} stroke="#efeee9" strokeWidth="2" />
-              </React.Fragment>
-            ))}
-          </svg>
-        </div>
-
-        {/* Graffiti Street Tag Overlay in CTO section */}
-        <div className="absolute top-12 left-6 pointer-events-none opacity-75 hidden sm:block select-none">
-          <span className="font-pixel text-[#efeee9] text-sm tracking-widest bg-black px-2.5 py-1 border-2 border-black">
-            EQUITY // CTO CO-PILOT
-          </span>
-        </div>
-
-        {/* Signboard Header Assembly */}
-        <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto w-full">
-          {/* Signboard Top Badge with Eye Asset */}
-          <div className="flex items-center gap-3 mb-4">
-            <div className="relative bg-[#efeee9] text-black border border-black px-6 py-2">
-              <span className="font-anton text-base sm:text-lg uppercase tracking-wider flex items-center gap-2">
-                <span className="w-2.5 h-2.5 bg-black rounded-full animate-pulse" />
-                AGENCY CTO &bull; EQUITY PARTNERSHIP PROGRAM
-              </span>
-            </div>
-
-            {/* ILLUMINATING EYE ASSET IN STARTUP CTO */}
-            <div className="relative w-14 sm:w-16 h-7 sm:h-8 hidden sm:flex items-center justify-center select-none pointer-events-none">
-              <div className="relative w-14 sm:w-16 h-7 sm:h-8 bg-white rounded-[50%] border border-black flex items-center justify-center overflow-hidden">
-                <div className="relative w-5 h-5 bg-[#ff7ad9] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
-                  <svg viewBox="0 0 24 24" className="w-3 h-3 fill-black animate-star-spin">
-                    <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Abstract Signboard Plaque with Flat Screws */}
-          <div className="relative w-full bg-white text-black border border-black px-4 sm:px-12 py-5 sm:py-8">
-            {/* 4 Flat Corner Screws */}
-            <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border border-black flex items-center justify-center">
-              <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
-            </div>
-            <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border border-black flex items-center justify-center">
-              <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
-            </div>
-            <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border border-black flex items-center justify-center">
-              <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
-            </div>
-            <div className="absolute bottom-2.5 sm:bottom-3 right-2.5 sm:right-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border border-black flex items-center justify-center">
-              <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
-            </div>
-
-            {/* Graffiti Crown on Plaque */}
-            <div className="absolute -top-5 left-8 sm:left-14 select-none pointer-events-none">
-              <svg width="48" height="32" viewBox="0 0 64 42" fill="none">
-                <path
-                  d="M 4 36 L 4 14 L 20 26 L 32 4 L 44 26 L 60 14 L 60 36 Z"
-                  fill="#ff0055"
-                  stroke="#000"
-                  strokeWidth="3"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            <h3 className="font-anton text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tight leading-[0.92] select-none">
-              WE BECOME YOUR <span className="bg-[#efeee9] px-2 py-0.5 border sm:border border-black inline-block mt-1 sm:mt-0">TECHNICAL CO-FOUNDER</span> &amp; CTO.
-            </h3>
-          </div>
-
-          {/* Under-signboard Abstract Pill */}
-          <div className="relative -mt-3 sm:-mt-4 z-20 max-w-full">
-            <div className="bg-[#8be9fd] border border-black rounded-full px-4 sm:px-10 py-1.5 sm:py-2">
-              <span className="font-archivo text-[10px] xs:text-xs sm:text-base tracking-wider uppercase text-black font-extrabold text-center block">
-                ZERO UPFRONT TECH RISK &bull; SPLIT RUNWAY &bull; SHARED EQUITY
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Abstract Main Layout: Interactive Split Screen */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4">
-
-          {/* Left Column (7 cols): The Architecture Pillars */}
-          <div className="lg:col-span-7 flex flex-col justify-between gap-6">
-            <div className="bg-[#161616] border border-black p-6 sm:p-8 flex flex-col gap-5">
-              <div className="flex items-center justify-between border-b border-white/20 pb-3">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#efeee9] font-bold">
-                  CO-FOUNDER OPERATING MODEL
-                </span>
-                <span className="font-anton text-xs uppercase px-2 py-0.5 bg-white text-black border border-black">
-                  ACTIVE
-                </span>
-              </div>
-
-              <p className="font-archivo text-xl sm:text-2xl uppercase tracking-tight text-white leading-tight font-extrabold">
-                You bring the market vision and customer distribution. We engineer the entire tech apparatus, from high-converting frontends to autonomous backend infrastructure.
-              </p>
-
-              <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-medium">
-                Instead of bleeding seed money on unreliable freelance contractors or taking 8 months to hire a CTO, our elite agency team steps in as your dedicated in-house technical co-founder. We split development costs and align long-term incentives via an agreed equity percentage.
-              </p>
-            </div>
-
-            {/* 3 Abstract Ticket Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {[
-                {
-                  num: "01",
-                  title: "EQUITY SHARE",
-                  desc: "We invest our engineering capabilities directly for skin in the game. True alignment.",
-                  bg: "bg-white text-black",
-                  tag: "#efeee9",
-                },
-                {
-                  num: "02",
-                  title: "COST SPLIT",
-                  desc: "Shared operational expenditure ensures you extend runway without compromising code quality.",
-                  bg: "bg-[#efeee9] text-black",
-                  tag: "#000000",
-                },
-                {
-                  num: "03",
-                  title: "FULL STACK",
-                  desc: "Web apps, internal tooling, edge databases, UI/UX, and AI automations fully managed.",
-                  bg: "bg-[#8be9fd] text-black",
-                  tag: "#ffffff",
-                },
-              ].map((p) => (
-                <div
-                  key={p.num}
-                  className={`${p.bg} border border-black p-4 flex flex-col justify-between relative`}
-                >
-                  {/* Top pin icon */}
-                  <div className="flex items-center justify-between border-b border-black/20 pb-2 mb-3">
-                    <span className="font-mono font-black text-xs">{p.num}. PILLAR</span>
-                    <div className="w-2.5 h-2.5 rounded-full border border-black" style={{ backgroundColor: p.tag }} />
-                  </div>
-                  <div>
-                    <h4 className="font-anton text-xl tracking-wide uppercase block mb-1">
-                      {p.title}
-                    </h4>
-                    <p className="text-xs font-semibold leading-snug opacity-90">
-                      {p.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column (5 cols): Sunday Pitch Session Ticket */}
-          <div className="lg:col-span-5 relative flex flex-col">
-            {/* Decorative Pin on Pitch Card */}
-            <div className="absolute -top-6 right-8 z-30 animate-pin-wiggle origin-bottom">
-              <svg width="28" height="34" viewBox="0 0 28 34" fill="none">
-                <path
-                  d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z"
-                  fill="#efeee9"
-                  stroke="#000"
-                  strokeWidth="2.5"
-                />
-                <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </div>
-
-            <div className="bg-[#efeee9] text-black border sm:border border-black p-5 sm:p-8 flex flex-col justify-between gap-6 h-full">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between border-b border-black pb-3">
-                  <span className="font-mono text-xs font-black uppercase tracking-wider bg-black text-[#efeee9] px-2.5 py-1 border border-black">
-                    SUNDAY PITCH SLOT
-                  </span>
-                  <span className="font-anton text-sm uppercase bg-white px-2 py-0.5 border border-black">
-                    4 SLOTS LEFT
-                  </span>
-                </div>
-
-                <h4 className="font-anton text-4xl sm:text-5xl uppercase tracking-tight leading-[0.92]">
-                  PITCHING HAPPENS EVERY SUNDAY.
-                </h4>
-
-                <p className="text-black/85 text-xs sm:text-sm font-semibold leading-relaxed">
-                  Every Sunday, our founding engineering team reviews pitches from early-stage founders. If selected, we enter a 14-day sprint to scope, design, and deploy your product into market as your technical partner.
-                </p>
-
-                {/* Pitch Checklist */}
-                <div className="bg-white border border-black p-3 flex flex-col gap-1.5 font-mono text-[11px] font-bold">
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-700">✓</span> <span>PITCH DECK OR PRODUCT SCOPE</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-700">✓</span> <span>CO-FOUNDER DETAILS &amp; RUNWAY</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-700">✓</span> <span>PROPOSED EQUITY SPLIT RANGE</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3 pt-2">
-                <a
-                  href="mailto:hello@needhelpbuilding.com?subject=Startup%20CTO%20Equity%20Pitch&body=Hi%20NeedHelpBuilding%20Team%2C%0A%0AWe%20would%20love%20to%20pitch%20our%20startup%20for%20the%20Sunday%20session.%0A%0AStartup%20Name%3A%20%0AFounder(s)%3A%20%0AWebsite%2FDeck%20Link%3A%20%0AWhat%20we're%20building%3A%20"
-                  className="w-full bg-black text-white hover:bg-white hover:text-black border border-black py-4 px-4 text-center font-anton text-2xl uppercase tracking-wider transition-colors active:translate-x-0.5 active:translate-y-0.5 cursor-pointer block"
-                >
-                  PITCH YOUR STARTUP VIA EMAIL
-                </a>
-
-                <div className="flex items-center justify-between text-[11px] font-mono font-black text-black">
-                  <span>INSTANT REVIEW:</span>
-                  <span className="underline">HELLO@NEEDHELPBUILDING.COM</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* SECTION 4.5: MEET THE FOUNDING DUO (TEAM)                   */}
-      {/* ============================================================ */}
-      <section
-        id="team"
-        className="relative w-full min-h-screen px-4 sm:px-8 lg:px-14 py-16 lg:py-20 flex flex-col justify-between items-center overflow-hidden bg-[#0f0f0f]"
-      >
-
-        {/* Section Header */}
-        <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto w-full">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="bg-[#efeee9] text-black border border-black px-6 py-1">
-              <span className="font-anton text-xs sm:text-sm uppercase tracking-wider">
-                04 &bull; MEET THE BUILDERS &bull; NO CORPORATE FLUFF
-              </span>
-            </div>
-          </div>
-
-          <h2 className="font-anton text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white leading-[0.92] drop-shadow-[0_4px_0_#000]">
-            THE FOUNDING DUO BEHIND <span className="text-[#efeee9]">EVERY BUILD</span>.
-          </h2>
-        </div>
-
-        {/* Full-width Team Stage: Left Card, Center Photo with Curly Arrows, Right Card */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto my-auto py-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-
-            {/* LEFT PERSON CARD: DIVY SHUKLA (THE SALES GUY) */}
-            <div className="lg:col-span-3 flex flex-col order-2 lg:order-1">
-              <div className="bg-[#efeee9] text-black border border-black p-5 sm:p-6 relative hover:rotate-0 transition-transform">
-                <div className="font-mono text-[10px] font-black uppercase tracking-widest bg-black text-[#efeee9] px-2 py-0.5 inline-block w-fit mb-3">
-                  SALES &bull; DEAL ARCHITECTURE
-                </div>
-                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-tight leading-none mb-1">
-                  DIVY SHUKLA
-                </h3>
-                <div className="font-handwritten text-2xl sm:text-3xl text-black font-bold -rotate-1 mb-3">
-                  &ldquo;The Sales Guy Who Never Takes No For An Answer&rdquo;
-                </div>
-                <p className="font-sans text-xs sm:text-sm font-semibold leading-relaxed border-t-2 border-black pt-3 text-black/90">
-                  Turns ambiguous founder ideas into signed contracts, clears enterprise roadblocks, and scopes high-margin distribution channels before the first line of code is committed.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-1.5 font-mono text-[10px] font-bold">
-                  <span className="bg-black text-white px-2 py-0.5">#Distribution</span>
-                  <span className="bg-black text-white px-2 py-0.5">#Pipelines</span>
-                  <span className="bg-black text-white px-2 py-0.5">#Growth</span>
-                </div>
-              </div>
-            </div>
-
-            {/* CENTER: DUO PHOTO WITH WAVY / CURLY ARROWS */}
-            <div className="lg:col-span-6 relative flex flex-col items-center justify-center order-1 lg:order-2">
-              <div className="relative w-full max-w-[560px] aspect-[4/3] sm:aspect-[1.3/1] flex items-center justify-center">
-                <Image
-                  src="/team.png"
-                  alt="Divy Shukla (Sales) & Suyash (Tech) - Need Help Building Founders"
-                  fill
-                  priority
-                  className="object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.85)]"
-                />
-
-                {/* SVG CURLY / WAVY ARROWS OVERLAY */}
-                <svg
-                  className="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-visible"
-                  viewBox="0 0 560 400"
-                  fill="none"
-                >
-                  <defs>
-                    <marker
-                      id="arrow-curl-divy"
-                      markerWidth="12"
-                      markerHeight="12"
-                      refX="8"
-                      refY="4"
-                      orient="auto"
-                    >
-                      <polygon points="0 0, 10 4, 0 8" fill="#efeee9" stroke="#000" strokeWidth="1.2" />
-                    </marker>
-                    <marker
-                      id="arrow-curl-suyash"
-                      markerWidth="12"
-                      markerHeight="12"
-                      refX="8"
-                      refY="4"
-                      orient="auto"
-                    >
-                      <polygon points="0 0, 10 4, 0 8" fill="#8be9fd" stroke="#000" strokeWidth="1.2" />
-                    </marker>
-                  </defs>
-
-                  {/* Curly Arrow pointing to Divy */}
-                  <path
-                    d="M 50 65 C 85 20, 115 95, 140 45 C 160 10, 180 35, 205 75"
-                    stroke="#efeee9"
-                    strokeWidth="4.5"
-                    strokeLinecap="round"
-                    strokeDasharray="8 4"
-                    fill="none"
-                    markerEnd="url(#arrow-curl-divy)"
-                  />
-
-                  {/* Curly Arrow pointing to Suyash */}
-                  <path
-                    d="M 510 65 C 475 20, 445 95, 420 45 C 400 10, 380 35, 355 75"
-                    stroke="#8be9fd"
-                    strokeWidth="4.5"
-                    strokeLinecap="round"
-                    strokeDasharray="8 4"
-                    fill="none"
-                    markerEnd="url(#arrow-curl-suyash)"
-                  />
-                </svg>
-
-                {/* Floating Handwritten Pointer Labels */}
-                <div className="absolute top-0 left-4 sm:left-8 z-30">
-                  <span className="font-handwritten text-2xl sm:text-3xl lg:text-4xl text-[#efeee9] font-bold drop-shadow-[0_2px_4px_#000] inline-block">
-                    ← That&apos;s Divy!
-                  </span>
-                </div>
-                <div className="absolute top-0 right-4 sm:right-8 z-30">
-                  <span className="font-handwritten text-2xl sm:text-3xl lg:text-4xl text-[#8be9fd] font-bold drop-shadow-[0_2px_4px_#000] inline-block">
-                    That&apos;s Suyash! →
-                  </span>
-                </div>
-              </div>
-
-              {/* Bottom Tag Strip (Clean Text Only) */}
-              <div className="mt-2 inline-flex items-center gap-2 bg-black/90 border-2 border-white/20 px-4 py-1 text-xs font-mono">
-                <span className="text-[#efeee9] font-bold">⚡</span>
-                <span className="text-gray-300">
-                  Divy hunts the revenue &bull; Suyash ships the production code
-                </span>
-              </div>
-            </div>
-
-            {/* RIGHT PERSON CARD: SUYASH (THE TECH GUY) */}
-            <div className="lg:col-span-3 flex flex-col order-3">
-              <div className="bg-[#8be9fd] text-black border border-black p-5 sm:p-6 relative hover:rotate-0 transition-transform">
-                <div className="font-mono text-[10px] font-black uppercase tracking-widest bg-black text-[#8be9fd] px-2 py-0.5 inline-block w-fit mb-3">
-                  TECH ARCHITECT &bull; CODE ENGINE
-                </div>
-                <h3 className="font-anton text-3xl sm:text-4xl uppercase tracking-tight leading-none mb-1">
-                  SUYASH
-                </h3>
-                <div className="font-handwritten text-2xl sm:text-3xl text-black font-bold rotate-1 mb-3">
-                  &ldquo;The Tech Guy Who Ships Code While You Sleep&rdquo;
-                </div>
-                <p className="font-sans text-xs sm:text-sm font-semibold leading-relaxed border-t-2 border-black pt-3 text-black/90">
-                  Full-stack systems architect, agentic AI hacker, and automation builder. Turns complex logic, APIs, and real-time databases into blazing-fast web engines with zero fluff.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-1.5 font-mono text-[10px] font-bold">
-                  <span className="bg-black text-white px-2 py-0.5">#FullStack</span>
-                  <span className="bg-black text-white px-2 py-0.5">#AutonomousAI</span>
-                  <span className="bg-black text-white px-2 py-0.5">#NextJS</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Clean Bottom Note */}
-        <div className="relative z-10 font-mono text-xs text-gray-400 uppercase tracking-widest text-center">
-          DIRECT PARTNERSHIP &bull; 0 MIDDLEMEN &bull; ZERO OUTSOURCING
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* SECTION 5: CLIENT TESTIMONIALS                               */}
-      {/* ============================================================ */}
-      <section id="testimonials" className="relative w-full min-h-screen px-4 sm:px-8 py-20 lg:py-24 flex flex-col justify-center items-center gap-12 overflow-hidden bg-[#0f0f0f]">
-
-        {/* Subtle Brutalist Surveillance Cam in Upper Corner */}
-        <div className="absolute top-10 right-8 opacity-20 pointer-events-none select-none hidden lg:block">
-          <svg width="110" height="80" viewBox="0 0 110 80" fill="none">
-            <rect x="8" y="10" width="8" height="40" rx="2" fill="#fff" />
-            <path d="M 16 30 L 42 30" stroke="#fff" strokeWidth="6" strokeLinecap="round" />
-            <g transform="rotate(18 55 35)">
-              <rect x="36" y="22" width="48" height="24" rx="4" fill="#ffffff" stroke="#000" strokeWidth="3.5" />
-              <path d="M 32 18 L 88 18 L 84 22 L 34 22 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
-              <rect x="80" y="24" width="8" height="20" rx="2" fill="#000" />
-              <circle cx="84" cy="34" r="3" fill="#8be9fd" />
-              <circle cx="44" cy="28" r="2.5" fill="#dc2626" className="animate-ping" />
-            </g>
-          </svg>
-        </div>
-
-        {/* Header Title Board with Screws & Ribbon Aesthetics */}
-        <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto w-full">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="bg-[#8be9fd] text-black border border-black px-6 py-1.5">
-              <span className="font-anton text-sm sm:text-base uppercase tracking-wider">
-                CLIENT TESTIMONIALS &bull; FOUNDER ENDORSEMENTS
-              </span>
-            </div>
-
-            {/* ILLUMINATING EYE ASSET IN TESTIMONIALS HEADER */}
-            <div className="relative w-14 sm:w-16 h-7 sm:h-8 hidden sm:flex items-center justify-center select-none pointer-events-none">
-              <div className="relative w-14 sm:w-16 h-7 sm:h-8 bg-white rounded-[50%] border border-black flex items-center justify-center overflow-hidden">
-                <div className="relative w-5 h-5 bg-[#efeee9] rounded-full border border-black flex items-center justify-center animate-eye-pupil">
-                  <svg viewBox="0 0 24 24" className="w-3 h-3 fill-black animate-star-spin">
-                    <path d="M12 0 C12 6 6 12 0 12 C6 12 12 18 12 24 C12 18 18 12 24 12 C18 12 12 6 12 0 Z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative">
-            <h2 className="font-anton text-5xl sm:text-7xl md:text-8xl leading-[0.88] uppercase tracking-tight select-none">
-              PROOF IN PRODUCTION.
-            </h2>
-          </div>
-
-          <p className="mt-4 text-gray-300 text-sm sm:text-lg max-w-2xl font-medium tracking-wide">
-            Real feedback from startup founders and operators who trusted us to build and engineer their core digital systems.
+          <h3 className="nx-display text-[clamp(26px,4vw,70px)]">
+            <Rise>CLIENT REFERRAL</Rise>
+            <Rise delay={100}>SCHEME:</Rise>
+            <Rise delay={200}>
+              <span className="text-ember">10% FOR BOTH SIDES.</span>
+            </Rise>
+          </h3>
+          <p className="text-bone-dim text-base sm:text-lg leading-relaxed max-w-xl">
+            If you’ve built with us before, introduce another founder or business to NeedHelpBuilding. When they initiate a project, <strong className="text-bone underline decoration-ember underline-offset-4">they get 10% off</strong> their total scope, and <strong className="text-bone underline decoration-ember underline-offset-4">you receive 10% direct cash commission</strong> or credit towards your next build.
           </p>
-        </div>
-
-        {/* Dual Co-founder Testimonial Billboards with Abstract Signboard Elements */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pt-4 max-w-5xl mx-auto w-full">
-
-          {/* Testimonial 1: Jay Agrawal @ Ganges */}
-          <div className="relative group">
-            {/* Abstract mounting vertical beam behind billboard (Bright readable yellow) */}
-            <div className="absolute left-1/2 -translate-x-1/2 -top-6 bottom-[-20px] w-4 bg-[#efeee9] border-x border-black -z-10" />
-
-            <div className="relative bg-white text-black border border-black p-5 sm:p-10 flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
-              {/* 4 Corner Screws */}
-              <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border border-black flex items-center justify-center">
-                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
-              </div>
-              <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border border-black flex items-center justify-center">
-                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
-              </div>
-              <div className="hidden sm:flex absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border border-black items-center justify-center">
-                <div className="w-2 h-[1.5px] bg-black -rotate-45" />
-              </div>
-              <div className="hidden sm:flex absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border border-black items-center justify-center">
-                <div className="w-2 h-[1.5px] bg-black rotate-45" />
-              </div>
-
-              {/* Pin Badge on top edge */}
-              <div className="absolute -top-5 left-10">
-                <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
-                  <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#efeee9" stroke="#000" strokeWidth="2.5" />
-                  <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-                </svg>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between border-b border-black/15 pb-3">
-                  <div className="flex items-center gap-1 text-[#efeee9] select-none text-2xl font-black">
-                    {"★★★★★"}
-                  </div>
-                  <span className="bg-[#efeee9] text-black font-anton text-xs px-2 py-0.5 border border-black uppercase tracking-wider">
-                    VERIFIED FOUNDER
-                  </span>
-                </div>
-
-                <p className="text-lg sm:text-xl font-bold text-black leading-snug font-archivo tracking-tight">
-                  &ldquo;NeedHelpBuilding turned our concept into a high-performance web platform in record time. Their architectural clarity, speed of execution, and attention to user flow made a massive impact on our early traction.&rdquo;
-                </p>
-              </div>
-
-              {/* Signboard Signature Footer */}
-              <div className="pt-4 border-t border-black flex items-center justify-between bg-black/5 -mx-6 -mb-6 sm:-mx-10 sm:-mb-10 p-4 sm:p-6">
-                <div>
-                  <span className="font-anton text-2xl tracking-wide uppercase block text-black">
-                    JAY AGRAWAL
-                  </span>
-                  <span className="text-xs font-mono font-black text-black/70 uppercase tracking-wider">
-                    CO-FOUNDER @ GANGES
-                  </span>
-                </div>
-                <div className="w-10 h-10 bg-black text-[#efeee9] border border-black flex items-center justify-center font-anton text-lg">
-                  G
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Testimonial 2: Arinjay Saxena @ Earnbuddy */}
-          <div className="relative group">
-            {/* Abstract mounting vertical beam behind billboard (Bright readable yellow) */}
-            <div className="absolute left-1/2 -translate-x-1/2 -top-6 bottom-[-20px] w-4 bg-[#efeee9] border-x border-black -z-10" />
-
-            <div className="relative bg-[#efeee9] text-black border border-black p-5 sm:p-10 flex flex-col justify-between gap-6 transition-transform hover:rotate-0">
-              {/* 4 Corner Screws */}
-              <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border border-black flex items-center justify-center">
-                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black rotate-45" />
-              </div>
-              <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-white border border-black flex items-center justify-center">
-                <div className="w-1.5 sm:w-2 h-[1.5px] bg-black -rotate-45" />
-              </div>
-              <div className="hidden sm:flex absolute bottom-3 left-3 w-3.5 h-3.5 rounded-full bg-white border border-black items-center justify-center">
-                <div className="w-2 h-[1.5px] bg-black -rotate-45" />
-              </div>
-              <div className="hidden sm:flex absolute bottom-3 right-3 w-3.5 h-3.5 rounded-full bg-white border border-black items-center justify-center">
-                <div className="w-2 h-[1.5px] bg-black rotate-45" />
-              </div>
-
-              {/* Pin Badge on top edge */}
-              <div className="absolute -top-5 right-10">
-                <svg width="24" height="28" viewBox="0 0 28 34" fill="none">
-                  <path d="M 5 6 C 5 2 23 2 23 6 C 23 10 20 12 20 18 C 24 20 25 24 25 25 L 3 25 C 3 24 4 20 8 18 C 8 12 5 10 5 6 Z" fill="#ffffff" stroke="#000" strokeWidth="2.5" />
-                  <path d="M 14 25 L 11 33" stroke="#000" strokeWidth="3" strokeLinecap="round" />
-                </svg>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between border-b border-black pb-3">
-                  <div className="flex items-center gap-1 text-black select-none text-2xl font-black">
-                    {"★★★★★"}
-                  </div>
-                  <span className="bg-white text-black font-anton text-xs px-2 py-0.5 border border-black uppercase tracking-wider">
-                    CO-FOUNDER PARTNER
-                  </span>
-                </div>
-
-                <p className="text-lg sm:text-xl font-bold text-black leading-snug font-archivo tracking-tight">
-                  &ldquo;Partnering with them gave us the technical muscle of an elite engineering team without the startup friction. From intuitive UI/UX design to rock-solid automations, they delivered exactly what Earnbuddy needed to scale.&rdquo;
-                </p>
-              </div>
-
-              {/* Signboard Signature Footer */}
-              <div className="pt-4 border-t border-black flex items-center justify-between bg-black/10 -mx-6 -mb-6 sm:-mx-10 sm:-mb-10 p-4 sm:p-6">
-                <div>
-                  <span className="font-anton text-2xl tracking-wide uppercase block text-black">
-                    ARINJAY SAXENA
-                  </span>
-                  <span className="text-xs font-mono font-black text-black/80 uppercase tracking-wider">
-                    CO-FOUNDER @ EARNBUDDY
-                  </span>
-                </div>
-                <div className="w-10 h-10 bg-white text-black border border-black flex items-center justify-center font-anton text-lg">
-                  EB
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* SECTION 5.5: OLD CUSTOMER REFERRAL SCHEME                    */}
-      {/* ============================================================ */}
-      <section id="referral" className="relative w-full min-h-screen px-4 sm:px-8 py-20 lg:py-24 flex flex-col justify-center items-center overflow-hidden bg-[#0f0f0f]">
-
-        {/* Ambient Telemetry Box Asset in Upper Corner */}
-        <div className="absolute top-12 left-8 opacity-15 pointer-events-none select-none hidden lg:block">
-          <svg width="110" height="80" viewBox="0 0 110 80" fill="none">
-            <rect x="8" y="14" width="94" height="54" rx="4" fill="#f97316" stroke="#fff" strokeWidth="2" />
-            <rect x="18" y="24" width="74" height="34" rx="2" fill="#fff" stroke="#000" strokeWidth="1.5" />
-            <text x="22" y="38" fill="#000" fontSize="8" fontFamily="monospace" fontWeight="black">REFERRAL DATA</text>
-            <text x="22" y="48" fill="#000" fontSize="7" fontFamily="monospace" fontWeight="bold">COMMISSION 10%</text>
-            <circle cx="82" cy="41" r="5" fill="#000" />
-            <circle cx="82" cy="41" r="2" fill="#f97316" />
-          </svg>
-        </div>
-
-        {/* Abstract Referral Card Box */}
-        <div className="relative z-10 w-full max-w-6xl bg-[#161616] border border-black p-5 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10">
-
-          {/* Left Column: Heading & Explanation */}
-          <div className="flex flex-col gap-4 max-w-2xl text-left">
-            <div className="inline-flex items-center gap-2 bg-[#efeee9] text-black px-4 py-1.5 font-anton text-sm sm:text-base uppercase tracking-wider w-fit border border-black">
-              EXCLUSIVE TO PREVIOUS &amp; EXISTING CLIENTS
-            </div>
-
-            <h3 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-white uppercase tracking-tight leading-[0.92]">
-              CLIENT REFERRAL SCHEME: <span className="text-[#efeee9]">10% FOR BOTH SIDES.</span>
-            </h3>
-
-            <p className="text-gray-200 text-base sm:text-lg font-medium leading-relaxed">
-              If you’ve built with us before, introduce another founder or business to NeedHelpBuilding. When they initiate a project, <strong className="text-white underline">they get 10% off</strong> their total scope, and <strong className="text-[#efeee9] underline">you receive 10% direct cash commission</strong> or credit towards your next build.
-            </p>
-          </div>
-
-          {/* Right Column: Interactive Referral Action Voucher */}
-          <div className="bg-white text-black border border-black p-6 sm:p-8 flex flex-col justify-between gap-6 w-full lg:w-[420px] shrink-0">
-            <div className="flex items-center justify-between border-b border-black/20 pb-3">
-              <span className="font-mono text-xs font-black uppercase tracking-wider text-black/70">
-                REFERRAL PERK TICKET
-              </span>
-              <span className="bg-[#efeee9] text-black font-anton text-xs px-2.5 py-1 border border-black uppercase">
-                10% + 10%
-              </span>
-            </div>
-            <div className="flex items-center justify-around text-center py-3 bg-gray-50 border border-black">
-              <div>
-                <span className="font-anton text-3xl sm:text-4xl text-black block leading-none">10% OFF</span>
-                <span className="text-[11px] font-mono font-bold text-gray-600 uppercase">THEIR PROJECT</span>
-              </div>
-              <div className="h-10 w-[2px] bg-black/20" />
-              <div>
-                <span className="font-anton text-3xl sm:text-4xl text-[#0f0f0f] block leading-none">10% CASH</span>
-                <span className="text-[11px] font-mono font-bold text-gray-600 uppercase">OR CREDIT TO YOU</span>
-              </div>
-            </div>
-
-            <a
-              href="mailto:hello@needhelpbuilding.com?subject=Client%20Referral%20Introduction&body=Hi%20NeedHelpBuilding%20Team%2C%0A%0AI%20am%20an%20existing%2Fpast%20client%20and%20would%20like%20to%20refer%20a%20friend%2Fbusiness%3A%0A%0AMy%20Name%20%2F%20Company%3A%20%0AReferred%20Founder's%20Name%3A%20%0AReferred%20Founder's%20Email%20or%20WhatsApp%3A%20%0AProject%20they%20need%20built%3A%20"
-              className="w-full bg-[#efeee9] hover:bg-black hover:text-[#efeee9] text-black border border-black py-3.5 px-4 text-center font-anton text-lg sm:text-xl uppercase tracking-wider transition-colors block cursor-pointer"
-            >
-              INTRODUCE A CLIENT VIA EMAIL
-            </a>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* SECTION 6: EXACT SCREENSHOT FOOTER SECTION (PAGE-FITTED)     */}
-      {/* ============================================================ */}
-      <footer id="contact" className="w-full bg-[#efeee9] text-black border-t sm:border-t border-black py-6 sm:py-8 md:py-10 px-4 sm:px-8 flex flex-col items-center justify-between min-h-[calc(100vh-65px)] box-border">
-        <div className="max-w-5xl w-full flex flex-col items-center text-center my-auto">
-
-          {/* Top Pill Badge: "READY TO SCALE AUTOMATICALLY?" */}
-          <div className="bg-white border sm:border border-black px-4 sm:px-6 py-1 sm:py-1.5">
-            <span className="font-anton text-xs sm:text-sm md:text-base tracking-wider uppercase text-black">
-              READY TO SCALE AUTOMATICALLY?
-            </span>
-          </div>
-
-          {/* Main Giant Headline: "LET'S BUILD YOUR SYSTEMS." */}
-          <h2 className="mt-3 sm:mt-4 md:mt-5 font-anton text-[36px] xs:text-[44px] sm:text-[62px] md:text-[80px] lg:text-[100px] xl:text-[112px] leading-[0.88] uppercase tracking-tight text-black select-none">
-            LET&apos;S BUILD YOUR
-            <br />
-            SYSTEMS.
-          </h2>
-
-          {/* Description Paragraph */}
-          <p className="mt-3 sm:mt-4 font-sans font-bold text-black text-xs sm:text-sm md:text-base max-w-2xl leading-relaxed tracking-tight px-2">
-            Tell us what you want to build or automate. We will review your requirements, design the architecture, and get your project into development immediately.
-          </p>
-
-          {/* Large Brutalist Button: "START YOUR PROJECT NOW" -> Direct to WhatsApp */}
-          <button
-            data-cal-namespace="needhelpbuilding"
-            data-cal-link="need-help-building/needhelpbuilding"
-            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-            className="mt-4 sm:mt-6 bg-black text-white hover:bg-white hover:text-black border sm:border border-black py-2.5 sm:py-3.5 px-6 sm:px-10 hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer font-anton text-base sm:text-xl md:text-2xl uppercase tracking-wider inline-block text-center"
+          <a
+            href="mailto:hello@needhelpbuilding.com?subject=Client%20Referral%20Introduction&body=Hi%20NeedHelpBuilding%20Team%2C%0A%0AI%20am%20an%20existing%2Fpast%20client%20and%20would%20like%20to%20refer%20a%20friend%2Fbusiness%3A%0A%0AMy%20Name%20%2F%20Company%3A%20%0AReferred%20Founder's%20Name%3A%20%0AReferred%20Founder's%20Email%20or%20WhatsApp%3A%20%0AProject%20they%20need%20built%3A%20"
+            className="nx-btn nx-btn-solid w-fit"
           >
-            START YOUR PROJECT NOW
-          </button>
-
+            INTRODUCE A CLIENT VIA EMAIL
+          </a>
         </div>
 
-        {/* Footer Bottom Bar: Direct Typography (No Boxes) & Real Social Icons */}
-        <div className="w-full max-w-7xl mt-4 sm:mt-8 pt-4 sm:pt-5 border-t border-black flex flex-col md:flex-row items-center justify-between gap-4 font-anton tracking-wider uppercase">
+        <div className="lg:col-span-6">
+          <ShaderCard variant={0} className="min-h-[420px]" innerClassName="!p-8 sm:!p-12 justify-between">
+            <div className="flex items-center justify-between nx-mono text-[11px] text-bone/80">
+              <span>REFERRAL PERK TICKET</span>
+              <span>REFERRAL DATA</span>
+            </div>
+            <div className="nx-display text-[clamp(56px,9vw,140px)] text-ember leading-none">10% + 10%</div>
+            <div className="grid grid-cols-2 gap-6 pt-6 border-t border-dashed border-bone/30">
+              <div className="flex flex-col gap-1">
+                <span className="nx-display text-2xl sm:text-3xl">10% OFF</span>
+                <span className="nx-mono text-[10px] text-bone-dim">THEIR PROJECT</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="nx-display text-2xl sm:text-3xl">10% CASH</span>
+                <span className="nx-mono text-[10px] text-bone-dim">OR CREDIT TO YOU</span>
+              </div>
+            </div>
+          </ShaderCard>
+        </div>
+      </section>
 
-          {/* Email and Phone directly as is */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 text-black">
-            <a
-              href="mailto:hello@needhelpbuilding.com"
-              className="text-base sm:text-xl font-mono font-bold tracking-tight lowercase text-black hover:underline cursor-pointer"
+      {/* ============================================================ */}
+      {/* CONTACT / FOOTER                                             */}
+      {/* ============================================================ */}
+      <footer id="contact" className="w-full bg-ember text-ink px-5 sm:px-10 pt-20 sm:pt-28 pb-8 flex flex-col gap-20 min-h-[100vh] justify-between">
+        <div className="max-w-[1400px] w-full mx-auto flex flex-col gap-10">
+          <span className="nx-mono text-xs border border-ink/40 rounded-full px-4 py-2 w-fit">READY TO SCALE AUTOMATICALLY?</span>
+          <h2 className="nx-display text-ink text-[clamp(34px,8vw,150px)]">
+            <Rise>LET&apos;S BUILD YOUR</Rise>
+            <Rise delay={140}>SYSTEMS.</Rise>
+          </h2>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+            <p className="max-w-xl text-base sm:text-lg leading-relaxed font-medium">
+              Tell us what you want to build or automate. We will review your requirements, design the architecture, and get your project into development immediately.
+            </p>
+            <button
+              data-cal-namespace="needhelpbuilding"
+              data-cal-link="need-help-building/needhelpbuilding"
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+              className="nx-btn bg-ink text-bone hover:bg-bone hover:text-ink !py-5 !px-9 !text-sm w-fit"
             >
+              START YOUR PROJECT NOW
+            </button>
+          </div>
+        </div>
+
+        <div className="max-w-[1400px] w-full mx-auto pt-6 border-t border-ink/30 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6">
+            <a href="mailto:hello@needhelpbuilding.com" className="nx-mono text-sm lowercase hover:underline cursor-pointer">
               hello@needhelpbuilding.com
             </a>
-
-            <span className="text-black/40 font-bold select-none">•</span>
-
-            <a
-              href="https://wa.me/919219061093"
-              target="_blank"
-              rel="noreferrer"
-              className="text-base sm:text-xl font-mono font-bold tracking-tight text-black hover:underline cursor-pointer"
-            >
+            <span className="opacity-40 select-none">•</span>
+            <a href="https://wa.me/919219061093" target="_blank" rel="noreferrer" className="nx-mono text-sm hover:underline cursor-pointer">
               +91 9219061093
             </a>
           </div>
-
           {/* Pure Social Icons: Instagram, LinkedIn, WhatsApp, X (Twitter) - No Text */}
-          <div className="flex items-center justify-center gap-6 sm:gap-8 text-black">
+          <div className="flex items-center justify-center gap-6 sm:gap-8 text-ink">
             {/* Instagram */}
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
               title="Instagram"
-              className="text-black hover:opacity-75 transition-opacity cursor-pointer"
+              className="text-ink hover:opacity-75 transition-opacity cursor-pointer"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
@@ -1763,7 +1139,7 @@ const handleCopyEmail = () => {
               target="_blank"
               rel="noreferrer"
               title="LinkedIn"
-              className="text-black hover:opacity-75 transition-opacity cursor-pointer"
+              className="text-ink hover:opacity-75 transition-opacity cursor-pointer"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z" />
@@ -1776,7 +1152,7 @@ const handleCopyEmail = () => {
               target="_blank"
               rel="noreferrer"
               title="WhatsApp"
-              className="text-black hover:opacity-75 transition-opacity cursor-pointer"
+              className="text-ink hover:opacity-75 transition-opacity cursor-pointer"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.77 14.07c-.24.67-1.39 1.28-1.92 1.36-.5.08-1.14.12-3.66-.92-3.22-1.33-5.3-4.57-5.46-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.35 1.11-2.67.29-.32.63-.4.84-.4.21 0 .42 0 .61.01.2.01.47-.08.73.55.27.67.92 2.25 1 2.41.08.16.13.35.03.56-.1.21-.15.34-.3.51-.15.17-.32.38-.46.51-.15.15-.31.31-.13.62.18.31.8 1.32 1.72 2.14 1.18 1.05 2.17 1.38 2.48 1.53.31.15.49.13.67-.08.18-.21.79-.92 1-1.24.21-.32.42-.26.71-.16.29.1 1.84.87 2.16 1.03.32.16.53.24.61.37.08.13.08.77-.16 1.44z" />
@@ -1789,133 +1165,92 @@ const handleCopyEmail = () => {
               target="_blank"
               rel="noreferrer"
               title="X (Twitter)"
-              className="text-black hover:opacity-75 transition-opacity cursor-pointer"
+              className="text-ink hover:opacity-75 transition-opacity cursor-pointer"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
           </div>
+
         </div>
       </footer>
 
       {/* ============================================================ */}
-      {/* FULL SCREEN YELLOW SERVICES MENU                             */}
+      {/* FULLSCREEN SERVICES DIRECTORY                                */}
       {/* ============================================================ */}
       {servicesFullscreenOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="All Services Menu"
-          className="fixed inset-0 z-[120] bg-[#efeee9] text-black overflow-y-auto flex flex-col justify-between border sm:border border-black animate-in fade-in zoom-in-95 duration-200"
-        >
-          {/* TOP BAR / HEADER */}
-          <div className="p-4 sm:p-8 md:p-10 border-b sm:border-b border-black bg-[#efeee9] flex items-center justify-between sticky top-0 z-20 backdrop-blur-sm">
-            <div className="flex items-center gap-3 sm:gap-5">
-              <div className="bg-black text-[#efeee9] px-3 sm:px-4 py-1.5 sm:py-2 font-anton text-xl sm:text-3xl tracking-wider uppercase border border-black">
-                SERVICES DIRECTORY
+        <div role="dialog" aria-modal="true" aria-label="All Services Menu" className="fixed inset-0 z-[70] bg-ink overflow-y-auto animate-fadeIn">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-10 py-8 sm:py-12 flex flex-col gap-10">
+            <div className="flex items-start justify-between gap-6 border-b border-bone/10 pb-6">
+              <div className="flex flex-col gap-2">
+                <span className="nx-mono text-[11px] text-ember">SERVICES DIRECTORY</span>
+                <span className="nx-mono text-[11px] text-bone-dim">9 CORE CAPABILITIES • PRODUCTION-READY</span>
               </div>
-              <span className="hidden md:inline-block font-mono text-xs sm:text-sm font-bold tracking-widest uppercase bg-white border border-black px-3 py-1">
-                9 CORE CAPABILITIES • PRODUCTION-READY
-              </span>
+              <button onClick={() => setServicesFullscreenOpen(false)} className="nx-btn nx-btn-ghost !py-2.5">
+                <span>CLOSE</span>
+                <span>✕</span>
+              </button>
             </div>
 
-            <button
-              onClick={() => setServicesFullscreenOpen(false)}
-              className="group flex items-center gap-2 bg-black hover:bg-white text-white hover:text-black border sm:border border-black px-4 sm:px-6 py-2 sm:py-2.5 font-anton text-base sm:text-2xl uppercase tracking-wider active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
-            >
-              <span>CLOSE</span>
-              <span className="font-mono font-bold text-lg sm:text-2xl group-hover:rotate-90 transition-transform duration-200">
-                ✕
-              </span>
-            </button>
-          </div>
-
-          {/* SERVICES GRID */}
-          <div className="p-4 sm:p-8 md:p-10 max-w-7xl mx-auto w-full flex-1">
-            <div className="mb-6 sm:mb-10 text-center sm:text-left">
-              <h2 className="font-anton text-3xl sm:text-6xl md:text-7xl uppercase tracking-tight text-black leading-none">
-                WHAT WE BUILD & DELIVER
-              </h2>
-              <p className="mt-2 font-mono text-xs sm:text-base font-semibold text-black/80 max-w-3xl">
+            <div className="flex flex-col gap-5 max-w-3xl">
+              <h2 className="nx-display text-[clamp(40px,7vw,112px)]">WHAT WE BUILD &amp; DELIVER</h2>
+              <p className="text-bone-dim leading-relaxed">
                 Select any service below to explore our comprehensive scope of work, technical architecture, delivery process, and proven ROI metrics.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {SERVICES_DATA.map((service, idx) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
                   onClick={() => setServicesFullscreenOpen(false)}
-                  className="group relative bg-white hover:bg-black text-black hover:text-white border border-black p-5 sm:p-6 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 cursor-pointer"
+                  className="group rounded-3xl border border-bone/10 bg-ink-2 hover:bg-ember hover:text-ink hover:border-ember p-6 sm:p-8 flex flex-col justify-between gap-8 transition-colors duration-500 min-h-[260px]"
                 >
-                  {/* Top Badge & Number */}
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="font-mono text-xs font-black tracking-widest text-black/60 group-hover:text-[#efeee9]">
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="nx-mono text-[10px] text-bone-dim group-hover:text-ink/70">
                         0{idx + 1} // {service.category}
                       </span>
-                      <span className="font-mono text-[10px] font-bold px-2 py-0.5 border border-black bg-[#efeee9] text-black uppercase">
+                      <span className="nx-mono text-[10px] border border-bone/20 group-hover:border-ink/40 rounded-full px-2.5 py-0.5">
                         {service.badge}
                       </span>
                     </div>
-
-                    <h3 className="font-anton text-xl sm:text-2xl uppercase tracking-wide leading-tight group-hover:text-[#efeee9] transition-colors mb-2">
-                      {service.title}
-                    </h3>
-
-                    <p className="font-sans text-xs sm:text-sm font-medium leading-relaxed text-black/75 group-hover:text-gray-300">
-                      {service.shortDesc}
-                    </p>
+                    <h3 className="nx-display text-2xl sm:text-3xl leading-[0.95]">{service.title}</h3>
+                    <p className="text-sm text-bone-dim group-hover:text-ink/80 mt-3 leading-relaxed">{service.shortDesc}</p>
                   </div>
-
-                  {/* Footer Link & Action */}
-                  <div className="mt-5 pt-4 border-t border-black/20 group-hover:border-[#efeee9]/30 flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold tracking-wider uppercase group-hover:text-[#efeee9]">
-                      VIEW CASE & SCOPE
-                    </span>
-                    <span className="font-anton text-lg text-black group-hover:text-[#efeee9] group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">
-                      →
-                    </span>
+                  <div className="flex items-center justify-between nx-mono text-[11px] pt-4 border-t border-bone/10 group-hover:border-ink/20">
+                    <span>VIEW CASE &amp; SCOPE</span>
+                    <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
                   </div>
                 </Link>
               ))}
             </div>
-          </div>
 
-          {/* BOTTOM ACTION / FOOTER */}
-          <div className="p-4 sm:p-8 border-t sm:border-t border-black bg-black text-white flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-center sm:text-left">
-              <div className="font-anton text-xl sm:text-2xl text-[#efeee9] tracking-wide uppercase">
-                NEED A CUSTOM PROJECT OR COMBINED SCOPE?
+            <div className="rounded-[32px] bg-ember text-ink p-8 sm:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+              <div className="flex flex-col gap-3">
+                <h3 className="nx-display text-3xl sm:text-5xl leading-[0.95]">NEED A CUSTOM PROJECT OR COMBINED SCOPE?</h3>
+                <p className="text-ink/85">Speak directly with our technical team in a 20-minute strategy call.</p>
               </div>
-              <div className="font-mono text-xs text-gray-300 mt-0.5">
-                Speak directly with our technical team in a 20-minute strategy call.
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={() => {
+                    setServicesFullscreenOpen(false);
+                    navigateToSection("#contact", "WORK WITH US");
+                  }}
+                  className="nx-btn bg-ink text-bone hover:bg-bone hover:text-ink"
+                >
+                  BOOK DISCOVERY CALL
+                </button>
+                <button onClick={() => setServicesFullscreenOpen(false)} className="nx-btn border border-ink/40 hover:bg-ink hover:text-bone">
+                  BACK TO SITE [ESC]
+                </button>
               </div>
-            </div>
-
-            <div className="flex items-center gap-3 w-full sm:w-auto">
-              <button
-                onClick={() => {
-                  setServicesFullscreenOpen(false);
-                  navigateToSection("#contact", "WORK WITH US");
-                }}
-                className="flex-1 sm:flex-initial bg-[#efeee9] hover:bg-white text-black font-anton text-base sm:text-lg px-6 py-2.5 border border-black active:translate-x-0.5 active:translate-y-0.5 transition-all uppercase tracking-wider cursor-pointer text-center"
-              >
-                BOOK DISCOVERY CALL
-              </button>
-              <button
-                onClick={() => setServicesFullscreenOpen(false)}
-                className="bg-zinc-800 hover:bg-zinc-700 text-white font-mono text-xs font-bold px-4 py-3 border border-white/40 uppercase tracking-wider cursor-pointer"
-              >
-                BACK TO SITE [ESC]
-              </button>
             </div>
           </div>
         </div>
       )}
-
     </main>
   );
 }

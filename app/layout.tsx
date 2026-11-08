@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Sora, Space_Grotesk, Inter, JetBrains_Mono, Caveat } from "next/font/google";
+import { Syne, Space_Grotesk, Inter, JetBrains_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 import { SwarmRebuildLauncher } from "../swarm";
 
@@ -10,15 +10,15 @@ const caveat = Caveat({
   display: "swap",
 });
 
-const anton = Instrument_Sans({
-  weight: ["500", "600", "700"],
+const anton = Syne({
+  weight: ["600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-anton",
   display: "swap",
 });
 
-const archivoBlack = Sora({
-  weight: ["600", "700"],
+const archivoBlack = Syne({
+  weight: ["700", "800"],
   subsets: ["latin"],
   variable: "--font-archivo",
   display: "swap",
@@ -331,7 +331,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased bg-[#0f0f0f] text-white overflow-x-hidden">
+      <body className="antialiased bg-[#0a0908] text-[#f1ebe0] overflow-x-hidden">
         {children}
         <SwarmRebuildLauncher />
       </body>

@@ -12,7 +12,7 @@ export const SHADER_CONFIGS = [
     swirlIterations: 8,
     shape: "checks" as const,
     shapeScale: 0.08,
-    colors: ["hsl(280, 100%, 30%)", "hsl(320, 100%, 60%)", "hsl(340, 90%, 40%)", "hsl(300, 100%, 70%)"],
+    colors: ["hsl(10, 100%, 10%)", "hsl(14, 100%, 48%)", "hsl(24, 100%, 54%)", "hsl(34, 100%, 60%)"],
   },
   {
     proportion: 0.4,
@@ -22,7 +22,7 @@ export const SHADER_CONFIGS = [
     swirlIterations: 12,
     shape: "stripes" as const,
     shapeScale: 0.12,
-    colors: ["hsl(200, 100%, 25%)", "hsl(180, 100%, 65%)", "hsl(160, 90%, 35%)", "hsl(190, 100%, 75%)"],
+    colors: ["hsl(6, 90%, 9%)", "hsl(2, 85%, 42%)", "hsl(16, 100%, 52%)", "hsl(28, 100%, 62%)"],
   },
   {
     proportion: 0.35,
@@ -32,7 +32,7 @@ export const SHADER_CONFIGS = [
     swirlIterations: 10,
     shape: "checks" as const,
     shapeScale: 0.1,
-    colors: ["hsl(75, 100%, 20%)", "hsl(70, 100%, 47%)", "hsl(90, 90%, 30%)", "hsl(72, 100%, 65%)"],
+    colors: ["hsl(20, 80%, 8%)", "hsl(18, 100%, 46%)", "hsl(30, 100%, 50%)", "hsl(40, 100%, 62%)"],
   },
   {
     proportion: 0.45,
@@ -42,7 +42,7 @@ export const SHADER_CONFIGS = [
     swirlIterations: 15,
     shape: "stripes" as const,
     shapeScale: 0.09,
-    colors: ["hsl(30, 100%, 35%)", "hsl(50, 100%, 65%)", "hsl(40, 90%, 40%)", "hsl(45, 100%, 75%)"],
+    colors: ["hsl(12, 90%, 9%)", "hsl(8, 100%, 40%)", "hsl(20, 100%, 50%)", "hsl(32, 100%, 58%)"],
   },
   {
     proportion: 0.38,
@@ -52,7 +52,7 @@ export const SHADER_CONFIGS = [
     swirlIterations: 11,
     shape: "checks" as const,
     shapeScale: 0.11,
-    colors: ["hsl(232, 100%, 30%)", "hsl(231, 100%, 65%)", "hsl(262, 100%, 55%)", "hsl(255, 100%, 75%)"],
+    colors: ["hsl(16, 85%, 8%)", "hsl(10, 95%, 44%)", "hsl(26, 100%, 52%)", "hsl(36, 100%, 64%)"],
   },
   {
     proportion: 0.42,
@@ -62,7 +62,7 @@ export const SHADER_CONFIGS = [
     swirlIterations: 9,
     shape: "stripes" as const,
     shapeScale: 0.13,
-    colors: ["hsl(330, 100%, 30%)", "hsl(350, 100%, 60%)", "hsl(340, 90%, 35%)", "hsl(345, 100%, 75%)"],
+    colors: ["hsl(4, 90%, 10%)", "hsl(14, 100%, 40%)", "hsl(22, 100%, 48%)", "hsl(30, 100%, 56%)"],
   },
 ]
 
@@ -81,7 +81,7 @@ export function ShaderBackdrop({ variant = 0, className = "" }: { variant?: numb
         shapeScale={c.shapeScale}
         scale={1}
         rotation={0}
-        speed={0.8}
+        speed={0.55}
         colors={c.colors}
       />
     </div>
@@ -106,7 +106,7 @@ export function ShaderCard({
         <ShaderBackdrop variant={variant} />
       </div>
       <div
-        className={`relative z-10 h-full rounded-3xl bg-black/80 border border-white/15 p-6 sm:p-8 flex flex-col text-white ${innerClassName}`}
+        className={`relative z-10 h-full rounded-3xl bg-[#0a0908]/80 border border-[#f1ebe0]/10 p-6 sm:p-8 flex flex-col text-[#f1ebe0] ${innerClassName}`}
       >
         {children}
       </div>
