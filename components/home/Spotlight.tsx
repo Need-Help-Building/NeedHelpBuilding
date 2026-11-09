@@ -110,7 +110,7 @@ export default function Spotlight() {
             <ul className="mt-5 space-y-3">
               {spotlight.capabilities.map((c) => (
                 <li key={c} className="flex gap-3 text-[15px] leading-snug text-ivory/85">
-                  <span aria-hidden className="mt-[7px] size-1.5 shrink-0 bg-sun" />
+                  <span aria-hidden className="text-sun/70 select-none">›</span>
                   {c}
                 </li>
               ))}

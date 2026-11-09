@@ -1,6 +1,7 @@
 import ButtonLink from "@/components/ui/ButtonLink";
 import { Highlight } from "@/components/ui/Marked";
 import { Container } from "@/components/ui/primitives";
+import { LiveOrb } from "@/components/ui/live-orb";
 import { hero } from "@/content/hero";
 import { ctas, site } from "@/content/site";
 import HeroSystem from "./HeroSystem";
@@ -13,8 +14,7 @@ export default function Hero() {
         className="grid-paper pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,#000_0%,#000_45%,transparent_92%)]"
       />
       <Container className="relative pt-10 pb-20 sm:pt-14 lg:pt-16 lg:pb-28">
-        <p data-reveal="fade" className="t-eyebrow flex items-center gap-3 text-muted">
-          <span aria-hidden className="size-2 bg-sun ring-1 ring-ink/25" />
+        <p data-reveal="fade" className="t-eyebrow text-muted">
           {hero.eyebrow}
         </p>
 
@@ -56,7 +56,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <div data-reveal data-delay="2" className="lg:col-span-7">
+          <div data-reveal data-delay="2" className="relative lg:col-span-7">
+            <div className="pointer-events-auto absolute -top-3 -right-3 z-20 hidden lg:block">
+              <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={56} />
+            </div>
             <HeroSystem />
           </div>
         </div>

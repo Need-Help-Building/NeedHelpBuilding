@@ -4,6 +4,7 @@ import { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartLink from "@/components/ui/SmartLink";
 import { BrowserFrame, Container, Placeholder, StatusDot } from "@/components/ui/primitives";
+import { LiveOrb } from "@/components/ui/live-orb";
 import { getProject, testimonials, type Project } from "@/content/work";
 import { mailto } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -45,7 +46,7 @@ function Built({ items, limit }: { items: string[]; limit?: number }) {
       <ul className="mt-3 space-y-2">
         {items.slice(0, limit).map((b) => (
           <li key={b} className="flex gap-2.5 text-[14px] leading-snug">
-            <span aria-hidden className="mt-[7px] size-1.5 shrink-0 bg-sun ring-1 ring-ink/30" />
+            <span aria-hidden className="text-ink/50 select-none">›</span>
             {b}
           </li>
         ))}
@@ -107,6 +108,9 @@ export default function FeaturedWork() {
             className="group flex flex-col overflow-hidden rounded-3xl border border-ink/10 bg-white transition-colors hover:border-ink/30 lg:col-span-8"
           >
             <div className="relative bg-ink p-4 sm:p-6">
+              <div className="pointer-events-auto absolute top-3 right-3 z-20">
+                <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={54} />
+              </div>
               <div aria-hidden className="grid-paper-dark absolute inset-0" />
               <BrowserFrame url="caller.work" tone="dark" className="relative">
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -147,7 +151,10 @@ export default function FeaturedWork() {
             aria-labelledby="work-store"
             className="group flex flex-col overflow-hidden rounded-3xl border border-ink/10 bg-white transition-colors hover:border-ink/30 lg:col-span-4"
           >
-            <div className="bg-mist-soft p-4 sm:p-5">
+            <div className="relative bg-mist-soft p-4 sm:p-5">
+              <div className="pointer-events-auto absolute top-3 right-3 z-20">
+                <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={50} />
+              </div>
               <BrowserFrame url="yourstorehere.vercel.app">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
@@ -183,6 +190,9 @@ export default function FeaturedWork() {
             className="group grid overflow-hidden rounded-3xl border border-ink/10 bg-white transition-colors hover:border-ink/30 md:grid-cols-2 lg:col-span-12 xl:col-span-7"
           >
             <div className="relative flex items-center bg-lilac-soft px-6 pt-14 pb-8 sm:px-8">
+              <div className="pointer-events-auto absolute top-3 right-3 z-20">
+                <LiveOrb variant="black" size={50} />
+              </div>
               <span className="absolute top-4 left-4 rounded-full border border-ink/20 bg-ivory/80 px-2.5 py-1 font-mono text-[10px] tracking-wide text-ink/75">
                 Illustrative interface · in development
               </span>
@@ -215,10 +225,17 @@ export default function FeaturedWork() {
                   key={p.slug}
                   aria-labelledby={`work-${p.slug}`}
                   className={cn(
-                    "flex flex-col gap-5 rounded-3xl border p-6 transition-colors sm:p-7",
+                    "relative flex flex-col gap-5 rounded-3xl border p-6 transition-colors sm:p-7",
                     i === 0 ? "border-ink bg-ink text-ivory" : "border-ink/10 bg-white hover:border-ink/30",
                   )}
                 >
+                  <div className="pointer-events-auto absolute top-3 right-3 z-20">
+                    {i === 0 ? (
+                      <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={42} />
+                    ) : (
+                      <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={42} />
+                    )}
+                  </div>
                   <div className="flex items-center justify-between gap-4">
                     <StatusDot status={p.status} tone={i === 0 ? "dark" : "light"} />
                     <span className={cn("font-mono text-[11px]", i === 0 ? "text-ivory/50" : "text-muted")}>

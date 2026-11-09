@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, MessageCircle } from "lucide-react";
 import ButtonLink from "@/components/ui/ButtonLink";
+import { LiveOrb } from "@/components/ui/live-orb";
 import { consultingMailto, consultingTopics } from "@/content/consulting";
 import { whatsapp } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -51,7 +52,10 @@ export default function ConsultingPanel() {
       </fieldset>
 
       <div className="lg:col-span-5">
-        <div className="sticky top-28 overflow-hidden rounded-3xl bg-ivory text-ink">
+        <div className="sticky top-28 overflow-hidden rounded-3xl bg-ivory text-ink relative">
+          <div className="pointer-events-auto absolute top-4 right-4 z-10">
+            <LiveOrb variant="black" size={46} />
+          </div>
           <div className="border-b border-ink/10 px-6 py-5 sm:px-8">
             <p className="t-eyebrow text-muted">Your consultation brief</p>
             <p className="mt-2 text-[22px] leading-tight font-semibold tracking-[-0.035em]">
@@ -72,7 +76,7 @@ export default function ConsultingPanel() {
                 <ul className="mt-4 space-y-3">
                   {picked.map((t) => (
                     <li key={t.id} className="flex animate-rise gap-3 text-[14.5px] leading-snug">
-                      <span aria-hidden className="mt-[6px] size-2 shrink-0 bg-sun ring-1 ring-ink/40" />
+                      <span aria-hidden className="text-ink/60 select-none">›</span>
                       {t.deliverable}
                     </li>
                   ))}

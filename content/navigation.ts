@@ -10,7 +10,7 @@ export interface NavLink {
 export const primaryNav: NavLink[] = [
   { label: "Industries", href: "/#industries" },
   { label: "Work", href: "/#work" },
-  { label: "Insights", href: "/#insights" },
+  { label: "Insights", href: "/blog" },
   { label: "About", href: "/#about" },
 ];
 
@@ -60,18 +60,18 @@ export const footerColumns: FooterColumn[] = [
   {
     title: "Resources",
     links: [
-      { label: "Insights", href: "/#insights" },
-      { label: "Engineering Lab", href: null },
-      { label: "FAQs", href: null },
+      { label: "Insights", href: "/blog" },
+      { label: "Engineering Lab", href: "/blog" },
+      { label: "FAQs", href: "/#faq" },
       { label: "Technology Stack", href: "/#stack" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: null },
-      { label: "Terms & Conditions", href: null },
-      { label: "Cookie Policy", href: null },
+      { label: "Privacy Policy", href: "/#privacy" },
+      { label: "Terms & Conditions", href: "/#terms" },
+      { label: "Cookie Policy", href: "/#cookies" },
     ],
   },
 ];

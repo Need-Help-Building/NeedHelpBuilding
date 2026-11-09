@@ -1,6 +1,7 @@
 import ButtonLink, { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
+import { LiveOrb } from "@/components/ui/live-orb";
 import { aiCapabilities } from "@/content/ai";
 import AgentArchitecture from "./AgentArchitecture";
 
@@ -39,10 +40,24 @@ export default function AiEngineering() {
           </div>
           <ol className="grid gap-px overflow-hidden rounded-2xl border border-ink/12 bg-ink/12 sm:grid-cols-2 lg:col-span-8 xl:grid-cols-3">
             {aiCapabilities.map((cap, i) => (
-              <li key={cap.title} data-reveal="fade" data-delay={String((i % 3) + 1)} className="group bg-ivory p-6 transition-colors hover:bg-white">
+              <li key={cap.title} data-reveal="fade" data-delay={String((i % 3) + 1)} className="group relative bg-ivory p-6 transition-colors hover:bg-white">
+                {i === 1 && (
+                  <div className="pointer-events-auto absolute top-3 right-3 z-10">
+                    <LiveOrb variant="black" size={36} />
+                  </div>
+                )}
+                {i === 4 && (
+                  <div className="pointer-events-auto absolute top-3 right-3 z-10">
+                    <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={36} />
+                  </div>
+                )}
+                {i === 8 && (
+                  <div className="pointer-events-auto absolute top-3 right-3 z-10">
+                    <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={36} />
+                  </div>
+                )}
                 <span className="flex items-center justify-between">
                   <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, "0")}</span>
-                  <span aria-hidden className="size-1.5 bg-ink/20 transition-colors group-hover:bg-sun" />
                 </span>
                 <h4 className="mt-5 text-[17px] font-semibold tracking-[-0.025em]">{cap.title}</h4>
                 <p className="mt-2 text-[14px] leading-relaxed text-muted">{cap.detail}</p>

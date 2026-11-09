@@ -35,7 +35,7 @@ export default function Consulting() {
             <ul className="space-y-3">
               {coFounderProgramme.points.map((p) => (
                 <li key={p} className="flex gap-3 border-b border-ivory/10 pb-3 text-[15px] text-ivory/85">
-                  <span aria-hidden className="mt-[7px] size-1.5 shrink-0 bg-sun" />
+                  <span aria-hidden className="text-ivory/40 select-none">›</span>
                   {p}
                 </li>
               ))}

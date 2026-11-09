@@ -102,7 +102,7 @@ export default function ProcessRail() {
             <ul className="mt-3 space-y-2.5">
               {stage.outputs.map((o) => (
                 <li key={o} className="flex gap-2.5 text-[14px] leading-snug">
-                  <span aria-hidden className="mt-[7px] size-1.5 shrink-0 bg-sun ring-1 ring-ink/30" />
+                  <span aria-hidden className="text-ink/50 select-none">›</span>
                   {o}
                 </li>
               ))}

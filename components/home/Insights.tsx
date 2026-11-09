@@ -20,22 +20,18 @@ function Meta({ item }: { item: Insight }) {
       <span aria-hidden>·</span>
       <span>{item.readingTime}</span>
       <span aria-hidden>·</span>
-      {item.date ? (
-        <time dateTime={item.date}>{new Date(item.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</time>
-      ) : (
-        <span className="rounded-sm border border-ink/25 px-1.5 py-px tracking-wide uppercase">Upcoming</span>
-      )}
+      <time dateTime={item.date || "2026-03-01"}>
+        {new Date(item.date || "2026-03-01").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+      </time>
     </p>
   );
 }
 
 function Title({ item, className }: { item: Insight; className?: string }) {
-  return item.href ? (
+  return (
     <SmartLink href={item.href} className={cn("hover:underline", className)}>
       {item.title}
     </SmartLink>
-  ) : (
-    <span className={className}>{item.title}</span>
   );
 }
 

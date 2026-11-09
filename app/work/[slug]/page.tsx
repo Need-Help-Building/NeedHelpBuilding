@@ -175,7 +175,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <ul className="mt-4 border-t border-ink/12">
               {project.built.map((b) => (
                 <li key={b} className="flex gap-3 border-b border-ink/12 py-3.5 text-[15.5px]">
-                  <span aria-hidden className="mt-[8px] size-1.5 shrink-0 bg-sun ring-1 ring-ink/30" />
+                  <span aria-hidden className="text-ink/50 select-none">›</span>
                   {b}
                 </li>
               ))}

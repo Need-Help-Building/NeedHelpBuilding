@@ -52,3 +52,8 @@ next-env.d.ts
 .ralph/.claude_session_id
 .ralph/.ralph_session
 .ralph/.ralph_session_history
+
+# Temporary local workspaces
+cleandesign/
+mixed/
+.figma/

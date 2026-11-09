@@ -1,6 +1,7 @@
 import { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
+import { LiveOrb } from "@/components/ui/live-orb";
 import { disciplines, type DisciplineVisual } from "@/content/disciplines";
 import { cn } from "@/lib/cn";
 import { AgentsVisual, DecisionVisual, PipelineVisual, StackVisual } from "./visuals/DisciplineVisuals";
@@ -66,6 +67,12 @@ export default function Disciplines() {
                   className={cn("lg:col-span-7 lg:row-start-1", flip ? "lg:col-start-1" : "lg:col-start-6")}
                 >
                   <figure className={cn("relative aspect-[400/290] overflow-hidden rounded-2xl p-4 sm:p-6", surface)}>
+                    <div className="pointer-events-auto absolute top-3 right-3 z-10">
+                      {d.index === "01" && <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={48} />}
+                      {d.index === "02" && <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={48} />}
+                      {d.index === "03" && <LiveOrb variant="black" size={48} />}
+                      {d.index === "04" && <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={48} />}
+                    </div>
                     <Component />
                   </figure>
                   <div className="mt-4 flex flex-wrap items-center gap-2">

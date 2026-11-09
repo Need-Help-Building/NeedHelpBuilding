@@ -215,27 +215,27 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full max-w-6xl px-6 py-28">
-        <div className="space-y-6 max-w-3xl">
-          <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
+      <section className="w-full bg-[#245bff] py-24 text-white flex justify-center">
+        <div className="w-full max-w-6xl px-6 space-y-6">
+          <span className="text-xs uppercase tracking-widest text-white/80 font-mono">
             Start An Engagement
           </span>
-          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
+          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight max-w-3xl">
             Ready to Build With Production Rigor?
           </h2>
-          <p className="text-lg text-neutral-400 leading-relaxed">
+          <p className="text-lg text-white/85 leading-relaxed max-w-2xl">
             Direct communication with senior engineers and architects. Zero vendor lock-in, clean intellectual property ownership, and high execution speed.
           </p>
           <div className="pt-4 flex flex-wrap gap-4">
             <a
               href="mailto:hello@needhelpbuilding.com"
-              className="px-6 py-3.5 bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
+              className="px-6 py-3.5 bg-white text-black font-semibold text-sm hover:bg-neutral-100 transition-colors shadow-lg"
             >
               Schedule an Architecture Call
             </a>
             <a
               href="mailto:hello@needhelpbuilding.com"
-              className="px-6 py-3.5 border border-neutral-800 text-white font-medium text-sm hover:border-white transition-colors"
+              className="px-6 py-3.5 border border-white/40 text-white font-medium text-sm hover:border-white hover:bg-white/10 transition-colors"
             >
               hello@needhelpbuilding.com
             </a>

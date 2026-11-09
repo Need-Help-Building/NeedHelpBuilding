@@ -79,10 +79,11 @@ export default function IndustryExplorer() {
                 >
                   {ind.name}
                 </span>
-                <span
-                  aria-hidden
-                  className={cn("ml-auto size-2.5 transition-all duration-300", on ? "scale-100 bg-sun ring-1 ring-ink" : "scale-0 bg-ink")}
-                />
+                {on && (
+                  <span aria-hidden className="ml-auto text-sm font-semibold text-ink">
+                    →
+                  </span>
+                )}
               </button>
             );
           })}

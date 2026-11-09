@@ -131,14 +131,14 @@ export default function SiteHeader() {
         if (menu && next && !headerRef.current?.contains(next)) setMenu(null);
       }}
       className={cn(
-        "sticky top-0 z-50 border-b transition-[translate,background-color,border-color] duration-500 ease-out",
-        solid ? "border-line bg-ivory" : "border-transparent bg-ivory/0",
+        "sticky top-0 z-50 border-b border-ivory/12 bg-ink text-ivory transition-[translate,background-color,border-color] duration-500 ease-out",
+        solid ? "shadow-[0_12px_32px_rgba(0,0,0,0.5)]" : "",
         isHidden && "-translate-y-full",
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-6 lg:h-[72px]">
         <Link href="/" aria-label="NeedHelpBuilding — home" className="shrink-0" onClick={closeMenus}>
-          <Logo />
+          <Logo tone="dark" />
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">
@@ -146,7 +146,7 @@ export default function SiteHeader() {
             {menus.map(({ id, label }) => {
               const open = menu === id;
               return (
-                <li key={id} className={cn(id === "solutions" && "relative")}>
+                <li key={id} className="relative">
                   <button
                     ref={(el) => {
                       triggerRefs.current[id] = el;
@@ -158,7 +158,7 @@ export default function SiteHeader() {
                     onClick={(e) => onTriggerClick(id, e.timeStamp)}
                     className={cn(
                       "flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[14px] transition-colors",
-                      open ? "bg-ink/6 text-ink" : "text-ink/75 hover:text-ink",
+                      open ? "bg-ivory/15 text-white" : "text-ivory/80 hover:text-white hover:bg-ivory/10",
                     )}
                   >
                     {label}
@@ -167,6 +167,11 @@ export default function SiteHeader() {
                       className={cn("size-3.5 transition-transform duration-300", open && "rotate-180")}
                     />
                   </button>
+                  {open && id === "services" && (
+                    <div onPointerEnter={cancelClose}>
+                      <ServicesPanel id="menu-services" onNavigate={closeMenus} />
+                    </div>
+                  )}
                   {open && id === "solutions" && (
                     <div onPointerEnter={cancelClose}>
                       <SolutionsPanel id="menu-solutions" onNavigate={closeMenus} />
@@ -181,7 +186,7 @@ export default function SiteHeader() {
                   href={item.href}
                   onPointerEnter={(e) => e.pointerType === "mouse" && menu && scheduleClose()}
                   onClick={closeMenus}
-                  className="flex h-10 items-center rounded-full px-3.5 text-[14px] text-ink/75 transition-colors hover:text-ink"
+                  className="flex h-10 items-center rounded-full px-3.5 text-[14px] text-ivory/80 transition-colors hover:text-white hover:bg-ivory/10"
                 >
                   {item.label}
                 </SmartLink>
@@ -193,16 +198,15 @@ export default function SiteHeader() {
         <div className="flex items-center gap-2">
           <SmartLink
             href={ctas.consultation.href}
-            className="hidden h-10 items-center px-3 text-[14px] text-ink/75 transition-colors hover:text-ink xl:flex"
+            className="hidden h-10 items-center px-3 text-[14px] text-ivory/80 transition-colors hover:text-white xl:flex"
           >
             Let&apos;s talk
           </SmartLink>
           <SmartLink
             href={ctas.startProject.href}
-            className="hidden h-10 items-center gap-2 rounded-full bg-sun pr-4 pl-4 text-[14px] font-medium text-ink transition-colors hover:bg-ink hover:text-sun sm:inline-flex"
+            className="hidden h-10 items-center gap-2 rounded-full bg-sun pr-4 pl-4 text-[14px] font-medium text-ink transition-colors hover:bg-white sm:inline-flex"
           >
             Start a project
-            <span aria-hidden className="size-1.5 rounded-full bg-ink" />
           </SmartLink>
           <button
             type="button"
@@ -210,18 +214,12 @@ export default function SiteHeader() {
             aria-controls="mobile-nav"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((v) => !v)}
-            className="grid size-11 place-items-center rounded-full border border-ink/15 text-ink lg:hidden"
+            className="grid size-11 place-items-center rounded-full border border-ivory/20 text-ivory lg:hidden hover:bg-ivory/10 transition-colors"
           >
             {mobileOpen ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
           </button>
         </div>
       </Container>
-
-      {menu === "services" && (
-        <div onPointerEnter={cancelClose} className="hidden lg:block">
-          <ServicesPanel id="menu-services" onNavigate={closeMenus} />
-        </div>
-      )}
 
       <MobileNav open={mobileOpen} onClose={closeMobile} />
     </header>

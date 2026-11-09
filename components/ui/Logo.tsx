@@ -11,12 +11,11 @@ export default function Logo({ tone = "light", compact = false, className }: { t
       <span
         aria-hidden
         className={cn(
-          "relative inline-flex h-8 items-center px-[7px] text-[15px] leading-none font-extrabold tracking-[-0.07em]",
+          "relative inline-flex h-8 items-center px-[7px] text-[15px] leading-none font-extrabold tracking-[-0.07em] rounded-sm",
           dark ? "bg-ivory text-ink" : "bg-ink text-ivory",
         )}
       >
         NHB
-        <span className="absolute -right-[5px] -bottom-[5px] size-2.5 bg-sun" />
       </span>
       {!compact && (
         <span className={cn("text-[15px] font-semibold tracking-[-0.035em]", dark ? "text-ivory" : "text-ink")}>

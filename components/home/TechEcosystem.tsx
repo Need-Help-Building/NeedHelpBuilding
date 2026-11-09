@@ -99,7 +99,7 @@ export default function TechEcosystem() {
                           )}
                         >
                           {item.shipped && (
-                            <span aria-hidden className="size-1.5 rounded-[1px] bg-sun ring-1 ring-ink/40" />
+                            <span aria-hidden className="size-1.5 rounded-full bg-emerald-500" />
                           )}
                           {item.name}
                           {item.shipped && <span className="sr-only">(used in shipped NHB work)</span>}
@@ -120,7 +120,7 @@ export default function TechEcosystem() {
                 <p className="mt-2 text-[16px] leading-snug font-medium tracking-[-0.015em]">{inspected.note}</p>
                 {inspected.shipped && (
                   <p className="mt-2 font-mono text-[11.5px] text-ink/70">
-                    <span aria-hidden className="mr-2 inline-block size-1.5 rounded-[1px] bg-sun ring-1 ring-ink/40" />
+                    <span aria-hidden className="mr-2 inline-block size-1.5 rounded-full bg-emerald-500" />
                     Used in shipped work: {inspected.shipped}
                   </p>
                 )}
@@ -136,7 +136,7 @@ export default function TechEcosystem() {
         </div>
         <p className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12.5px] text-muted">
           <span className="inline-flex items-center gap-2">
-            <span aria-hidden className="size-1.5 rounded-[1px] bg-sun ring-1 ring-ink/40" /> Used in shipped NHB work
+            <span aria-hidden className="size-1.5 rounded-full bg-emerald-500" /> Used in shipped NHB work
           </span>
           <span>Tools we work with — not vendor partnerships or certifications.</span>
         </p>
