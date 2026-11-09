@@ -1,24 +1,37 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 /**
- * NHB wordmark: a solid "building block" carrying the NHB monogram, with a yellow keystone corner,
- * followed by the full name. Echoes the heavy geometric NHB logo (public/logo.png) for light surfaces.
+ * NHB wordmark: uses the signature NHB emblem (N-white, H-yellow, B-white)
+ * paired with the brand name.
  */
-export default function Logo({ tone = "light", compact = false, className }: { tone?: "light" | "dark"; compact?: boolean; className?: string }) {
+export default function Logo({
+  tone = "light",
+  compact = false,
+  className,
+}: {
+  tone?: "light" | "dark";
+  compact?: boolean;
+  className?: string;
+}) {
   const dark = tone === "dark";
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <span
-        aria-hidden
-        className={cn(
-          "relative inline-flex h-8 items-center px-[7px] text-[15px] leading-none font-extrabold tracking-[-0.07em] rounded-sm",
-          dark ? "bg-ivory text-ink" : "bg-ink text-ivory",
-        )}
-      >
-        NHB
-      </span>
+      <Image
+        src="/logo.png"
+        alt="NHB"
+        width={1024}
+        height={512}
+        className="h-7 sm:h-8 w-auto object-contain"
+        priority
+      />
       {!compact && (
-        <span className={cn("text-[15px] font-semibold tracking-[-0.035em]", dark ? "text-ivory" : "text-ink")}>
+        <span
+          className={cn(
+            "text-[14px] sm:text-[15px] font-semibold tracking-[-0.035em] hidden min-[360px]:inline",
+            dark ? "text-ivory" : "text-ink",
+          )}
+        >
           NeedHelpBuilding
         </span>
       )}

@@ -22,31 +22,37 @@ export default function SiteFooter() {
       <h2 id="footer-heading" className="sr-only">
         Site footer
       </h2>
-      <Container className="pt-20 pb-10 lg:pt-28">
-        <p className="max-w-4xl text-[clamp(1.75rem,1.1rem+2.6vw,3.25rem)] leading-[1.06] font-semibold tracking-[-0.045em]">
+      <Container className="pt-14 pb-8 sm:pt-20 sm:pb-10 lg:pt-28">
+        <p className="max-w-4xl text-[clamp(1.5rem,1.1rem+2.6vw,3.25rem)] leading-[1.1] font-semibold tracking-[-0.045em] break-words">
           We don&apos;t just build technology.{" "}
           <span className="text-sun">We help businesses make better technology decisions.</span>
         </p>
 
-        <div className="mt-16 grid gap-12 border-t border-ivory/12 pt-12 lg:grid-cols-12 lg:gap-8">
+        <div className="mt-12 sm:mt-16 grid gap-10 sm:gap-12 border-t border-ivory/12 pt-10 sm:pt-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-3">
             <Image
               src="/logo.png"
               alt="NHB — NeedHelpBuilding, digital products & services"
-              width={1062}
-              height={482}
-              className="h-auto w-44"
+              width={1024}
+              height={512}
+              className="h-auto w-36 sm:w-44 object-contain"
             />
-            <ul className="mt-8 space-y-3 text-sm">
+            <ul className="mt-6 sm:mt-8 space-y-2.5 sm:space-y-3 text-sm">
               <li>
-                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-3 text-ivory/80 hover:text-sun">
-                  <Mail aria-hidden className="size-4 text-ivory/50" />
+                <a
+                  href={`mailto:${site.email}`}
+                  className="inline-flex items-center gap-3 py-1 text-ivory/80 transition-colors hover:text-sun break-all sm:break-normal"
+                >
+                  <Mail aria-hidden className="size-4 shrink-0 text-ivory/50" />
                   {site.email}
                 </a>
               </li>
               <li>
-                <a href={`tel:${site.phone.e164}`} className="inline-flex items-center gap-3 text-ivory/80 hover:text-sun">
-                  <Phone aria-hidden className="size-4 text-ivory/50" />
+                <a
+                  href={`tel:${site.phone.e164}`}
+                  className="inline-flex items-center gap-3 py-1 text-ivory/80 transition-colors hover:text-sun"
+                >
+                  <Phone aria-hidden className="size-4 shrink-0 text-ivory/50" />
                   {site.phone.display}
                 </a>
               </li>
@@ -55,9 +61,9 @@ export default function SiteFooter() {
                   href={site.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-ivory/80 hover:text-sun"
+                  className="inline-flex items-center gap-3 py-1 text-ivory/80 transition-colors hover:text-sun"
                 >
-                  <WhatsAppGlyph className="size-4 text-ivory/50" />
+                  <WhatsAppGlyph className="size-4 shrink-0 text-ivory/50" />
                   WhatsApp us
                 </a>
               </li>
@@ -66,20 +72,20 @@ export default function SiteFooter() {
                   href={site.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-ivory/80 hover:text-sun"
+                  className="inline-flex items-center gap-3 py-1 text-ivory/80 transition-colors hover:text-sun"
                 >
-                  <InstagramGlyph className="size-4 text-ivory/50" />
+                  <InstagramGlyph className="size-4 shrink-0 text-ivory/50" />
                   @needhelpbuilding
                 </a>
               </li>
             </ul>
 
-            <div className="mt-10 max-w-sm rounded-xl border border-ivory/12 p-5">
+            <div className="mt-8 sm:mt-10 max-w-sm rounded-2xl border border-ivory/12 bg-white/[0.02] p-4 sm:p-5">
               <p className="t-eyebrow text-sun">{referral.title}</p>
-              <p className="mt-3 text-sm leading-relaxed text-ivory/70">{referral.summary}</p>
+              <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-ivory/70">{referral.summary}</p>
               <SmartLink
                 href={referral.cta.href}
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ivory hover:text-sun"
+                className="mt-3.5 inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-ivory hover:text-sun"
               >
                 {referral.cta.label}
                 <ArrowUpRight aria-hidden className="size-3.5" />
@@ -87,19 +93,25 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:col-span-9 lg:grid-cols-5 lg:pl-8">
-            {footerColumns.map((column) => (
-              <div key={column.title}>
+          <nav
+            aria-label="Footer"
+            className="grid grid-cols-2 gap-x-5 gap-y-8 min-[520px]:grid-cols-3 sm:grid-cols-3 lg:col-span-9 lg:grid-cols-5 lg:pl-8"
+          >
+            {footerColumns.map((column, idx) => (
+              <div key={column.title} className={idx === 4 ? "col-span-2 min-[520px]:col-span-1" : ""}>
                 <h3 className="t-eyebrow text-ivory/45">{column.title}</h3>
-                <ul className="mt-5 space-y-3">
+                <ul className="mt-4 sm:mt-5 space-y-2 sm:space-y-3">
                   {column.links.map((link) => (
                     <li key={link.label} className="text-sm leading-5">
                       {link.href ? (
-                        <SmartLink href={link.href} className="text-ivory/80 transition-colors hover:text-sun">
+                        <SmartLink
+                          href={link.href}
+                          className="inline-block py-1 text-ivory/80 transition-colors hover:text-sun"
+                        >
                           {link.label}
                         </SmartLink>
                       ) : (
-                        <span className="text-ivory/60">
+                        <span className="inline-block py-1 text-ivory/60">
                           {link.label}
                         </span>
                       )}
@@ -111,7 +123,7 @@ export default function SiteFooter() {
           </nav>
         </div>
 
-        <div className="mt-20 flex flex-col gap-4 border-t border-ivory/12 pt-6 text-xs text-ivory/50 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 sm:mt-20 flex flex-col gap-3 border-t border-ivory/12 pt-6 text-xs text-ivory/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. {site.descriptor}.
           </p>
