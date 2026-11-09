@@ -8,8 +8,9 @@ import { BrowserFrame, Container, Placeholder, StatusDot } from "@/components/ui
 import SousChefMockup from "@/components/home/SousChefMockup";
 import FinalCta from "@/components/home/FinalCta";
 import { getProject, projects, statusLabel, testimonials } from "@/content/work";
-import { mailto, site } from "@/content/site";
+import { mailto } from "@/content/site";
 import { JsonLd } from "@/lib/structured-data";
+import { breadcrumbJsonLd, clip, pageMetadata } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -25,18 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return { title: "Case study not found" };
-  const title = `${project.name} — ${project.category}`;
-  return {
-    title,
-    description: project.summary,
-    alternates: { canonical: `/work/${project.slug}` },
-    openGraph: {
-      title: `${title} — NeedHelpBuilding`,
-      description: project.summary,
-      url: `${site.url}/work/${project.slug}`,
-      type: "article",
-    },
-  };
+  return pageMetadata({
+    title: `${project.name} Case Study — ${project.category}`,
+    description: clip(project.summary),
+    path: `/work/${project.slug}`,
+    type: "article",
+  });
 }
 
 export default async function CaseStudyPage({ params }: Props) {
@@ -49,15 +44,11 @@ export default async function CaseStudyPage({ params }: Props) {
   const next = projects[(index + 1) % projects.length];
   const verifiedMetrics = project.metrics.filter((m) => m.verified);
 
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-      { "@type": "ListItem", position: 2, name: "Work", item: `${site.url}/#work` },
-      { "@type": "ListItem", position: 3, name: project.name, item: `${site.url}/work/${project.slug}` },
-    ],
-  };
+  // No "Work" crumb: /#work is a fragment, not an indexable URL, so Google would reject it as a breadcrumb item.
+  const breadcrumb = breadcrumbJsonLd([
+    ["Home", "/"],
+    [project.name, `/work/${project.slug}`],
+  ]);
 
   return (
     <main id="main">

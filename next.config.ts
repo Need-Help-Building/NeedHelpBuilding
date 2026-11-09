@@ -21,6 +21,16 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
+          {
+            // Browsers ignore HSTS over plain http, so this is safe in local dev.
+            key: "Strict-Transport-Security",
+            // No includeSubDomains: only add it once every subdomain is confirmed to serve HTTPS.
+            value: "max-age=63072000",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+          },
         ],
       },
       {

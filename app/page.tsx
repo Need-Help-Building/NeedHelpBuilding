@@ -26,7 +26,7 @@ const webPageJsonLd = {
   "@type": "WebPage",
   "@id": `${site.url}/#webpage`,
   url: site.url,
-  name: "NeedHelpBuilding — Digital Product Engineering, AI & Technology Consulting",
+  name: "NeedHelpBuilding — AI, Software & Technology Consulting",
   description: `${site.positioning} ${site.supporting}`,
   isPartOf: { "@id": `${site.url}/#website` },
   about: { "@id": `${site.url}/#organization` },

@@ -13,6 +13,8 @@ interface Props {
   /** Optional element aligned to the right of the title on wide screens (e.g. a link). */
   aside?: ReactNode;
   titleClassName?: string;
+  /** Heading level for the title; use "h1" when the section heading is the page's main heading. */
+  as?: "h1" | "h2";
 }
 
 /** Section eyebrow (§ index + label + rule) followed by an editorial h2 and optional lede. */
@@ -26,6 +28,7 @@ export default function SectionHeading({
   className,
   aside,
   titleClassName,
+  as: Heading = "h2",
 }: Props) {
   const dark = tone === "dark";
   return (
@@ -38,13 +41,13 @@ export default function SectionHeading({
         <span aria-hidden className={cn("h-px w-10", dark ? "bg-ivory/25" : "bg-ink/25")} />
         <span>{label}</span>
       </div>
-      <h2
+      <Heading
         id={titleId}
         data-reveal
         className={cn("t-h2 lg:col-span-8", dark ? "text-ivory" : "text-ink", titleClassName)}
       >
         <Marked text={title} tone={tone} />
-      </h2>
+      </Heading>
       {lede && (
         <div
           data-reveal

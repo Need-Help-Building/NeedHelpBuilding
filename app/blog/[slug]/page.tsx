@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Clock, Calendar, Share2, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/primitives";
-import ButtonLink, { ArrowLink } from "@/components/ui/ButtonLink";
+import ButtonLink from "@/components/ui/ButtonLink";
 import { insights, type Insight } from "@/content/insights";
+import { articles, wordCount, type ArticleBlock } from "@/content/articles";
 import { ctas, site } from "@/content/site";
 import InsightArtwork from "@/components/home/visuals/InsightArt";
 import { cn } from "@/lib/cn";
+import { JsonLd } from "@/lib/structured-data";
+import { breadcrumbJsonLd, clip, pageMetadata } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }));
@@ -20,12 +25,91 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = insights.find((i) => i.slug === slug);
-  if (!post) return { title: "Post Not Found" };
+  const article = articles[slug];
+  if (!post || !article) return { title: "Post not found" };
 
-  return {
-    title: `${post.title} — NHB Engineering Insights`,
-    description: post.dek,
-  };
+  return pageMetadata({
+    title: post.metaTitle ?? post.title,
+    description: clip(post.dek),
+    path: `/blog/${post.slug}`,
+    type: "article",
+    publishedTime: post.date ?? undefined,
+    modifiedTime: article.updated,
+    section: post.category,
+  });
+}
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+}
+
+/** Renders one article block as semantic HTML (h2/h3, lists, tables) so structure is visible to crawlers. */
+function Block({ block }: { block: ArticleBlock }) {
+  switch (block.type) {
+    case "h2":
+      return <h2 className="mt-12 text-2xl font-semibold tracking-[-0.03em] text-ink">{block.text}</h2>;
+    case "h3":
+      return <h3 className="mt-8 text-xl font-semibold tracking-[-0.02em] text-ink">{block.text}</h3>;
+    case "p":
+      return <p className="mt-5">{block.text}</p>;
+    case "ul":
+    case "ol": {
+      const List = block.type;
+      return (
+        <List className={cn("my-6 space-y-2.5 pl-6 text-ink/80", block.type === "ul" ? "list-disc" : "list-decimal")}>
+          {block.items.map((item) => (
+            <li key={item.text}>
+              {item.lead && <strong className="text-ink">{item.lead} </strong>}
+              {item.text}
+            </li>
+          ))}
+        </List>
+      );
+    }
+    case "callout":
+      return (
+        <aside className="my-8 rounded-2xl border border-line bg-ivory-2 p-6 sm:p-8">
+          <p className="font-mono text-xs uppercase tracking-wider text-muted">{block.label}</p>
+          <p className="mt-3 text-lg font-medium leading-snug text-ink">{block.text}</p>
+        </aside>
+      );
+    case "table":
+      return (
+        <div className="my-8 overflow-x-auto rounded-2xl border border-line bg-white">
+          <table className="w-full min-w-[520px] border-collapse text-left text-[15px]">
+            <caption className="border-b border-line px-5 py-3 text-left font-mono text-xs uppercase tracking-wider text-muted">
+              {block.caption}
+            </caption>
+            <thead>
+              <tr>
+                {block.head.map((h) => (
+                  <th key={h} scope="col" className="border-b border-line px-5 py-3 font-semibold text-ink">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row) => (
+                <tr key={row.join("|")} className="border-b border-line/60 last:border-0">
+                  {row.map((cell, i) =>
+                    i === 0 ? (
+                      <th key={i} scope="row" className="px-5 py-3 align-top font-medium text-ink">
+                        {cell}
+                      </th>
+                    ) : (
+                      <td key={i} className="px-5 py-3 align-top text-ink/80">
+                        {cell}
+                      </td>
+                    ),
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+  }
 }
 
 const covers: Record<Insight["art"], string> = {
@@ -38,21 +122,51 @@ const covers: Record<Insight["art"], string> = {
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = insights.find((i) => i.slug === slug);
+  const article = articles[slug];
 
-  if (!post) notFound();
+  if (!post || !article) notFound();
 
   const otherPosts = insights.filter((i) => i.slug !== slug).slice(0, 2);
+  const url = `${site.url}/blog/${post.slug}`;
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    mainEntityOfPage: url,
+    url,
+    headline: post.title,
+    description: post.dek,
+    abstract: article.answer,
+    articleSection: post.category,
+    wordCount: wordCount(article),
+    ...(post.date ? { datePublished: post.date } : {}),
+    dateModified: article.updated,
+    inLanguage: "en",
+    image: `${url}/opengraph-image`,
+    author: { "@id": `${site.url}/#organization` },
+    publisher: { "@id": `${site.url}/#organization` },
+    isPartOf: { "@id": `${site.url}/blog#blog` },
+  };
 
   return (
-    <main className="bg-ivory py-16 sm:py-24">
+    <main id="main" className="bg-ivory py-16 sm:py-24">
+      <JsonLd data={articleJsonLd} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          ["Home", "/"],
+          ["Blog", "/blog"],
+          [post.title, `/blog/${post.slug}`],
+        ])}
+      />
       <Container className="max-w-4xl">
         {/* Back Link */}
         <Link
-          href="/#insights"
+          href="/blog"
           className="inline-flex items-center gap-2 font-mono text-xs text-muted hover:text-ink transition-colors"
         >
           <ArrowLeft className="size-3.5" />
-          Back to Insights
+          All engineering notes
         </Link>
 
         {/* Post Header */}
@@ -61,14 +175,12 @@ export default async function BlogPostPage({ params }: Props) {
             <span className="rounded-full bg-ink px-3 py-1 text-ivory font-medium">
               {post.category}
             </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Calendar className="size-3.5" />
-              {new Date(post.date || "2026-03-01").toLocaleDateString("en-GB", {
-                day: "numeric",
-                month: "short",
-                year: "numeric",
-              })}
-            </span>
+            {post.date && (
+              <span className="inline-flex items-center gap-1.5">
+                <Calendar className="size-3.5" />
+                <time dateTime={post.date}>{formatDate(post.date)}</time>
+              </span>
+            )}
             <span>·</span>
             <span className="inline-flex items-center gap-1.5">
               <Clock className="size-3.5" />
@@ -94,69 +206,31 @@ export default async function BlogPostPage({ params }: Props) {
                 <p className="text-[11px]">Systems, Architecture & Production AI</p>
               </div>
             </div>
-            <span className="font-mono text-[11px] text-muted">ESSAY // {post.slug.toUpperCase()}</span>
+            <span className="font-mono text-[11px] text-muted">
+              Updated <time dateTime={article.updated}>{formatDate(article.updated)}</time>
+            </span>
           </div>
         </header>
 
         {/* Hero Visual */}
-        <div className={cn("mt-10 overflow-hidden rounded-3xl aspect-[16/9] border border-line", covers[post.art])}>
+        <div aria-hidden className={cn("mt-10 overflow-hidden rounded-3xl aspect-[16/9] border border-line", covers[post.art])}>
           <InsightArtwork art={post.art} />
         </div>
 
         {/* Article Content */}
-        <article className="prose prose-neutral mt-12 max-w-none text-[16.5px] leading-relaxed text-ink/90 sm:text-[17.5px]">
-          <p className="text-xl leading-relaxed font-medium text-ink">
-            Every breakthrough in software engineering looks like magic until you have to run it in production.
-            When building complex architectures, the difference between a prototype and an operable system is measured
-            in constraints, failure recovery, and boundary enforcement.
-          </p>
-
-          <h2 className="mt-10 text-2xl font-semibold tracking-[-0.03em] text-ink">
-            1. Diagnose before prescribing
-          </h2>
-          <p>
-            When teams rush to adopt the newest patterns or models, they often solve the wrong problems with excessive
-            complexity. Before writing code or spinning up infrastructure, we establish tight telemetry and clear
-            evaluation metrics. If you cannot measure regression, you cannot safely deploy improvements.
-          </p>
-
-          <div className="my-8 rounded-2xl border border-line bg-ivory-2 p-6 sm:p-8">
-            <p className="font-mono text-xs uppercase tracking-wider text-muted">Operating Principle</p>
-            <p className="mt-3 text-lg font-medium leading-snug text-ink">
-              “The most reliable system is the one that minimizes unconstrained surface area. If an agent or service
-              doesn&apos;t explicitly need access, revoke it by default.”
-            </p>
-          </div>
-
-          <h2 className="mt-10 text-2xl font-semibold tracking-[-0.03em] text-ink">
-            2. The boundary architecture
-          </h2>
-          <p>
-            Systems fail at boundaries: between services, between client and server, and especially between autonomous
-            LLM logic and deterministic database state. By placing strict schema contracts and typed validations at
-            every boundary, unpredictable errors are caught before they touch user data.
-          </p>
-          <ul className="my-6 space-y-2 list-disc pl-6 text-muted">
-            <li><strong className="text-ink">Explicit tool validation:</strong> Arguments validated via Zod schemas before runtime execution.</li>
-            <li><strong className="text-ink">Idempotency guarantees:</strong> All write operations keyed with transaction tokens.</li>
-            <li><strong className="text-ink">Observability by default:</strong> OpenTelemetry spans emitted for every model call and tool execution.</li>
-          </ul>
-
-          <h2 className="mt-10 text-2xl font-semibold tracking-[-0.03em] text-ink">
-            3. What happens next
-          </h2>
-          <p>
-            Building enduring digital products requires engineering discipline, shared risk, and relentless focus
-            on user outcomes. We continue to publish architecture notes as we ship new platforms for our partners.
-          </p>
+        <article className="mt-12 text-[16.5px] leading-relaxed text-ink/90 sm:text-[17.5px]">
+          <p className="text-xl leading-relaxed font-medium text-ink">{article.answer}</p>
+          {article.body.map((block, i) => (
+            <Block key={i} block={block} />
+          ))}
         </article>
 
         {/* Author / CTA Box */}
         <div className="mt-16 rounded-3xl border border-line bg-ink p-8 text-ivory sm:p-10">
           <p className="t-eyebrow text-sun">Need help with your architecture?</p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em]">
+          <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em]">
             Have an ambitious system to build or scale?
-          </h3>
+          </h2>
           <p className="mt-3 text-sm text-ivory/70 leading-relaxed max-w-xl">
             We partner with founders and enterprise teams to engineer reliable digital products, AI systems, and custom software.
           </p>
@@ -173,7 +247,7 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Other Insights */}
         {otherPosts.length > 0 && (
           <div className="mt-20 border-t border-line pt-12">
-            <h4 className="font-mono text-xs uppercase tracking-wider text-muted">More from the engineering lab</h4>
+            <h2 className="font-mono text-xs uppercase tracking-wider text-muted">More from the engineering lab</h2>
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
               {otherPosts.map((other) => (
                 <Link
@@ -182,9 +256,9 @@ export default async function BlogPostPage({ params }: Props) {
                   className="group rounded-2xl border border-line bg-white p-6 transition-all hover:border-ink/30"
                 >
                   <p className="font-mono text-[11px] text-muted">{other.category}</p>
-                  <h5 className="mt-2 text-lg font-semibold tracking-[-0.02em] text-ink group-hover:underline">
+                  <h3 className="mt-2 text-lg font-semibold tracking-[-0.02em] text-ink group-hover:underline">
                     {other.title}
-                  </h5>
+                  </h3>
                   <p className="mt-2 text-xs leading-relaxed text-muted line-clamp-2">{other.dek}</p>
                   <span className="mt-4 inline-flex items-center gap-1 font-mono text-xs font-medium text-ink">
                     Read note <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />

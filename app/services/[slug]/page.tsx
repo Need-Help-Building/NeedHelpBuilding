@@ -3,22 +3,18 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { SERVICES_DATA } from "../services-data";
-
-const ACRONYMS = new Set(["AI", "UI", "UX", "QA", "CTO", "&", "/"]);
-
-/** "FULL STACK WEB DEVELOPMENT" → "Full Stack Web Development" (keeps acronyms). */
-function toTitle(value: string) {
-  return value
-    .split(" ")
-    .map((word) => (ACRONYMS.has(word) ? word : word.charAt(0) + word.slice(1).toLowerCase()))
-    .join(" ");
-}
+import { toTitle } from "../title";
+import { JsonLd } from "@/lib/structured-data";
+import { breadcrumbJsonLd, clip, pageMetadata } from "@/lib/seo";
+import { site } from "@/content/site";
 
 interface ServicePageProps {
   params: Promise<{
     slug: string;
   }>;
 }
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return SERVICES_DATA.map((service) => ({
@@ -35,17 +31,11 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     };
   }
 
-  const title = toTitle(service.title);
-  return {
-    title,
-    description: service.shortDesc,
-    alternates: { canonical: `/services/${service.slug}` },
-    openGraph: {
-      title: `${title} — NeedHelpBuilding`,
-      description: service.shortDesc,
-      url: `https://needhelpbuilding.com/services/${service.slug}`,
-    },
-  };
+  return pageMetadata({
+    title: toTitle(service.title),
+    description: clip(service.shortDesc),
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
@@ -57,9 +47,38 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   }
 
   const otherServices = SERVICES_DATA.filter((s) => s.slug !== slug);
+  const name = toTitle(service.title);
+  const url = `${site.url}/services/${service.slug}`;
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    url,
+    name,
+    serviceType: name,
+    category: service.category,
+    description: service.overview,
+    provider: { "@id": `${site.url}/#organization` },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${name} deliverables`,
+      itemListElement: service.whatWeDo.map((item) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: clip(item, 110) },
+      })),
+    },
+  };
 
   return (
     <main id="main" className="min-h-screen w-full bg-black text-white flex flex-col items-center selection:bg-white selection:text-black">
+      <JsonLd data={serviceJsonLd} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          ["Home", "/"],
+          [name, `/services/${service.slug}`],
+        ])}
+      />
       {/* Hero Section */}
       <section className="w-full max-w-6xl px-6 pt-20 pb-20 border-b border-neutral-800 flex flex-col">
         <div className="flex items-center gap-3 mb-6">
@@ -203,9 +222,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <div className="text-[11px] font-mono text-neutral-500 uppercase mb-2">
                 {other.category}
               </div>
-              <h4 className="text-base font-bold text-white group-hover:text-neutral-300 mb-2">
+              <h3 className="text-base font-bold text-white group-hover:text-neutral-300 mb-2">
                 {other.title}
-              </h4>
+              </h3>
               <p className="text-xs text-neutral-400 line-clamp-2">
                 {other.shortDesc}
               </p>
