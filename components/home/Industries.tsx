@@ -1,10 +1,12 @@
+import { CactusPatch } from "@/components/pixel/Decor";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
 import IndustryExplorer from "./IndustryExplorer";
 
 export default function Industries() {
   return (
-    <section id="industries" aria-labelledby="industries-title" className="py-24 lg:py-36">
+    <section id="industries" aria-labelledby="industries-title" className="relative overflow-hidden py-24 lg:py-36">
+      <CactusPatch variant={2} className="bottom-0 left-[5%] hidden md:flex" flip />
       <Container>
         <SectionHeading
           index="08"

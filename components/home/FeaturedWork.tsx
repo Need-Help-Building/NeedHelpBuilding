@@ -4,7 +4,7 @@ import { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartLink from "@/components/ui/SmartLink";
 import { BrowserFrame, Container, Placeholder, StatusDot } from "@/components/ui/primitives";
-import { LiveOrb } from "@/components/ui/live-orb";
+import PixelOrb from "@/components/pixel/PixelOrb";
 import { getProject, testimonials, type Project } from "@/content/work";
 import { mailto } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -109,7 +109,7 @@ export default function FeaturedWork() {
           >
             <div className="relative bg-ink p-4 sm:p-6">
               <div className="pointer-events-auto absolute top-3 right-3 z-20">
-                <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={54} />
+                <PixelOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={54} />
               </div>
               <div aria-hidden className="grid-paper-dark absolute inset-0" />
               <BrowserFrame url="caller.work" tone="dark" className="relative">
@@ -153,7 +153,7 @@ export default function FeaturedWork() {
           >
             <div className="relative bg-mist-soft p-4 sm:p-5">
               <div className="pointer-events-auto absolute top-3 right-3 z-20">
-                <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={50} />
+                <PixelOrb variant="custom" color="#ffd000" eyeColor="#171717" size={50} />
               </div>
               <BrowserFrame url="yourstorehere.vercel.app">
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -191,7 +191,7 @@ export default function FeaturedWork() {
           >
             <div className="relative flex items-center bg-lilac-soft px-6 pt-14 pb-8 sm:px-8">
               <div className="pointer-events-auto absolute top-3 right-3 z-20">
-                <LiveOrb variant="black" size={50} />
+                <PixelOrb variant="black" size={50} />
               </div>
               <span className="absolute top-4 left-4 rounded-full border border-ink/20 bg-ivory/80 px-2.5 py-1 font-mono text-[10px] tracking-wide text-ink/75">
                 Illustrative interface · in development
@@ -231,9 +231,9 @@ export default function FeaturedWork() {
                 >
                   <div className="pointer-events-auto absolute top-3 right-3 z-20">
                     {i === 0 ? (
-                      <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={42} />
+                      <PixelOrb variant="custom" color="#ffd000" eyeColor="#171717" size={42} />
                     ) : (
-                      <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={42} />
+                      <PixelOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={42} />
                     )}
                   </div>
                   <div className="flex items-center justify-between gap-4">

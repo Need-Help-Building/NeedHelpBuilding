@@ -1,3 +1,4 @@
+import { CactusPatch, PixelPterodactyl } from "@/components/pixel/Decor";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartLink from "@/components/ui/SmartLink";
@@ -24,7 +25,9 @@ const steps = [
 
 export default function Positioning() {
   return (
-    <section id="about" aria-labelledby="about-title" className="border-t border-line py-24 lg:py-36">
+    <section id="about" aria-labelledby="about-title" className="relative overflow-hidden border-t border-line py-24 lg:py-36">
+      <PixelPterodactyl className="top-8" duration={30} delay={4} />
+      <CactusPatch className="right-[6%] bottom-0 hidden md:flex" />
       <Container>
         <SectionHeading index="01" label="About NHB" title="Not just another *technology partner.*" titleId="about-title" />
 

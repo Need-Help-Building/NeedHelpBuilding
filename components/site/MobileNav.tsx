@@ -5,7 +5,9 @@ import { Mail, Plus } from "lucide-react";
 import SmartLink from "@/components/ui/SmartLink";
 import ButtonLink from "@/components/ui/ButtonLink";
 import { primaryNav } from "@/content/navigation";
-import { serviceGroups, solutions } from "@/content/services";
+import { serviceGroups } from "@/content/services";
+import { productStatusLabel, products } from "@/content/products";
+import { ProductMark } from "./MegaMenu";
 import { programs } from "@/content/ecosystem";
 import { ctas, site } from "@/content/site";
 import { lockScroll } from "@/lib/scroll";
@@ -45,7 +47,21 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
       className="fixed inset-x-0 top-16 bottom-0 animate-rise overflow-y-auto overscroll-contain border-t border-ivory/12 bg-ink text-ivory lg:hidden"
     >
       <nav aria-label="Mobile" className="flex min-h-full flex-col px-4 pt-4 pb-6 sm:px-6">
-        <details className="group border-b border-ivory/12" open>
+        <ul>
+          {primaryNav.slice(0, 1).map((item) => (
+            <li key={item.label} className="border-b border-ivory/12">
+              <SmartLink
+                href={item.href}
+                onClick={onClose}
+                className="flex items-center justify-between py-4 text-2xl font-semibold tracking-[-0.04em] text-ivory transition-colors hover:text-sun"
+              >
+                {item.label}
+              </SmartLink>
+            </li>
+          ))}
+        </ul>
+
+        <details className="group border-b border-ivory/12">
           <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-2xl font-semibold tracking-[-0.04em] [&::-webkit-details-marker]:hidden">
             Services
             <Plus aria-hidden className="size-5 transition-transform duration-300 group-open:rotate-45" />
@@ -81,15 +97,22 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
 
         <details className="group border-b border-ivory/12">
           <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-2xl font-semibold tracking-[-0.04em] [&::-webkit-details-marker]:hidden">
-            Solutions
+            Products
             <Plus aria-hidden className="size-5 transition-transform duration-300 group-open:rotate-45" />
           </summary>
           <ul className="pb-4">
-            {solutions.map((s) => (
-              <li key={s.title}>
-                <SmartLink href={s.href} onClick={onClose} className="block rounded-xl p-2.5 active:bg-ivory/10 hover:bg-ivory/5">
-                  <span className="block text-[15px] font-medium text-ivory">{s.title}</span>
-                  <span className="mt-0.5 block text-[13px] leading-5 text-ivory/60">{s.summary}</span>
+            {products.map((p) => (
+              <li key={p.id}>
+                <SmartLink href={`/earn-with-nhb#product-${p.id}`} onClick={onClose} className="flex gap-3 rounded-xl p-2.5 active:bg-ivory/10 hover:bg-ivory/5">
+                  <span className="grid size-8 shrink-0 place-items-center overflow-hidden rounded-md border border-ivory/15">
+                    <ProductMark name={p.name} logo={p.logo} />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-[15px] font-medium text-ivory">{p.name}</span>
+                    <span className="mt-0.5 block text-[13px] leading-5 text-ivory/60">
+                      {p.category} · {productStatusLabel[p.status]}
+                    </span>
+                  </span>
                 </SmartLink>
               </li>
             ))}
@@ -105,7 +128,7 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
             {programs.map((p) => (
               <li key={p.id}>
                 <SmartLink href={p.href} onClick={onClose} className="block rounded-xl p-2.5 active:bg-ivory/10 hover:bg-ivory/5">
-                  <span className="block font-mono text-[11px] tracking-wide text-sun/80 uppercase">{p.audience}</span>
+                  <span className="t-arcade block text-[11px] text-sun/80">{p.audience}</span>
                   <span className="mt-1 block text-[15px] font-medium text-ivory">{p.title}</span>
                   <span className="mt-0.5 block text-[13px] leading-5 text-ivory/60">{p.summary}</span>
                 </SmartLink>
@@ -120,7 +143,7 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
         </details>
 
         <ul>
-          {primaryNav.map((item) => (
+          {primaryNav.slice(1).map((item) => (
             <li key={item.label} className="border-b border-ivory/12">
               <SmartLink
                 href={item.href}

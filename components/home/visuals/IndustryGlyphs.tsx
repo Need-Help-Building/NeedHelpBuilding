@@ -8,7 +8,7 @@ const WHITE = "#ffffff";
 
 function Mono({ x, y, children, anchor = "start" }: { x: number; y: number; children: string; anchor?: "start" | "middle" | "end" }) {
   return (
-    <text x={x} y={y} textAnchor={anchor} fill={INK} className="font-mono tracking-[0.08em]" style={{ fontSize: 8 }}>
+    <text x={x} y={y} textAnchor={anchor} fill={INK} className="font-arcade tracking-[0.04em]" style={{ fontSize: 8 }}>
       {children}
     </text>
   );

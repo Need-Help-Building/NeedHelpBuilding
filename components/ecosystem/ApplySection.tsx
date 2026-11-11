@@ -1,3 +1,4 @@
+import { CactusPatch } from "@/components/pixel/Decor";
 import type { ReactNode } from "react";
 import ApplicationForm from "@/components/forms/ApplicationForm";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -27,7 +28,8 @@ export default function ApplySection({
 }) {
   const titleId = `${id}-title`;
   return (
-    <section id={id} aria-labelledby={titleId} className="border-t border-line bg-ivory-2/60 py-20 lg:py-32">
+    <section id={id} aria-labelledby={titleId} className="relative overflow-hidden border-t border-line bg-ivory-2/60 py-20 lg:py-32">
+      <CactusPatch className="bottom-0 left-[4%] hidden lg:flex" />
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-4">

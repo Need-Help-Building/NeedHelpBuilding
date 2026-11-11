@@ -7,19 +7,17 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import SmartLink from "@/components/ui/SmartLink";
 import { Container } from "@/components/ui/primitives";
-import { primaryNav } from "@/content/navigation";
+import { headerNav, type MenuId } from "@/content/navigation";
 import { ctas } from "@/content/site";
 import { cn } from "@/lib/cn";
-import { EcosystemPanel, ServicesPanel, SolutionsPanel } from "./MegaMenu";
+import { EcosystemPanel, ProductsPanel, ServicesPanel } from "./MegaMenu";
 import MobileNav from "./MobileNav";
 
-type MenuId = "services" | "solutions" | "ecosystem";
-
-const menus: { id: MenuId; label: string }[] = [
-  { id: "services", label: "Services" },
-  { id: "solutions", label: "Solutions" },
-  { id: "ecosystem", label: "Ecosystem" },
-];
+const PANELS: Record<MenuId, typeof ServicesPanel> = {
+  services: ServicesPanel,
+  products: ProductsPanel,
+  ecosystem: EcosystemPanel,
+};
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -37,7 +35,7 @@ export default function SiteHeader() {
   }
 
   const headerRef = useRef<HTMLElement>(null);
-  const triggerRefs = useRef<Record<MenuId, HTMLButtonElement | null>>({ services: null, solutions: null, ecosystem: null });
+  const triggerRefs = useRef<Record<MenuId, HTMLButtonElement | null>>({ services: null, products: null, ecosystem: null });
   const openTimer = useRef<number | undefined>(undefined);
   const closeTimer = useRef<number | undefined>(undefined);
   const hoverOpenedAt = useRef(0);
@@ -144,8 +142,24 @@ export default function SiteHeader() {
 
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-1">
-            {menus.map(({ id, label }) => {
+            {headerNav.map((item) => {
+              if (item.kind === "link") {
+                return (
+                  <li key={item.label}>
+                    <SmartLink
+                      href={item.href}
+                      onPointerEnter={(e) => e.pointerType === "mouse" && menu && scheduleClose()}
+                      onClick={closeMenus}
+                      className="flex h-10 items-center rounded-full px-3.5 text-[14px] text-ivory/80 transition-colors hover:bg-ivory/10 hover:text-white"
+                    >
+                      {item.label}
+                    </SmartLink>
+                  </li>
+                );
+              }
+              const { id, label } = item;
               const open = menu === id;
+              const Panel = PANELS[id];
               return (
                 <li key={id} className="relative">
                   <button
@@ -168,36 +182,14 @@ export default function SiteHeader() {
                       className={cn("size-3.5 transition-transform duration-300", open && "rotate-180")}
                     />
                   </button>
-                  {open && id === "services" && (
+                  {open && (
                     <div onPointerEnter={cancelClose}>
-                      <ServicesPanel id="menu-services" onNavigate={closeMenus} />
-                    </div>
-                  )}
-                  {open && id === "solutions" && (
-                    <div onPointerEnter={cancelClose}>
-                      <SolutionsPanel id="menu-solutions" onNavigate={closeMenus} />
-                    </div>
-                  )}
-                  {open && id === "ecosystem" && (
-                    <div onPointerEnter={cancelClose}>
-                      <EcosystemPanel id="menu-ecosystem" onNavigate={closeMenus} />
+                      <Panel id={`menu-${id}`} onNavigate={closeMenus} />
                     </div>
                   )}
                 </li>
               );
             })}
-            {primaryNav.map((item) => (
-              <li key={item.label}>
-                <SmartLink
-                  href={item.href}
-                  onPointerEnter={(e) => e.pointerType === "mouse" && menu && scheduleClose()}
-                  onClick={closeMenus}
-                  className="flex h-10 items-center rounded-full px-3.5 text-[14px] text-ivory/80 transition-colors hover:text-white hover:bg-ivory/10"
-                >
-                  {item.label}
-                </SmartLink>
-              </li>
-            ))}
           </ul>
         </nav>
 

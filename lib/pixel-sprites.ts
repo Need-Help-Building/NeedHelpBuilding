@@ -124,6 +124,47 @@ export const CACTI: Sprite[] = [
   ],
 ];
 
+/* ---------------------------------------------------------------- pterodactyl
+ * Flies right-to-left: long beak on the left, crest and tail to the right. Two wing frames, same height,
+ * so the body stays on one line while the wings flap.
+ */
+export const PTERO_UP: Sprite = [
+  "......#",
+  "......##",
+  "......###",
+  "......####",
+  "......#####",
+  "..##..######",
+  ".#w##.#######",
+  "################",
+  "......#############",
+  ".......########",
+  "",
+  "",
+  "",
+  "",
+];
+
+export const PTERO_DOWN: Sprite = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "..##",
+  ".#w##",
+  "################",
+  "......#############",
+  ".......#######",
+  ".......#####",
+  ".......####",
+  ".......###",
+  ".......##",
+];
+
+/** Pterodactyl hit box (body and head only; wing tips are forgiving). */
+export const PTERO_HITBOX: [number, number, number, number] = [1, 5, 17, 5];
+
 /* ---------------------------------------------------------------- scenery */
 export const CLOUD: Sprite = [
   "........gggg",

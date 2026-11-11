@@ -2,19 +2,23 @@ import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 /**
- * NHB wordmark: uses the signature NHB emblem (N-white, H-yellow, B-white)
- * paired with the brand name.
+ * NHB wordmark: the signature NHB emblem (N-white, H-yellow, B-white). The brand name beside it is opt-in
+ * (`withName`); the header shows the emblem alone.
  */
 export default function Logo({
   tone = "light",
-  compact = false,
+  compact = true,
+  withName,
   className,
 }: {
   tone?: "light" | "dark";
+  /** Deprecated alias: compact = emblem only. */
   compact?: boolean;
+  withName?: boolean;
   className?: string;
 }) {
   const dark = tone === "dark";
+  compact = withName ? false : compact;
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <Image

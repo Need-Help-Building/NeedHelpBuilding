@@ -71,7 +71,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <div className="mt-10">
             <StatusDot status={project.status} />
           </div>
-          <h1 id="case-title" className="mt-5 text-[clamp(3rem,1.2rem+6vw,6.5rem)] leading-[0.95] font-semibold tracking-[-0.055em]">
+          <h1 id="case-title" className="t-pixel mt-5 text-[clamp(2.75rem,1.2rem+5vw,5.75rem)] leading-[1.02] font-semibold">
             {project.name}
           </h1>
           <p className="t-lede mt-6 max-w-3xl text-muted">{project.summary}</p>

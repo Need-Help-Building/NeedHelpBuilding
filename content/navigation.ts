@@ -8,12 +8,19 @@ export interface NavLink {
   href: string;
 }
 
-export const primaryNav: NavLink[] = [
-  { label: "Industries", href: "/#industries" },
-  { label: "Work", href: "/#work" },
-  { label: "Insights", href: "/blog" },
-  { label: "About", href: "/#about" },
+export type MenuId = "services" | "products" | "ecosystem";
+
+/** Header order (desktop and mobile): About, the three dropdowns, Industries. Work and Insights live in the footer. */
+export const headerNav: ({ kind: "link"; label: string; href: string } | { kind: "menu"; id: MenuId; label: string })[] = [
+  { kind: "link", label: "About", href: "/#about" },
+  { kind: "menu", id: "services", label: "Services" },
+  { kind: "menu", id: "products", label: "Products" },
+  { kind: "menu", id: "ecosystem", label: "Ecosystem" },
+  { kind: "link", label: "Industries", href: "/#industries" },
 ];
+
+/** Plain links in the header (kept for components that only need links). */
+export const primaryNav: NavLink[] = headerNav.flatMap((i) => (i.kind === "link" ? [{ label: i.label, href: i.href }] : []));
 
 export interface FooterLink {
   label: string;

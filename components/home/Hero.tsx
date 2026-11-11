@@ -1,7 +1,7 @@
 import ButtonLink from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/primitives";
-import { LiveOrb } from "@/components/ui/live-orb";
-import { PixelCloud, PixelSun } from "@/components/pixel/Decor";
+import PixelOrb from "@/components/pixel/PixelOrb";
+import { PixelCloud, PixelPterodactyl, PixelSun } from "@/components/pixel/Decor";
 import PixelRunner from "@/components/pixel/PixelRunner";
 import { hero } from "@/content/hero";
 import { ctas, site } from "@/content/site";
@@ -31,6 +31,7 @@ export default function Hero() {
         <PixelCloud scale={5} drift={28} duration={16} className="top-[168px] right-[19%] hidden lg:block" />
         <PixelCloud small scale={4} drift={-22} duration={12} className="top-[92px] left-[58%] hidden md:block" />
         <PixelCloud small scale={3} drift={18} duration={11} className="top-5 right-5 md:hidden" />
+        <PixelPterodactyl scale={3} className="top-[120px] hidden md:block" duration={24} delay={6} />
 
         <Container className="relative flex-1 pt-6 pb-5 sm:pt-14 sm:pb-8 lg:pt-16">
           <p data-reveal="fade" className="t-eyebrow text-muted">
@@ -98,7 +99,7 @@ export default function Hero() {
 
           <div data-reveal data-delay="1" className="relative lg:col-span-7">
             <div className="pointer-events-auto absolute -top-3 -right-3 z-20 hidden lg:block">
-              <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={56} />
+              <PixelOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={56} />
             </div>
             <HeroSystem />
           </div>

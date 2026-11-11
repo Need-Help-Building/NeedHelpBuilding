@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type CSSProperties } from "react";
-import { CACTI, CLOUD, CLOUD_SMALL, DINO, FOOTPRINT, SUN } from "@/lib/pixel-sprites";
+import { CACTI, CLOUD, CLOUD_SMALL, DINO, FOOTPRINT, PTERO_DOWN, PTERO_UP, SUN } from "@/lib/pixel-sprites";
 import { cn } from "@/lib/cn";
 import PixelArt from "./PixelArt";
 
@@ -73,6 +73,68 @@ export function PixelDino({ scale = 3, className, pose = "stand" }: { scale?: nu
   return (
     <div aria-hidden className={cn("pointer-events-none", className)}>
       <PixelArt sprite={DINO[pose]} scale={scale} />
+    </div>
+  );
+}
+
+/**
+ * A pterodactyl that glides across its (relative, overflow-hidden) parent now and then, flapping in two frames.
+ * Starts when scrolled into view; hidden entirely under reduced motion.
+ */
+export function PixelPterodactyl({
+  scale = 3,
+  className,
+  duration = 26,
+  delay = 2,
+  color,
+}: {
+  scale?: number;
+  className?: string;
+  /** Seconds per cycle; the bird is on screen for roughly the first half. */
+  duration?: number;
+  delay?: number;
+  color?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(([entry]) => el.toggleAttribute("data-fly", entry.isIntersecting), { threshold: 0 });
+    io.observe(el.parentElement ?? el);
+    return () => io.disconnect();
+  }, []);
+  const colors = color ? { "#": color } : undefined;
+  return (
+    <div
+      ref={ref}
+      aria-hidden
+      className={cn("pixel-ptero pointer-events-none absolute left-0", className)}
+      style={{ ["--fly-duration" as string]: `${duration}s`, ["--fly-delay" as string]: `${delay}s` }}
+    >
+      <div className="pixel-ptero-up">
+        <PixelArt sprite={PTERO_UP} scale={scale} colors={colors} />
+      </div>
+      <div className="pixel-ptero-down absolute inset-0">
+        <PixelArt sprite={PTERO_DOWN} scale={scale} colors={colors} />
+      </div>
+    </div>
+  );
+}
+
+/** A tiny patch of desert: a cactus on a short yellow ground line, for section edges. */
+export function CactusPatch({ className, variant = 1, flip = false }: { className?: string; variant?: 0 | 1 | 2; flip?: boolean }) {
+  return (
+    <div aria-hidden className={cn("pointer-events-none absolute flex flex-col items-center", className)}>
+      <div className={cn("flex items-end gap-2", flip && "flex-row-reverse")}>
+        <PixelArt sprite={CACTI[variant]} scale={3} />
+        <PixelArt sprite={CACTI[0]} scale={2} />
+      </div>
+      <svg width="96" height="6" viewBox="0 0 48 3" shapeRendering="crispEdges" className="mt-0">
+        <rect x="0" y="0" width="48" height="2" fill="#ffd000" />
+        <rect x="6" y="2" width="3" height="1" fill="#171717" />
+        <rect x="21" y="2" width="2" height="1" fill="#171717" />
+        <rect x="37" y="2" width="4" height="1" fill="#171717" />
+      </svg>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
-import { LiveOrb } from "@/components/ui/live-orb";
+import PixelOrb from "@/components/pixel/PixelOrb";
 import { disciplines, type DisciplineVisual } from "@/content/disciplines";
 import { cn } from "@/lib/cn";
 import { AgentsVisual, DecisionVisual, PipelineVisual, StackVisual } from "./visuals/DisciplineVisuals";
@@ -68,10 +68,10 @@ export default function Disciplines() {
                 >
                   <figure className={cn("pixel-corners relative aspect-[400/290] overflow-hidden rounded-2xl p-4 sm:p-6", surface)}>
                     <div className="pointer-events-auto absolute top-3 right-3 z-10">
-                      {d.index === "01" && <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={48} />}
-                      {d.index === "02" && <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={48} />}
-                      {d.index === "03" && <LiveOrb variant="black" size={48} />}
-                      {d.index === "04" && <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={48} />}
+                      {d.index === "01" && <PixelOrb variant="custom" color="#ffd000" eyeColor="#171717" size={48} />}
+                      {d.index === "02" && <PixelOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={48} />}
+                      {d.index === "03" && <PixelOrb variant="black" size={48} />}
+                      {d.index === "04" && <PixelOrb variant="custom" color="#ffd000" eyeColor="#171717" size={48} />}
                     </div>
                     <Component />
                   </figure>

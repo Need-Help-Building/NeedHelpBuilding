@@ -237,6 +237,16 @@ html.lenis body {
   font-synthesis: none;
 }
 
+/* Section titles in the pixel face: a touch smaller than t-h2 because pixel letterforms run wide. */
+@utility t-h2-pixel {
+  font-family: var(--font-pixel);
+  font-size: clamp(1.95rem, 1.15rem + 2.9vw, 3.65rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  font-synthesis: none;
+}
+
 /* Arcade counters and small labels. */
 @utility t-arcade {
   font-family: var(--font-arcade);
@@ -385,6 +395,107 @@ html.lenis body {
 }
 .pixel-runner[data-run] svg {
   animation: pixel-legs 0.22s steps(1) infinite;
+}
+
+/*
+ * Pixel cursors (public/cursors): an arrow everywhere, a yellow pixel hand on anything clickable.
+ * Text fields keep the native I-beam so typing stays clear; native fallbacks follow each image.
+ */
+html,
+body {
+  cursor: url("/cursors/arrow.svg") 1 1, auto;
+}
+a[href],
+button:not(:disabled),
+summary,
+select,
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]),
+[role="button"],
+[role="tab"],
+[role="application"],
+.cursor-pointer {
+  cursor: url("/cursors/hand.svg") 9 1, pointer;
+}
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+textarea {
+  cursor: text;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Pterodactyl gliding across a section now and then (right to left, gentle bob, two-frame flap). */
+@keyframes ptero-fly {
+  0% {
+    transform: translate3d(calc(100vw + 24px), 0, 0);
+  }
+  18% {
+    transform: translate3d(72vw, -8px, 0);
+  }
+  36% {
+    transform: translate3d(36vw, 5px, 0);
+  }
+  55% {
+    transform: translate3d(-140px, -10px, 0);
+  }
+  100% {
+    transform: translate3d(-140px, -10px, 0);
+  }
+}
+@keyframes ptero-flap {
+  50% {
+    opacity: 0;
+  }
+}
+.pixel-ptero {
+  transform: translate3d(calc(100vw + 24px), 0, 0);
+}
+.pixel-ptero[data-fly] {
+  animation: ptero-fly var(--fly-duration, 26s) linear var(--fly-delay, 2s) infinite;
+}
+.pixel-ptero-up {
+  animation: ptero-flap 0.48s steps(1) infinite;
+}
+.pixel-ptero-down {
+  animation: ptero-flap 0.48s steps(1) -0.24s infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pixel-ptero {
+    display: none;
+  }
+}
+
+/* Pixel orb: a stepped hop on hover and a jump on click. */
+@keyframes pixel-orb-hop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+@keyframes pixel-orb-jump {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-3px);
+  }
+  70% {
+    transform: translateY(-1px);
+  }
+}
+.pixel-orb {
+  overflow: visible;
+}
+.pixel-orb-hover > g {
+  animation: pixel-orb-hop 0.5s steps(2) infinite;
+}
+.pixel-orb-jump {
+  animation: pixel-orb-jump 0.45s steps(3) 1;
 }
 
 /* Runner HUD: the "offline" Wi-Fi regains a bar every 100 points. */

@@ -44,7 +44,7 @@ export default function SectionHeading({
       <Heading
         id={titleId}
         data-reveal
-        className={cn("t-h2 lg:col-span-8", dark ? "text-ivory" : "text-ink", titleClassName)}
+        className={cn("t-h2-pixel lg:col-span-8", dark ? "text-ivory" : "text-ink", titleClassName)}
       >
         <Marked text={title} tone={tone} />
       </Heading>

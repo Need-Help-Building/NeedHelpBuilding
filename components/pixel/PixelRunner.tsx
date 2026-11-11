@@ -1,7 +1,19 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { CACTI, CLOUD, CLOUD_SMALL, DINO, DINO_HITBOXES, PALETTE, spriteSize, type Sprite } from "@/lib/pixel-sprites";
+import {
+  CACTI,
+  CLOUD,
+  CLOUD_SMALL,
+  DINO,
+  DINO_HITBOXES,
+  PALETTE,
+  PTERO_DOWN,
+  PTERO_HITBOX,
+  PTERO_UP,
+  spriteSize,
+  type Sprite,
+} from "@/lib/pixel-sprites";
 import { cn } from "@/lib/cn";
 
 /**
@@ -22,6 +34,9 @@ type Mode = "attract" | "idle" | "play" | "over";
 interface Obstacle {
   x: number;
   sprite: number;
+  kind: "cactus" | "ptero";
+  /** Top edge for pterodactyls (cacti always stand on the ground). */
+  top: number;
 }
 interface Particle {
   x: number;
@@ -48,6 +63,7 @@ const JUMP_CUT = 0.09; // velocity cap when the jump is released early
 const MIN_HOP = 12; // a released jump still rises at least this high (clears the small cactus)
 const GRAVITY = 0.00075;
 const HI_KEY = "nhb-runner-hi";
+const PTERO_FROM = 2200; // distance (≈ 245 points) after which pterodactyls join the cacti
 
 /** Pre-renders a sprite at 1 canvas pixel per art pixel, for crisp scaled drawImage. */
 function bake(sprite: Sprite): HTMLCanvasElement {
@@ -126,6 +142,8 @@ export default function PixelRunner({ className, label = "NHB Runner" }: { class
       jump: HTMLCanvasElement;
       hit: HTMLCanvasElement;
       cacti: HTMLCanvasElement[];
+      pteroUp: HTMLCanvasElement;
+      pteroDown: HTMLCanvasElement;
       cloud: HTMLCanvasElement;
       cloudSmall: HTMLCanvasElement;
     },
@@ -213,12 +231,18 @@ export default function PixelRunner({ className, label = "NHB Runner" }: { class
     s.groundOffset = (s.groundOffset + dx) % 4096;
 
     // Obstacles
-    for (const o of s.obstacles) o.x -= dx;
-    s.obstacles = s.obstacles.filter((o) => o.x > -20);
+    for (const o of s.obstacles) o.x -= o.kind === "ptero" ? dx * 1.12 : dx;
+    s.obstacles = s.obstacles.filter((o) => o.x > -24);
     const last = s.obstacles[s.obstacles.length - 1];
     if (!last || last.x < s.w - spawnGap(s.speed)) {
-      const big = s.distance > 1500 ? 3 : 2;
-      s.obstacles.push({ x: Math.max(s.w + 4, (last?.x ?? 0) + 40), sprite: Math.floor(Math.random() * big) });
+      const x = Math.max(s.w + 4, (last?.x ?? 0) + 40);
+      if (s.distance > PTERO_FROM && Math.random() < 0.28) {
+        // Low flyers must be jumped; high flyers pass over a standing dino but catch a badly timed jump.
+        s.obstacles.push({ x, sprite: 0, kind: "ptero", top: Math.random() < 0.6 ? GROUND - 14 : GROUND - 33 });
+      } else {
+        const big = s.distance > 1500 ? 3 : 2;
+        s.obstacles.push({ x, sprite: Math.floor(Math.random() * big), kind: "cactus", top: 0 });
+      }
     }
 
     // Clouds drift at a fraction of the ground speed
@@ -232,7 +256,7 @@ export default function PixelRunner({ className, label = "NHB Runner" }: { class
 
     // Attract mode: hop when a cactus gets close
     if (s.mode === "attract" && s.y === 0) {
-      const next = s.obstacles.find((o) => o.x + 14 > s.dinoX + 4);
+      const next = s.obstacles.find((o) => o.x + 14 > s.dinoX + 4 && !(o.kind === "ptero" && o.top < GROUND - 20));
       if (next && next.x - (s.dinoX + 18) < s.speed * 165 + 4) {
         s.vy = JUMP_V;
         s.holding = Math.random() > 0.4;
@@ -279,11 +303,20 @@ export default function PixelRunner({ className, label = "NHB Runner" }: { class
       const dinoTop = GROUND - 23 - Math.round(s.y);
       const cacti = s.sprites!.cacti;
       for (const o of s.obstacles) {
-        const c = cacti[o.sprite];
-        const ox = o.x + 1;
-        const oy = GROUND - c.height + 1;
-        const ow = c.width - 2;
-        const oh = c.height - 1;
+        let ox: number, oy: number, ow: number, oh: number;
+        if (o.kind === "ptero") {
+          const [px, py, pw, ph] = PTERO_HITBOX;
+          ox = o.x + px;
+          oy = o.top + py;
+          ow = pw;
+          oh = ph;
+        } else {
+          const c = cacti[o.sprite];
+          ox = o.x + 1;
+          oy = GROUND - c.height + 1;
+          ow = c.width - 2;
+          oh = c.height - 1;
+        }
         for (const [hx, hy, hw, hh] of DINO_HITBOXES) {
           const ax = s.dinoX + hx;
           const ay = dinoTop + hy;
@@ -358,9 +391,14 @@ export default function PixelRunner({ className, label = "NHB Runner" }: { class
     ctx.fillStyle = PALETTE.c;
     for (let x = -((off % 13) + 13); x < s.w + 13; x += 13) ctx.fillRect(x + 6, GROUND + 9, 3, 1);
 
+    const flap = Math.floor(performance.now() / 170) % 2;
     for (const o of s.obstacles) {
-      const c = sp.cacti[o.sprite];
-      ctx.drawImage(c, Math.round(o.x), GROUND - c.height);
+      if (o.kind === "ptero") {
+        ctx.drawImage(flap ? sp.pteroDown : sp.pteroUp, Math.round(o.x), o.top);
+      } else {
+        const c = sp.cacti[o.sprite];
+        ctx.drawImage(c, Math.round(o.x), GROUND - c.height);
+      }
     }
 
     for (const p of s.particles) {
@@ -408,6 +446,8 @@ export default function PixelRunner({ className, label = "NHB Runner" }: { class
       jump: bake(DINO.jump),
       hit: bake(DINO.hit),
       cacti: CACTI.map(bake),
+      pteroUp: bake(PTERO_UP),
+      pteroDown: bake(PTERO_DOWN),
       cloud: bake(CLOUD),
       cloudSmall: bake(CLOUD_SMALL),
     };
@@ -434,7 +474,7 @@ export default function PixelRunner({ className, label = "NHB Runner" }: { class
           { x: s.w * 0.25, y: 4, small: true },
         ];
       }
-      if (s.obstacles.length === 0) s.obstacles = [{ x: Math.max(s.dinoX + 80, s.w * 0.62), sprite: 1 }];
+      if (s.obstacles.length === 0) s.obstacles = [{ x: Math.max(s.dinoX + 80, s.w * 0.62), sprite: 1, kind: "cactus", top: 0 }];
       draw();
     };
     resize();
@@ -515,10 +555,6 @@ export default function PixelRunner({ className, label = "NHB Runner" }: { class
         "focus-visible:after:pointer-events-none focus-visible:after:absolute focus-visible:after:inset-x-4 focus-visible:after:top-0 focus-visible:after:bottom-[22px] focus-visible:after:border-2 focus-visible:after:border-dashed focus-visible:after:border-ink/40",
         className,
       )}
-      style={{
-        cursor:
-          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' shape-rendering='crispEdges'%3E%3Cpath d='M2 2h3v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1H9v1h1v1h1v2H9v-1H8v-1H7v-1H6v1H5v1H2z' fill='%23171717'/%3E%3Cpath d='M3 4h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h-3v1h1v1h1v1H9v-1H8v-1H7v-1H6v1H5v1H3z' fill='%23ffd000'/%3E%3C/svg%3E\") 2 2, pointer",
-      }}
     >
       <p id={instructionsId} className="sr-only">
         Press Space or the Up arrow, or tap, to jump over the cacti. Hold to jump higher. Every 100 points brings the

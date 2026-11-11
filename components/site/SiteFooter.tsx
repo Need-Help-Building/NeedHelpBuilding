@@ -23,7 +23,7 @@ export default function SiteFooter() {
         Site footer
       </h2>
       <Container className="pt-14 pb-8 sm:pt-20 sm:pb-10 lg:pt-28">
-        <p className="max-w-4xl text-[clamp(1.5rem,1.1rem+2.6vw,3.25rem)] leading-[1.1] font-semibold tracking-[-0.045em] break-words">
+        <p className="t-pixel max-w-4xl text-[clamp(1.45rem,1.05rem+2.3vw,2.9rem)] leading-[1.15] font-semibold break-words">
           We don&apos;t just build technology.{" "}
           <span className="text-sun">We help businesses make better technology decisions.</span>
         </p>

@@ -1,3 +1,4 @@
+import { PixelCloud } from "@/components/pixel/Decor";
 import ButtonLink from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
@@ -6,7 +7,8 @@ import { ctas } from "@/content/site";
 
 export default function WhyNhb() {
   return (
-    <section id="why" aria-labelledby="why-title" className="py-24 lg:py-36">
+    <section id="why" aria-labelledby="why-title" className="relative overflow-hidden py-24 lg:py-36">
+      <PixelCloud scale={4} drift={26} duration={17} className="top-16 right-[10%] hidden md:block" />
       <Container>
         <SectionHeading
           index="10"

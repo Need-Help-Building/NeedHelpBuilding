@@ -1,3 +1,4 @@
+import { PixelDust } from "@/components/pixel/Decor";
 import ButtonLink from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
@@ -7,6 +8,7 @@ import ConsultingPanel from "./ConsultingPanel";
 export default function Consulting() {
   return (
     <section id="consulting" aria-labelledby="consulting-title" className="relative overflow-hidden bg-ink py-24 text-ivory lg:py-36">
+      <PixelDust className="bottom-12 left-[4%]" />
       <div aria-hidden className="grid-paper-dark pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,#000,transparent_60%)]" />
       <Container className="relative">
         <SectionHeading

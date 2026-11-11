@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Check, MessageCircle } from "lucide-react";
 import ButtonLink from "@/components/ui/ButtonLink";
-import { LiveOrb } from "@/components/ui/live-orb";
+import PixelOrb from "@/components/pixel/PixelOrb";
 import { consultingMailto, consultingTopics } from "@/content/consulting";
 import { whatsapp } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -54,7 +54,7 @@ export default function ConsultingPanel() {
       <div className="lg:col-span-5">
         <div className="sticky top-28 overflow-hidden rounded-3xl bg-ivory text-ink relative">
           <div className="pointer-events-auto absolute top-4 right-4 z-10">
-            <LiveOrb variant="black" size={46} />
+            <PixelOrb variant="black" size={46} />
           </div>
           <div className="border-b border-ink/10 px-6 py-5 sm:px-8">
             <p className="t-eyebrow text-muted">Your consultation brief</p>

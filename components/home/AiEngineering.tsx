@@ -1,7 +1,7 @@
 import ButtonLink, { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
-import { LiveOrb } from "@/components/ui/live-orb";
+import PixelOrb from "@/components/pixel/PixelOrb";
 import { aiCapabilities } from "@/content/ai";
 import AgentArchitecture from "./AgentArchitecture";
 
@@ -43,17 +43,17 @@ export default function AiEngineering() {
               <li key={cap.title} data-reveal="fade" data-delay={String((i % 3) + 1)} className="group relative bg-ivory p-6 transition-colors hover:bg-white">
                 {i === 1 && (
                   <div className="pointer-events-auto absolute top-3 right-3 z-10">
-                    <LiveOrb variant="black" size={36} />
+                    <PixelOrb variant="black" size={36} />
                   </div>
                 )}
                 {i === 4 && (
                   <div className="pointer-events-auto absolute top-3 right-3 z-10">
-                    <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={36} />
+                    <PixelOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={36} />
                   </div>
                 )}
                 {i === 8 && (
                   <div className="pointer-events-auto absolute top-3 right-3 z-10">
-                    <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={36} />
+                    <PixelOrb variant="custom" color="#ffd000" eyeColor="#171717" size={36} />
                   </div>
                 )}
                 <span className="flex items-center justify-between">

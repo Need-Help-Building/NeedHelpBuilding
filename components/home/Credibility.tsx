@@ -1,3 +1,4 @@
+import { CactusPatch } from "@/components/pixel/Decor";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -7,7 +8,8 @@ import { evidence, recognitions, team } from "@/content/company";
 
 export default function Credibility() {
   return (
-    <section id="team" aria-labelledby="team-title" className="py-24 lg:py-36">
+    <section id="team" aria-labelledby="team-title" className="relative overflow-hidden py-24 lg:py-36">
+      <CactusPatch variant={0} className="right-[8%] bottom-0 hidden md:flex" />
       <Container>
         <SectionHeading
           index="12"

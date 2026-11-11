@@ -1,7 +1,7 @@
 import { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
-import { LiveOrb } from "@/components/ui/live-orb";
+import PixelOrb from "@/components/pixel/PixelOrb";
 import { testimonials } from "@/content/work";
 import { cn } from "@/lib/cn";
 
@@ -51,9 +51,9 @@ export default function Testimonials() {
               >
                 <div className="pointer-events-auto absolute top-7 right-7 z-10">
                   {lead ? (
-                    <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={50} />
+                    <PixelOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={50} />
                   ) : (
-                    <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={46} />
+                    <PixelOrb variant="custom" color="#ffd000" eyeColor="#171717" size={46} />
                   )}
                 </div>
                 <span aria-hidden className="grid size-12 place-items-center rounded-lg bg-sun text-ink">

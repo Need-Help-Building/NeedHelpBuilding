@@ -11,7 +11,7 @@ const MIST = "#b3cde3";
 
 function Label({ x, y, children, fill = INK, size = 9, anchor = "start" }: { x: number; y: number; children: string; fill?: string; size?: number; anchor?: "start" | "middle" | "end" }) {
   return (
-    <text x={x} y={y} fill={fill} textAnchor={anchor} className="font-mono tracking-[0.08em]" style={{ fontSize: size }}>
+    <text x={x} y={y} fill={fill} textAnchor={anchor} className="font-arcade tracking-[0.04em]" style={{ fontSize: size }}>
       {children}
     </text>
   );
@@ -67,9 +67,6 @@ export function AgentsVisual() {
       <text x="200" y="161" textAnchor="middle" fill={IVORY} fillOpacity="0.6" className="font-mono" style={{ fontSize: 7 }}>
         state · memory · budget
       </text>
-      <Label x={12} y={282} size={8} fill={INK}>
-        FIG. 03A — AGENT TOPOLOGY
-      </Label>
     </svg>
   );
 }
@@ -109,9 +106,6 @@ export function StackVisual() {
       </Label>
       <Label x={334} y={44} size={8} anchor="middle">
         REQUEST
-      </Label>
-      <Label x={12} y={282} size={8}>
-        FIG. 03B — ONE TEAM, EVERY LAYER
       </Label>
     </svg>
   );
@@ -165,9 +159,6 @@ export function DecisionVisual() {
           ACCEPTED
         </Label>
       </g>
-      <Label x={12} y={282} size={8}>
-        FIG. 03C — DECIDE BEFORE YOU BUILD
-      </Label>
     </svg>
   );
 }
@@ -219,9 +210,6 @@ export function PipelineVisual() {
         every run recorded
       </text>
       <circle cx="340" cy="104" r="3" fill={LILAC} />
-      <Label x={12} y={282} size={8} fill={IVORY}>
-        FIG. 03D — AUTOMATE THE HANDOFF
-      </Label>
     </svg>
   );
 }
