@@ -1,4 +1,4 @@
-import { CactusPatch } from "@/components/pixel/Decor";
+import { CactusPatch, PixelPteroHover } from "@/components/pixel/Decor";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
 import IndustryExplorer from "./IndustryExplorer";
@@ -6,7 +6,8 @@ import IndustryExplorer from "./IndustryExplorer";
 export default function Industries() {
   return (
     <section id="industries" aria-labelledby="industries-title" className="relative overflow-hidden py-24 lg:py-36">
-      <CactusPatch variant={2} className="bottom-0 left-[5%] hidden md:flex" flip />
+      <CactusPatch variant={2} dino={2} className="bottom-0 left-[5%] hidden md:flex" flip />
+      <PixelPteroHover scale={3} className="top-16 right-[9%] hidden md:block" />
       <Container>
         <SectionHeading
           index="08"

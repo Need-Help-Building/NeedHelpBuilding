@@ -33,8 +33,7 @@ export default function Credibility() {
             <figcaption className="mt-5 grid gap-4 sm:grid-cols-2">
               {team.founders.map((f, i) => (
                 <div key={i} className="border-t border-ink/12 pt-4">
-                  <p className="t-eyebrow text-muted">{i === 0 ? "Left" : "Right"}</p>
-                  <p className="mt-2 text-[17px] font-semibold tracking-[-0.02em]">{f.name ?? <Placeholder label="Founder name" />}</p>
+                  <p className="text-[17px] font-semibold tracking-[-0.02em]">{f.name ?? <Placeholder label="Founder name" />}</p>
                   <p className="mt-1 text-[14px] text-muted">{f.role ?? <Placeholder label="Role" />}</p>
                 </div>
               ))}

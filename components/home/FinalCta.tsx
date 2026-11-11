@@ -3,7 +3,8 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import SmartLink from "@/components/ui/SmartLink";
 import { Container } from "@/components/ui/primitives";
 import { conversationStarters } from "@/content/company";
-import { PixelHorizon } from "@/components/pixel/Decor";
+import { BigDino, PixelHorizon } from "@/components/pixel/Decor";
+import { GROUND_H } from "@/lib/pixel-sprites";
 import { ctas, site } from "@/content/site";
 
 function WhatsAppGlyph({ className }: { className?: string }) {
@@ -90,6 +91,8 @@ export default function FinalCta() {
           </div>
         </div>
       </Container>
+      {/* A large, faint dino standing on the horizon's ground */}
+      <BigDino scale={6} className="right-[5%] hidden md:block" style={{ bottom: GROUND_H }} />
       <PixelHorizon className="relative -mb-px" />
     </section>
   );

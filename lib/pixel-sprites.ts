@@ -202,3 +202,6 @@ export const WIFI_OFF: Sprite = [
   "...#...#......r",
   "......#......r.r",
 ];
+
+/** Height of the PixelHorizon flat ground; anything "on the ground" sits at bottom: GROUND_H (px). */
+export const GROUND_H = 14;

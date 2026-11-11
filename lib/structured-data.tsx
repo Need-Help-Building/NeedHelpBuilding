@@ -1,5 +1,6 @@
 import { site } from "@/content/site";
 import { serviceGroups } from "@/content/services";
+import { team } from "@/content/company";
 
 const ORG_ID = `${site.url}/#organization`;
 
@@ -50,6 +51,9 @@ export function siteJsonLd() {
           "Search engine optimization",
         ],
         sameAs: [site.instagram],
+        founder: team.founders
+          .filter((f) => f.name)
+          .map((f) => ({ "@type": "Person", name: f.name, jobTitle: f.role })),
       },
       {
         "@type": "WebSite",

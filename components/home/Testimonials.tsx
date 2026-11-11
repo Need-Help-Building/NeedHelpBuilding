@@ -2,6 +2,7 @@ import { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
 import PixelOrb from "@/components/pixel/PixelOrb";
+import { PixelPteroHover } from "@/components/pixel/Decor";
 import { testimonials } from "@/content/work";
 import { cn } from "@/lib/cn";
 
@@ -20,6 +21,7 @@ export default function Testimonials() {
       aria-labelledby="testimonials-title"
       className="relative overflow-hidden bg-[#245bff] py-24 text-white lg:py-36"
     >
+      <PixelPteroHover scale={2} color="#ffffff" flip className="top-14 right-[22%] hidden opacity-50 lg:block" />
       {/* Subtle technical grid pattern for depth on the electric blue canvas */}
       <div
         aria-hidden

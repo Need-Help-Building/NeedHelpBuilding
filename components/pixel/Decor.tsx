@@ -122,10 +122,22 @@ export function PixelPterodactyl({
 }
 
 /** A tiny patch of desert: a cactus on a short yellow ground line, for section edges. */
-export function CactusPatch({ className, variant = 1, flip = false }: { className?: string; variant?: 0 | 1 | 2; flip?: boolean }) {
+export function CactusPatch({
+  className,
+  variant = 1,
+  flip = false,
+  dino,
+}: {
+  className?: string;
+  variant?: 0 | 1 | 2;
+  flip?: boolean;
+  /** Adds a standing dino of this scale beside the cacti (on the same ground). */
+  dino?: number;
+}) {
   return (
     <div aria-hidden className={cn("pointer-events-none absolute flex flex-col items-center", className)}>
       <div className={cn("flex items-end gap-2", flip && "flex-row-reverse")}>
+        {dino && <PixelArt sprite={DINO.stand} scale={dino} flip={flip} className="mr-3" />}
         <PixelArt sprite={CACTI[variant]} scale={3} />
         <PixelArt sprite={CACTI[0]} scale={2} />
       </div>
@@ -252,6 +264,45 @@ export function PixelHorizon({
           <PixelArt sprite={DINO.runA} scale={1.5} />
         </div>
       )}
+    </div>
+  );
+}
+
+/** A large, faint dino for section backgrounds. Stands on whatever line its parent places it on. */
+export function BigDino({ scale = 6, color = "#e6bb00", className, style }: { scale?: number; color?: string; className?: string; style?: CSSProperties }) {
+  return (
+    <div aria-hidden className={cn("pointer-events-none absolute", className)} style={style}>
+      <PixelArt sprite={DINO.stand} scale={scale} colors={{ "#": color, Y: color, w: color }} />
+    </div>
+  );
+}
+
+/**
+ * A pterodactyl hovering in place: two-frame flap and a gentle stepped bob. Size via `scale`.
+ * Under reduced motion it stays still (global rule).
+ */
+export function PixelPteroHover({
+  scale = 2,
+  className,
+  color,
+  flip = false,
+  style,
+}: {
+  scale?: number;
+  className?: string;
+  color?: string;
+  flip?: boolean;
+  style?: CSSProperties;
+}) {
+  const colors = color ? { "#": color } : undefined;
+  return (
+    <div aria-hidden className={cn("pixel-ptero-hover pointer-events-none absolute", className)} style={style}>
+      <div className="pixel-ptero-up">
+        <PixelArt sprite={PTERO_UP} scale={scale} colors={colors} flip={flip} />
+      </div>
+      <div className="pixel-ptero-down absolute inset-0">
+        <PixelArt sprite={PTERO_DOWN} scale={scale} colors={colors} flip={flip} />
+      </div>
     </div>
   );
 }

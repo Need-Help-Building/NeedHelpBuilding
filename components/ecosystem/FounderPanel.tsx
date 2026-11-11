@@ -4,8 +4,8 @@ import { team } from "@/content/company";
 import { cn } from "@/lib/cn";
 
 /**
- * The founders' photograph with a page-specific message beside it. Founder names are not in the repo yet
- * (content/company.ts), so the caption speaks for "the founders" rather than inventing names.
+ * The founders' photograph with a page-specific message beside it.
+ * Names come from content/company.ts.
  */
 export default function FounderPanel({
   eyebrow,
@@ -32,7 +32,7 @@ export default function FounderPanel({
             className="object-cover"
           />
         </div>
-        <figcaption className="mt-4 font-mono text-[12px] text-muted">NHB&apos;s founders lead every engagement personally.</figcaption>
+        <figcaption className="mt-4 font-mono text-[12px] text-muted">{team.founders.map((f) => f.name).join(" & ")}, co-founders of NHB, lead every engagement personally.</figcaption>
       </figure>
       <div data-reveal data-delay="1" className="lg:col-span-6">
         <p className="t-eyebrow text-muted">{eyebrow}</p>
