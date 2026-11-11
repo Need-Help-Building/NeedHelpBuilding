@@ -1,5 +1,6 @@
 import { CactusPatch, PixelPteroHover } from "@/components/pixel/Decor";
 import SectionHeading from "@/components/ui/SectionHeading";
+import ButtonLink from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/primitives";
 import IndustryExplorer from "./IndustryExplorer";
 
@@ -18,6 +19,11 @@ export default function Industries() {
         />
         <div data-reveal className="mt-14 lg:mt-20">
           <IndustryExplorer />
+        </div>
+        <div data-reveal className="mt-12 flex justify-center lg:mt-16">
+          <ButtonLink href="/industries" variant="ink" size="lg">
+            Learn more about the industries we serve
+          </ButtonLink>
         </div>
       </Container>
     </section>

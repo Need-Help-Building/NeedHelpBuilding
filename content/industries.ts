@@ -1,6 +1,6 @@
 import { mailto } from "./site";
 
-/** §10 — industries. Dedicated /industries pages are planned (services.txt); links open a pre-filled enquiry. */
+/** Industries: the homepage section (IndustryExplorer) and the /industries page. CTAs open a pre-filled enquiry. */
 
 export type IndustryGlyph =
   | "healthcare"

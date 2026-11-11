@@ -35,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })),
     { url: `${site.url}/book`, lastModified: ECOSYSTEM_UPDATED, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${site.url}/industries`, lastModified: ECOSYSTEM_UPDATED, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/blog`, lastModified: latestPost, changeFrequency: "weekly", priority: 0.7 },
     ...insights.map((p, i) => ({
       url: `${site.url}${p.href}`,

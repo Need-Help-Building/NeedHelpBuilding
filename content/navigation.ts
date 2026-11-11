@@ -10,13 +10,14 @@ export interface NavLink {
 
 export type MenuId = "services" | "products" | "ecosystem";
 
-/** Header order (desktop and mobile): About, the three dropdowns, Industries. Work and Insights live in the footer. */
+/** Header order (desktop and mobile): About, the three dropdowns, Industries, Blog. Work lives in the footer. */
 export const headerNav: ({ kind: "link"; label: string; href: string } | { kind: "menu"; id: MenuId; label: string })[] = [
   { kind: "link", label: "About", href: "/#about" },
   { kind: "menu", id: "services", label: "Services" },
   { kind: "menu", id: "products", label: "Products" },
   { kind: "menu", id: "ecosystem", label: "Ecosystem" },
-  { kind: "link", label: "Industries", href: "/#industries" },
+  { kind: "link", label: "Industries", href: "/industries" },
+  { kind: "link", label: "Blog", href: "/blog" },
 ];
 
 /** Plain links in the header (kept for components that only need links). */
