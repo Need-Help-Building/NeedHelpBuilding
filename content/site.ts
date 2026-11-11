@@ -18,6 +18,11 @@ export const site = {
   instagram: "https://www.instagram.com/needhelpbuilding/",
   /** Registered business address — not in the repo yet. */
   address: null as string | null,
+  /**
+   * Scheduling link (Cal.com or Calendly event URL). The site has no scheduling provider configured yet, so
+   * meetings are requested by email/WhatsApp. Set this to the real event URL and /book embeds it automatically.
+   */
+  bookingUrl: null as string | null,
 } as const;
 
 /** Build a mailto: link with a pre-filled subject (and optional body). */

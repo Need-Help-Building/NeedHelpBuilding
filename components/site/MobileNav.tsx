@@ -6,6 +6,7 @@ import SmartLink from "@/components/ui/SmartLink";
 import ButtonLink from "@/components/ui/ButtonLink";
 import { primaryNav } from "@/content/navigation";
 import { serviceGroups, solutions } from "@/content/services";
+import { programs } from "@/content/ecosystem";
 import { ctas, site } from "@/content/site";
 import { lockScroll } from "@/lib/scroll";
 import { serviceIcons } from "./serviceIcons";
@@ -92,6 +93,29 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
                 </SmartLink>
               </li>
             ))}
+          </ul>
+        </details>
+
+        <details className="group border-b border-ivory/12">
+          <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-2xl font-semibold tracking-[-0.04em] [&::-webkit-details-marker]:hidden">
+            Ecosystem
+            <Plus aria-hidden className="size-5 transition-transform duration-300 group-open:rotate-45" />
+          </summary>
+          <ul className="pb-4">
+            {programs.map((p) => (
+              <li key={p.id}>
+                <SmartLink href={p.href} onClick={onClose} className="block rounded-xl p-2.5 active:bg-ivory/10 hover:bg-ivory/5">
+                  <span className="block font-mono text-[11px] tracking-wide text-sun/80 uppercase">{p.audience}</span>
+                  <span className="mt-1 block text-[15px] font-medium text-ivory">{p.title}</span>
+                  <span className="mt-0.5 block text-[13px] leading-5 text-ivory/60">{p.summary}</span>
+                </SmartLink>
+              </li>
+            ))}
+            <li>
+              <SmartLink href="/book" onClick={onClose} className="block rounded-xl p-2.5 text-[15px] font-medium text-sun active:bg-ivory/10">
+                Book a one-to-one meeting →
+              </SmartLink>
+            </li>
           </ul>
         </details>
 

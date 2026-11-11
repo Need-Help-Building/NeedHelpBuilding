@@ -152,10 +152,7 @@ export const referral = {
   summary:
     "Introduce a founder or business. When they start a project, they get 10% off and you get 10% back — as cash or as credit towards your next build.",
   cta: {
-    label: "Make an introduction",
-    href: mailto(
-      "Client referral introduction",
-      "Hi NHB team,\n\nMy name / company:\nReferred founder's name:\nTheir email or WhatsApp:\nWhat they need built:\n",
-    ),
+    label: "See the referral program",
+    href: "/referral-program",
   },
 };

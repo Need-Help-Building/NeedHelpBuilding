@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import SmartLink from "@/components/ui/SmartLink";
 import { serviceGroups, solutions } from "@/content/services";
+import { programs } from "@/content/ecosystem";
 import { serviceIcons } from "./serviceIcons";
 import { cn } from "@/lib/cn";
 
@@ -205,6 +206,51 @@ export function ServicesPanel({ id, onNavigate }: NavPanelProps) {
           className="inline-flex items-center gap-1 text-sun hover:underline font-medium"
         >
           Talk to an engineer <ArrowRight className="size-3" />
+        </SmartLink>
+      </div>
+    </div>
+  );
+}
+
+/** Ecosystem dropdown: the four programs for founders, referrers, product partners and agencies. */
+export function EcosystemPanel({ id, onNavigate }: NavPanelProps) {
+  return (
+    <div
+      id={id}
+      className="absolute top-full left-1/2 mt-3 w-[460px] -translate-x-1/2 animate-rise rounded-2xl border border-ivory/15 bg-ink p-3 text-ivory shadow-[0_24px_50px_-12px_rgba(0,0,0,0.6)]"
+    >
+      <div className="mb-2 flex items-center justify-between border-b border-ivory/10 px-3 pt-2 pb-2">
+        <span className="font-mono text-[11px] tracking-wider text-ivory/50 uppercase">Build with NHB</span>
+        <span className="font-mono text-[11px] text-sun">4 PROGRAMS</span>
+      </div>
+      <ul className="space-y-1">
+        {programs.map((p) => (
+          <li key={p.id}>
+            <SmartLink
+              href={p.href}
+              onClick={onNavigate}
+              className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-ivory/5"
+            >
+              <div className="min-w-0">
+                <span className="block font-mono text-[10.5px] tracking-wide text-sun/80 uppercase">{p.audience}</span>
+                <span className="mt-1 flex items-center gap-1.5 text-[14px] font-semibold text-ivory transition-colors group-hover:text-sun">
+                  {p.title}
+                  <ArrowUpRight aria-hidden className="size-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
+                </span>
+                <span className="mt-0.5 block text-[12px] leading-snug text-ivory/60">{p.summary}</span>
+              </div>
+            </SmartLink>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-2 flex items-center justify-between border-t border-ivory/10 px-3 pt-2.5 pb-1">
+        <span className="text-[12px] text-ivory/50">Not sure which fits?</span>
+        <SmartLink
+          href="/book"
+          onClick={onNavigate}
+          className="inline-flex items-center gap-1 text-[12px] font-medium text-sun hover:underline"
+        >
+          Book a one-to-one meeting <ArrowRight className="size-3" />
         </SmartLink>
       </div>
     </div>

@@ -10,14 +10,15 @@ import { Container } from "@/components/ui/primitives";
 import { primaryNav } from "@/content/navigation";
 import { ctas } from "@/content/site";
 import { cn } from "@/lib/cn";
-import { ServicesPanel, SolutionsPanel } from "./MegaMenu";
+import { EcosystemPanel, ServicesPanel, SolutionsPanel } from "./MegaMenu";
 import MobileNav from "./MobileNav";
 
-type MenuId = "services" | "solutions";
+type MenuId = "services" | "solutions" | "ecosystem";
 
 const menus: { id: MenuId; label: string }[] = [
   { id: "services", label: "Services" },
   { id: "solutions", label: "Solutions" },
+  { id: "ecosystem", label: "Ecosystem" },
 ];
 
 export default function SiteHeader() {
@@ -36,7 +37,7 @@ export default function SiteHeader() {
   }
 
   const headerRef = useRef<HTMLElement>(null);
-  const triggerRefs = useRef<Record<MenuId, HTMLButtonElement | null>>({ services: null, solutions: null });
+  const triggerRefs = useRef<Record<MenuId, HTMLButtonElement | null>>({ services: null, solutions: null, ecosystem: null });
   const openTimer = useRef<number | undefined>(undefined);
   const closeTimer = useRef<number | undefined>(undefined);
   const hoverOpenedAt = useRef(0);
@@ -175,6 +176,11 @@ export default function SiteHeader() {
                   {open && id === "solutions" && (
                     <div onPointerEnter={cancelClose}>
                       <SolutionsPanel id="menu-solutions" onNavigate={closeMenus} />
+                    </div>
+                  )}
+                  {open && id === "ecosystem" && (
+                    <div onPointerEnter={cancelClose}>
+                      <EcosystemPanel id="menu-ecosystem" onNavigate={closeMenus} />
                     </div>
                   )}
                 </li>

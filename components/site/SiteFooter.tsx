@@ -95,10 +95,10 @@ export default function SiteFooter() {
 
           <nav
             aria-label="Footer"
-            className="grid grid-cols-2 gap-x-5 gap-y-8 min-[520px]:grid-cols-3 sm:grid-cols-3 lg:col-span-9 lg:grid-cols-5 lg:pl-8"
+            className="grid grid-cols-2 gap-x-5 gap-y-8 min-[520px]:grid-cols-3 sm:grid-cols-3 lg:col-span-9 lg:grid-cols-6 lg:pl-8"
           >
-            {footerColumns.map((column, idx) => (
-              <div key={column.title} className={idx === 4 ? "col-span-2 min-[520px]:col-span-1" : ""}>
+            {footerColumns.map((column) => (
+              <div key={column.title}>
                 <h3 className="t-eyebrow text-ivory/45">{column.title}</h3>
                 <ul className="mt-4 sm:mt-5 space-y-2 sm:space-y-3">
                   {column.links.map((link) => (

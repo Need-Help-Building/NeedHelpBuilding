@@ -3,6 +3,8 @@ import { serviceGroups } from "@/content/services";
 import { projects, statusLabel } from "@/content/work";
 import { insights } from "@/content/insights";
 import { referral } from "@/content/company";
+import { programs } from "@/content/ecosystem";
+import { productStatusLabel, products } from "@/content/products";
 import { SERVICES_DATA } from "../services/services-data";
 import { toTitle } from "../services/title";
 
@@ -41,6 +43,15 @@ export function GET() {
       const live = p.liveUrl ? ` Live product: ${p.liveUrl}` : "";
       return `- [${p.name}](${site.url}/work/${p.slug}) (${p.category}, ${statusLabel[p.status]}): ${p.summary}${live}`;
     }),
+    "",
+    "## Work with NHB (ecosystem programs)",
+    "",
+    ...programs.map((p) => `- [${p.title}](${site.url}${p.href}) (${p.audience.toLowerCase()}): ${p.summary}`),
+    `- [Book a one-to-one meeting](${site.url}/book)`,
+    "",
+    "## Products",
+    "",
+    ...products.map((p) => `- ${p.name} (${p.category}, ${productStatusLabel[p.status].toLowerCase()}): ${p.summary}${p.liveUrl ? ` ${p.liveUrl}` : ""}`),
     "",
     "## Engineering notes",
     "",

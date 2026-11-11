@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 512 512" width="100%" height="100%">
+  <title>Social Genie Logo</title>
+  <defs>
+    <linearGradient id="sgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16A34A" />
+      <stop offset="100%" stop-color="#062E1C" />
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect width="512" height="512" rx="128" fill="url(#sgGradient)" />
+  <!-- WhatsApp Chat Bubble Shape -->
+  <path d="M256 100 C170.1 100 100 170.1 100 256 C100 286.2 108.6 314.4 123.5 338.2 L108 412 L184.2 396.8 C206.5 408.8 230.5 412 256 412 C341.9 412 412 341.9 412 256 C412 170.1 341.9 100 256 100 Z" fill="#FFFFFF" />
+  <!-- Inner Chat Lightning / Spark Icon -->
+  <path d="M272 170 L200 274 L250 274 L240 342 L312 238 L262 238 Z" fill="#16A34A" />
+</svg>

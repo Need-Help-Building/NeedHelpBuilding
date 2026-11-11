@@ -1,4 +1,5 @@
 import { mailto } from "./site";
+import { programs } from "./ecosystem";
 
 /** Header + footer navigation. `href: null` = destination not built yet (rendered as "soon", never a 404). */
 
@@ -34,6 +35,10 @@ export const footerColumns: FooterColumn[] = [
       { label: "Careers", href: mailto("Careers at NHB") },
       { label: "Contact", href: "/#contact" },
     ],
+  },
+  {
+    title: "Ecosystem",
+    links: [...programs.map((p) => ({ label: p.navLabel, href: p.href })), { label: "Book a Meeting", href: "/book" }],
   },
   {
     title: "Services",
