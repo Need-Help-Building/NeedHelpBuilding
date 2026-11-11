@@ -1,8 +1,8 @@
 import type { InsightArt } from "@/content/insights";
 
 const INK = "#171717";
-const SUN = "#fbda03";
-const IVORY = "#f7f6f2";
+const SUN = "#ffd000";
+const IVORY = "#f5f3ed";
 
 /** Abstract editorial covers for upcoming articles (viewBox 400×250). */
 export default function InsightArtwork({ art }: { art: InsightArt }) {

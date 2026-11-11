@@ -43,7 +43,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     tagline: "Ultra-fast Next.js & React architectures built for peak conversion",
     shortDesc: "End-to-end full-stack modern web apps built with Next.js, TypeScript, PostgreSQL, and serverless edge computing.",
     badge: "CORE STACK",
-    color: "#fbda03",
+    color: "#ffd000",
     accent: "#0c0c0d",
     overview:
       "We design and build production-grade web systems from frontend micro-interactions to scalable database architecture. No bloated templates or sluggish page loads—every web app is engineered for sub-500ms response times, SEO domination, and frictionless buyer conversion.",
@@ -199,7 +199,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     tagline: "Senior architectural roadmap, stack selection, and investor-ready technical vetting",
     shortDesc: "Hands-on fractional CTO advisory, code audits, vendor selection, and scalable technology roadmaps for founders.",
     badge: "FRACTIONAL CTO",
-    color: "#fbda03",
+    color: "#ffd000",
     accent: "#0c0c0d",
     overview:
       "Avoid costly architectural blunders, vendor lock-in, and bloated hiring bills. We sit in your corner as senior technology advisors, auditing existing repositories, vetting agency estimates, interviewing prospective engineers, and designing your system blueprint before you spend serious capital.",

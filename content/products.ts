@@ -88,7 +88,7 @@ export const products: Product[] = [
     ],
     visual: "productfit",
     featured: true,
-    accent: { bg: "#171717", fg: "#f7f6f2", soft: "#ead9e4" },
+    accent: { bg: "#171717", fg: "#f5f3ed", soft: "#ead9e4" },
   },
   {
     id: "easy-pg",

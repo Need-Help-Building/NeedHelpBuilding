@@ -187,7 +187,7 @@ export default function HeroSystem() {
                   width={W}
                   height={H}
                   rx="6"
-                  fill={key ? "#fbda03" : on ? "#171717" : "#ffffff"}
+                  fill={key ? "#ffd000" : on ? "#171717" : "#ffffff"}
                   stroke={on ? "#171717" : "#cdc9bd"}
                   strokeWidth="1.25"
                   className="transition-[fill,stroke] duration-500"
@@ -217,7 +217,7 @@ export default function HeroSystem() {
           {!reduce && (
             <g key={scenario.id}>
               {[0, 1.9].map((delay) => (
-                <rect key={delay} x="-4" y="-4" width="8" height="8" fill="#fbda03" stroke="#171717" strokeWidth="1.25">
+                <rect key={delay} x="-4" y="-4" width="8" height="8" fill="#ffd000" stroke="#171717" strokeWidth="1.25">
                   <animateMotion dur="3.8s" begin={`${delay}s`} repeatCount="indefinite" path={routePath(scenario.path)} />
                 </rect>
               ))}

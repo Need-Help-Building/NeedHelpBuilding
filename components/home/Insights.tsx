@@ -2,8 +2,9 @@ import { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SmartLink from "@/components/ui/SmartLink";
 import { Container } from "@/components/ui/primitives";
-import { insights, insightsNotify, type Insight } from "@/content/insights";
+import { insights, type Insight } from "@/content/insights";
 import { cn } from "@/lib/cn";
+import { Footprints, PixelDino } from "@/components/pixel/Decor";
 import InsightArtwork from "./visuals/InsightArt";
 
 const covers: Record<Insight["art"], string> = {
@@ -38,19 +39,23 @@ function Title({ item, className }: { item: Insight; className?: string }) {
 export default function Insights() {
   const [lead, ...rest] = insights;
   return (
-    <section id="insights" aria-labelledby="insights-title" className="bg-ivory-2 py-24 lg:py-36">
-      <Container>
+    <section id="insights" aria-labelledby="insights-title" className="relative overflow-hidden bg-ivory-2 py-24 lg:py-36">
+      <div aria-hidden className="pointer-events-none absolute top-16 right-[6%] hidden items-end gap-6 lg:flex">
+        <Footprints count={5} />
+        <PixelDino scale={2} />
+      </div>
+      <Container className="relative">
         <SectionHeading
           index="11"
           label="Engineering insights"
           title="Ideas from the *engineering frontline.*"
           titleId="insights-title"
-          lede="Notes on architecture, AI systems and technical decisions, written by the people doing the work. Our first pieces are in progress — here's what's coming."
-          aside={<ArrowLink href={insightsNotify}>Tell me when they&apos;re published</ArrowLink>}
+          lede="Notes on architecture, AI systems and technical decisions, written by the people doing the work."
+          aside={<ArrowLink href="/blog">All engineering notes</ArrowLink>}
         />
 
         <div className="mt-14 grid grid-cols-1 gap-5 lg:mt-20 lg:grid-cols-12">
-          <article data-reveal className="flex flex-col overflow-hidden rounded-3xl border border-ink/10 bg-white lg:col-span-6">
+          <article data-reveal className="pixel-corners flex flex-col overflow-hidden rounded-3xl border border-ink/10 bg-white lg:col-span-6">
             <div className={cn("aspect-[16/10]", covers[lead.art])}>
               <InsightArtwork art={lead.art} />
             </div>
@@ -69,7 +74,7 @@ export default function Insights() {
                 key={item.title}
                 data-reveal
                 data-delay={String(i + 1)}
-                className="grid overflow-hidden rounded-3xl border border-ink/10 bg-white sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
+                className="pixel-corners grid overflow-hidden rounded-3xl border border-ink/10 bg-white sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
               >
                 <div className={cn("aspect-[16/10] sm:aspect-auto sm:min-h-full", covers[item.art])}>
                   <InsightArtwork art={item.art} />

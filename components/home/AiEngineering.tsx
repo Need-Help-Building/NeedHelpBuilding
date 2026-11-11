@@ -53,7 +53,7 @@ export default function AiEngineering() {
                 )}
                 {i === 8 && (
                   <div className="pointer-events-auto absolute top-3 right-3 z-10">
-                    <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={36} />
+                    <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={36} />
                   </div>
                 )}
                 <span className="flex items-center justify-between">

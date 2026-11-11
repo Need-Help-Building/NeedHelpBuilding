@@ -1,3 +1,4 @@
+import { PixelDust } from "@/components/pixel/Decor";
 import Image from "next/image";
 import ButtonLink, { ArrowLink } from "@/components/ui/ButtonLink";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -10,6 +11,7 @@ export default function Spotlight() {
   const caller = getProject(spotlight.projectSlug)!;
   return (
     <section id="spotlight" aria-labelledby="spotlight-title" className="relative overflow-hidden bg-ink py-24 text-ivory lg:py-36">
+      <PixelDust className="top-10 right-[5%]" />
       <div aria-hidden className="grid-paper-dark pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,#000,transparent_70%)]" />
       <Container className="relative">
         <SectionHeading

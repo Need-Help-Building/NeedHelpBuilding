@@ -29,7 +29,7 @@ export default function ButtonLink({ href, children, variant = "sun", size = "md
     <SmartLink
       href={href}
       className={cn(
-        "group/btn inline-flex items-center justify-center gap-3 rounded-full font-medium tracking-[-0.01em] transition-colors duration-300",
+        "group/btn pixel-press inline-flex items-center justify-center gap-3 rounded-full font-medium tracking-[-0.01em] transition-colors duration-300",
         size === "lg" ? "h-14 pl-7 pr-2.5 text-[15px]" : "h-12 pl-5 pr-2 text-sm",
         resolvedIcon === "none" && (size === "lg" ? "pr-7" : "pr-5"),
         variants[variant],

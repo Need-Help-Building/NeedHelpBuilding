@@ -160,7 +160,7 @@ function Showcase({ product, flip }: { product: Product; flip?: boolean }) {
 
 function ProductCard({ product }: { product: Product }) {
   return (
-    <article id={`product-${product.id}`} data-reveal className="flex flex-col overflow-hidden rounded-3xl border border-ink/12 bg-white">
+    <article id={`product-${product.id}`} data-reveal className="pixel-corners flex flex-col overflow-hidden rounded-3xl border border-ink/12 bg-white">
       <div className="h-64 border-b border-ink/10">
         <ProductVisual product={product} className="h-full" />
       </div>

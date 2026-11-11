@@ -37,7 +37,7 @@ export default function Disciplines() {
                 className="grid gap-10 border-t border-ink/12 py-14 lg:grid-cols-12 lg:gap-8 lg:py-20"
               >
                 <div data-reveal className={cn("lg:col-span-5 lg:row-start-1", flip ? "lg:col-start-8" : "lg:col-start-1")}>
-                  <p className="font-mono text-[13px] text-muted">
+                  <p className="t-arcade text-[13px] text-muted">
                     <span className="text-ink">{d.index}</span> / 04
                   </p>
                   <h3
@@ -66,12 +66,12 @@ export default function Disciplines() {
                   data-delay="1"
                   className={cn("lg:col-span-7 lg:row-start-1", flip ? "lg:col-start-1" : "lg:col-start-6")}
                 >
-                  <figure className={cn("relative aspect-[400/290] overflow-hidden rounded-2xl p-4 sm:p-6", surface)}>
+                  <figure className={cn("pixel-corners relative aspect-[400/290] overflow-hidden rounded-2xl p-4 sm:p-6", surface)}>
                     <div className="pointer-events-auto absolute top-3 right-3 z-10">
-                      {d.index === "01" && <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={48} />}
+                      {d.index === "01" && <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={48} />}
                       {d.index === "02" && <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={48} />}
                       {d.index === "03" && <LiveOrb variant="black" size={48} />}
-                      {d.index === "04" && <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={48} />}
+                      {d.index === "04" && <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={48} />}
                     </div>
                     <Component />
                   </figure>

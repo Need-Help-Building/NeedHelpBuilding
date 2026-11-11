@@ -153,7 +153,7 @@ export default function FeaturedWork() {
           >
             <div className="relative bg-mist-soft p-4 sm:p-5">
               <div className="pointer-events-auto absolute top-3 right-3 z-20">
-                <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={50} />
+                <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={50} />
               </div>
               <BrowserFrame url="yourstorehere.vercel.app">
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -231,7 +231,7 @@ export default function FeaturedWork() {
                 >
                   <div className="pointer-events-auto absolute top-3 right-3 z-20">
                     {i === 0 ? (
-                      <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={42} />
+                      <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={42} />
                     ) : (
                       <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={42} />
                     )}

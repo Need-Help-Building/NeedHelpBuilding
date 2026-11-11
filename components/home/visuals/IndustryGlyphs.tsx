@@ -3,7 +3,7 @@ import type { IndustryGlyph } from "@/content/industries";
 /** Small original "system sketches", one per industry. viewBox 320×200, ink on a tinted surface. */
 
 const INK = "#171717";
-const SUN = "#fbda03";
+const SUN = "#ffd000";
 const WHITE = "#ffffff";
 
 function Mono({ x, y, children, anchor = "start" }: { x: number; y: number; children: string; anchor?: "start" | "middle" | "end" }) {
@@ -197,10 +197,10 @@ function Services() {
       <path d="M165 100 l7 7 l14 -15" fill="none" stroke={INK} strokeWidth="2" />
       <path d="M202 100 H 226" stroke={INK} strokeDasharray="3 4" className="animate-flow" />
       <rect x="226" y="66" width="72" height="68" rx="6" fill={INK} />
-      <text x="262" y="96" textAnchor="middle" fill="#f7f6f2" className="font-mono" style={{ fontSize: 8 }}>
+      <text x="262" y="96" textAnchor="middle" fill="#f5f3ed" className="font-mono" style={{ fontSize: 8 }}>
         CLIENT
       </text>
-      <text x="262" y="108" textAnchor="middle" fill="#f7f6f2" className="font-mono" style={{ fontSize: 8 }}>
+      <text x="262" y="108" textAnchor="middle" fill="#f5f3ed" className="font-mono" style={{ fontSize: 8 }}>
         PORTAL
       </text>
       <Mono x={24} y={168}>CRM · PROPOSALS · KNOWLEDGE ASSISTANTS</Mono>

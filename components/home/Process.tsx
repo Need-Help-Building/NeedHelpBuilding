@@ -1,11 +1,14 @@
+import { PixelCloud } from "@/components/pixel/Decor";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
 import ProcessRail from "./ProcessRail";
 
 export default function Process() {
   return (
-    <section id="process" aria-labelledby="process-title" className="py-24 lg:py-36">
-      <Container>
+    <section id="process" aria-labelledby="process-title" className="relative overflow-hidden py-24 lg:py-36">
+      <PixelCloud scale={4} drift={30} duration={18} className="top-20 right-[8%] hidden md:block" />
+      <PixelCloud small scale={3} drift={-18} duration={13} className="top-44 right-[30%] hidden lg:block" />
+      <Container className="relative">
         <SectionHeading
           index="06"
           label="How we work"

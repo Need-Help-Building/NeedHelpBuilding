@@ -83,8 +83,8 @@ function Bottle({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 60 120" className={className} aria-hidden>
       <rect x="22" y="4" width="16" height="14" rx="3" fill="#171717" />
-      <path d="M18 22h24l6 16v70a8 8 0 0 1-8 8H20a8 8 0 0 1-8-8V38z" fill="#f7f6f2" stroke="#171717" strokeWidth="2.5" />
-      <rect x="16" y="56" width="28" height="30" rx="3" fill="#fbda03" stroke="#171717" strokeWidth="2" />
+      <path d="M18 22h24l6 16v70a8 8 0 0 1-8 8H20a8 8 0 0 1-8-8V38z" fill="#f5f3ed" stroke="#171717" strokeWidth="2.5" />
+      <rect x="16" y="56" width="28" height="30" rx="3" fill="#ffd000" stroke="#171717" strokeWidth="2" />
     </svg>
   );
 }
@@ -93,7 +93,7 @@ function ProductFitShowcase() {
   const outputs = [
     { label: "Studio still", bg: "linear-gradient(160deg,#ead9e4,#c59eb9)" },
     { label: "Animation", bg: "linear-gradient(160deg,#dce8f2,#b3cde3)" },
-    { label: "Marketing video", bg: "linear-gradient(160deg,#fff6bf,#fbda03)" },
+    { label: "Marketing video", bg: "linear-gradient(160deg,#fff6bf,#ffd000)" },
   ];
   return (
     <div className="relative h-full bg-ink p-5 text-ivory sm:p-7">

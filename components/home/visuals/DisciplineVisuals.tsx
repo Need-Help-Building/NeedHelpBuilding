@@ -4,8 +4,8 @@
  */
 
 const INK = "#171717";
-const IVORY = "#f7f6f2";
-const SUN = "#fbda03";
+const IVORY = "#f5f3ed";
+const SUN = "#ffd000";
 const LILAC = "#c59eb9";
 const MIST = "#b3cde3";
 

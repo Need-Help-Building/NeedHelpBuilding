@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "We help businesses make better technology decisions, then design, engineer and run the systems: AI agents, automation, software and digital products.",
     start_url: "/",
     display: "standalone",
-    background_color: "#f7f6f2",
-    theme_color: "#f7f6f2",
+    background_color: "#f5f3ed",
+    theme_color: "#f5f3ed",
     icons: [
       { src: "/favicon.png", sizes: "32x32", type: "image/png" },
       { src: "/icon.png", sizes: "192x192", type: "image/png" },

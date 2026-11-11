@@ -3,6 +3,7 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import { Marked } from "@/components/ui/Marked";
 import { Container } from "@/components/ui/primitives";
 import { cn } from "@/lib/cn";
+import { PixelCloud, PixelSun } from "@/components/pixel/Decor";
 
 interface Cta {
   href: string;
@@ -31,6 +32,8 @@ export default function ProgramHero({ eyebrow, title, lede, primary, secondary, 
         aria-hidden
         className="grid-paper pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,#000_0%,#000_40%,transparent_92%)]"
       />
+      <PixelSun scale={5} className="top-8 right-[6%] hidden md:block" />
+      <PixelCloud small scale={4} drift={-20} duration={13} className="top-28 right-[22%] hidden lg:block" />
       <Container className="relative pt-12 pb-16 sm:pt-16 lg:pt-20 lg:pb-24">
         <div className={cn("grid grid-cols-1 gap-12 lg:gap-10", !!aside && "lg:grid-cols-12")}>
           <div className={cn(!!aside && "lg:col-span-7")}>
@@ -41,7 +44,7 @@ export default function ProgramHero({ eyebrow, title, lede, primary, secondary, 
             <h1
               id="program-title"
               data-reveal
-              className="mt-7 max-w-[17ch] text-[clamp(2.5rem,0.9rem+5vw,5.5rem)] leading-[0.97] font-semibold tracking-[-0.05em]"
+              className="t-pixel mt-7 max-w-[17ch] text-[clamp(2.25rem,0.9rem+4.2vw,4.75rem)] leading-[1.08] font-semibold"
             >
               <Marked text={title} />
             </h1>

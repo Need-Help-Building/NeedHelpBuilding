@@ -15,7 +15,7 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f7f6f2",
+          background: "#f5f3ed",
           color: "#171717",
           padding: "64px 72px",
         }}
@@ -26,7 +26,7 @@ export default function OpengraphImage() {
               display: "flex",
               position: "relative",
               background: "#171717",
-              color: "#f7f6f2",
+              color: "#f5f3ed",
               fontSize: 30,
               fontWeight: 800,
               letterSpacing: -2,
@@ -34,7 +34,7 @@ export default function OpengraphImage() {
             }}
           >
             NHB
-            <div style={{ position: "absolute", right: -8, bottom: -8, width: 16, height: 16, background: "#fbda03" }} />
+            <div style={{ position: "absolute", right: -8, bottom: -8, width: 16, height: 16, background: "#ffd000" }} />
           </div>
           <div style={{ display: "flex", fontSize: 30, fontWeight: 600, letterSpacing: -1 }}>NeedHelpBuilding</div>
         </div>
@@ -43,7 +43,7 @@ export default function OpengraphImage() {
           <div style={{ display: "flex" }}>Engineering for businesses</div>
           <div style={{ display: "flex", alignItems: "flex-end" }}>
             <span style={{ marginRight: 22 }}>that</span>
-            <span style={{ background: "#fbda03", padding: "0 10px" }}>can&apos;t afford to guess.</span>
+            <span style={{ background: "#ffd000", padding: "0 10px" }}>can&apos;t afford to guess.</span>
           </div>
         </div>
 

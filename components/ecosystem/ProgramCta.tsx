@@ -3,6 +3,7 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import SmartLink from "@/components/ui/SmartLink";
 import { Container } from "@/components/ui/primitives";
 import { programs, type ProgramId } from "@/content/ecosystem";
+import { PixelHorizon } from "@/components/pixel/Decor";
 
 /**
  * Closing band for every ecosystem page (NHB yellow, as the homepage contact section), with links to the
@@ -31,7 +32,7 @@ export default function ProgramCta({
         <h2
           id="program-cta-title"
           data-reveal
-          className="mt-6 max-w-[20ch] text-[clamp(2rem,1.1rem+4vw,4.75rem)] leading-[0.98] font-semibold tracking-[-0.05em]"
+          className="t-pixel mt-6 max-w-[20ch] text-[clamp(2rem,1rem+3.6vw,4.25rem)] leading-[1.06] font-semibold"
         >
           {title}
         </h2>
@@ -62,6 +63,7 @@ export default function ProgramCta({
           </ul>
         </nav>
       </Container>
+      <PixelHorizon className="relative -mb-px" />
     </section>
   );
 }

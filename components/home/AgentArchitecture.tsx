@@ -86,7 +86,7 @@ export default function AgentArchitecture() {
             aria-label="Reference architecture: user input flows into an orchestration layer, which routes work to specialised agents (planner, researcher, executor, reviewer). Agents use permissioned tools and APIs and a knowledge base, results pass through guarded execution, and monitoring feeds back into orchestration."
           >
             {WIRES.map((d) => (
-              <path key={d} d={d} fill="none" stroke="rgb(247 246 242 / 0.28)" strokeWidth="1.25" />
+              <path key={d} d={d} fill="none" stroke="rgb(245 243 237 / 0.28)" strokeWidth="1.25" />
             ))}
             <path d={LOOP} fill="none" stroke="#c59eb9" strokeWidth="1.5" strokeDasharray="3 6" className="animate-flow-slow" />
 
@@ -106,8 +106,8 @@ export default function AgentArchitecture() {
                     width={b.w}
                     height={b.h}
                     rx="6"
-                    fill={on ? "#fbda03" : "#1f1f1e"}
-                    stroke={on ? "#fbda03" : "rgb(247 246 242 / 0.3)"}
+                    fill={on ? "#ffd000" : "#1f1f1e"}
+                    stroke={on ? "#ffd000" : "rgb(245 243 237 / 0.3)"}
                     strokeWidth="1.25"
                     className="transition-[fill,stroke] duration-300 hover:stroke-ivory"
                   />
@@ -135,7 +135,7 @@ export default function AgentArchitecture() {
 
             {!reduce && (
               <g aria-hidden>
-                <rect x="-4" y="-4" width="8" height="8" fill="#fbda03">
+                <rect x="-4" y="-4" width="8" height="8" fill="#ffd000">
                   <animateMotion dur="5s" repeatCount="indefinite" path={ROUTE_TOOLS} />
                 </rect>
                 <rect x="-4" y="-4" width="8" height="8" fill="#b3cde3">

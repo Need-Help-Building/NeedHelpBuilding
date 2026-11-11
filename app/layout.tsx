@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Pixelify_Sans, Silkscreen } from "next/font/google";
 import "./globals.css";
 import MotionProvider from "@/components/site/MotionProvider";
 import SiteHeader from "@/components/site/SiteHeader";
@@ -16,6 +16,21 @@ const geist = Geist({
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
+  display: "swap",
+});
+
+// Pixel identity (business card): display headlines and arcade counters only.
+const pixelify = Pixelify_Sans({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-pixelify",
+  display: "swap",
+});
+
+const silkscreen = Silkscreen({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-silkscreen",
   display: "swap",
 });
 
@@ -85,13 +100,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f7f6f2",
+  themeColor: "#f5f3ed",
   colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${pixelify.variable} ${silkscreen.variable}`} suppressHydrationWarning>
       <head>
         {/* Marks JS as available before first paint so scroll-reveal styles never hide content for no-JS visitors. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />

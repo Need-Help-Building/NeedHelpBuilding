@@ -47,7 +47,7 @@ export default async function BookPage({ searchParams }: { searchParams: Promise
           </p>
           <h1
             id="book-title"
-            className="mt-7 max-w-[16ch] text-[clamp(2.5rem,0.9rem+5vw,5.25rem)] leading-[0.97] font-semibold tracking-[-0.05em]"
+            className="t-pixel mt-7 max-w-[16ch] text-[clamp(2.25rem,0.9rem+4.2vw,4.75rem)] leading-[1.08] font-semibold"
           >
             Book a one-to-one meeting.
           </h1>

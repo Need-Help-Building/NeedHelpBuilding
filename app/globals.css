@@ -7,13 +7,16 @@
    ========================================================================== */
 
 @theme {
-  --color-ivory: #f7f6f2;
-  --color-ivory-2: #efede6;
+  /* Palette from the NHB business card: warm off-white, deep black, construction yellow, pixel grey. */
+  --color-ivory: #f5f3ed;
+  --color-ivory-2: #edeae2;
   --color-ink: #171717;
   --color-ink-2: #1f1f1e;
   --color-ink-3: #2c2b29;
-  --color-sun: #fbda03;
-  --color-sun-deep: #e2c400;
+  --color-charcoal: #252525;
+  --color-pixel: #b8b8b8;
+  --color-sun: #ffd000;
+  --color-sun-deep: #e6bb00;
   --color-mist: #b3cde3;
   --color-mist-soft: #dce8f2;
   --color-lilac: #c59eb9;
@@ -75,6 +78,9 @@
 @theme inline {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* Display signature (hero and CTA headlines only) and arcade labels/counters. */
+  --font-pixel: var(--font-pixelify), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-arcade: var(--font-silkscreen), var(--font-geist-mono), ui-monospace, monospace;
 }
 
 /* --------------------------------------------------------------------------
@@ -216,6 +222,188 @@ html.lenis body {
 /* Fades a decorative background out towards the edges */
 @utility mask-fade-edges {
   mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 40%, transparent 100%);
+}
+
+/* --------------------------------------------------------------------------
+   Pixel identity (business card): blocks, stepped corners, arcade counters
+   -------------------------------------------------------------------------- */
+
+/* Pixel display headline: bold, tight, never smoothed into mush. */
+@utility t-pixel {
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-synthesis: none;
+}
+
+/* Arcade counters and small labels. */
+@utility t-arcade {
+  font-family: var(--font-arcade);
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/*
+ * The card's "Offline?" treatment: a yellow block with a 1-pixel ink outline whose corners are stepped
+ * (the outline is drawn with four offset shadows, so the corner pixels stay empty) plus a hard drop shadow.
+ * --px scales the "pixel" with the font size.
+ */
+.pixel-mark {
+  --px: max(2px, 0.055em);
+  background: var(--color-sun);
+  color: var(--color-ink);
+  padding: 0.02em 0.16em 0.06em;
+  margin-inline: 0.04em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  box-shadow:
+    0 calc(var(--px) * -1) 0 var(--color-ink),
+    0 var(--px) 0 var(--color-ink),
+    calc(var(--px) * -1) 0 0 var(--color-ink),
+    var(--px) 0 0 var(--color-ink),
+    calc(var(--px) * 2.5) calc(var(--px) * 2.5) 0 var(--color-ink);
+}
+
+/* Small yellow pixels that step into the corners of a card on hover. */
+.pixel-corners {
+  --corner: var(--color-sun);
+  position: relative;
+}
+.pixel-corners.bg-sun {
+  --corner: var(--color-ink);
+}
+.pixel-corners::before,
+.pixel-corners::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--corner);
+  box-shadow:
+    6px 0 0 var(--corner),
+    0 6px 0 var(--corner);
+  opacity: 0;
+  transition:
+    opacity 0.25s steps(2),
+    transform 0.3s steps(3);
+  pointer-events: none;
+  z-index: 2;
+}
+.pixel-corners::before {
+  top: 10px;
+  left: 10px;
+  transform: translate(4px, 4px);
+}
+.pixel-corners::after {
+  right: 10px;
+  bottom: 10px;
+  transform: translate(-4px, -4px) rotate(180deg);
+}
+.pixel-corners:hover::before,
+.pixel-corners:focus-within::before {
+  opacity: 1;
+  transform: none;
+}
+.pixel-corners:hover::after,
+.pixel-corners:focus-within::after {
+  opacity: 1;
+  transform: rotate(180deg);
+}
+
+/* Arcade "press": buttons lift onto a hard pixel shadow on hover and sink back when pressed. */
+.pixel-press {
+  transition:
+    transform 0.18s steps(2),
+    box-shadow 0.18s steps(2),
+    background-color 0.3s,
+    color 0.3s;
+}
+.pixel-press:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0 var(--color-ink);
+}
+.pixel-press:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0 0 0 var(--color-ink);
+}
+.bg-ink .pixel-press:hover,
+.pixel-press[data-on-dark]:hover {
+  box-shadow: 3px 3px 0 var(--color-sun);
+}
+
+/* Blinking text caret ("We bring it to the web.|") */
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+.pixel-caret {
+  display: inline-block;
+  width: 0.09em;
+  height: 0.95em;
+  margin-left: 0.12em;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: caret 1.05s steps(1) infinite;
+}
+
+/* Slow drift for decorative pixel clouds (steps keep the motion "pixel-true"). */
+@keyframes pixel-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(var(--drift, 24px), 0, 0);
+  }
+}
+.pixel-drift {
+  animation: pixel-drift var(--drift-duration, 14s) steps(24) infinite alternate;
+}
+
+/* A tiny dinosaur that runs across a ground line once it scrolls into view. */
+@keyframes pixel-run-across {
+  from {
+    transform: translate3d(-40px, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(100vw + 40px), 0, 0);
+  }
+}
+@keyframes pixel-legs {
+  50% {
+    transform: translateY(-1px);
+  }
+}
+.pixel-runner {
+  transform: translate3d(-40px, 0, 0);
+}
+.pixel-runner[data-run] {
+  animation: pixel-run-across var(--run-duration, 9s) linear 0.4s 1 both;
+}
+.pixel-runner[data-run] svg {
+  animation: pixel-legs 0.22s steps(1) infinite;
+}
+
+/* Runner HUD: the "offline" Wi-Fi regains a bar every 100 points. */
+.pixel-wifi > span:nth-child(-n + 3) {
+  color: var(--color-pixel);
+}
+.pixel-wifi[data-bars="1"] > span:nth-child(-n + 1),
+.pixel-wifi[data-bars="2"] > span:nth-child(-n + 2),
+.pixel-wifi[data-bars="3"] > span:nth-child(-n + 3) {
+  color: var(--color-ink);
+}
+.pixel-wifi:not([data-bars="0"]) .pixel-wifi-x {
+  display: none;
+}
+.pixel-wifi[data-bars="3"] > span:nth-child(-n + 3) {
+  color: var(--color-sun-deep);
+}
+.pixel-wifi[data-bars="3"] .pixel-wifi-online {
+  display: block;
 }
 
 /* Yellow highlighter swipe behind key words */

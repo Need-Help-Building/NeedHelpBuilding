@@ -15,7 +15,7 @@ export function ogCard({ eyebrow, title, footer }: { eyebrow: string; title: str
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f7f6f2",
+          background: "#f5f3ed",
           color: "#171717",
           padding: "64px 72px",
         }}
@@ -26,7 +26,7 @@ export function ogCard({ eyebrow, title, footer }: { eyebrow: string; title: str
               display: "flex",
               position: "relative",
               background: "#171717",
-              color: "#f7f6f2",
+              color: "#f5f3ed",
               fontSize: 30,
               fontWeight: 800,
               letterSpacing: -2,
@@ -34,14 +34,14 @@ export function ogCard({ eyebrow, title, footer }: { eyebrow: string; title: str
             }}
           >
             NHB
-            <div style={{ position: "absolute", right: -8, bottom: -8, width: 16, height: 16, background: "#fbda03" }} />
+            <div style={{ position: "absolute", right: -8, bottom: -8, width: 16, height: 16, background: "#ffd000" }} />
           </div>
           <div style={{ display: "flex", fontSize: 30, fontWeight: 600, letterSpacing: -1 }}>NeedHelpBuilding</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div style={{ display: "flex" }}>
-            <span style={{ background: "#fbda03", padding: "4px 14px", fontSize: 26, fontWeight: 600 }}>{eyebrow}</span>
+            <span style={{ background: "#ffd000", padding: "4px 14px", fontSize: 26, fontWeight: 600 }}>{eyebrow}</span>
           </div>
           <div style={{ display: "flex", fontSize, fontWeight: 700, letterSpacing: -3, lineHeight: 1.05, maxWidth: 1050 }}>
             {title}

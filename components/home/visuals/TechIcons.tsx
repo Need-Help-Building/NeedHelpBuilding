@@ -236,7 +236,7 @@ export function VectorDbIcon({ className = "size-6", ...props }: IconProps) {
       <polygon points="12 2 2 7 12 12 22 7 12 2" />
       <polyline points="2 17 12 22 22 17" />
       <polyline points="2 12 12 17 22 12" />
-      <circle cx="12" cy="7" r="1.5" fill="#fbda03" stroke="none" />
+      <circle cx="12" cy="7" r="1.5" fill="#ffd000" stroke="none" />
       <circle cx="7" cy="14.5" r="1.5" fill="#245bff" stroke="none" />
       <circle cx="17" cy="14.5" r="1.5" fill="#38bdf8" stroke="none" />
     </svg>
@@ -246,7 +246,7 @@ export function VectorDbIcon({ className = "size-6", ...props }: IconProps) {
 export function GraphOrchIcon({ className = "size-6", ...props }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <circle cx="6" cy="6" r="3" fill="#fbda03" stroke="none" />
+      <circle cx="6" cy="6" r="3" fill="#ffd000" stroke="none" />
       <circle cx="18" cy="8" r="3" fill="#245bff" stroke="none" />
       <circle cx="12" cy="18" r="3" fill="#34d399" stroke="none" />
       <line x1="8.5" y1="7" x2="15.5" y2="7.5" stroke="currentColor" />
@@ -303,7 +303,7 @@ export function ZapierIcon({ className = "size-6", ...props }: IconProps) {
 export function IntegrationsIcon({ className = "size-6", ...props }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <rect x="2" y="2" width="8" height="8" rx="2" fill="#fbda03" stroke="none" />
+      <rect x="2" y="2" width="8" height="8" rx="2" fill="#ffd000" stroke="none" />
       <rect x="14" y="14" width="8" height="8" rx="2" fill="#245bff" stroke="none" />
       <path d="M6 10v4a2 2 0 0 0 2 2h6" stroke="currentColor" />
       <path d="M14 6h4a2 2 0 0 1 2 2v4" stroke="currentColor" />

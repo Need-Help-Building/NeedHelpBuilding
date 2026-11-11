@@ -37,7 +37,7 @@ export default function SectionHeading({
         data-reveal="fade"
         className={cn("t-eyebrow flex items-center gap-3 lg:col-span-12", dark ? "text-ivory/60" : "text-muted")}
       >
-        <span className={cn("font-medium", dark ? "text-sun" : "text-ink")}>§ {index}</span>
+        <span className={cn("t-arcade text-[0.8rem] font-bold", dark ? "text-sun" : "text-ink")}>§ {index}</span>
         <span aria-hidden className={cn("h-px w-10", dark ? "bg-ivory/25" : "bg-ink/25")} />
         <span>{label}</span>
       </div>

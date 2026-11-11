@@ -39,7 +39,7 @@ export default function FeatureCards({ cards, columns = 2, className }: { cards:
             key={card.title}
             data-reveal
             data-delay={String((i % 4) + 1)}
-            className={cn("flex flex-col rounded-3xl p-7 sm:p-9", tones[tone])}
+            className={cn("pixel-corners flex flex-col rounded-3xl p-7 sm:p-9", tones[tone])}
           >
             <div className="flex items-start justify-between gap-4">
               <span className={cn("font-mono text-[12px]", dark ? "text-sun" : "text-ink/55")}>{String(i + 1).padStart(2, "0")}</span>

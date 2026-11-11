@@ -3,6 +3,7 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import SmartLink from "@/components/ui/SmartLink";
 import { Container } from "@/components/ui/primitives";
 import { conversationStarters } from "@/content/company";
+import { PixelHorizon } from "@/components/pixel/Decor";
 import { ctas, site } from "@/content/site";
 
 function WhatsAppGlyph({ className }: { className?: string }) {
@@ -25,7 +26,7 @@ export default function FinalCta() {
         <h2
           id="contact-title"
           data-reveal
-          className="mt-6 sm:mt-8 max-w-[21ch] text-[clamp(2rem,1.1rem+4.8vw,5.75rem)] leading-[0.98] font-semibold tracking-[-0.055em] break-words"
+          className="t-pixel mt-6 sm:mt-8 max-w-[21ch] text-[clamp(2rem,1rem+4.2vw,5rem)] leading-[1.06] font-semibold break-words"
         >
           The right conversation can change your business.
         </h2>
@@ -89,6 +90,7 @@ export default function FinalCta() {
           </div>
         </div>
       </Container>
+      <PixelHorizon className="relative -mb-px" />
     </section>
   );
 }

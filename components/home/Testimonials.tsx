@@ -53,7 +53,7 @@ export default function Testimonials() {
                   {lead ? (
                     <LiveOrb variant="custom" color="#245bff" eyeColor="#FAFAFA" size={50} />
                   ) : (
-                    <LiveOrb variant="custom" color="#fbda03" eyeColor="#171717" size={46} />
+                    <LiveOrb variant="custom" color="#ffd000" eyeColor="#171717" size={46} />
                   )}
                 </div>
                 <span aria-hidden className="grid size-12 place-items-center rounded-lg bg-sun text-ink">
