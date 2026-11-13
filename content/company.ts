@@ -90,17 +90,16 @@ export interface Founder {
   role: string | null;
 }
 
-/** Founders in photo order (left, right). */
 export const team = {
   photo: {
     src: "/team.png",
-    alt: "NHB co-founders Divy Shukla (left) and Suyash Shukla (right), arms crossed, photographed in black and white against a yellow glow.",
+    alt: "NHB co-founders Divy Shukla and Suyash Shukla, arms crossed, photographed in black and white against a yellow glow.",
     width: 1536,
     height: 1024,
   },
   founders: [
-    { name: "Divy Shukla", role: "Co-founder, NHB" },
-    { name: "Suyash Shukla", role: "Co-founder, NHB" },
+    { name: "Divy Shukla", role: "Co-founder" },
+    { name: "Suyash Shukla", role: "Co-founder" },
   ] as Founder[],
   statement:
     "NHB is led by engineers who still design systems and review code. When you talk to us, you're talking to the people who will be accountable for the build.",

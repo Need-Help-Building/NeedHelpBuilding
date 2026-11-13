@@ -57,3 +57,4 @@ next-env.d.ts
 cleandesign/
 mixed/
 .figma/
+.claude/
