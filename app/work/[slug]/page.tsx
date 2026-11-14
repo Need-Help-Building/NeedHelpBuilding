@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject(slug);
   if (!project) return { title: "Case study not found" };
   return pageMetadata({
-    title: `${project.name} Case Study — ${project.category}`,
+    title: `${project.name} Case Study | ${project.category}`,
     description: clip(project.summary),
     path: `/work/${project.slug}`,
     type: "article",
@@ -83,7 +83,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
             <div>
               <dt className="t-eyebrow text-muted">Industry</dt>
-              <dd className="mt-2 text-[15px]">{project.industry ?? <Placeholder label="Industry — to confirm" />}</dd>
+              <dd className="mt-2 text-[15px]">{project.industry ?? <Placeholder label="Industry: to confirm" />}</dd>
             </div>
             <div>
               <dt className="t-eyebrow text-muted">Status</dt>
@@ -142,7 +142,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 “{quote.quote}”
               </blockquote>
               <figcaption className="mt-8 font-mono text-[13px] text-ivory/60">
-                — {quote.name}, {quote.role}, {quote.organization}
+                {quote.name}, {quote.role}, {quote.organization}
               </figcaption>
             </figure>
           ) : null}
@@ -181,7 +181,7 @@ export default async function CaseStudyPage({ params }: Props) {
                   </span>
                 ))
               ) : (
-                <Placeholder label="Technology stack — to confirm" />
+                <Placeholder label="Technology stack: to confirm" />
               )}
             </div>
 
@@ -203,7 +203,7 @@ export default async function CaseStudyPage({ params }: Props) {
               <figure className="mt-12 border-l-2 border-sun pl-6">
                 <blockquote className="text-[18px] leading-relaxed">“{quote.quote}”</blockquote>
                 <figcaption className="mt-3 font-mono text-[12px] text-muted">
-                  — {quote.name}, {quote.role}, {quote.organization}
+                  {quote.name}, {quote.role}, {quote.organization}
                 </figcaption>
               </figure>
             )}

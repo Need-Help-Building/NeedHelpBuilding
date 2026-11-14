@@ -35,7 +35,7 @@ const silkscreen = Silkscreen({
 });
 
 // Kept within SERP limits: title ≤ 60 characters, description ≤ 160.
-const title = "NeedHelpBuilding — AI, Software & Technology Consulting";
+const title = "NeedHelpBuilding | AI, Software & Technology Consulting";
 const description =
   "NHB helps businesses make better technology decisions, then designs and builds the systems: AI agents, automation, custom software, web and mobile apps.";
 
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: title,
-    template: "%s — NeedHelpBuilding",
+    template: "%s | NeedHelpBuilding",
   },
   description,
   keywords: [

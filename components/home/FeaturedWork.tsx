@@ -15,7 +15,7 @@ function Facts({ project, compact = false }: { project: Project; compact?: boole
     <dl className={cn("grid gap-x-6 gap-y-4 text-[13.5px]", compact ? "grid-cols-1" : "sm:grid-cols-2")}>
       <div>
         <dt className="t-eyebrow text-muted">Industry</dt>
-        <dd className="mt-1.5">{project.industry ?? <Placeholder label="Industry — to confirm" />}</dd>
+        <dd className="mt-1.5">{project.industry ?? <Placeholder label="Industry: to confirm" />}</dd>
       </div>
       <div>
         <dt className="t-eyebrow text-muted">Category</dt>
@@ -31,7 +31,7 @@ function Facts({ project, compact = false }: { project: Project; compact?: boole
               </span>
             ))
           ) : (
-            <Placeholder label="Stack — to confirm" />
+            <Placeholder label="Stack: to confirm" />
           )}
         </dd>
       </div>

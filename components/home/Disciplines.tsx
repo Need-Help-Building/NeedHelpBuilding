@@ -22,7 +22,7 @@ export default function Disciplines() {
           label="Capabilities"
           title="Four disciplines. *One engineering standard.*"
           titleId="capabilities-title"
-          lede="Most partners are strong in one of these. Real projects need all four working together — so we built one team that covers them, held to the same standard of engineering."
+          lede="Most partners are strong in one of these. Real projects need all four working together, so we built one team that covers them, held to the same standard of engineering."
         />
 
         <div className="mt-14 lg:mt-20">

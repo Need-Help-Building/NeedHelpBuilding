@@ -30,7 +30,7 @@ export default function Spotlight() {
 
         <div className="mt-14 grid grid-cols-1 gap-10 lg:mt-20 lg:grid-cols-12 lg:gap-8">
           <figure data-reveal className="lg:col-span-7">
-            <BrowserFrame url="caller.work — live session, detail" tone="dark">
+            <BrowserFrame url="caller.work" tone="dark">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <div
                   className="absolute inset-0"
@@ -76,7 +76,7 @@ export default function Spotlight() {
 
           <div data-reveal data-delay="1" className="lg:col-span-5">
             <div className="rounded-2xl border border-ivory/12 bg-ink-2/80 p-6 sm:p-8">
-              <p className="t-eyebrow text-ivory/50">fig. 05 — voice pipeline, one call</p>
+              <p className="t-eyebrow text-ivory/50">Voice pipeline: one call, end to end</p>
               <ol className="mt-6">
                 {spotlight.pipeline.map((step, i) => (
                   <li key={step.stage} className="relative grid grid-cols-[28px_1fr_auto] items-start gap-4 pb-5 last:pb-0">

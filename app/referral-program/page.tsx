@@ -15,7 +15,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = pageMetadata({
   title: "Referral & Ambassador Program",
   description:
-    "Introduce businesses that need technology and earn 10% commission on eligible, closed work. Open to professionals, students as City Ambassadors, and technical contributors.",
+    "Introduce businesses that need technology and earn 10% commission on eligible, closed work. Open to professionals, student ambassadors and builders.",
   path: "/referral-program",
 });
 

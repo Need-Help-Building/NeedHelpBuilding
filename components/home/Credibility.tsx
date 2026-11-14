@@ -30,11 +30,14 @@ export default function Credibility() {
                 className="object-cover"
               />
             </div>
-            <figcaption className="mt-5 grid gap-4 sm:grid-cols-2">
+            {/* Names sit under each founder: left-aligned under the left, right-aligned under the right. */}
+            <figcaption className="mt-5 grid grid-cols-2 gap-4 border-t-2 border-ink pt-4">
               {team.founders.map((f, i) => (
-                <div key={i} className="border-t border-ink/12 pt-4">
-                  <p className="text-[17px] font-semibold tracking-[-0.02em]">{f.name ?? <Placeholder label="Founder name" />}</p>
-                  <p className="mt-1 text-[14px] text-muted">{f.role ?? <Placeholder label="Role" />}</p>
+                <div key={i} className={i === 1 ? "text-right" : undefined}>
+                  <p className="t-pixel text-[clamp(1.35rem,1.05rem+1.1vw,1.9rem)] leading-tight font-bold">
+                    {f.name ?? <Placeholder label="Founder name" />}
+                  </p>
+                  <p className="t-arcade mt-2 text-[11px] text-muted">{f.role ?? <Placeholder label="Role" />}</p>
                 </div>
               ))}
             </figcaption>
@@ -73,7 +76,7 @@ export default function Credibility() {
                   {recognitions.map((r) => (
                     <li key={r.title} className="flex justify-between gap-4 border-b border-ink/12 pb-3 text-[15px]">
                       <span>
-                        {r.title} <span className="text-muted">— {r.issuer}</span>
+                        {r.title} <span className="text-muted">· {r.issuer}</span>
                       </span>
                       <span className="font-mono text-[12px] text-muted">{r.year}</span>
                     </li>

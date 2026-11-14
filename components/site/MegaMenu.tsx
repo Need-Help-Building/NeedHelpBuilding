@@ -180,7 +180,7 @@ export function ProductsPanel({ id, onNavigate }: NavPanelProps) {
 }
 
 /* --------------------------------------------------------------- ecosystem */
-const programMarks: Record<string, string> = { startups: "ST", referral: "RE", products: "PR", partners: "AG" };
+const programMarks: Record<string, string> = { startups: "ST", referral: "RE", products: "PR", partners: "AG", careers: "CA" };
 
 export function EcosystemPanel({ id, onNavigate }: NavPanelProps) {
   return (

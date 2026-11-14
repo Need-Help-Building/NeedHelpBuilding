@@ -15,7 +15,7 @@ export default function WhyNhb() {
           label="Why NHB"
           title="Why businesses choose an *engineering-first* partner."
           titleId="why-title"
-          lede="Every agency says it cares about quality. These are the practices behind ours — the things you'll actually notice when we work together."
+          lede="Every agency says it cares about quality. These are the practices behind ours, the things you'll actually notice when we work together."
           aside={
             <ButtonLink href={ctas.consultation.href} variant="ink">
               {ctas.consultation.label}

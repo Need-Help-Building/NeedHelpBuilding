@@ -74,7 +74,7 @@ export default function AgentArchitecture() {
       <div className="relative grid lg:grid-cols-12">
         <div className="hidden border-ivory/10 p-6 sm:p-10 md:block lg:col-span-7 lg:border-r">
           <div className="flex items-center justify-between gap-4">
-            <p className="t-eyebrow text-ivory/50">fig. 02 — reference architecture, production AI system</p>
+            <p className="t-eyebrow text-ivory/50">Reference architecture: a production AI system</p>
             <p className="t-eyebrow hidden items-center gap-2 text-ivory/50 xl:flex">
               <span aria-hidden className="size-2 rounded-full bg-lilac" /> feedback loop
             </p>
@@ -150,7 +150,7 @@ export default function AgentArchitecture() {
         </div>
 
         <div className="flex flex-col p-6 sm:p-10 lg:col-span-5">
-          <p className="t-eyebrow text-ivory/50 md:hidden">fig. 02 — reference architecture</p>
+          <p className="t-eyebrow text-ivory/50 md:hidden">Reference architecture</p>
           <div
             role="tablist"
             aria-label="Architecture layers"

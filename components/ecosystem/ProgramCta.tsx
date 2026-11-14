@@ -47,7 +47,7 @@ export default function ProgramCta({
 
         <nav aria-label="Other NHB programs" className="mt-16 border-t-2 border-ink pt-6 lg:mt-20">
           <p className="t-eyebrow text-ink/70">Other ways to work with NHB</p>
-          <ul className="mt-4 grid gap-px sm:grid-cols-3">
+          <ul className="mt-4 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
             {others.map((p) => (
               <li key={p.id}>
                 <SmartLink href={p.href} className="group flex h-full flex-col gap-2 py-3 pr-6">

@@ -131,7 +131,7 @@ function ProductFitShowcase() {
           </div>
         </div>
       </div>
-      <IllustrativeTag className="absolute right-4 bottom-4">Illustrative — ask for a live demo</IllustrativeTag>
+      <IllustrativeTag className="absolute right-4 bottom-4">Illustrative: ask for a live demo</IllustrativeTag>
     </div>
   );
 }

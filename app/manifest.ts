@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "NeedHelpBuilding — Digital Product Engineering, AI & Technology Consulting",
+    name: "NeedHelpBuilding | Digital Product Engineering, AI & Technology Consulting",
     short_name: "NHB",
     description:
       "We help businesses make better technology decisions, then design, engineer and run the systems: AI agents, automation, software and digital products.",

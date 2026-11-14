@@ -46,7 +46,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     color: "#ffd000",
     accent: "#0c0c0d",
     overview:
-      "We design and build production-grade web systems from frontend micro-interactions to scalable database architecture. No bloated templates or sluggish page loads—every web app is engineered for sub-500ms response times, SEO domination, and frictionless buyer conversion.",
+      "We design and build production-grade web systems from frontend micro-interactions to scalable database architecture. No bloated templates or sluggish page loads, every web app is engineered for sub-500ms response times, SEO domination, and frictionless buyer conversion.",
     whatWeDo: [
       "Custom Next.js App Router applications with Server-Side Rendering (SSR) & Static Generation",
       "Dynamic TypeScript codebases with zero runtime type violations",
@@ -163,7 +163,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       {
         step: "01",
         title: "ENVIRONMENTAL AUDIT",
-        description: "Examining how your users physically interact with the device—lighting, greasy kitchen hands, or offline connectivity.",
+        description: "Examining how your users physically interact with the device: lighting, greasy kitchen hands, or offline connectivity.",
       },
       {
         step: "02",
@@ -673,7 +673,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     color: "#ffffff",
     accent: "#000000",
     overview:
-      "Autonomous agents must do more than converse—they must execute work reliably. We build intelligent agent systems that decompose complex high-level objectives into sequential tool executions, verify their own work, manage memory, and escalate edge cases safely.",
+      "Autonomous agents must do more than converse: they must execute work reliably. We build intelligent agent systems that decompose complex high-level objectives into sequential tool executions, verify their own work, manage memory, and escalate edge cases safely.",
     whatWeDo: [
       "Autonomous agent task planning using ReAct, Reflection, and hierarchical execution patterns",
       "Model Context Protocol (MCP) server integrations and custom API tool calling",
@@ -725,7 +725,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     color: "#ffffff",
     accent: "#000000",
     overview:
-      "When tasks are too complex for a single prompt or agent, multi-agent swarms divide and conquer. We engineer specialized agent networks—where researcher, coder, auditor, and validator agents collaborate over shared blackboard architectures with deterministic state transitions.",
+      "When tasks are too complex for a single prompt or agent, multi-agent swarms divide and conquer. We engineer specialized agent networks, where researcher, coder, auditor, and validator agents collaborate over shared blackboard architectures with deterministic state transitions.",
     whatWeDo: [
       "Hierarchical and peer-to-peer agent network orchestration using LangGraph and state machines",
       "Role-specialized agent prompt engineering with isolated tool access and specific domain personas",

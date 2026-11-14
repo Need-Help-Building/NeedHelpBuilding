@@ -17,7 +17,7 @@ export default function Consulting() {
           title="Sometimes the most important thing we build is *the right plan.*"
           titleId="consulting-title"
           tone="dark"
-          lede="You don't need to know what technology you need before talking to us. Bring the goal, the bottleneck or the system that's struggling — we'll help you decide what to do about it, whether or not we end up building it."
+          lede="You don't need to know what technology you need before talking to us. Bring the goal, the bottleneck or the system that's struggling. We'll help you decide what to do about it, whether or not we end up building it."
         />
 
         <div data-reveal className="mt-14 lg:mt-20">

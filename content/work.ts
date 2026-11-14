@@ -49,9 +49,9 @@ export const projects: Project[] = [
     summary:
       "Real-time AI voice agents that answer and place phone calls in natural speech, grounded in a business's own data.",
     problem:
-      "Service businesses miss calls when their people are on the job or off the clock — and a caller who doesn't get an answer rings the next business on the list.",
+      "Service businesses miss calls when their people are on the job or off the clock, and a caller who doesn't get an answer rings the next business on the list.",
     solution:
-      "A voice AI pipeline that picks up the phone, understands the caller (including Hinglish), answers from the business's own knowledge, checks availability and books the appointment into the calendar — handing urgent calls to a human.",
+      "A voice AI pipeline that picks up the phone, understands the caller (including Hinglish), answers from the business's own knowledge, checks availability and books the appointment into the calendar, handing urgent calls to a human.",
     built: [
       "Streaming voice pipeline: speech-to-text → LLM → text-to-speech",
       "SIP-ready telephony for inbound and outbound calls",

@@ -22,7 +22,7 @@ export const processStages: ProcessStage[] = [
     name: "Strategize",
     summary: "Identify suitable technologies, architecture and execution plans.",
     principle:
-      "Every significant choice is written down with the options considered, the trade-offs and the cost — so decisions can be revisited with context instead of memory.",
+      "Every significant choice is written down with the options considered, the trade-offs and the cost, so decisions can be revisited with context instead of memory.",
     outputs: ["Architecture options & trade-offs", "Build / buy / integrate decisions", "Phased roadmap & estimate"],
   },
   {
@@ -46,7 +46,7 @@ export const processStages: ProcessStage[] = [
     name: "Validate",
     summary: "Test functionality, security, reliability and performance.",
     principle:
-      "Assume it will break, then prove where. Functional, security and load testing happen before launch — not after the first incident.",
+      "Assume it will break, then prove where. Functional, security and load testing happen before launch, not after the first incident.",
     outputs: ["Automated & manual QA", "Security review", "Performance & load results"],
   },
   {
@@ -62,7 +62,7 @@ export const processStages: ProcessStage[] = [
     name: "Evolve",
     summary: "Monitor, maintain and continuously improve.",
     principle:
-      "Launch is the first real data point. We measure against the goals set in Discover, then maintain and improve — and the loop starts again.",
+      "Launch is the first real data point. We measure against the goals set in Discover, then maintain and improve, and the loop starts again.",
     outputs: ["Usage & error monitoring", "Maintenance & upgrades", "Improvement roadmap"],
   },
 ];

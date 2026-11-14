@@ -63,7 +63,7 @@ export const techCategories: TechCategory[] = [
   {
     id: "ai",
     label: "AI",
-    intent: "Model-agnostic by design — picked per task on quality, latency and cost.",
+    intent: "Model-agnostic by design, picked per task on quality, latency and cost.",
     items: [
       { name: "OpenAI", note: "General-purpose reasoning, structured outputs and tool use." },
       { name: "Anthropic", note: "Long-context reasoning and careful, tool-using agents." },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ApplySection from "@/components/ecosystem/ApplySection";
 import FeatureCards, { type FeatureCard } from "@/components/ecosystem/FeatureCards";
+import Faq from "@/components/ecosystem/Faq";
 import FounderPanel from "@/components/ecosystem/FounderPanel";
 import ProgramCta from "@/components/ecosystem/ProgramCta";
 import ProgramHero from "@/components/ecosystem/ProgramHero";
@@ -17,7 +18,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Startup Program: A Technology Team for Founders",
   description:
-    "NHB's Startup Program gives early-stage founders a product, design and engineering team, with equity-based or other partnership structures evaluated case by case.",
+    "A product, design and engineering team for early-stage founders, with equity, paid or hybrid partnerships agreed case by case. Apply to NHB's Startup Program.",
   path: "/startups",
 });
 
@@ -34,22 +35,22 @@ const team = [
 const offer: FeatureCard[] = [
   {
     title: "Technology & product development",
-    tone: "sun",
+    tone: "white",
     items: ["MVP development", "Web and mobile applications", "SaaS development", "Backend infrastructure", "APIs and integrations", "Custom software"],
   },
   {
     title: "Product design & strategy",
-    tone: "mist",
+    tone: "white",
     items: ["Product architecture", "UI/UX design", "User journey planning", "Technical feasibility", "MVP planning", "Product iteration"],
   },
   {
     title: "Quality & reliability",
-    tone: "lilac",
+    tone: "white",
     items: ["Functional testing", "QA and automation testing", "Alpha and beta testing", "Performance optimisation", "Security testing and documentation"],
   },
   {
     title: "Network & growth",
-    tone: "ink",
+    tone: "white",
     items: [
       "Access to our professional network",
       "Technical and product mentorship",
@@ -63,7 +64,7 @@ const offer: FeatureCard[] = [
 const steps: Step[] = [
   { title: "Apply", detail: "Tell us about your startup, the problem you're solving and what you need from a technology partner." },
   { title: "Evaluate", detail: "We get to know the opportunity: your vision, your stage, the technical requirements and the team." },
-  { title: "Build together", detail: "We agree the scope, who is responsible for what, and the partnership structure — in writing." },
+  { title: "Build together", detail: "We agree the scope, who is responsible for what, and the partnership structure, in writing." },
   { title: "Grow together", detail: "We keep developing, improving and supporting the product as the business finds its feet." },
 ];
 
@@ -87,6 +88,60 @@ const commercial = [
     title: "Agreed in writing",
     detail:
       "Nothing is final until scope, responsibilities and commercial terms are documented and signed by both sides. The program is not free development in exchange for an idea.",
+  },
+];
+
+const glance = [
+  { k: "Who it's for", v: "Early-stage founders" },
+  { k: "Engagement", v: "Equity, paid or hybrid" },
+  { k: "Team", v: "Product, engineering, QA & AI" },
+  { k: "Selection", v: "Reviewed individually" },
+];
+
+const fit = {
+  good: [
+    "You're committed to the startup and can make decisions quickly",
+    "You have a clear problem and a specific group of users in mind",
+    "You want a long-term technology partner, not a one-off build",
+    "You're open to equity, a paid engagement or a mix",
+  ],
+  notYet: [
+    "You're looking for free development in exchange for an idea",
+    "You need a fixed-bid project with no ongoing involvement",
+    "The scope changes faster than anyone can write it down",
+    "There's no one on the founding team who can own the product",
+  ],
+};
+
+const models = {
+  columns: ["Equity partnership", "Paid engagement", "Hybrid"],
+  rows: [
+    ["Best for", "Pre-product startups where NHB's involvement is central", "Founders who are funded and want a dedicated team", "Startups that want to share risk and keep cash for growth"],
+    ["NHB contributes", "Product, design and engineering capacity alongside you", "A team on agreed scope and timelines", "A reduced-cost team plus a smaller equity stake"],
+    ["How terms are set", "Agreed individually; no fixed percentage", "Scoped and priced per engagement", "A mutually agreed mix, documented upfront"],
+  ],
+};
+
+const startupFaq = [
+  {
+    q: "Does NHB take equity in every startup?",
+    a: "No. Equity is one option. Many engagements are paid or a hybrid of payment and a smaller equity stake. The right structure depends on your stage and what you need.",
+  },
+  {
+    q: "How much equity does NHB ask for?",
+    a: "There is no fixed percentage. It depends on your stage, the scope of work, the risk each side carries and how involved we need to be, and it's agreed with you in writing.",
+  },
+  {
+    q: "Is the Startup Program free development?",
+    a: "No. It's a partnership with commitment on both sides. We contribute a product, design and engineering team; founders contribute ownership, decisions and an agreed commercial structure.",
+  },
+  {
+    q: "Who is the Startup Program for?",
+    a: "Early-stage founders who need product, design and engineering capability and want a long-term technology partner rather than a freelancer or a one-off build.",
+  },
+  {
+    q: "How do I apply?",
+    a: "Fill in the application on this page. We read every application, reply personally, and set up a conversation if there's a fit.",
   },
 ];
 
@@ -129,6 +184,20 @@ export default function StartupsPage() {
         }
       />
 
+      {/* Program at a glance */}
+      <section aria-label="Program at a glance" className="border-b border-line bg-white">
+        <Container>
+          <dl className="grid grid-cols-2 lg:grid-cols-4">
+            {glance.map((g, i) => (
+              <div key={g.k} className={i > 0 ? "border-ink/10 py-6 pl-5 max-lg:odd:pl-0 lg:border-l lg:py-8 lg:pl-8" : "py-6 lg:py-8"}>
+                <dt className="t-arcade text-[11px] text-muted">{g.k}</dt>
+                <dd className="mt-2 text-[16px] font-semibold tracking-[-0.02em]">{g.v}</dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </section>
+
       <section aria-labelledby="offer-title" className="py-20 lg:py-32">
         <Container>
           <SectionHeading
@@ -142,10 +211,47 @@ export default function StartupsPage() {
         </Container>
       </section>
 
-      <section aria-labelledby="how-title" className="border-t border-line bg-ivory-2/60 py-20 lg:py-32">
+      {/* Is it a fit? */}
+      <section aria-labelledby="fit-title" className="border-t border-line py-20 lg:py-32">
         <Container>
           <SectionHeading
             index="02"
+            label="Is it a fit?"
+            title="Who the program is *built for.*"
+            titleId="fit-title"
+            lede="We take on a small number of startups at a time. These are the signs a partnership is likely to work."
+          />
+          <div className="mt-14 grid grid-cols-1 gap-5 lg:mt-20 lg:grid-cols-2">
+            <div data-reveal className="rounded-3xl border border-ink/12 bg-white p-7 sm:p-9">
+              <h3 className="t-h3">A strong fit if</h3>
+              <ul className="mt-6 border-t border-ink/10">
+                {fit.good.map((x) => (
+                  <li key={x} className="flex gap-3 border-b border-ink/8 py-3.5 text-[15.5px] leading-snug">
+                    <span aria-hidden className="mt-1.5 grid size-4 shrink-0 place-items-center bg-ink text-[10px] text-sun">✓</span>
+                    {x}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div data-reveal data-delay="1" className="rounded-3xl border border-ink/12 bg-ivory-2/60 p-7 sm:p-9">
+              <h3 className="t-h3">Probably not the right fit if</h3>
+              <ul className="mt-6 border-t border-ink/10">
+                {fit.notYet.map((x) => (
+                  <li key={x} className="flex gap-3 border-b border-ink/8 py-3.5 text-[15.5px] leading-snug text-ink/80">
+                    <span aria-hidden className="mt-1.5 grid size-4 shrink-0 place-items-center border border-ink/40 text-[10px]">×</span>
+                    {x}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section aria-labelledby="how-title" className="border-t border-line bg-ivory-2/60 py-20 lg:py-32">
+        <Container>
+          <SectionHeading
+            index="03"
             label="How the partnership works"
             title="Four steps, *agreed openly.*"
             titleId="how-title"
@@ -159,7 +265,7 @@ export default function StartupsPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-5">
               <SectionHeading
-                index="03"
+                index="04"
                 label="Commercial model"
                 title="Built alongside founders, *structured case by case.*"
                 titleId="commercial-title"
@@ -183,13 +289,46 @@ export default function StartupsPage() {
               ))}
             </dl>
           </div>
+
+          {/* Engagement models, side by side */}
+          <div data-reveal className="mt-14 overflow-x-auto rounded-3xl border border-ivory/15 lg:mt-20">
+            <table className="w-full min-w-[720px] border-collapse text-left">
+              <caption className="border-b border-ivory/15 px-6 py-4 text-left">
+                <span className="t-arcade text-[11px] text-sun">Engagement models</span>
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col" className="w-[18%] px-6 py-4" />
+                  {models.columns.map((c) => (
+                    <th key={c} scope="col" className="px-6 py-4 text-[16px] font-semibold tracking-[-0.02em]">
+                      {c}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {models.rows.map(([label, ...cells]) => (
+                  <tr key={label} className="border-t border-ivory/10">
+                    <th scope="row" className="px-6 py-4 align-top text-[13px] font-medium text-ivory/60">
+                      {label}
+                    </th>
+                    {cells.map((c, i) => (
+                      <td key={i} className="px-6 py-4 align-top text-[14.5px] leading-relaxed text-ivory/85">
+                        {c}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </Container>
       </section>
 
       <section aria-labelledby="portfolio-title" className="py-20 lg:py-32">
         <Container>
           <SectionHeading
-            index="04"
+            index="05"
             label="Startups we've built with"
             title="Founders who chose us as their *technical team.*"
             titleId="portfolio-title"
@@ -203,7 +342,7 @@ export default function StartupsPage() {
 
       <section aria-labelledby="trust-title" className="border-t border-line py-20 lg:py-32">
         <Container>
-          <FounderPanel eyebrow="05 · Who you'll work with" title="Founders, working with founders.">
+          <FounderPanel eyebrow="06 · Who you'll work with" title="Founders, working with founders.">
             <p>
               NHB is led by engineers who still design systems and review code. In the Startup Program you work with
               them directly, from the first conversation to the release, not with an account manager.
@@ -224,8 +363,10 @@ export default function StartupsPage() {
         </Container>
       </section>
 
+      <Faq index="07" title="Startup Program *questions.*" items={startupFaq} tone="muted" />
+
       <ApplySection
-        index="06"
+        index="08"
         label="Apply"
         title="Tell us what you're *building.*"
         lede="A few minutes now saves a long first call. The more context you share, the more useful our reply will be."

@@ -14,7 +14,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Products & Revenue Program",
   description:
-    "Introduce NHB's software products, including SocialGenie, to businesses in your network. NHB runs the demos and closing; approved partners earn an agreed, product-specific commission.",
+    "Introduce NHB's software products, including SocialGenie, to businesses you know. We run the demos and closing; partners earn an agreed commission.",
   path: "/earn-with-nhb",
 });
 

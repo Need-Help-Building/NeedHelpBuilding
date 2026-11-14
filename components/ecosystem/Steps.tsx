@@ -8,7 +8,7 @@ export interface Step {
 /** Numbered process rail: horizontal on wide screens, stacked on phones. */
 export default function Steps({ steps, tone = "light", className }: { steps: Step[]; tone?: "light" | "dark"; className?: string }) {
   const dark = tone === "dark";
-  const cols = steps.length === 6 ? "lg:grid-cols-3" : steps.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4";
+  const cols = steps.length === 6 || steps.length === 3 ? "lg:grid-cols-3" : steps.length === 5 ? "lg:grid-cols-5" : "lg:grid-cols-4";
   return (
     <ol className={cn("grid grid-cols-1 gap-px overflow-hidden rounded-3xl border sm:grid-cols-2", cols, dark ? "border-ivory/15 bg-ivory/15" : "border-ink/12 bg-ink/12", className)}>
       {steps.map((step, i) => (

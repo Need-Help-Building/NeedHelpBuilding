@@ -19,7 +19,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Agency Partner Program",
   description:
-    "A delivery partnership for agencies, studios and consultancies: you keep the client relationship, NHB brings design, engineering, QA and AI capability behind it.",
+    "A delivery partnership for agencies and studios: you keep the client relationship, NHB brings design, engineering, QA and AI capability behind it.",
   path: "/partners",
 });
 

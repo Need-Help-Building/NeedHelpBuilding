@@ -1,4 +1,3 @@
-import { mailto } from "./site";
 import { programs } from "./ecosystem";
 
 /** Header + footer navigation. `href: null` = destination not built yet (rendered as "soon", never a 404). */
@@ -12,7 +11,7 @@ export type MenuId = "services" | "products" | "ecosystem";
 
 /** Header order (desktop and mobile): About, the three dropdowns, Industries, Blog. Work lives in the footer. */
 export const headerNav: ({ kind: "link"; label: string; href: string } | { kind: "menu"; id: MenuId; label: string })[] = [
-  { kind: "link", label: "About", href: "/#about" },
+  { kind: "link", label: "About", href: "/about" },
   { kind: "menu", id: "services", label: "Services" },
   { kind: "menu", id: "products", label: "Products" },
   { kind: "menu", id: "ecosystem", label: "Ecosystem" },
@@ -37,16 +36,16 @@ export const footerColumns: FooterColumn[] = [
   {
     title: "Company",
     links: [
-      { label: "About", href: "/#about" },
+      { label: "About", href: "/about" },
       { label: "Our Work", href: "/#work" },
-      { label: "Team", href: "/#team" },
-      { label: "Careers", href: mailto("Careers at NHB") },
+      { label: "Team", href: "/about#team" },
+      { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/#contact" },
     ],
   },
   {
     title: "Ecosystem",
-    links: [...programs.map((p) => ({ label: p.navLabel, href: p.href })), { label: "Book a Meeting", href: "/book" }],
+    links: [...programs.filter((p) => p.id !== "careers").map((p) => ({ label: p.navLabel, href: p.href })), { label: "Book a Meeting", href: "/book" }],
   },
   {
     title: "Services",
@@ -74,7 +73,7 @@ export const footerColumns: FooterColumn[] = [
     title: "Resources",
     links: [
       { label: "Insights", href: "/blog" },
-      { label: "Engineering Lab", href: "/blog" },
+      { label: "Sitemap", href: "/sitemap" },
       { label: "FAQs", href: "/#faq" },
       { label: "Technology Stack", href: "/#stack" },
     ],

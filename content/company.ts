@@ -14,7 +14,7 @@ export const proofLedger: LedgerRow[] = [
   {
     label: "In production",
     value: "Caller OS · YourStoreHere",
-    detail: "AI voice agents and a commerce platform — both live, both open to inspect.",
+    detail: "AI voice agents and a commerce platform, both live, both open to inspect.",
     href: "/#work",
   },
   {
@@ -46,7 +46,7 @@ export const differentiators: Differentiator[] = [
   {
     title: "Business-first technology decisions",
     practice:
-      "We start from the outcome and the constraints — budget, timeline, team — and recommend the simplest architecture that meets them. Sometimes that means not building custom software at all.",
+      "We start from the outcome and the constraints (budget, timeline, team) and recommend the simplest architecture that meets them. Sometimes that means not building custom software at all.",
   },
   {
     title: "Engineering-led execution",
@@ -56,7 +56,7 @@ export const differentiators: Differentiator[] = [
   {
     title: "AI-native thinking",
     practice:
-      "We look for where AI removes real work, then engineer it with evaluations, guardrails and cost controls — and we say so when a rule or a form would do the job better.",
+      "We look for where AI removes real work, then engineer it with evaluations, guardrails and cost controls, and we say so when a rule or a form would do the job better.",
   },
   {
     title: "End-to-end product development",
@@ -71,7 +71,7 @@ export const differentiators: Differentiator[] = [
   {
     title: "Scalable architecture",
     practice:
-      "Data models, APIs and infrastructure designed for your next stage of growth — without over-engineering for a scale you may never need.",
+      "Data models, APIs and infrastructure designed for your next stage of growth, without over-engineering for a scale you may never need.",
   },
   {
     title: "Quality and security",
@@ -127,7 +127,7 @@ export const evidence: EvidenceItem[] = [
   },
   {
     title: "Ask for an architecture walkthrough",
-    detail: "We'll walk you through how something we built actually works — data model, infrastructure and trade-offs.",
+    detail: "We'll walk you through how something we built actually works: data model, infrastructure and trade-offs.",
     href: mailto("Architecture walkthrough request"),
     linkLabel: "Request a walkthrough",
   },
@@ -149,7 +149,7 @@ export const conversationStarters = [
 export const referral = {
   title: "Worked with us before?",
   summary:
-    "Introduce a founder or business. When they start a project, they get 10% off and you get 10% back — as cash or as credit towards your next build.",
+    "Introduce a founder or business. When they start a project, they get 10% off and you get 10% back, as cash or as credit towards your next build.",
   cta: {
     label: "See the referral program",
     href: "/referral-program",

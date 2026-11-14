@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import SmartLink from "@/components/ui/SmartLink";
-import { Container, Placeholder } from "@/components/ui/primitives";
+import { Container } from "@/components/ui/primitives";
 import { footerColumns } from "@/content/navigation";
 import { referral } from "@/content/company";
 import { site } from "@/content/site";
@@ -32,7 +32,7 @@ export default function SiteFooter() {
           <div className="lg:col-span-3">
             <Image
               src="/logo.png"
-              alt="NHB — NeedHelpBuilding, digital products & services"
+              alt="NHB | NeedHelpBuilding, digital products and services"
               width={1024}
               height={512}
               className="h-auto w-36 sm:w-44 object-contain"
@@ -128,7 +128,11 @@ export default function SiteFooter() {
             © {year} {site.name}. {site.descriptor}.
           </p>
           <p className="flex flex-wrap items-center gap-2">
-            {site.address ?? <Placeholder label="Registered business address" tone="dark" />}
+            {site.address ?? (
+              <a href={`mailto:${site.email}`} className="transition-colors hover:text-sun">
+                {site.email}
+              </a>
+            )}
           </p>
         </div>
       </Container>

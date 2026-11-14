@@ -72,7 +72,7 @@ export default function TechStack() {
           </div>
         </div>
 
-        <p className="mt-4 text-[12.5px] text-white/75">Tools we work with — not vendor partnerships or certifications.</p>
+        <p className="mt-4 text-[12.5px] text-white/75">Tools we work with, not vendor partnerships or certifications.</p>
       </Container>
     </section>
   );

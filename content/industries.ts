@@ -26,7 +26,7 @@ export const industries: Industry[] = [
     slug: "healthcare",
     name: "Healthcare",
     summary:
-      "Clinics and hospitals run on schedules, records and compliance. We build systems that respect all three — and give staff time back for patients.",
+      "Clinics and hospitals run on schedules, records and compliance. We build systems that respect all three, and give staff time back for patients.",
     solutions: ["Hospital & clinic management", "Patient portals & appointment booking", "Prescription & billing workflows", "AI-assisted intake & triage"],
     cta: { label: "Discuss a healthcare project", href: mailto("Healthcare project enquiry") },
   },

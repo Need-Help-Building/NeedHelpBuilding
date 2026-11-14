@@ -14,6 +14,8 @@ import Insights from "@/components/home/Insights";
 import Credibility from "@/components/home/Credibility";
 import Testimonials from "@/components/home/Testimonials";
 import FinalCta from "@/components/home/FinalCta";
+import Faq from "@/components/ecosystem/Faq";
+import { homeFaq } from "@/content/faq";
 import { JsonLd } from "@/lib/structured-data";
 import { site } from "@/content/site";
 
@@ -26,7 +28,7 @@ const webPageJsonLd = {
   "@type": "WebPage",
   "@id": `${site.url}/#webpage`,
   url: site.url,
-  name: "NeedHelpBuilding — AI, Software & Technology Consulting",
+  name: "NeedHelpBuilding | AI, Software & Technology Consulting",
   description: `${site.positioning} ${site.supporting}`,
   isPartOf: { "@id": `${site.url}/#website` },
   about: { "@id": `${site.url}/#organization` },
@@ -52,6 +54,7 @@ export default function HomePage() {
       <Insights />
       <Credibility />
       <Testimonials />
+      <Faq index="14" title="Common *questions.*" items={homeFaq} />
       <FinalCta />
     </main>
   );

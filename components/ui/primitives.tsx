@@ -13,7 +13,7 @@ export function Placeholder({ label, tone = "light", className }: { label: strin
   return (
     <span
       data-placeholder
-      title="Placeholder — replace in the content files"
+      title="Placeholder: replace in the content files"
       className={cn(
         "inline-flex items-center gap-1.5 rounded-[3px] border border-dashed px-1.5 py-0.5 font-mono text-[0.7rem] leading-tight tracking-wide uppercase",
         tone === "dark" ? "border-ivory/40 text-ivory/70" : "border-ink/35 text-muted",

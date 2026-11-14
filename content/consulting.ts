@@ -31,7 +31,7 @@ export const consultingTopics: ConsultingTopic[] = [
   {
     id: "feasibility",
     label: "Technical feasibility",
-    question: "Can this be built — and what would it take?",
+    question: "Can this be built, and what would it take?",
     deliverable: "Feasibility study with a proof-of-concept plan and cost range",
   },
   {
@@ -55,7 +55,7 @@ export const consultingTopics: ConsultingTopic[] = [
   {
     id: "cloud",
     label: "Cloud infrastructure",
-    question: "Are we overpaying for infrastructure — or about to outgrow it?",
+    question: "Are we overpaying for infrastructure, or about to outgrow it?",
     deliverable: "Cloud architecture and cost review with a migration path",
   },
   {
@@ -76,7 +76,7 @@ export const consultingTopics: ConsultingTopic[] = [
 export const coFounderProgramme = {
   title: "Technical co-founder partnership",
   summary:
-    "For selected early-stage startups, we act as your technical co-founding team. Development costs are shared and incentives are aligned through an agreed equity stake — then we design, build and launch the product with you.",
+    "For selected early-stage startups, we act as your technical co-founding team. Development costs are shared and incentives are aligned through an agreed equity stake, then we design, build and launch the product with you.",
   points: ["You bring the market insight and distribution", "We own architecture, engineering and delivery", "Shared runway, shared upside"],
   cta: {
     label: "Pitch your startup",
@@ -90,7 +90,7 @@ export const coFounderProgramme = {
 export function consultingMailto(selected: ConsultingTopic[]): string {
   const lines = selected.length
     ? selected.map((t) => `- ${t.label}: ${t.question}`).join("\n")
-    : "- (not sure yet — happy to talk it through)";
+    : "- (not sure yet, happy to talk it through)";
   return mailto(
     "Technical consultation request",
     `Hi NHB team,\n\nWe'd like to talk through:\n${lines}\n\nAbout us / context:\n\n`,

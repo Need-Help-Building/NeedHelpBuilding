@@ -4,7 +4,7 @@
  * percentages, no product-specific commission rates). Update the copy as terms are agreed.
  */
 
-export type ProgramId = "startups" | "referral" | "products" | "partners";
+export type ProgramId = "startups" | "referral" | "products" | "partners" | "careers";
 
 export interface Program {
   id: ProgramId;
@@ -49,6 +49,14 @@ export const programs: Program[] = [
     audience: "For agencies & studios",
     summary: "You bring the client relationship. We bring design, engineering and QA capacity behind it.",
   },
+  {
+    id: "careers",
+    title: "Careers at NHB",
+    navLabel: "Careers",
+    href: "/careers",
+    audience: "For engineers, designers & builders",
+    summary: "Open roles across engineering, AI, design, QA and growth, plus open applications when no role fits.",
+  },
 ];
 
 export function getProgram(id: ProgramId): Program {
@@ -60,10 +68,10 @@ export function getProgram(id: ProgramId): Program {
 /** Topics for the shared /book page (?topic=…). Each pre-fills the meeting request. */
 export const meetingTopics = {
   general: { label: "Discuss your business requirements", subject: "One-to-one meeting request" },
-  startups: { label: "Discuss your startup", subject: "Startup Program — one-to-one discussion" },
-  referral: { label: "Talk to our team about referrals", subject: "Referral & Ambassador Program — meeting request" },
-  products: { label: "Talk about the product program", subject: "Products & Revenue Program — meeting request" },
-  partners: { label: "Explore a partnership", subject: "Agency Partner Program — meeting request" },
+  startups: { label: "Discuss your startup", subject: "Startup Program: one-to-one discussion" },
+  referral: { label: "Talk to our team about referrals", subject: "Referral & Ambassador Program: meeting request" },
+  products: { label: "Talk about the product program", subject: "Products & Revenue Program: meeting request" },
+  partners: { label: "Explore a partnership", subject: "Agency Partner Program: meeting request" },
 } as const;
 
 export type MeetingTopic = keyof typeof meetingTopics;

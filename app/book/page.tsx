@@ -5,7 +5,8 @@ import { Container } from "@/components/ui/primitives";
 import { isMeetingTopic, meetingTopics, programs, type MeetingTopic } from "@/content/ecosystem";
 import { mailto, site, whatsapp } from "@/content/site";
 import { bookingHref } from "@/components/ecosystem/booking";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/lib/structured-data";
 import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = pageMetadata({
@@ -35,6 +36,7 @@ export default async function BookPage({ searchParams }: { searchParams: Promise
 
   return (
     <main id="main">
+      <JsonLd data={breadcrumbJsonLd([["Home", "/"], ["Book a meeting", "/book"]])} />
       <section aria-labelledby="book-title" className="relative overflow-hidden">
         <div
           aria-hidden

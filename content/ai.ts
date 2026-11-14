@@ -8,10 +8,10 @@ export interface AiCapability {
 export const aiCapabilities: AiCapability[] = [
   { title: "AI agents", detail: "Goal-driven agents that call tools, check their work and know when to ask a human." },
   { title: "Multi-agent orchestration", detail: "Specialised agents coordinated through explicit state, not a single prompt doing everything." },
-  { title: "Autonomous workflows", detail: "Long-running processes that trigger, act and recover on their own — with approvals where it matters." },
+  { title: "Autonomous workflows", detail: "Long-running processes that trigger, act and recover on their own, with approvals where it matters." },
   { title: "Generative AI applications", detail: "Products where generation is the feature: drafting, summarising, transforming, creating." },
   { title: "Enterprise RAG systems", detail: "Answers grounded in your documents and data, with citations and retrieval you can evaluate." },
-  { title: "AI voice agents", detail: "Real-time phone agents that listen, reason and speak — like the Caller OS pipeline we built." },
+  { title: "AI voice agents", detail: "Real-time phone agents that listen, reason and speak, like the Caller OS pipeline we built." },
   { title: "Conversational AI", detail: "Chat and WhatsApp assistants connected to the systems that hold the real answers." },
   { title: "Intelligent document processing", detail: "Invoices, forms, contracts and records turned into structured, validated data." },
   { title: "AI-powered internal systems", detail: "Copilots inside the tools your team already uses: CRMs, dashboards, back offices." },
@@ -50,7 +50,7 @@ export const architectureLayers: ArchitectureLayer[] = [
     index: "03",
     name: "Specialised agents",
     role: "One job each",
-    detail: "Narrow agents with a single responsibility — plan, research, act, review — are easier to test and far harder to confuse.",
+    detail: "Narrow agents with a single responsibility (plan, research, act, review) are easier to test and far harder to confuse.",
     parts: ["Planner", "Researcher", "Executor", "Reviewer"],
   },
   {
@@ -58,7 +58,7 @@ export const architectureLayers: ArchitectureLayer[] = [
     index: "04",
     name: "Tools & APIs",
     role: "Permissioned actions",
-    detail: "Typed tool calls into your CRM, calendar, database, payments or internal APIs — each scoped to exactly what the agent is allowed to do.",
+    detail: "Typed tool calls into your CRM, calendar, database, payments or internal APIs, each scoped to exactly what the agent is allowed to do.",
     parts: ["Function calling", "MCP servers", "REST / GraphQL", "Scoped credentials"],
   },
   {
@@ -82,7 +82,7 @@ export const architectureLayers: ArchitectureLayer[] = [
     index: "07",
     name: "Monitoring",
     role: "Measured, not guessed",
-    detail: "Every run is traced and evaluated so quality, latency and cost are visible — and failures feed back into the next iteration.",
+    detail: "Every run is traced and evaluated so quality, latency and cost are visible, and failures feed back into the next iteration.",
     parts: ["Tracing", "Evaluations", "Latency & cost", "Feedback loop"],
   },
 ];

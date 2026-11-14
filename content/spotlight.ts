@@ -5,9 +5,9 @@
 
 export const spotlight = {
   projectSlug: "caller-os",
-  lede: "Caller OS is our own voice-AI product: real-time phone agents that hold natural conversations — including Hinglish — answer from a business's own data, and act on what they hear.",
+  lede: "Caller OS is our own voice-AI product: real-time phone agents that hold natural conversations, including Hinglish, answer from a business's own data, and act on what they hear.",
   application:
-    "Built for service businesses that lose customers when nobody picks up: clinics, home services, agencies and support desks. The agent answers, qualifies, books and hands over — and the team gets a written summary of every call.",
+    "Built for service businesses that lose customers when nobody picks up: clinics, home services, agencies and support desks. The agent answers, qualifies, books and hands over, and the team gets a written summary of every call.",
   capabilities: [
     "Inbound and outbound calls over SIP telephony",
     "Natural, interruptible conversation in English and Hinglish",

@@ -136,7 +136,7 @@ export default function SiteHeader() {
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-6 lg:h-[72px]">
-        <Link href="/" aria-label="NeedHelpBuilding — home" className="shrink-0" onClick={closeMenus}>
+        <Link href="/" aria-label="NeedHelpBuilding home" className="shrink-0" onClick={closeMenus}>
           <Logo tone="dark" />
         </Link>
 

@@ -36,7 +36,7 @@ export default function FinalCta() {
           <div data-reveal data-delay="1" className="lg:col-span-5">
             <p className="t-lede max-w-md text-ink/80">
               Whether you&apos;re planning a new digital product, exploring AI, modernising existing systems, or figuring
-              out where technology fits into your business — let&apos;s start with a conversation.
+              out where technology fits into your business, let&apos;s start with a conversation.
             </p>
             <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
               <ButtonLink href={ctas.consultation.href} variant="ink" size="lg">

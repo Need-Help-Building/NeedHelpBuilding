@@ -14,7 +14,7 @@ const steps = [
   {
     index: "02",
     title: "Recommend",
-    body: "What to build, buy or integrate — with the trade-offs written down and the costs made explicit.",
+    body: "What to build, buy or integrate, with the trade-offs written down and the costs made explicit.",
   },
   {
     index: "03",
@@ -39,7 +39,7 @@ export default function Positioning() {
             Most businesses don&apos;t need more developers. They need someone who understands the problem, recommends an
             architecture that fits it, and then builds it properly.{" "}
             <span className="text-ink/45">
-              That is the responsibility we take on — from the first conversation to the system running in production.
+              That is the responsibility we take on, from the first conversation to the system running in production.
             </span>
           </p>
         </div>

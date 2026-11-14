@@ -42,7 +42,7 @@ export const disciplines: Discipline[] = [
     title: "Digital Product Engineering",
     kicker: "Web · SaaS · mobile · platforms",
     summary:
-      "Web platforms, SaaS products, mobile apps and internal systems — designed, built and deployed by one team that owns the architecture from the database to the last pixel.",
+      "Web platforms, SaaS products, mobile apps and internal systems: designed, built and deployed by one team that owns the architecture from the database to the last pixel.",
     capabilities: [
       "Web applications",
       "SaaS products & MVPs",
@@ -61,7 +61,7 @@ export const disciplines: Discipline[] = [
     title: "Technology Consulting",
     kicker: "Architecture · stack · AI readiness · CTO",
     summary:
-      "Independent technical judgement before you commit budget: what to build, what to buy, which architecture fits — and what it will really take to get there.",
+      "Independent technical judgement before you commit budget: what to build, what to buy, which architecture fits, and what it will really take to get there.",
     capabilities: [
       "Architecture reviews",
       "Technology stack selection",
@@ -80,7 +80,7 @@ export const disciplines: Discipline[] = [
     title: "Business Automation",
     kicker: "Workflows · CRM · documents · messaging",
     summary:
-      "We map how work actually moves through your business, remove the manual handoffs and connect the tools you already pay for — with AI where it helps, and plain logic where that's enough.",
+      "We map how work actually moves through your business, remove the manual handoffs and connect the tools you already pay for, with AI where it helps, and plain logic where that's enough.",
     capabilities: [
       "Workflow automation",
       "CRM & sales pipelines",

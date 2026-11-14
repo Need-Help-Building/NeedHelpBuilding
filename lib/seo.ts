@@ -21,8 +21,8 @@ interface PageMetaInput {
  */
 export function pageMetadata({ title, description, path, type = "website", publishedTime, modifiedTime, section }: PageMetaInput): Metadata {
   // Keep <title> within ~60 characters: fall back to the short brand when the full one would overflow.
-  const longTitle = `${title} — ${site.name}`;
-  const fullTitle = longTitle.length <= 60 ? longTitle : `${title} — ${site.shortName}`;
+  const longTitle = `${title} | ${site.name}`;
+  const fullTitle = longTitle.length <= 60 ? longTitle : `${title} | ${site.shortName}`;
   return {
     title: { absolute: fullTitle },
     description,

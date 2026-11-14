@@ -15,7 +15,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = pageMetadata({
   title: "Industries We Build For",
   description:
-    "Software for healthcare, education, retail, hospitality, finance, manufacturing, startups and professional services, designed around how each industry actually works.",
+    "Software for healthcare, education, retail, hospitality, finance, manufacturing, startups and services, designed around how each industry works.",
   path: "/industries",
 });
 
