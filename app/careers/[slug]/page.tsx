@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowLeft, Mail } from "lucide-react";
 import ButtonLink from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/primitives";
-import { applyHref, getRole, openApplication, roles } from "@/content/careers";
+import { applyHref, getRole, openApplication, openRoles } from "@/content/careers";
 import { site } from "@/content/site";
 import { JsonLd } from "@/lib/structured-data";
 import { breadcrumbJsonLd, clip, pageMetadata } from "@/lib/seo";
@@ -16,7 +16,7 @@ interface Props {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return roles.map((r) => ({ slug: r.slug }));
+  return openRoles.map((r) => ({ slug: r.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -51,7 +51,8 @@ export default async function RolePage({ params }: Props) {
   const role = getRole(slug);
   if (!role) notFound();
   const apply = applyHref(role);
-  const tally = role.applyUrl;
+  // Roles with a form apply on their own page (/careers/<slug>/apply), opened in a new tab; others apply by email.
+  const applyPage = role.applyUrl ? `/careers/${role.slug}/apply` : null;
 
   return (
     <main id="main">
@@ -63,7 +64,7 @@ export default async function RolePage({ params }: Props) {
             "@context": "https://schema.org",
             "@type": "JobPosting",
             title: role.title,
-            description: `<p>${role.about}</p><ul>${role.responsibilities.map((r) => `<li>${r}</li>`).join("")}</ul>`,
+            description: `<p>${role.about}</p><p>What you will do:</p><ul>${role.responsibilities.map((r) => `<li>${r}</li>`).join("")}</ul><p>What you will bring:</p><ul>${role.requirements.map((r) => `<li>${r}</li>`).join("")}</ul>`,
             datePosted: role.datePosted,
             employmentType: role.type === "Full-time" ? "FULL_TIME" : role.type === "Internship" ? "INTERN" : "CONTRACTOR",
             hiringOrganization: { "@type": "Organization", name: site.name, sameAs: site.url, logo: `${site.url}/logo.png` },
@@ -93,7 +94,7 @@ export default async function RolePage({ params }: Props) {
             ))}
           </ul>
           <div className="mt-9 flex flex-wrap gap-3">
-            <ButtonLink href={tally ? "#apply" : apply} size="lg" variant="ink">
+            <ButtonLink href={applyPage ?? apply} newTab={!!applyPage} size="lg" variant="ink">
               Apply for this role
             </ButtonLink>
           </div>
@@ -126,7 +127,7 @@ export default async function RolePage({ params }: Props) {
                   </div>
                 ))}
               </dl>
-              <ButtonLink href={tally ? "#apply" : apply} variant="sun" className="mt-6 w-full justify-between">
+              <ButtonLink href={applyPage ?? apply} newTab={!!applyPage} variant="sun" className="mt-6 w-full justify-between">
                 Apply now
               </ButtonLink>
               <p className="mt-4 text-[13px] leading-snug text-muted">
@@ -142,16 +143,19 @@ export default async function RolePage({ params }: Props) {
       </section>
 
       <section id="apply" aria-labelledby="apply-title" className="border-t border-line bg-ivory-2/60 py-16 lg:py-24">
-        <Container className="max-w-3xl">
+        <Container>
           <h2 id="apply-title" className="t-h2-pixel">
             Apply for this role
           </h2>
-          {tally ? (
-            <div className="mt-8 overflow-hidden rounded-3xl border border-ink/12 bg-white">
-              <iframe src={tally} title={`Application form: ${role.title}`} loading="lazy" className="h-[820px] w-full border-0" />
-              <a href={tally} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 border-t border-ink/10 py-3 text-[13px] text-muted hover:text-ink">
-                Open the form in a new tab <ArrowUpRight aria-hidden className="size-3.5" />
-              </a>
+          {applyPage ? (
+            <div className="mt-8 rounded-3xl border border-ink/12 bg-white p-7 sm:p-9">
+              <p className="text-[16px] leading-relaxed text-ink/85">
+                The application takes a few minutes. It opens in a new tab, so this description stays here if you want to
+                check back while you fill it in.
+              </p>
+              <ButtonLink href={applyPage} newTab size="lg" variant="ink" className="mt-6">
+                Open the application form
+              </ButtonLink>
             </div>
           ) : (
             <div className="mt-8 rounded-3xl border border-ink/12 bg-white p-7 sm:p-9">

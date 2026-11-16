@@ -1,4 +1,4 @@
-import { getRole, roles } from "@/content/careers";
+import { getRole, openRoles } from "@/content/careers";
 import { ogCard, ogSize } from "@/lib/og-card";
 
 export const size = ogSize;
@@ -6,7 +6,7 @@ export const contentType = "image/png";
 export const alt = "NeedHelpBuilding | Open role";
 
 export function generateStaticParams() {
-  return roles.map((r) => ({ slug: r.slug }));
+  return openRoles.map((r) => ({ slug: r.slug }));
 }
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {

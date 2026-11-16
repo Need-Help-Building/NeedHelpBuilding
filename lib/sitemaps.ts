@@ -1,7 +1,7 @@
 import { SERVICES_DATA } from "@/app/services/services-data";
 import { toTitle } from "@/app/services/title";
 import { articles } from "@/content/articles";
-import { roles } from "@/content/careers";
+import { openRoles } from "@/content/careers";
 import { programs } from "@/content/ecosystem";
 import { insights } from "@/content/insights";
 import { site } from "@/content/site";
@@ -90,7 +90,7 @@ export function sitemapSections(): SitemapSection[] {
     {
       id: "careers",
       title: "Open roles",
-      entries: roles.map((r) => ({
+      entries: openRoles.map((r) => ({
         path: `/careers/${r.slug}`,
         title: r.title,
         lastModified: r.datePosted ?? SITE_UPDATED,

@@ -10,7 +10,7 @@ import { mailto, site } from "./site";
  *   Set `mock: false` (and fill `datePosted`) when a role is real.
  */
 
-export type Department = "Engineering" | "AI" | "Design" | "Quality" | "Automation" | "Growth";
+export type Department = "Engineering" | "AI" | "Design" | "Quality" | "Automation" | "Growth" | "Marketing";
 export type EmploymentType = "Full-time" | "Internship" | "Contract";
 export type WorkMode = "Remote" | "Hybrid";
 
@@ -27,13 +27,95 @@ export interface Role {
   responsibilities: string[];
   requirements: string[];
   niceToHave: string[];
+  /** Public Tally form link (https://tally.so/r/<id>). The role page embeds it. */
   applyUrl?: string;
   mock: boolean;
+  /** Kept in the file but not published (no listing, no page, not in the sitemap). */
+  hidden?: boolean;
+  /** Shown in the "urgently hiring" ribbon. */
+  urgent?: boolean;
   /** ISO date; required for JobPosting data once the role is real. */
   datePosted?: string;
 }
 
 export const roles: Role[] = [
+  {
+    slug: "social-media-intern",
+    title: "Social Media Intern",
+    department: "Marketing",
+    type: "Internship",
+    workMode: "Remote",
+    location: "India",
+    experience: "Students & recent graduates",
+    summary: "Plan, create and publish content that shows what NHB builds, across Instagram, LinkedIn and short-form video.",
+    about:
+      "You'll join the NHB social media team and help tell the story of what we build: AI systems, products and the people behind them. You'll plan content, create posts and short videos, engage with the community and learn what actually performs, with feedback from the founders on your work.",
+    responsibilities: [
+      "Plan a weekly content calendar for Instagram, LinkedIn and X",
+      "Create posts, carousels and short-form videos (reels) about our work, products and team",
+      "Turn case studies, blog posts and product updates into social content",
+      "Write captions in NHB's voice: clear, confident and without hype",
+      "Engage with comments, messages and relevant communities",
+      "Track what performs and share simple weekly insights",
+      "Keep up with trends and suggest ideas worth trying",
+    ],
+    requirements: [
+      "A strong feel for social media and what makes content worth stopping for",
+      "Basic design and video editing (Canva, CapCut or similar)",
+      "Clear written English",
+      "Consistency: you can plan, deliver and follow through every week",
+      "Curiosity about technology, startups and AI",
+    ],
+    niceToHave: [
+      "A personal page, portfolio or posts you've created",
+      "Experience with Figma or motion graphics",
+      "Comfort appearing on camera or doing voice-overs",
+      "Familiarity with Instagram and LinkedIn analytics",
+    ],
+    // Apply by email until a Tally *application* form exists. Do not use tally.so/r/Kp5WoA here: that is the
+    // internal "NHB | Social Media Team" submissions form (content proposals, performance reports), not an application.
+    mock: false,
+    urgent: true,
+    datePosted: "2026-11-16",
+  },
+  {
+    slug: "sales-business-development-intern",
+    title: "Sales & Business Development Intern",
+    department: "Growth",
+    type: "Internship",
+    workMode: "Remote",
+    location: "India",
+    experience: "Students & recent graduates",
+    summary: "Find businesses that need better technology, start the conversation and help turn it into a real project.",
+    about:
+      "You'll work with the founders on NHB's growth: researching businesses that could use our services and products, reaching out, qualifying leads and setting up discovery calls. It's hands-on B2B sales experience with a team that builds what it sells.",
+    responsibilities: [
+      "Research and build lists of businesses that fit NHB's services and products",
+      "Reach out by email, LinkedIn, WhatsApp and calls",
+      "Qualify leads and set up discovery calls with the team",
+      "Keep the pipeline and follow-ups organised in our CRM",
+      "Help prepare pitch material and proposals",
+      "Learn our products (such as SocialGenie) well enough to explain them clearly",
+      "Share what you hear from prospects so we can improve the offer",
+    ],
+    requirements: [
+      "Confident, clear communication in English, written and spoken",
+      "Comfortable reaching out to people you don't know",
+      "Organised, with steady follow-through",
+      "Interest in technology, startups and how businesses run",
+      "Students and recent graduates welcome",
+    ],
+    niceToHave: [
+      "Hindi or other regional languages",
+      "Any previous sales, marketing or outreach experience",
+      "A network among business owners or startups",
+      "Familiarity with LinkedIn Sales Navigator or a CRM",
+    ],
+    applyUrl: "https://tally.so/r/bZjKo2",
+    mock: false,
+    urgent: true,
+    datePosted: "2026-11-16",
+  },
   {
     slug: "full-stack-engineer",
     title: "Full-Stack Engineer (Next.js)",
@@ -59,6 +141,7 @@ export const roles: Role[] = [
     ],
     niceToHave: ["Experience with Next.js App Router", "Exposure to AI or automation work", "Open-source contributions"],
     mock: true,
+    hidden: true,
   },
   {
     slug: "ai-engineer",
@@ -85,6 +168,7 @@ export const roles: Role[] = [
     ],
     niceToHave: ["Real-time voice or speech experience", "Experience with open-source model hosting", "MLOps exposure"],
     mock: true,
+    hidden: true,
   },
   {
     slug: "product-designer",
@@ -106,6 +190,7 @@ export const roles: Role[] = [
     requirements: ["A portfolio of shipped product work", "Strong interaction and visual design", "Fluency in Figma", "Ability to explain design decisions"],
     niceToHave: ["Motion design", "Front-end skills", "Experience designing for AI products"],
     mock: true,
+    hidden: true,
   },
   {
     slug: "qa-automation-engineer",
@@ -127,6 +212,7 @@ export const roles: Role[] = [
     requirements: ["1+ years in QA or test automation", "Comfort with JavaScript or TypeScript", "A methodical, curious approach", "Clear bug reports"],
     niceToHave: ["Load testing experience", "API testing", "CI pipeline setup"],
     mock: true,
+    hidden: true,
   },
   {
     slug: "automation-specialist",
@@ -148,6 +234,7 @@ export const roles: Role[] = [
     requirements: ["Shipped automations used by real teams", "Comfort with APIs and webhooks", "Clear documentation habits"],
     niceToHave: ["JavaScript for custom steps", "Experience with WhatsApp or CRM APIs"],
     mock: true,
+    hidden: true,
   },
   {
     slug: "frontend-intern",
@@ -164,6 +251,7 @@ export const roles: Role[] = [
     requirements: ["Working knowledge of HTML, CSS and JavaScript", "Some React experience (projects count)", "Willingness to learn fast and take feedback"],
     niceToHave: ["TypeScript", "A portfolio or GitHub with your work"],
     mock: true,
+    hidden: true,
   },
   {
     slug: "business-development-associate",
@@ -185,6 +273,7 @@ export const roles: Role[] = [
     requirements: ["1+ years in sales or business development", "Excellent spoken and written English", "Comfort talking about technology"],
     niceToHave: ["B2B services or SaaS experience", "An existing network in a target industry"],
     mock: true,
+    hidden: true,
   },
   {
     slug: "mobile-developer",
@@ -201,15 +290,26 @@ export const roles: Role[] = [
     requirements: ["2+ years shipping React Native apps", "Experience with offline storage and sync", "App store release experience"],
     niceToHave: ["Native iOS or Android experience", "Tablet and kiosk app experience"],
     mock: true,
+    hidden: true,
   },
 ];
 
-export const departments = [...new Set(roles.map((r) => r.department))];
-export const employmentTypes = [...new Set(roles.map((r) => r.type))];
-export const workModes = [...new Set(roles.map((r) => r.workMode))];
+/** Published roles: everything not marked hidden. Use this for listings, pages and the sitemap. */
+export const openRoles = roles.filter((r) => !r.hidden);
+export const urgentRoles = openRoles.filter((r) => r.urgent);
+
+export const departments = [...new Set(openRoles.map((r) => r.department))];
+export const employmentTypes = [...new Set(openRoles.map((r) => r.type))];
+export const workModes = [...new Set(openRoles.map((r) => r.workMode))];
 
 export function getRole(slug: string) {
-  return roles.find((r) => r.slug === slug);
+  return openRoles.find((r) => r.slug === slug);
+}
+
+/** Tally embed URL for a role's public form link (dynamic height, transparent, no duplicate title). */
+export function tallyEmbedUrl(applyUrl: string) {
+  const id = applyUrl.match(/tally\.so\/(?:r|embed)\/([A-Za-z0-9]+)/)?.[1];
+  return id ? `https://tally.so/embed/${id}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1` : applyUrl;
 }
 
 /** Apply link for a role: its Tally form when set, otherwise a pre-filled email. */
@@ -268,7 +368,7 @@ export const careersFaq = [
   },
   {
     q: "Can I work remotely?",
-    a: "Most roles are remote-first within India, and some contract roles are open worldwide. Each role lists its work mode and location.",
+    a: "Our current roles are remote within India. Each role lists its work mode and location, and open applications are welcome from anywhere.",
   },
   {
     q: "How long does hiring take?",

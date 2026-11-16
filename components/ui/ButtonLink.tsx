@@ -21,13 +21,16 @@ interface Props {
   size?: "md" | "lg";
   className?: string;
   icon?: "arrow" | "external" | "none";
+  /** Open in a new tab (adds target and rel, and shows the external icon). */
+  newTab?: boolean;
 }
 
-export default function ButtonLink({ href, children, variant = "sun", size = "md", className, icon }: Props) {
-  const resolvedIcon = icon ?? (isExternal(href) ? "external" : "arrow");
+export default function ButtonLink({ href, children, variant = "sun", size = "md", className, icon, newTab }: Props) {
+  const resolvedIcon = icon ?? (newTab || isExternal(href) ? "external" : "arrow");
   return (
     <SmartLink
       href={href}
+      {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={cn(
         "group/btn pixel-press inline-flex items-center justify-center gap-3 rounded-full font-medium tracking-[-0.01em] transition-colors duration-300",
         size === "lg" ? "h-14 pl-7 pr-2.5 text-[15px]" : "h-12 pl-5 pr-2 text-sm",

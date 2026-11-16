@@ -9,16 +9,16 @@ import RoleBoard from "@/components/careers/RoleBoard";
 import { PixelPteroHover } from "@/components/pixel/Decor";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Container } from "@/components/ui/primitives";
-import { careersFaq, departments, hiringSteps, openApplication, perks, roles, teamValues, workModes } from "@/content/careers";
+import { careersFaq, departments, hiringSteps, openApplication, perks, openRoles, teamValues, workModes } from "@/content/careers";
 import { team } from "@/content/company";
 import { JsonLd } from "@/lib/structured-data";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Careers: Engineering, AI & Design Jobs",
+  title: "Careers & Internships at NHB",
   description:
-    "Join NeedHelpBuilding. Remote-first roles in engineering, AI, design, QA and growth, plus open applications when no role fits your talent.",
+    "Join NeedHelpBuilding. Now hiring a Social Media Intern and a Sales & Business Development Intern, plus open applications when no role fits.",
   path: "/careers",
 });
 
@@ -38,7 +38,7 @@ export default function CareersPage() {
           about: { "@id": `${site.url}/#organization` },
           mainEntity: {
             "@type": "ItemList",
-            itemListElement: roles.map((r, i) => ({
+            itemListElement: openRoles.map((r, i) => ({
               "@type": "ListItem",
               position: i + 1,
               url: `${site.url}/careers/${r.slug}`,
@@ -62,7 +62,7 @@ export default function CareersPage() {
         aside={
           <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-ink/12 bg-ink/12">
             {[
-              { k: "Open roles", v: String(roles.length) },
+              { k: "Open roles", v: String(openRoles.length) },
               { k: "Teams hiring", v: String(departments.length) },
               { k: "Work modes", v: workModes.join(" & ") },
               { k: "Open applications", v: "Always" },

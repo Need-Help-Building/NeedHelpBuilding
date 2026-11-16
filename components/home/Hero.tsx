@@ -6,6 +6,8 @@ import PixelRunner from "@/components/pixel/PixelRunner";
 import { hero } from "@/content/hero";
 import { ctas, site } from "@/content/site";
 import HeroSystem from "./HeroSystem";
+import { urgentRoles } from "@/content/careers";
+import { cn } from "@/lib/cn";
 
 /**
  * Hero: the NHB business card, alive.
@@ -20,7 +22,7 @@ export default function Hero() {
 
   return (
     <section aria-labelledby="hero-title" className="relative overflow-hidden">
-      <div className="relative flex min-h-[calc(100svh-64px)] flex-col lg:min-h-[calc(100svh-72px)]">
+      <div className={cn("relative flex flex-col", urgentRoles.length > 0 ? "min-h-[calc(100svh-104px)] lg:min-h-[calc(100svh-112px)]" : "min-h-[calc(100svh-64px)] lg:min-h-[calc(100svh-72px)]")}>
         <div
           aria-hidden
           className="grid-paper pointer-events-none absolute inset-0 opacity-60 [mask-image:linear-gradient(to_bottom,#000_0%,#000_30%,transparent_75%)]"
@@ -33,7 +35,7 @@ export default function Hero() {
         <PixelCloud small scale={3} drift={18} duration={11} className="top-5 right-5 md:hidden" />
         <PixelPterodactyl scale={3} className="top-[120px] hidden md:block" duration={24} delay={6} />
 
-        <Container className="relative flex-1 pt-6 pb-5 sm:pt-14 sm:pb-8 lg:pt-16">
+        <Container className="relative flex-1 pt-3 pb-3 sm:pt-14 sm:pb-8 lg:pt-16">
           <p data-reveal="fade" className="t-eyebrow text-muted">
             {hero.eyebrow}
           </p>

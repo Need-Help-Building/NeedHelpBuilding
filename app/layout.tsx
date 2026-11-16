@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Pixelify_Sans, Silkscreen } from "next/font/google";
 import "./globals.css";
 import MotionProvider from "@/components/site/MotionProvider";
+import HiringRibbon from "@/components/careers/HiringRibbon";
 import SiteHeader from "@/components/site/SiteHeader";
 import SiteFooter from "@/components/site/SiteFooter";
 import { JsonLd, siteJsonLd } from "@/lib/structured-data";
@@ -120,6 +121,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <MotionProvider>
+          <HiringRibbon />
           <SiteHeader />
           {children}
           <SiteFooter />

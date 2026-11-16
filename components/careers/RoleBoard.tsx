@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Search, X } from "lucide-react";
-import { departments, employmentTypes, roles, workModes, type Role } from "@/content/careers";
+import { departments, employmentTypes, openRoles, workModes, type Role } from "@/content/careers";
 import { cn } from "@/lib/cn";
 
 type Filters = { department: string; type: string; mode: string; q: string };
@@ -81,7 +81,7 @@ export default function RoleBoard() {
 
   const results = useMemo(() => {
     const q = f.q.trim().toLowerCase();
-    return roles.filter(
+    return openRoles.filter(
       (r) =>
         (f.department === "All" || r.department === f.department) &&
         (f.type === "All" || r.type === f.type) &&
