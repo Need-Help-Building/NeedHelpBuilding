@@ -72,8 +72,7 @@ export const roles: Role[] = [
       "Comfort appearing on camera or doing voice-overs",
       "Familiarity with Instagram and LinkedIn analytics",
     ],
-    // Apply by email until a Tally *application* form exists. Do not use tally.so/r/Kp5WoA here: that is the
-    // internal "NHB | Social Media Team" submissions form (content proposals, performance reports), not an application.
+    applyUrl: "https://tally.so/r/Kp5WoA",
     mock: false,
     urgent: true,
     datePosted: "2026-11-16",
